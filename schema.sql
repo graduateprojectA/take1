@@ -85,5 +85,5 @@ class_no int not null,
 user_no int not null,
 credit int not null, # 사입듣학
 foreign key(class_no) references Class(class_no) on update cascade on delete cascade,
-foreign key(user_no) references User(user_no) on update cascade on delete cascade,
+foreign key(user_no) references User(user_no) on update cascade on delete cascade
 );
