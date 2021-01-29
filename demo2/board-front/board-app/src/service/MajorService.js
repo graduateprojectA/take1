@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const MAJOR_API_BASE_URL = "http://localhost:8080/api/majors";
+const MAJOR_API_BASE_URL = "http://localhost:8080/api/major";
 
 class MajorService {
 
