@@ -6,6 +6,7 @@ import FooterComponent from './components/FooterComponent';
 import CreateBoardComponent from './components/CreateBoardComponent';
 import ReadBoardComponent from './components/ReadBoardComponent';
 import MajorComponent from './components/majors/MajorComponent';
+import TimetableComponent from './components/TimetableComponent';
 import Intro from "./components/Intro";
 import Main from "./components/Main";
 import Join from "./components/Join";
@@ -35,6 +36,7 @@ function App() {
               <Route path="/courseCheck" component={CourseCheck} exact={true} />
               <Route path="/myPage" component={MyPage} exact={true} />
               <Route path="/classCheck" component={ClasCheck} exact={true} />
+              <Route path = "/timetable" component = {TimetableComponent}></Route>
             render={({ location }) => (
               <div>
                 <h2>ERROR</h2>
