@@ -1,0 +1,35 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+<div class="container">
+    <div>
+        <table>
+            <thead>
+            <tr>
+                <th>#</th>
+                <th>과목명</th>
+                <th>학수번호</th>
+                <th>분야</th>
+                <th>학년/학기</th>
+                <th>시간표</th>
+                <th>교수명</th>
+                <th>분반</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="majors : ${majors}">
+                <td th:text="${majors.id}"></td>
+                <td th:text="${majors.major_name}"></td>
+                <td th:text="${majors.major_number}"></td>
+                <td th:text="${majors.category}"></td>
+                <td th:text="${majors.recommend_time}"></td>
+                <td th:text="${majors.this_time}"></td>
+                <td th:text="${majors.professor_name}"></td>
+                <td th:text="${majors.division_number}"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div> <!-- /container -->
+</body>
+</html>
