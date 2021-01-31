@@ -1,5 +1,4 @@
 package com.board.back.repository;
-
 import com.board.back.model.Majors;
 import com.board.back.model.User;
 import com.board.back.model.User1_dropmajor;
@@ -8,7 +7,7 @@ import javax.persistence.EntityManager;
 import java.util.List;
 import java.util.Optional;
 
-public class JpaMajorRepository {
+public class JpaMajorRepository implements MajorRepository{
     private final EntityManager em;
     public JpaMajorRepository(EntityManager em) {
         this.em = em;

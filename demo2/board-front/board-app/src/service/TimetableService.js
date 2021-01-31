@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const TIMETABLE_API_BASE_URL = "http://localhost:8080/timetable";
+const TIMETABLE_API_BASE_URL = "http://localhost:8080/api/timetable";
 
 class TimetableService {
 
