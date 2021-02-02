@@ -5,7 +5,7 @@ Intro: 웹 사이트 입장 시 처음 페이지
 import React from "react";
 import {Link, Route} from "react-router-dom";
 import styled from "styled-components";
-import backgroundImage2 from './image/backgroundImage2.png';
+import backgroundImage2 from '../components/image/backgroundImage2.png';
 import MainText from "./MainText";
 import Logo from "./Logo";
 import My from "./My";

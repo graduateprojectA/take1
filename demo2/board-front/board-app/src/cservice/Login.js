@@ -5,7 +5,7 @@ Login: 로그인페이지
 import React from "react";
 import {Link, Route} from "react-router-dom";
 import styled from "styled-components";
-import backgroundImage2 from "./image/backgroundImage3.png"
+import backgroundImage2 from "../components/image/backgroundImage3.png"
 import Logo from "./Logo";
 
 const LoginBackDiv = styled.div`

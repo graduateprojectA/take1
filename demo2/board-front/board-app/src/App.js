@@ -7,14 +7,14 @@ import CreateBoardComponent from './components/CreateBoardComponent';
 import ReadBoardComponent from './components/ReadBoardComponent';
 import MajorComponent from './components/majors/MajorComponent';
 import TimetableComponent from './components/TimetableComponent';
-import Intro from "./components/Intro";
-import Main from "./components/Main";
-import Join from "./components/Join";
-import Login from "./components/Login";
-import TableCheck from "./components/TableCheck";
-import CourseCheck from "./components/CourseCheck";
-import MyPage from "./components/MyPage";
-import ClasCheck from "./components/ClassCheck";
+import Intro from "./cservice/Intro";
+import Main from "./cservice/Main";
+import Join from "./cservice/Join";
+import Login from "./cservice/Login";
+import TableCheck from "./cservice/TableCheck";
+import CourseCheck from "./cservice/CourseCheck";
+import MyPage from "./cservice/MyPage";
+import ClasCheck from "./cservice/ClassCheck";
 
 function App() {
   return (

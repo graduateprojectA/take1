@@ -8,7 +8,7 @@ import styled from "styled-components";
 import TableCheckLine from "./TableCheckLine";
 import Logo from "./Logo";
 import My from "./My";
-import backgroundImage2 from "./image/backgroundImage2.png";
+import backgroundImage2 from "../components/image/backgroundImage2.png";
 
 const ClassCheckDiv = styled.div`
     position: absolute;
