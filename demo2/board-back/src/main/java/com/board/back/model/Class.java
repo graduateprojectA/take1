@@ -14,9 +14,10 @@ import org.hibernate.annotations.DynamicUpdate;
 @Table(name = "Class")
 @DynamicInsert
 @DynamicUpdate
-
 public class Class {
     //인덱스
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name ="class_no")
     private Integer class_no;
 
@@ -72,7 +73,17 @@ public class Class {
     public void setClass_time(Integer time) {
         this.class_time = time;
     }
-
+    public Class() {
+        super();
+    }
+    public Class(Integer class_no, Integer course_no, String class_name, Integer class_division, Integer class_time) {
+        super();
+        this.class_no = class_no;
+        this.course_no = course_no;
+        this.class_name = class_name;
+        this.class_division = class_division;
+        this.class_time = class_time;
+    }
     @Override
     public String toString() {
         return "Class [class_no=" + class_no + ", course_no=" + course_no + ", class_name=" + class_name
