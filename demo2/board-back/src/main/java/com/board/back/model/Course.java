@@ -1,4 +1,5 @@
 package com.board.back.model;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -16,7 +17,8 @@ import org.hibernate.annotations.DynamicUpdate;
 @DynamicUpdate
 
 public class Course {
-    //인덱스
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name ="course_no")
     private Integer course_no;
 
@@ -65,7 +67,24 @@ public class Course {
     public Float getCourse_hours() {return course_hours;}
     public Integer getCourse_credit() {return course_credit;}
     public Integer getPre_course_id() {return pre_course_id;}
-
+    public Course() {
+        super();
+    }
+    public Course(Integer course_no, Integer major_no, Integer field_no, Integer course_id,
+                  String course_name, Integer course_grade, Integer course_semester, Float course_hours,
+                  Integer course_credit, Integer pre_course_id) {
+        super();
+        this.course_no = course_no;
+        this.major_no = major_no;
+        this.field_no = field_no;
+        this.course_id = course_id;
+        this.course_name = course_name;
+        this.course_grade = course_grade;
+        this.course_semester = course_semester;
+        this.course_hours = course_hours;
+        this.course_credit = course_credit;
+        this.pre_course_id = pre_course_id;
+    }
     @Override
     public String toString() {
         return "Course [course_no=" + course_no + ", major_no=" + major_no + ", field_no=" + field_no
