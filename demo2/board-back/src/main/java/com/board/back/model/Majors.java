@@ -8,13 +8,18 @@ import javax.persistence.*;
 @DynamicInsert
 @DynamicUpdate
 public class Majors {
-
     @Column(name = "major_no")
     private Integer major_no;
 
     @Column(name = "major_name")
     private String major_name;
-
+    
+    public Integer getNo() {
+        return major_no;
+    }
+    public String getMajor_name() {
+        return major_name;
+    }
 
     public Majors() {
         super();
@@ -23,13 +28,6 @@ public class Majors {
         super();
         this.major_no = major_no;
         this.major_name = major_name;
-    }
-
-    public Integer getNo() {
-        return major_no;
-    }
-    public String getMajor_name() {
-        return major_name;
     }
 
     @Override

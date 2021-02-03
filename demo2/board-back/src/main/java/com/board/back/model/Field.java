@@ -71,12 +71,19 @@ public class Field {
         return major_no;
     }
 
-//    public void setField_no(Integer no) {
-//        this.field_no = no;
-//    }
-//    public void setId(Integer id) {
-//        this.student_id = id;
-//    }
+    public Field() {
+        super();
+    }
+    public Field(Integer field_no, Integer student_id, String field_name, Integer field_number,
+                 Integer field_credit, Integer major_no) {
+        super();
+        this.field_no = field_no;
+        this.student_id = student_id;
+        this.field_name = field_name;
+        this.field_number = field_number;
+        this.field_credit = field_credit;
+        this.major_no = major_no;
+    }
 
     @Override
     public String toString() {

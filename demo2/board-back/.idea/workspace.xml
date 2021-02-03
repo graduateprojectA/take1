@@ -20,18 +20,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2a36eb25-e1bd-411b-bedd-71c67e2ff6e8" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/board/back/model/Class.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/board/back/model/Course.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/board/back/model/Field.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/board/back/model/User.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/board/back/model/User_class.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/board/back/model/User_time.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/board/back/model/User_timetable.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/board/back/controller/MemberController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/board/back/controller/MemberController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/board/back/model/Field.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/board/back/model/Field.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/board/back/model/Majors.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/board/back/model/Majors.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/board/back/repository/MemberRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/board/back/repository/MemberRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/board/back/service/MemberService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/board/back/service/MemberService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/board/back/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/board/back/model/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/board/back/model/User_class.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/board/back/model/User_class.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/board/back/model/User_time.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/board/back/model/User_time.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/board/back/model/User_timetable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/board/back/model/User_timetable.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

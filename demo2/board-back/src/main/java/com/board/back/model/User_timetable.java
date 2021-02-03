@@ -56,6 +56,18 @@ public class User_timetable {
 
     public void setCredit(Integer credit) {this.credit = credit;}
 
+    public User_timetable() {
+        super();
+    }
+    public User_timetable(Integer user_timetable_no, Integer timetable_number, Integer class_no, Integer user_no,
+                          Integer credit) {
+        super();
+        this.user_timetable_no = user_timetable_no;
+        this.timetable_number = timetable_number;
+        this.class_no = class_no;
+        this.user_no = user_no;
+        this.credit = credit;
+    }
 
     @Override
     public String toString() {

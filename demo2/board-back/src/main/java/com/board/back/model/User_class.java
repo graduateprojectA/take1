@@ -65,6 +65,19 @@ public class User_class {
 
     public void setClass_next(Boolean answer) {this.class_next = answer;}
 
+
+    public User_class() {
+        super();
+    }
+    public User_class(Integer user_class_id, Integer user_no, Integer class_no, Boolean class_pre, Boolean class_next) {
+        super();
+        this.user_class_id = user_class_id;
+        this.user_no = user_no;
+        this.class_no = class_no;
+        this.class_pre = class_pre;
+        this.class_next = class_next;
+    }
+
     @Override
     public String toString() {
         return "User_class [user_class_id=" + user_class_id + " , user_no=" + user_no + ", class_no=" + class_no

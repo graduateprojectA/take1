@@ -97,6 +97,21 @@ public class User_time {
         this.time_fri = no;
     }
 
+    public User_time() {
+        super();
+    }
+    public User_time(Integer time_id, Integer user_no, Integer time_mon, Integer time_tue, Integer time_wed,
+                     Integer time_thr, Integer time_fri) {
+        super();
+        this.time_id = time_id;
+        this.user_no = user_no;
+        this.time_mon = time_mon;
+        this.time_tue = time_tue;
+        this.time_wed = time_wed;
+        this.time_thr = time_thr;
+        this.time_fri = time_fri;
+    }
+
     @Override
     public String toString() {
         return "User_time [time_id=" + time_id + " , user_no=" + user_no + ", mon=" + time_mon
