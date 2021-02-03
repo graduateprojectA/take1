@@ -16,17 +16,4 @@ public class SpringConfig {
         this.dataSource = dataSource;
         this.em = em;
     }
-
-    @Bean
-    public TimetableService timetableService(){
-        return new TimetableService(majorRepository(),timetableRepository());
-    }
-    @Bean
-    public TimetableRepository timetableRepository() {
-        return new JpaTimetableRepository(em);
-    }
-    @Bean
-    public MajorRepository majorRepository() {
-        return new JpaMajorRepository(em);
-    }
 }
