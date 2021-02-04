@@ -16,7 +16,8 @@ import org.hibernate.annotations.DynamicUpdate;
 @DynamicUpdate
 
 public class User_time {
-
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     //인덱스
     @Column(name ="time_id")
     private Integer time_id;

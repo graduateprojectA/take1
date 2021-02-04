@@ -16,6 +16,8 @@ import org.hibernate.annotations.DynamicUpdate;
 @DynamicUpdate
 
 public class User_class {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     //인덱스
     @Column(name ="user_class_id")
     private Integer user_class_id;

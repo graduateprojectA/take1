@@ -1,4 +1,5 @@
 package com.board.back.model;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -16,8 +17,8 @@ import org.hibernate.annotations.DynamicUpdate;
 @DynamicUpdate
 
 public class User {
-    //인덱스
-    @Column(name ="user_no")
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer user_no;
 
     // 아이디(학번)
@@ -76,10 +77,10 @@ public class User {
         this.user_grade = grade;
     }
 
-
     public User() {
         super();
     }
+
     public User(Integer user_no, Integer user_id, String user_pw, Integer user_major, Integer user_grade) {
         super();
         this.user_no = user_no;

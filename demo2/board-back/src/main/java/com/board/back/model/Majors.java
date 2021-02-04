@@ -13,7 +13,7 @@ public class Majors {
 
     @Column(name = "major_name")
     private String major_name;
-    
+
     public Integer getNo() {
         return major_no;
     }
@@ -34,6 +34,4 @@ public class Majors {
     public String toString() {
         return "Majors [no=" + major_no + ", major_name=" + major_name + "]";
     }
-
-
 }

@@ -16,6 +16,8 @@ import org.hibernate.annotations.DynamicUpdate;
 @DynamicUpdate
 
 public class User_timetable {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name ="user_timetable_no")
     private Integer user_timetable_no;
 

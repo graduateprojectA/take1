@@ -1,4 +1,5 @@
 package com.board.back.model;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -26,6 +27,8 @@ import org.hibernate.annotations.DynamicUpdate;
 //        );
 
 public class Field {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     //인덱스
     @Column(name ="field_no")
     private Integer field_no;
