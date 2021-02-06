@@ -33,24 +33,24 @@ public class UserController {
     }
 
     // get
-    @GetMapping("/user/{no}")
+    @GetMapping("/user/{user_no}")
     public ResponseEntity<User> getUserByNo(
-            @PathVariable Integer no) {
-        return userService.getUser(no);
+            @PathVariable Integer user_no) {
+        return userService.getUser(user_no);
     }
 
     // update
-    @PutMapping("/user/{no}")
-    public ResponseEntity<User> updateBoardByNo(
-            @PathVariable Integer no, @RequestBody User user){
-        return userService.updateUser(no, user);
+    @PutMapping("/user/{user_no}")
+    public ResponseEntity<User> updateUserByNo(
+            @PathVariable Integer user_no, @RequestBody User user){
+        return userService.updateUser(user_no, user);
     }
 
     // delete
     @DeleteMapping("/user/{no}")
     public ResponseEntity<Map<String, Boolean>> deleteUserByNo(
-            @PathVariable Integer no) {
-        return userService.deleteUser(no);
+            @PathVariable Integer user_no) {
+        return userService.deleteUser(user_no);
     }
 
 }

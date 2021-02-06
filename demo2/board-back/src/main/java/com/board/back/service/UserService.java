@@ -76,7 +76,7 @@ public class UserService {
         return ResponseEntity.ok(endUpdatedBoard);
     }
 
-    // delete board
+    // delete
     public ResponseEntity<Map<String, Boolean>> deleteUser(
             Integer user_no) {
         User user = userRepository.findById(user_no)

@@ -14,8 +14,7 @@ public interface UserRepository extends JpaRepository<User, Integer> {
             + "user_pw,"
             + "user_major,"
             + "user_grade"
-            + " FROM user WHERE 0 < user_no "
-            + "ORDER BY user_no DESC LIMIT ?1, ?2";
+            + " FROM user WHERE 0 < user_no ";
 
 
     @Query(value = SELECT_USER_LIST_PAGED, nativeQuery = true)
