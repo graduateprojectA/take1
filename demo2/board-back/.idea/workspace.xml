@@ -20,13 +20,32 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2a36eb25-e1bd-411b-bedd-71c67e2ff6e8" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.6.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.6.1/executionHistory/executionHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.6.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.6.1/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.6.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.6.1/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.6.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.6.1/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.6.1/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.6.1/javaCompile/classAnalysis.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.6.1/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.6.1/javaCompile/javaCompile.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/board/back/model/Field.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/board/back/model/Field.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/board/back/controller/MajorController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/board/back/controller/MemberController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/board/back/model/Majors.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/board/back/model/Majors.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/board/back/model/Member.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/board/back/repository/MajorRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/board/back/repository/MemberRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/board/back/service/MajorService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/board/back/service/MemberService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/source-classes-mapping.txt" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/source-classes-mapping.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/board/back/controller/MemberController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/board/back/controller/MemberController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/board/back/model/Majors.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/board/back/model/Majors.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/board/back/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/board/back/model/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/board/back/model/User_class.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/board/back/model/User_class.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/board/back/model/User_time.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/board/back/model/User_time.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/board/back/model/User_timetable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/board/back/model/User_timetable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/board/back/repository/MemberRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/board/back/repository/MemberRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/board/back/service/MemberService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/board/back/service/MemberService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../board-front/board-app/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../board-front/board-app/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../board-front/board-app/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../board-front/board-app/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../board-front/board-app/src/cservice/CourseCheck.js" beforeDir="false" afterPath="$PROJECT_DIR$/../board-front/board-app/src/cservice/CourseCheck.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,6 +56,18 @@
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
     </projectState>
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <projects_view>
+          <tree_state>
+            <expand />
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -134,21 +165,25 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="371" y="87" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1280.680@0.0.1280.680" timestamp="1612193509748" />
-    <state width="1237" height="95" key="GridCell.Tab.0.bottom" timestamp="1611910262907">
+    <state x="421" y="96" key="FileChooserDialogImpl" timestamp="1612604067545">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="95" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1611910262907" />
-    <state width="1237" height="95" key="GridCell.Tab.0.center" timestamp="1611910262906">
+    <state x="421" y="96" key="FileChooserDialogImpl/0.0.1280.680@0.0.1280.680" timestamp="1612604067545" />
+    <state width="1237" height="193" key="GridCell.Tab.0.bottom" timestamp="1612605300953">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="95" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1611910262906" />
-    <state width="1237" height="95" key="GridCell.Tab.0.left" timestamp="1611910262906">
+    <state width="1237" height="193" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1612605300953" />
+    <state width="1237" height="193" key="GridCell.Tab.0.center" timestamp="1612605300953">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="95" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1611910262906" />
-    <state width="1237" height="95" key="GridCell.Tab.0.right" timestamp="1611910262906">
+    <state width="1237" height="193" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1612605300953" />
+    <state width="1237" height="193" key="GridCell.Tab.0.left" timestamp="1612605300952">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="95" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1611910262906" />
+    <state width="1237" height="193" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1612605300952" />
+    <state width="1237" height="193" key="GridCell.Tab.0.right" timestamp="1612605300953">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="1237" height="193" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1612605300953" />
   </component>
 </project>
