@@ -7,7 +7,7 @@ class CreateUserComponent extends Component {
 
         this.state = {
             user_no: this.props.match.params.user_no,
-            user_id: '',
+            user_id: 1,
             user_pw: '',
             user_major: '',
             user_grade: ''

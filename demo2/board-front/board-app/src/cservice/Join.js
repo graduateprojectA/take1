@@ -7,7 +7,7 @@ import {Link, Route} from "react-router-dom";
 import styled from "styled-components";
 import backgroundImage2 from "../components/image/backgroundImage3.png"
 import Logo from "./Logo";
-
+import UserService from '../service/UserService';
 const LoginBackDiv = styled.div`
     position: absolute;
     top: 0;
@@ -80,6 +80,7 @@ const Join = () => {
                 <Link to = "./courseCheck">
                     <LoginButton>회원가입</LoginButton>
                 </Link>
+                <button className="btn btn-success" onClick={UserService.createTest}>Save</button>
                 <div>
                 <P1>
                     이미 계정이 있으신가요?<br/>지금
