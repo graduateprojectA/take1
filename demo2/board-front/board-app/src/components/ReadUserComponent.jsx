@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import UserService from '../service/UserService';
-
 class ReadUserComponent extends Component {
     constructor(props) {
         super(props);
@@ -17,14 +16,14 @@ class ReadUserComponent extends Component {
             this.setState({user: res.data});
             console.log("get result => "+ JSON.stringify(res.data));
         });
-
-        
     }
-
+    callID(){
+        console.log("왜 안돼");   
+    }
     render() {
         return (
             <div>
-               
+               <button className="btn btn-success" onClick={this.callID()}>Save</button>
             </div>
         );
     }

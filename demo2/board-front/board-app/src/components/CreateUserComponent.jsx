@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import UserService from '../service/UserService';
-
+import axios from 'axios';
 class CreateUserComponent extends Component {
     constructor(props) {
         super(props);
 
         this.state = {
             user_no: this.props.match.params.user_no,
-            user_id: 1,
+            user_id: '',
             user_pw: '',
             user_major: '',
             user_grade: ''
@@ -88,7 +88,6 @@ class CreateUserComponent extends Component {
             });
         }
     }
-
     render() {
         return (
             <div>
@@ -120,7 +119,7 @@ class CreateUserComponent extends Component {
                                         <input placeholder="user_grade" name="user_grade" className="form-control" 
                                         value={this.state.user_grade} onChange={this.changeGradeHandler}/>
                                     </div>
-                                    <button className="btn btn-success" onClick={this.createUser}>Save</button>
+                                    <button className="btn btn-success" onClick={UserService.createTest(this.state.user_id)}>Save</button>
                                     <button className="btn btn-danger" onClick={this.cancel.bind(this)} style={{marginLeft:"10px"}}>Cancel</button>
                                 </form>
                             </div>
