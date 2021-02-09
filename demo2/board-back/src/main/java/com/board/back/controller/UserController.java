@@ -15,9 +15,10 @@ import java.util.Map;
 @RestController
 @RequestMapping("/api")
 public class UserController {
+    String a="";
     @Autowired
     private UserService userService;
-
+    private User user;
     // create
     @PostMapping("/user")
     public User createUser(@RequestBody User user) {
@@ -29,7 +30,10 @@ public class UserController {
     // create board
     @PostMapping("/test")
     public void createTest(@RequestBody String testLine) {
-        System.out.println("test result : "+testLine);
+        a=testLine;
+        if(a.length()==7){
+            System.out.println(a);
+        }
     }
     // get
     @GetMapping("/user/{user_no}")

@@ -11,7 +11,7 @@ import javax.persistence.Table;
 
 //유저테이블
 @Entity
-@Table(name = "user2")
+@Table(name = "user")
 @DynamicInsert
 @DynamicUpdate
 public class User {
