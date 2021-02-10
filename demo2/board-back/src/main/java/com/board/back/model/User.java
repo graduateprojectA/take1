@@ -20,19 +20,15 @@ public class User {
     private Integer user_no;
 
     // 아이디(학번)
-    @Column(name = "user_id")
     private Integer user_id;
 
     // 비밀번호
-    @Column(name = "user_pw")
     private String user_pw;
 
     // 전공
-    @Column(name = "user_major")
     private Integer user_major;
 
     // 학년
-    @Column(name = "user_grade")
     private Integer user_grade;
 
     public User() {
