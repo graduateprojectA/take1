@@ -14,7 +14,9 @@ class UserService {
     createUser(user) {
         return axios.post(USER_API_BASE_URL, user);
     }
-    createTest(a) {
+    createTest(user_id, user_pw, user_major, user_grade) {
+        var a="";
+        a=user_id+"/"+user_pw+"/"+user_major+"/"+user_grade;
         return axios.post(USER_API_BASE_URL, a);
     }
 

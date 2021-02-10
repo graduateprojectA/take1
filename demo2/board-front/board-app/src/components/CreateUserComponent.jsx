@@ -119,7 +119,7 @@ class CreateUserComponent extends Component {
                                         <input placeholder="user_grade" name="user_grade" className="form-control" 
                                         value={this.state.user_grade} onChange={this.changeGradeHandler}/>
                                     </div>
-                                    <button className="btn btn-success" onClick={UserService.createTest(this.state.user_id)}>Save</button>
+                                    <button className="btn btn-success" onClick={()=>UserService.createTest(this.state.user_id,this.state.user_pw,this.state.user_major,this.state.user_grade)}>Save</button>
                                     <button className="btn btn-danger" onClick={this.cancel.bind(this)} style={{marginLeft:"10px"}}>Cancel</button>
                                 </form>
                             </div>
