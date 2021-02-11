@@ -28,9 +28,6 @@ public class BoardController {
 	@Autowired
 	private BoardService boardService;
 
-	@Autowired
-	private UserService userService;
-
 	// get paging board 
 	@GetMapping("/board")
 	public ResponseEntity<Map> getAllBoards(@RequestParam(value = "p_num", required=false) Integer p_num) {

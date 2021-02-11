@@ -23,19 +23,20 @@ public class UserController {
     @Autowired
     private UserService userService;
     public User user;
+    // create board
     /*
     @PostMapping("/user")
     public User createUser(@RequestBody User user) {
         System.out.println("@PostMapping(\"/user\")");
         System.out.println(user.toString());
         return userService.createUser(user);
-    }*/
-
-    // create board
+    }
+*/
+    /*
     @PostMapping("/test")
     public void createTest(@RequestBody String testLine) {
         UserInput.insert_query(testLine);
-    }
+    }*/
     // get
     @GetMapping("/user/{user_no}")
     public ResponseEntity<User> getUserByNo(
