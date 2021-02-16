@@ -72,8 +72,7 @@ export const Reacttable = () => {
           credit:'3'
         },
     ]
-      );
-      
+      );    
 const {
   getTableProps,
   getTableBodyProps,

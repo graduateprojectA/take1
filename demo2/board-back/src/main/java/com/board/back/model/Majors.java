@@ -15,6 +15,9 @@ import org.hibernate.annotations.DynamicUpdate;
 @DynamicInsert
 @DynamicUpdate
 public class Majors {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+
     @Column(name = "major_no")
     private Integer major_no;
 

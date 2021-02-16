@@ -1,5 +1,4 @@
 package com.board.back.controller;
-
 import com.board.back.model.User;
 import com.board.back.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
