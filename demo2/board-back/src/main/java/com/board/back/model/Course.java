@@ -15,7 +15,6 @@ import org.hibernate.annotations.DynamicUpdate;
 @Table(name = "Course")
 @DynamicInsert
 @DynamicUpdate
-
 public class Course {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
