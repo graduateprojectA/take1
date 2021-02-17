@@ -2,6 +2,8 @@ package com.board.back.controller;
 import java.util.List;
 import java.util.Map;
 
+import com.board.back.model.User;
+import com.board.back.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -25,7 +27,7 @@ public class BoardController {
 	
 	@Autowired
 	private BoardService boardService;
-	
+
 	// get paging board 
 	@GetMapping("/board")
 	public ResponseEntity<Map> getAllBoards(@RequestParam(value = "p_num", required=false) Integer p_num) {
@@ -33,7 +35,7 @@ public class BoardController {
 		
 		return boardService.getPagingBoard(p_num);
 	}
-	
+
 	// get all board 
 //	@GetMapping("/board")
 //	public List<Board> getAllBoards() {
@@ -42,13 +44,14 @@ public class BoardController {
 //	}
 
 	// create board
+
 	@PostMapping("/board")
 	public Board createBoard(@RequestBody Board board) {
 		System.out.println("@PostMapping(\"/board\")");
 		System.out.println(board.toString());
 		return boardService.createBoard(board);
 	}
-	
+
 	// get board
 	@GetMapping("/board/{no}")
 	public ResponseEntity<Board> getBoardByNo(

@@ -6,14 +6,18 @@ import FooterComponent from './components/FooterComponent';
 import CreateBoardComponent from './components/CreateBoardComponent';
 import ReadBoardComponent from './components/ReadBoardComponent';
 import MajorComponent from './components/majors/MajorComponent';
-import Intro from "./components/Intro";
-import Main from "./components/Main";
-import Join from "./components/Join";
-import Login from "./components/Login";
-import TableCheck from "./components/TableCheck";
-import CourseCheck from "./components/CourseCheck";
-import MyPage from "./components/MyPage";
-import ClasCheck from "./components/ClassCheck";
+import TimetableComponent from './components/TimetableComponent';
+import Intro from "./cservice/Intro";
+import Main from "./cservice/Main";
+import Join from "./cservice/Join";
+import Login from "./cservice/Login";
+import TableCheck from "./cservice/TableCheck";
+import CourseCheck from "./cservice/CourseCheck";
+import MyPage from "./cservice/MyPage";
+import ClasCheck from "./cservice/ClassCheck";
+import CreateUserComponent from './components/CreateUserComponent';
+import ListUserComponent from './components/ListUserComponent';
+import ReadUserComponent from './components/ReadUserComponent';
 
 function App() {
   return (
@@ -35,6 +39,10 @@ function App() {
               <Route path="/courseCheck" component={CourseCheck} exact={true} />
               <Route path="/myPage" component={MyPage} exact={true} />
               <Route path="/classCheck" component={ClasCheck} exact={true} />
+              <Route path = "/timetable" component = {TimetableComponent}></Route>
+              <Route path = "/user" component = {ListUserComponent}></Route>
+              <Route path = "/create-user/:user_no" component = {CreateUserComponent}></Route>
+              <Route path = "/read-user/:user_no" component = {ReadUserComponent}></Route>
             render={({ location }) => (
               <div>
                 <h2>ERROR</h2>
