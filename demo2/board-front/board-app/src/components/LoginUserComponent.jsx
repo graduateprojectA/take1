@@ -78,7 +78,8 @@ class LoginUserComponent extends Component {
                                         <input type="text" placeholder="user_pw" name="user_pw" className="form-control" 
                                         value={this.state.user_pw} onChange={this.changePwHandler}/>
                                     </div>
-                                    {/* <button className="btn btn-success" onClick={this.loginUser}>Login</button>  */}
+                                    <button className="btn btn-success" onClick={this.createUser}>Save</button>
+                                    <button className="btn btn-danger" onClick={this.cancel.bind(this)} style={{marginLeft:"10px"}}>Cancel</button>
                                 </form>
                             </div>
                         </div>
