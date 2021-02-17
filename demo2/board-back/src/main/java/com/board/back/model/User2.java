@@ -15,7 +15,7 @@ import javax.persistence.Table;
 @Table(name = "user")
 @DynamicInsert
 @DynamicUpdate
-public class User {
+public class User2 {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "user_no")
@@ -76,11 +76,10 @@ public class User {
         this.user_grade = user_grade;
     }
     //이 코드를 삭제함
-    /*
-    public User() {
+    public User2() {
         super();
-    }*/
-    public User(Integer user_id, String user_pw, Integer user_major, Integer user_grade) {
+    }
+    public User2(Integer user_id, String user_pw, Integer user_major, Integer user_grade) {
         super();
         this.user_id = user_id;
         this.user_pw = user_pw;
