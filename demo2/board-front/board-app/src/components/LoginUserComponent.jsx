@@ -1,3 +1,67 @@
+import React, { Component } from 'react';
+import UserService from '../service/UserService';
+import styled from "styled-components";
+import backgroundImage2 from "../components/image/backgroundImage3.png"
+import Logo from "../cservice/Logo";
+const LoginBackDiv = styled.div`
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url(${backgroundImage2});
+    background-size: cover;
+`;
+
+const LoginDiv = styled.div`
+    position: absolute;
+    left: 50%;
+    top: 26%;
+    margin-left: -240px;
+    width: 480px;
+    height: 360px;
+    border: solid 4px #00462A;
+    border-radius: 10px;
+    background-color: white;
+`;
+
+const LoginButton = styled.button`
+posiiton: relative;
+margin-left: 90px;
+margin-top: 20px;
+width: 306px;
+height: 50px;
+border: solid 0px;
+background-color: #00462A;
+color: white;
+outline:0px;
+`;
+
+const label = styled.input`
+    position: relative;
+    margin-left:90px;
+    margin-top:15px;
+    width: 300px;
+    height: 40px;
+    border: solid 0px;
+    border-bottom: solid 1px #00462A;
+    background-color:transparent;
+    outline:0px;
+    color: #00462A;
+`;
+
+const P1 = styled.p`
+    margin-top:25px;
+    width: 100%;
+    text-align: center;
+    font-size: 16px; 
+`;
+
+const P2 = styled.p`
+    display: inline; 
+    color: #00462A; 
+    font-weight: bold;
+`;
 class LoginUserComponent extends Component {
     constructor(props) {
         super(props);
@@ -9,7 +73,6 @@ class LoginUserComponent extends Component {
 
         this.changeIdHandler = this.changeIdHandler.bind(this);
         this.changePwHandler = this.changePwHandler.bind(this);
-        this.createUser = this.createUser.bind(this);
     }
 
 
@@ -31,13 +94,9 @@ class LoginUserComponent extends Component {
 
         if (this.state.user_no === '_login') {
             UserService.loginUser(user).then(res => {
-                this.props.history.push('/login');
+                this.props.history.push('/');
             });
         } 
-    }
-
-    cancel() {
-        this.props.history.push('/user');
     }
 
     // For update function add
@@ -59,6 +118,10 @@ class LoginUserComponent extends Component {
     render() {
         return (
             <div>
+                 <LoginBackDiv>
+                 <Logo/>
+                 <LoginDiv>
+                 <br/>
                 <div className = "container">
                     <div className = "row">
                         <div className = "card col-md-6 offset-md-3 offset-md-3">
@@ -74,13 +137,14 @@ class LoginUserComponent extends Component {
                                         <input type="text" placeholder="user_pw" name="user_pw" className="form-control" 
                                         value={this.state.user_pw} onChange={this.changePwHandler}/>
                                     </div>
-                                    {/* <button className="btn btn-success" onClick={this.loginUser}>Login</button>  */}
+                                    <LoginButton onClick={this.loginUser}>회원가입</LoginButton>
                                 </form>
                             </div>
                         </div>
                     </div>
                 </div>
-
+                </LoginDiv>
+                </LoginBackDiv>
             </div>
         );
     }

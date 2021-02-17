@@ -18,6 +18,7 @@ import ClasCheck from "./cservice/ClassCheck";
 import CreateUserComponent from './components/CreateUserComponent';
 import ListUserComponent from './components/ListUserComponent';
 import ReadUserComponent from './components/ReadUserComponent';
+import LoginUserComponent from './components/LoginUserComponent';
 
 function App() {
   return (
@@ -42,6 +43,7 @@ function App() {
               <Route path = "/timetable" component = {TimetableComponent}></Route>
               <Route path = "/user" component = {ListUserComponent}></Route>
               <Route path = "/create-user/:user_no" component = {CreateUserComponent}></Route>
+              <Route path = "/login-user/:user_no" component = {LoginUserComponent}></Route>
               <Route path = "/read-user/:user_no" component = {ReadUserComponent}></Route>
             render={({ location }) => (
               <div>
