@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import UserService from '../service/UserService';
-import axios from 'axios';
+
 class CreateUserComponent extends Component {
     constructor(props) {
         super(props);
