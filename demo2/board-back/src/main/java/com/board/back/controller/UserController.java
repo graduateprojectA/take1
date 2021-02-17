@@ -1,6 +1,7 @@
 package com.board.back.controller;
 
 import com.board.back.model.User;
+import com.board.back.model.User2;
 import com.board.back.service.LoginService;
 import com.board.back.service.UserService;
 import lombok.val;
@@ -29,7 +30,7 @@ public class UserController {
 
     @GetMapping(value = "/login2")
     public void list(Model model) {
-        List<User> us = loginService.getAllUser();
+        List<User2> us = loginService.getAllUser();
         System.out.println(us);
     }
 
