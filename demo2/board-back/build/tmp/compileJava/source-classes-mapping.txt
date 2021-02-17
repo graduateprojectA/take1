@@ -10,9 +10,10 @@ com/board/back/SpringConfig.java
  com.board.back.SpringConfig
 com/board/back/exception/ResourceNotFoundException.java
  com.board.back.exception.ResourceNotFoundException
+com/board/back/repository/JpaUserRepository.java
+ com.board.back.repository.JpaUserRepository
 com/board/back/controller/UserController.java
  com.board.back.controller.UserController
- com.board.back.controller.UserController$LoginController
 com/board/back/service/CourseService.java
  com.board.back.service.CourseService
 com/board/back/util/EncryptUtil.java

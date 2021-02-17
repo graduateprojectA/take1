@@ -28,6 +28,8 @@ public class CourseController {
         System.out.println(course.toString());
         return courseService.createCourse(course);
     }
+
+
     /*
     @PostMapping("/student")
     public void createStudent(@RequestBody Student student) {
@@ -39,13 +41,14 @@ public class CourseController {
         System.out.println("@PostMapping(\"/board\")");
         System.out.println(board.toString());
     }*/
+    /*
     @PostMapping("/user")
     public User createUser(@RequestBody User user) {
         System.out.println("@PostMapping(\"/user\")");
         System.out.println(user.toString());
         return userService.createUser(user);
     }
-
+*/
     // get board
     /*
     @GetMapping("/board/{no}")
