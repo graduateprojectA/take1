@@ -1,4 +1,5 @@
 package com.board.back.model;
+
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.DynamicInsert;
 import org.hibernate.annotations.DynamicUpdate;
@@ -82,11 +83,13 @@ public class User {
     }*/
     public User(Integer user_id, String user_pw, Integer user_major, Integer user_grade) {
         super();
+
         this.user_id = user_id;
         this.user_pw = user_pw;
         this.user_major = user_major;
         this.user_grade = user_grade;
     }
+
     @Override
     public String toString() {
         return "User [user_no=" + user_no + ", id=" + user_id + ", password=" + user_pw + ", major=" + user_major
