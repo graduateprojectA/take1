@@ -19,19 +19,16 @@ import java.util.Map;
 @RestController
 @RequestMapping("/api")
 public class UserController {
-    String a="";
     @Autowired
     private UserService userService;
-    public User user;
     // create board
-    /*
+
     @PostMapping("/user")
     public User createUser(@RequestBody User user) {
         System.out.println("@PostMapping(\"/user\")");
         System.out.println(user.toString());
         return userService.createUser(user);
     }
-*/
     /*
     @PostMapping("/test")
     public void createTest(@RequestBody String testLine) {
