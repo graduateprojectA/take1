@@ -1,55 +1,54 @@
 package com.board.back.controller;
 
 import com.board.back.model.User;
-import com.board.back.service.BoardService;
-import com.board.back.service.UserInput;
+import com.board.back.service.LoginService;
 import com.board.back.service.UserService;
+import lombok.val;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.jpa.repository.Query;
 import org.springframework.http.ResponseEntity;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
+
 import java.util.List;
-import java.util.Map;
 
 @CrossOrigin(origins = "http://localhost:3000")
 @RestController
 @RequestMapping("/api")
 public class UserController {
-    String a="";
+    private LoginService loginService;
     @Autowired
-    private UserService userService;
-    public User user;
+    public UserController(LoginService loginService) {
+        this.loginService = loginService;
+    }
     // create board
-    @PostMapping("/user")
-    public User createUser(@RequestBody User user) {
-        System.out.println("@PostMapping(\"/user\")");
-        System.out.println(user.toString());
-        return userService.createUser(user);
+
+    @PostMapping("/login")
+    public void loginUser(@RequestBody User user) {
+        System.out.println("@PostMapping(\"/login\")");
+
+    @GetMapping(value = "/login2")
+    public void list(Model model) {
+        List<User> us= loginService.getAllUser();
+        System.out.println(us);
     }
 
     /*
     @PostMapping("/test")
     public void createTest(@RequestBody String testLine) {
         UserInput.insert_query(testLine);
-    }*/
-    // get
-    @GetMapping("/user/{user_no}")
+    }
+        @GetMapping("/user/{user_no}")
     public ResponseEntity<User> getUserByNo(
             @PathVariable Integer user_no) {
         return userService.getUser(user_no);
     }
-
-    // 로그인 페이지
-    @RequestMapping("/login")
-    public class LoginController {
-        @GetMapping
-        public String viewLogin(User user) {
-            return "login";
-        }
-    }
+     @PostMapping("/user")
+    public User createUser(@RequestBody User user) {
+        System.out.println("@PostMapping(\"/user\")");
+        System.out.println(user.toString());
+        return userService.createUser(user);
+    }*/
+    // get
 
 
 }

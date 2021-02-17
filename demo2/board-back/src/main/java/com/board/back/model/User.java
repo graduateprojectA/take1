@@ -76,7 +76,9 @@ public class User {
     public void setGrade(Integer user_grade) {
         this.user_grade = user_grade;
     }
-
+    public User() {
+        super();
+    }
     public User(Integer user_id, String user_pw, Integer user_major, Integer user_grade) {
         super();
 

@@ -38,16 +38,13 @@ public class CourseController {
     public void createBoard(@RequestBody Board board) {
         System.out.println("@PostMapping(\"/board\")");
         System.out.println(board.toString());
-    }*/
+    }
     @PostMapping("/user")
     public User createUser(@RequestBody User user) {
         System.out.println("@PostMapping(\"/user\")");
         System.out.println(user.toString());
         return userService.createUser(user);
     }
-
-    // get board
-    /*
     @GetMapping("/board/{no}")
     public ResponseEntity<Board> getBoardByNo(
             @PathVariable Integer no) {

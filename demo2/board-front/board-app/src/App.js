@@ -18,6 +18,9 @@ import CourseCheck from "./cservice/CourseCheck";
 import MyPage from "./cservice/MyPage";
 import ClasCheck from "./cservice/ClassCheck";
 import CreateUserComponent from './components/CreateUserComponent';
+
+import ListUserComponent from './components/ListUserComponent';
+import ReadUserComponent from './components/ReadUserComponent';
 import LoginUserComponent from './components/LoginUserComponent';
 
 
@@ -46,7 +49,8 @@ function App() {
               <Route path="/myPage" component={MyPage} exact={true} />
               <Route path="/classCheck" component={ClasCheck} exact={true} />
               <Route path = "/create-user/:user_no" component = {CreateUserComponent}></Route>
-              <Route path = "/create-user/:user_no" component = {LoginUserComponent}></Route>
+              <Route path = "/login-user/:user_no" component = {LoginUserComponent}></Route>
+              <Route path = "/read-user/:user_no" component = {ReadUserComponent}></Route>
             render={({ location }) => (
               <div>
                 <h2>ERROR</h2>
