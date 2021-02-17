@@ -75,10 +75,10 @@ public class User {
     public void setGrade(Integer user_grade) {
         this.user_grade = user_grade;
     }
-    /*이 코드를 삭제함
+    //이 코드를 삭제함
     public User() {
         super();
-    }*/
+    }
     public User(Integer user_id, String user_pw, Integer user_major, Integer user_grade) {
         super();
         this.user_id = user_id;
