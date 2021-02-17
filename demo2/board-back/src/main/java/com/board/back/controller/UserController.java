@@ -43,4 +43,14 @@ public class UserController {
         return userService.getUser(user_no);
     }
 
+    // 로그인 페이지
+    @RequestMapping("/login")
+    public class LoginController {
+        @GetMapping
+        public String viewLogin(User user) {
+            return "login";
+        }
+    }
+
+
 }
