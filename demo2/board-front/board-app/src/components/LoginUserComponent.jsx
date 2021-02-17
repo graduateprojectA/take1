@@ -62,6 +62,7 @@ const P2 = styled.p`
     color: #00462A; 
     font-weight: bold;
 `;
+
 class LoginUserComponent extends Component {
     constructor(props) {
         super(props);
@@ -94,10 +95,13 @@ class LoginUserComponent extends Component {
 
         if (this.state.user_no === '_login') {
             UserService.loginUser(user).then(res => {
+
                 this.props.history.push('/');
+
             });
         } 
     }
+
 
     // For update function add
     componentDidMount() {
@@ -138,11 +142,16 @@ class LoginUserComponent extends Component {
                                         value={this.state.user_pw} onChange={this.changePwHandler}/>
                                     </div>
                                     <LoginButton onClick={this.loginUser}>회원가입</LoginButton>
+=======
+                                    <button className="btn btn-success" onClick={this.createUser}>Save</button>
+                                    <button className="btn btn-danger" onClick={this.cancel.bind(this)} style={{marginLeft:"10px"}}>Cancel</button>
+
                                 </form>
                             </div>
                         </div>
                     </div>
                 </div>
+
                 </LoginDiv>
                 </LoginBackDiv>
             </div>
