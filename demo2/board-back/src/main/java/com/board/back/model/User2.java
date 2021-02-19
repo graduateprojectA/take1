@@ -75,7 +75,7 @@ public class User2 {
     public void setGrade(Integer user_grade) {
         this.user_grade = user_grade;
     }
-    //이 코드를 삭제함
+
     public User2() {
         super();
     }
