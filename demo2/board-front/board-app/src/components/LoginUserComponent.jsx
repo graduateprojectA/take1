@@ -63,6 +63,7 @@ const P2 = styled.p`
     color: #00462A; 
     font-weight: bold;
 `;
+
 class LoginUserComponent extends Component {
     constructor(props) {
         super(props);
@@ -95,10 +96,13 @@ class LoginUserComponent extends Component {
 
         if (this.state.user_no === 'login') {
             UserService.loginUser(user).then(res => {
+
                 this.props.history.push('/');
+
             });
         } 
     }
+
 
     // For update function add
     componentDidMount() {
