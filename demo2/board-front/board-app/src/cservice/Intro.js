@@ -57,7 +57,7 @@ const Intro = () => {
             <Link to = "./login">
                 <LoginButton>로그인하기</LoginButton>
             </Link>
-            <Link to = "./join">
+            <Link to = "./create-user/_create">
                 <JoinButton>회원가입하기</JoinButton>
             </Link> 
         </IntroDiv>
