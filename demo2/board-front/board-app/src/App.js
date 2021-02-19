@@ -43,13 +43,12 @@ function App() {
               */}
               <Route path="/main" component={Main} exact={true} />
               <Route path="/join" component={Join} exact={true} />
-              <Route path="/login" component={Login} exact={true} />
               <Route path="/tableCheck" component={TableCheck} exact={true} />
               <Route path="/courseCheck" component={CourseCheck} exact={true} />
               <Route path="/myPage" component={MyPage} exact={true} />
               <Route path="/classCheck" component={ClasCheck} exact={true} />
               <Route path = "/create-user/:user_no" component = {CreateUserComponent}></Route>
-              <Route path = "/login-user/:user_no" component = {LoginUserComponent}></Route>
+              <Route path = "/:user_no" component = {LoginUserComponent}></Route>
               <Route path = "/read-user/:user_no" component = {ReadUserComponent}></Route>
             render={({ location }) => (
               <div>
@@ -59,7 +58,6 @@ function App() {
             )}
           </Switch>
         </div>
-        <FooterComponent />
       </Router>
     </div>
   );
