@@ -1,5 +1,4 @@
 package com.board.back.controller;
-
 import com.board.back.model.User;
 import com.board.back.model.User2;
 import com.board.back.service.LoginService;
@@ -27,30 +26,29 @@ public class UserController {
     @PostMapping("/login")
     public void loginUser(@RequestBody User user) {
         System.out.println("@PostMapping(\"/login\")");
+    }
 
     @GetMapping(value = "/login2")
-    public void list(Model model) {
+    public void list (Model model){
         List<User2> us = loginService.getAllUser();
         System.out.println(us);
     }
 
-    @PostMapping("/test")
-    public void createTest(@RequestBody String testLine) {
-        UserInput.insert_query(testLine);
+//        @PostMapping("/user")
+//        public User createUser (@RequestBody User user){
+//            System.out.println("@PostMapping(\"/user\")");
+//            System.out.println(user.toString());
+//            return UserService.createUser(user);
+//        }
+
+        //    @PostMapping("/test")
+//    public void createTest(@RequestBody String testLine) {
+//        UserInput.insert_query(testLine);
+//    }
+//
+//    @GetMapping("/user/{user_no}")
+//
+//    public ResponseEntity<User> getUserByNo(@PathVariable Integer user_no) {
+//        return userService.findUser();
+//    }
     }
-
-    @GetMapping("/user/{user_no}")
-
-    public ResponseEntity<User> getUserByNo(@PathVariable Integer user_no) {
-        return userService.findUser();
-    }
-
-    @PostMapping("/user")
-    public User createUser(@RequestBody User user) {
-        System.out.println("@PostMapping(\"/user\")");
-        System.out.println(user.toString());
-        return userService.createUser(user);
-    }*/
-    // get
-
-}

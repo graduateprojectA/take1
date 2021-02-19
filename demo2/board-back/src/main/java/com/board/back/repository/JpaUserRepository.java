@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Optional;
 import org.graalvm.compiler.lir.LIRInstruction;
 
-public class JpaUserRepository implements UserRepository {
+public class JpaUserRepository implements LoginRepository {
     private final EntityManager em;
     public JpaUserRepository(EntityManager em) {
         this.em = em;
