@@ -5,18 +5,6 @@ import Logo from "../cservice/Logo";
 import UserService from '../service/UserService';
 import "../css/style.css";
 
-const LoginDiv = styled.div`
-    position: absolute;
-    left: 50%;
-    top: 20%;
-    margin-left: -240px;
-    width: 480px;
-    height: 410px;
-    border: solid 4px #00462A;
-    border-radius: 10px;
-    background-color: white;
-`;
-
 const Input = styled.input`
     position: relative;
     margin-left:90px;
@@ -120,7 +108,7 @@ class CreateUserComponent extends Component {
             <div>
                 <div className="LoginBackDiv">
                     <Logo />
-                    <LoginDiv>
+                    <div className="LoginDiv">
                         <br />
                         <Input type="text" placeholder="학번 7자리" name="user_id" className="form-control"
                             value={this.state.user_id} onChange={this.changeIdHandler} />
@@ -141,7 +129,7 @@ class CreateUserComponent extends Component {
                             하세요!
                             </p>
                         </div>
-                    </LoginDiv>
+                    </div>
                 </div>
             </div>
         );

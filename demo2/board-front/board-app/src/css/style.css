@@ -31,7 +31,6 @@
     font-weight: bold;
 }
 
-
 .TableCheckDiv{
     position: absolute;
     top: 0;
@@ -65,11 +64,32 @@
     color: white;
     right: 1%;
 }
-.table {
-    width: 100%;
+.TimeTable {
+    margin-left: 10%;
+    margin-top: 5%;
+    width: 80%;
+    height: 85%;
     border: 1px solid #444444;
     border-collapse: collapse;
 }
-.th, td {
-    border: 1px solid #444444;
+.DayWrapDiv {
+    width: 80%;
+    height: 20px;
+    margin-left: 10%;
+    text-align: center;
+}
+.DayDiv {
+    float: left;
+    width:64px; 
+}
+.LoginDiv{
+    position: absolute;
+    left: 50%;
+    top: 20%;
+    margin-left: -240px;
+    width: 480px;
+    height: 410px;
+    border: solid 4px #00462A;
+    border-radius: 10px;
+    background-color: white;
 }
