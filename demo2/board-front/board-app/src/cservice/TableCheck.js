@@ -9,7 +9,17 @@ import TableCheckLine from "./TableCheckLine";
 import Logo from "./Logo";
 import My from "./My";
 import backgroundImage4 from "../components/image/backgroundImage4.png";
-
+const LineWrapDiv = styled.div`
+    height: 11%;
+    margin-top: -5%;
+    position: relative;
+`;
+const TableInput = styled.input`
+    width: 40px;
+    height: 40px; 
+    margin-right:10%;
+    float: left;
+`;
 const TableCheckDiv = styled.div`
     position: absolute;
     top: 0;
@@ -22,12 +32,11 @@ const TableCheckDiv = styled.div`
 
 const TableCheckWrapWrapDiv = styled.div`
     position: absolute;
-    top: 120px;
-    left: 50%;
-    margin-left: -265px;
+    top: 15%;
+    left: 23%;
     border: solid 1px;
-    height: 585px;
-    width: 530px;
+    height: 80%;
+    width: 54%;
     background-color: #fff5ee;
     opacity: 0.8;
     border: solid 5px #00462A;
@@ -35,11 +44,11 @@ const TableCheckWrapWrapDiv = styled.div`
 `;
 
 const TableCheckWrapDiv = styled.div`
-    position: absolute;
-    left: 50%;
-    margin-left: -183px;
-    height: 550px;
-    width: 366px;
+    position: relative;
+    border:solid;
+    left: 20%;
+    height: 80%;
+    width: 60%;
 `;
 
 const TableCheckP = styled.p`
@@ -49,26 +58,27 @@ const TableCheckP = styled.p`
 
 const TimeWrapDiv = styled.div`
     float: left;
-    padding-top:22px;
-    height:100%;
-    margin-top: -30px;
+    height: 11%;
+    margin-top: -5%;
+    position: relative;
 `;
 
 const TimeDiv = styled.div`
     text-align: right;
-    height: 65px;
+    height: 100%;
     width: 100%;
+    padding-top: 80%;
 `;
 
 const DayDiv = styled.div`
     float: left;
-    width:64px; 
+    width:20%; 
 `;
 
 const DayWrapDiv = styled.div`
     width: 100%;
-    height: 20px;
-    padding-left: 65px;
+    height: 1%;
+    padding-left: 20%;
 `;
 
 const NextA = styled.a`
@@ -90,13 +100,12 @@ const TableCheck = () => {
         <TableCheckDiv>
             <Logo/>
             <My/>
-            {/* <a>&#10094;</a> */}
             <Link to = "./classCheck">
                 <NextA>&#10095;</NextA>
             </Link>
             <TableCheckWrapWrapDiv>
+                <TableCheckP>불가능한 시간을 체크해주세요.</TableCheckP>
                 <TableCheckWrapDiv>
-                    <TableCheckP>불가능한 시간을 체크해주세요.</TableCheckP>
                     <DayWrapDiv>
                         <DayDiv>월</DayDiv>
                         <DayDiv>화</DayDiv>
@@ -113,14 +122,14 @@ const TableCheck = () => {
                         <TimeDiv>15:30</TimeDiv>
                         <TimeDiv>17:00</TimeDiv>
                         <TimeDiv>18:30</TimeDiv>
-                    </TimeWrapDiv> 
-                    <TableCheckLine/>
-                    <TableCheckLine/>
-                    <TableCheckLine/>
-                    <TableCheckLine/>
-                    <TableCheckLine/>
-                    <TableCheckLine/>
-                    <TableCheckLine/>
+                    </TimeWrapDiv>
+                    <LineWrapDiv>
+                        <TableInput type="checkbox" name = "time_out[]" value="17"/>
+                        <TableInput type="checkbox" name = "time_out[]" value="17"/>
+                        <TableInput type="checkbox" name = "time_out[]" value="17"/>
+                        <TableInput type="checkbox" name = "time_out[]" value="17"/>
+                        <TableInput type="checkbox" name = "time_out[]" value="17"/>
+                    </LineWrapDiv>
                 </TableCheckWrapDiv>
             </TableCheckWrapWrapDiv>
         </TableCheckDiv>    

@@ -95,7 +95,7 @@ class LoginUserComponent extends Component {
 
         if (this.state.user_no === 'login') {
             UserService.loginUser(user).then(res => {
-                this.props.history.push('/');
+                this.props.history.push('/Main');
             });
         } 
     }
