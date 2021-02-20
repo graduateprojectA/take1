@@ -4,135 +4,45 @@ TableCheck
 
 import React from "react";
 import {Link, Route} from "react-router-dom";
-import styled from "styled-components";
-import TableCheckLine from "./TableCheckLine";
 import Logo from "./Logo";
 import My from "./My";
-import backgroundImage4 from "../components/image/backgroundImage4.png";
-const LineWrapDiv = styled.div`
-    height: 11%;
-    margin-top: -5%;
-    position: relative;
-`;
-const TableInput = styled.input`
-    width: 40px;
-    height: 40px; 
-    margin-right:10%;
-    float: left;
-`;
-const TableCheckDiv = styled.div`
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: url(${backgroundImage4});
-    background-size: cover;
-`;
-
-const TableCheckWrapWrapDiv = styled.div`
-    position: absolute;
-    top: 15%;
-    left: 23%;
-    border: solid 1px;
-    height: 80%;
-    width: 54%;
-    background-color: #fff5ee;
-    opacity: 0.8;
-    border: solid 5px #00462A;
-    border-radius: 10px;
-`;
-
-const TableCheckWrapDiv = styled.div`
-    position: relative;
-    border:solid;
-    left: 20%;
-    height: 80%;
-    width: 60%;
-`;
-
-const TableCheckP = styled.p`
-    text-align: center; 
-    font-size: 1.2em;
-`;
-
-const TimeWrapDiv = styled.div`
-    float: left;
-    height: 11%;
-    margin-top: -5%;
-    position: relative;
-`;
-
-const TimeDiv = styled.div`
-    text-align: right;
-    height: 100%;
-    width: 100%;
-    padding-top: 80%;
-`;
-
-const DayDiv = styled.div`
-    float: left;
-    width:20%; 
-`;
-
-const DayWrapDiv = styled.div`
-    width: 100%;
-    height: 1%;
-    padding-left: 20%;
-`;
-
-const NextA = styled.a`
-    font-size: 40px;
-    cursor: pointer;
-    position: absolute;
-    top: 50%;
-    margin-top:-20px;
-    padding: 16px;
-    color: white;
-    right: 1%;
-    &:hover{
-        color: #00462A;
-    }
-`;
+import "../css/style.css";
 
 const TableCheck = () => {
-    return(
-        <TableCheckDiv>
-            <Logo/>
-            <My/>
-            <Link to = "./classCheck">
-                <NextA>&#10095;</NextA>
-            </Link>
-            <TableCheckWrapWrapDiv>
-                <TableCheckP>불가능한 시간을 체크해주세요.</TableCheckP>
-                <TableCheckWrapDiv>
-                    <DayWrapDiv>
-                        <DayDiv>월</DayDiv>
-                        <DayDiv>화</DayDiv>
-                        <DayDiv>수</DayDiv>
-                        <DayDiv>목</DayDiv>
-                        <DayDiv>금</DayDiv>
-                    </DayWrapDiv>
-                    <TimeWrapDiv>
-                        <TimeDiv>8:00</TimeDiv>
-                        <TimeDiv>9:30</TimeDiv>
-                        <TimeDiv>11:00</TimeDiv>
-                        <TimeDiv>12:30</TimeDiv>
-                        <TimeDiv>14:00</TimeDiv>
-                        <TimeDiv>15:30</TimeDiv>
-                        <TimeDiv>17:00</TimeDiv>
-                        <TimeDiv>18:30</TimeDiv>
-                    </TimeWrapDiv>
-                    <LineWrapDiv>
-                        <TableInput type="checkbox" name = "time_out[]" value="17"/>
-                        <TableInput type="checkbox" name = "time_out[]" value="17"/>
-                        <TableInput type="checkbox" name = "time_out[]" value="17"/>
-                        <TableInput type="checkbox" name = "time_out[]" value="17"/>
-                        <TableInput type="checkbox" name = "time_out[]" value="17"/>
-                    </LineWrapDiv>
-                </TableCheckWrapDiv>
-            </TableCheckWrapWrapDiv>
-        </TableCheckDiv>    
+  return (
+    <div className="TableCheckDiv">
+      <Logo />
+      <My />
+      <Link to="./classCheck">
+        <button className="NextA">&#10095;</button>
+      </Link>
+      <div className="TableCheckWrapWrapDiv">
+        <table>
+          <thead>
+            <tr>
+              <th>월</th><th>화</th><th>수</th><th>목</th><th>금</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Lorem</td><td>Ipsum</td><td>Dolor</td>
+            </tr>
+            <tr>
+              <td>Lorem</td><td>Ipsum</td><td>Dolor</td>
+            </tr>
+            <tr>
+              <td>Lorem</td><td>Ipsum</td><td>Dolor</td>
+            </tr>
+            <tr>
+              <td>Lorem</td><td>Ipsum</td><td>Dolor</td>
+            </tr>
+            <tr>
+              <td>Lorem</td><td>Ipsum</td><td>Dolor</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>    
     );
 };
 
