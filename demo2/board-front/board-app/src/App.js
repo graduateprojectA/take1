@@ -11,7 +11,6 @@ import Intro from "./cservice/Intro";
 import Main from "./cservice/Main";
 import Join from "./cservice/Join";
 import Login from "./cservice/Login";
-import TableCheck from "./cservice/TableCheck";
 import CourseCheck from "./cservice/CourseCheck";
 import MyPage from "./cservice/MyPage";
 import ClasCheck from "./cservice/ClassCheck";
@@ -19,6 +18,7 @@ import CreateUserComponent from './components/CreateUserComponent';
 import ListUserComponent from './components/ListUserComponent';
 import ReadUserComponent from './components/ReadUserComponent';
 import LoginUserComponent from './components/LoginUserComponent';
+import CheckTimeComponent from './components/CheckTimeComponent';
 
 function App() {
   return (
@@ -35,7 +35,7 @@ function App() {
               <Route path = "/major/:no" component = {MajorComponent}></Route>
               <Route path="/main" component={Main} exact={true} />
               <Route path="/join" component={Join} exact={true} />
-              <Route path="/tableCheck" component={TableCheck} exact={true} />
+              <Route path="/tableCheck" component={CheckTimeComponent}></Route>
               <Route path="/courseCheck" component={CourseCheck} exact={true} />
               <Route path="/myPage" component={MyPage} exact={true} />
               <Route path="/classCheck" component={ClasCheck} exact={true} />
