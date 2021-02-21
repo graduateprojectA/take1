@@ -75,12 +75,12 @@
 .DayWrapDiv {
     width: 80%;
     height: 20px;
-    margin-left: 10%;
+    margin-left: 17%;
     text-align: center;
 }
 .DayDiv {
     float: left;
-    width:64px; 
+    width:20%; 
 }
 .LoginDiv{
     position: absolute;
@@ -92,4 +92,18 @@
     border: solid 4px #00462A;
     border-radius: 10px;
     background-color: white;
+}
+.TableBody{
+    position: absolute;
+    text-align: left;
+    height: 80%;
+    width: 80%;
+}
+.TimeWrapDiv{
+    height:14%;
+}
+.TimeDiv{
+    width:16%;
+    border:solid;
+    float: left;
 }
