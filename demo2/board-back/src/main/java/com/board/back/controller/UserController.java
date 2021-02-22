@@ -28,9 +28,9 @@ public class UserController {
     @PostMapping("/login")
     public void loginUser(@RequestBody User2 user) {
         System.out.println("@PostMapping(\"/login\")");
-//        System.out.println(user.toString());
+        System.out.println(user.toString());
 //        System.out.println(user.getId());
-        List<User2> us = loginService.findAll(user.getId());
+//        List<User2> us = loginService.findAll(user.getId());
     }
 
 //    @GetMapping(value = "/login2")
@@ -42,8 +42,8 @@ public class UserController {
 // create board
     @PostMapping("/user")
     public User createUser(@RequestBody User user) {
-//        System.out.println("@PostMapping(\"/user\")");
-//        System.out.println(user.toString());
+        System.out.println("@PostMapping(\"/user\")");
+        System.out.println(user.toString());
         return userService.createUser(user);
     }
     /*
