@@ -1,8 +1,8 @@
+com/board/back/BoardBackApplication.java
+ com.board.back.BoardBackApplication
 com/board/back/util/ValidationUtil.java
  com.board.back.util.ValidationUtil
  com.board.back.util.ValidationUtil$ValidationUtilHolder
-com/board/back/model/Class.java
- com.board.back.model.Class
 com/board/back/model/User_timetable.java
  com.board.back.model.User_timetable
 com/board/back/model/Student.java
@@ -13,8 +13,8 @@ com/board/back/SpringConfig.java
  com.board.back.SpringConfig
 com/board/back/exception/ResourceNotFoundException.java
  com.board.back.exception.ResourceNotFoundException
-com/board/back/util/PagingUtil.java
- com.board.back.util.PagingUtil
+com/board/back/controller/CourseController.java
+ com.board.back.controller.CourseController
 com/board/back/model/User2.java
  com.board.back.model.User2
 com/board/back/service/CourseService.java
@@ -43,21 +43,21 @@ com/board/back/repository/CourseRepository.java
  com.board.back.repository.CourseRepository
 com/board/back/model/Field.java
  com.board.back.model.Field
-com/board/back/repository/UserRepository.java
- com.board.back.repository.UserRepository
+com/board/back/repository/LoginRepository.java
+ com.board.back.repository.LoginRepository
 com/board/back/repository/BoardRepository.java
  com.board.back.repository.BoardRepository
 com/board/back/exception/ValidationCheckException.java
  com.board.back.exception.ValidationCheckException
-com/board/back/BoardBackApplication.java
- com.board.back.BoardBackApplication
-com/board/back/service/LoginService.java
- com.board.back.service.LoginService
+com/board/back/repository/UserRepository.java
+ com.board.back.repository.UserRepository
 com/board/back/service/UserService.java
  com.board.back.service.UserService
-com/board/back/controller/CourseController.java
- com.board.back.controller.CourseController
-com/board/back/repository/LoginRepository.java
- com.board.back.repository.LoginRepository
+com/board/back/model/Class.java
+ com.board.back.model.Class
+com/board/back/util/PagingUtil.java
+ com.board.back.util.PagingUtil
+com/board/back/service/LoginService.java
+ com.board.back.service.LoginService
 com/board/back/controller/UserController.java
  com.board.back.controller.UserController

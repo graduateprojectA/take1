@@ -6,7 +6,7 @@ import javax.persistence.EntityManager;
 
 public interface LoginRepository extends JpaRepository<User2, Integer> {
 
-    public List<User2> findAll(Integer user_id);
+//    public List<User> findAll(Integer user_id);
 
 //    private final EntityManager em;
 //    public LoginRepository(EntityManager em) {
@@ -29,4 +29,3 @@ public interface LoginRepository extends JpaRepository<User2, Integer> {
 //        return null;
 //    }
 }
-

@@ -29,15 +29,16 @@ public class UserController {
     @PostMapping("/login")
     public void loginUser(@RequestBody User user) {
         System.out.println("@PostMapping(\"/login\")");
-        System.out.println(user.toString());
-        // System.out.println(user.getId());
-        // List<User2> us = loginService.findAll(user.getId());
+        loginService.postUser(user);
     }
 
+    //GET용 User2
     @GetMapping(value = "/login2")
-    public void list(Model model) {
-        List<User2> us = loginService.getAllUser();
-        System.out.println(us);
+    public void checkUser() {
+
+//        System.out.println(user.getId());
+//        List<User2> us= loginService.getAllUser();
+//        System.out.println(us);
     }
 
     @PostMapping("/user")
