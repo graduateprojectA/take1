@@ -46,6 +46,7 @@ public class UserController {
         System.out.println(user.toString());
         return userService.createUser(user);
     }
+
     /*
      * @PostMapping("/test") public void createTest(@RequestBody String testLine) {
      * UserInput.insert_query(testLine); }

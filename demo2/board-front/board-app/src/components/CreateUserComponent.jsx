@@ -1,42 +1,9 @@
 import React, { Component } from 'react';
 import {Link, Route} from "react-router-dom";
 import styled from "styled-components";
-import backgroundImage2 from "./image/backgroundImage3.png"
 import Logo from "../cservice/Logo";
 import UserService from '../service/UserService';
-const LoginBackDiv = styled.div`
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: url(${backgroundImage2});
-    background-size: cover;
-`;
-
-const LoginDiv = styled.div`
-    position: absolute;
-    left: 50%;
-    top: 20%;
-    margin-left: -240px;
-    width: 480px;
-    height: 410px;
-    border: solid 4px #00462A;
-    border-radius: 10px;
-    background-color: white;
-`;
-
-const LoginButton = styled.button`
-posiiton: relative;
-margin-left: 90px;
-margin-top: 20px;
-width: 306px;
-height: 50px;
-border: solid 0px;
-background-color: #00462A;
-color: white;
-outline:0px;
-`;
+import "../css/style.css";
 
 const Input = styled.input`
     position: relative;
@@ -52,18 +19,7 @@ const Input = styled.input`
     color: #00462A;
 `;
 
-const P1 = styled.p`
-    margin-top:25px;
-    width: 100%;
-    text-align: center;
-    font-size: 16px; 
-`;
 
-const P2 = styled.p`
-    display: inline; 
-    color: #00462A; 
-    font-weight: bold;
-`;
 class CreateUserComponent extends Component {
     constructor(props) {
         super(props);
@@ -150,9 +106,9 @@ class CreateUserComponent extends Component {
     render() {
         return (
             <div>
-                <LoginBackDiv>
+                <div className="LoginBackDiv">
                     <Logo />
-                    <LoginDiv>
+                    <div className="LoginDiv">
                         <br />
                         <Input type="text" placeholder="학번 7자리" name="user_id" className="form-control"
                             value={this.state.user_id} onChange={this.changeIdHandler} />
@@ -162,19 +118,19 @@ class CreateUserComponent extends Component {
                             value={this.state.user_major} onChange={this.changeMajorHandler} />
                         <Input type="text" placeholder="학년" name="user_grade" className="form-control"
                             value={this.state.user_grade} onChange={this.changeGradeHandler} />
-                        <LoginButton className="btn btn-success" onClick={this.createUser}>회원가입</LoginButton>
+                        <button className="LoginButton" onClick={this.createUser}>회원가입</button>
 
                         <div>
-                            <P1>
+                            <p className ="P1">
                                 이미 계정이 있으신가요?<br />지금
-                            <Link to="./Login">
-                                <P2> 로그인</P2>
+                            <Link to="../login">
+                                <p className ="P2"> 로그인</p>
                             </Link>
                             하세요!
-                            </P1>
+                            </p>
                         </div>
-                    </LoginDiv>
-                </LoginBackDiv>
+                    </div>
+                </div>
             </div>
         );
     }

@@ -6,6 +6,9 @@ class UserService {
     loginUser(user) {
         return axios.post("http://localhost:8080/api/login", user);
     }
+    TimeUser(user) {
+        return axios.post("http://localhost:8080/api/time", user);
+    }
 
 }
 
