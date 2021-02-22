@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
+import {Link, Route} from "react-router-dom";
 import UserService from '../service/UserService';
 import styled from "styled-components";
-import backgroundImage2 from "../components/image/backgroundImage3.png"
+import backgroundImage2 from "./image/backgroundImage3.png"
 import Logo from "../cservice/Logo";
 const LoginBackDiv = styled.div`
     position: absolute;
@@ -12,7 +13,19 @@ const LoginBackDiv = styled.div`
     background-image: url(${backgroundImage2});
     background-size: cover;
 `;
-
+const Input = styled.input`
+    position: relative;
+    margin-left:20%;
+    margin-top:5%;
+    width: 60%;
+    height: 10%;
+    border: solid 0px;
+    border-bottom: solid 1px #00462A;
+    background-color:transparent;
+    border-radius: 0%;
+    outline:0px;
+    color: #00462A;
+`;
 const LoginDiv = styled.div`
     position: absolute;
     left: 50%;
@@ -25,29 +38,17 @@ const LoginDiv = styled.div`
     background-color: white;
 `;
 
+
 const LoginButton = styled.button`
-posiiton: relative;
-margin-left: 90px;
-margin-top: 20px;
-width: 306px;
+position: relative;
+margin-left: 17%;
+margin-top: 10%;
+width: 66%;
 height: 50px;
 border: solid 0px;
 background-color: #00462A;
 color: white;
 outline:0px;
-`;
-
-const label = styled.input`
-    position: relative;
-    margin-left:90px;
-    margin-top:15px;
-    width: 300px;
-    height: 40px;
-    border: solid 0px;
-    border-bottom: solid 1px #00462A;
-    background-color:transparent;
-    outline:0px;
-    color: #00462A;
 `;
 
 const P1 = styled.p`
@@ -93,10 +94,9 @@ class LoginUserComponent extends Component {
         };
         console.log("user => "+ JSON.stringify(user));
 
-        if (this.state.user_no === '_login') {
+        if (this.state.user_no === 'login') {
             UserService.loginUser(user).then(res => {
-
-                this.props.history.push('/');
+                this.props.history.push('/Main');
 
             });
         } 
@@ -105,7 +105,7 @@ class LoginUserComponent extends Component {
 
     // For update function add
     componentDidMount() {
-        if (this.state.user_no === '_login') {
+        if (this.state.user_no === 'login') {
             return
         } else {
             UserService.getOneUser(this.state.user_no).then( (res) => {
@@ -125,34 +125,24 @@ class LoginUserComponent extends Component {
                  <LoginBackDiv>
                  <Logo/>
                  <LoginDiv>
-                 <br/>
-                <div className = "container">
-                    <div className = "row">
-                        <div className = "card col-md-6 offset-md-3 offset-md-3">
-                            <div className = "card-body">
-                                <form>
-                                    <div className="form-group">
-                                        <label> 학번 </label>
-                                        <input type="text" placeholder="user_id" name="user_id" className="form-control"
-                                            value={this.state.user_id} onChange={this.changeIdHandler} />
-                                    </div>
-                                    <div className="form-group">
-                                        <label> 비번 </label>
-                                        <input type="text" placeholder="user_pw" name="user_pw" className="form-control" 
-                                        value={this.state.user_pw} onChange={this.changePwHandler}/>
-                                    </div>
-                                    <LoginButton onClick={this.loginUser}>회원가입</LoginButton>
-=======
-                                    <button className="btn btn-success" onClick={this.createUser}>Save</button>
-                                    <button className="btn btn-danger" onClick={this.cancel.bind(this)} style={{marginLeft:"10px"}}>Cancel</button>
+                        <br />
+                        <Input type="text" placeholder="학번 7자리" name="user_id" className="form-control"
+                            value={this.state.user_id} onChange={this.changeIdHandler} />
 
-                                </form>
-                            </div>
+                        <Input type="text" placeholder="비밀번호" name="user_pw" className="form-control"
+                            value={this.state.user_pw} onChange={this.changePwHandler} />
+
+                        <LoginButton onClick={this.loginUser}>로그인</LoginButton>
+                        <div>
+                            <P1>
+                                아직 커벨리오의 회원이 아니신가요?<br />
+                                <Link to="./create-user/_create">
+                                    <P2>회원가입</P2>
+                                </Link>
+                                하시고, 시간표를 생성해보세요!
+                            </P1>
                         </div>
-                    </div>
-                </div>
-
-                </LoginDiv>
+                    </LoginDiv>
                 </LoginBackDiv>
             </div>
         );

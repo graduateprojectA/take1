@@ -17,8 +17,10 @@ import java.util.List;
 @RequestMapping("/api")
 public class UserController {
     private LoginService loginService;
+    private UserService userService;
     @Autowired
-    public UserController(LoginService loginService) {
+    public UserController(UserService userService, LoginService loginService) {
+        this.userService=userService;
         this.loginService = loginService;
     }
     // create board
@@ -32,6 +34,12 @@ public class UserController {
         List<User2> us= loginService.getAllUser();
         System.out.println(us);
     }
+    @PostMapping("/user")
+    public User createUser(@RequestBody User user) {
+        System.out.println("@PostMapping(\"/user\")");
+        System.out.println(user.toString());
+        return userService.createUser(user);
+    }
 
     /*
     @PostMapping("/test")
@@ -43,12 +51,7 @@ public class UserController {
             @PathVariable Integer user_no) {
         return userService.getUser(user_no);
     }
-     @PostMapping("/user")
-    public User createUser(@RequestBody User user) {
-        System.out.println("@PostMapping(\"/user\")");
-        System.out.println(user.toString());
-        return userService.createUser(user);
-    }*/
+*/
     // get
 
 

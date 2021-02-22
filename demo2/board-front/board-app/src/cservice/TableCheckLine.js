@@ -7,8 +7,8 @@ import {Link, Route} from "react-router-dom";
 import styled from "styled-components";
 
 const TableInput = styled.input`
-    width: 60px;
-    height: 60px; 
+    width: 40px;
+    height: 40px; 
     margin-right:0px;
     float: left;
 `;

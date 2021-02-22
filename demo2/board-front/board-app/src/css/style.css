@@ -1,0 +1,110 @@
+.LoginButton {
+    position: relative; 
+    margin-top: 20px;   
+    margin-left : 20%;
+    width: 60%;
+    height: 50px;
+    border: solid 0px;
+    background-color: #00462A;
+    color: white;
+    outline:0px;
+}
+.LoginBackDiv{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url(../components/image/backgroundImage3.png);
+    background-size: cover;
+}
+.P1{
+    margin-top:25px;
+    width: 100%;
+    text-align: center;
+    font-size: 16px; 
+}
+
+.P2{
+    display: inline; 
+    color: #00462A; 
+    font-weight: bold;
+}
+
+.TableCheckDiv{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url(../components/image/backgroundImage4.png);
+    background-size: cover;
+}
+
+.TableCheckWrapWrapDiv{
+    position: absolute;
+    top: 15%;
+    left: 23%;
+    border: solid 1px;
+    height: 80%;
+    width: 54%;
+    background-color: #fff5ee;
+    opacity: 0.8;
+    border: solid 5px #00462A;
+    border-radius: 10px;
+}
+
+.NextA{
+    font-size: 40px;
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    margin-top:-20px;
+    padding: 16px;
+    color: white;
+    right: 1%;
+}
+.TimeTable {
+    margin-left: 10%;
+    margin-top: 5%;
+    width: 80%;
+    height: 85%;
+    border: 1px solid #444444;
+    border-collapse: collapse;
+}
+.DayWrapDiv {
+    width: 80%;
+    height: 20px;
+    margin-left: 17%;
+    text-align: center;
+}
+.DayDiv {
+    float: left;
+    width:20%; 
+}
+.LoginDiv{
+    position: absolute;
+    left: 50%;
+    top: 20%;
+    margin-left: -240px;
+    width: 480px;
+    height: 410px;
+    border: solid 4px #00462A;
+    border-radius: 10px;
+    background-color: white;
+}
+.TableBody{
+    position: absolute;
+    text-align: left;
+    height: 80%;
+    width: 80%;
+}
+.TimeWrapDiv{
+    height:14%;
+}
+.TimeDiv{
+    width:16%;
+    height:100%;
+    border:solid;
+    float: left;
+}
