@@ -85,7 +85,7 @@ If the credits in the generated timetable, such as when the lecture times overla
 <br><br>
 변영신(Yeongsin Byeon) : https://velog.io/@dudtls11444/%EC%A1%B8%EC%97%85%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-1.-%EC%95%84%EC%9D%B4%EB%94%94%EC%96%B4-%EB%B0%8F-%EA%B8%B0%EB%B3%B8-%EA%B5%AC%EC%83%81
 <br><br>
-장진희(Jinhui Chang) : https://www.notion.so/b20405ba0e8f43f2869ba2d7d0b48195
+장진희(Jinhui Chang) : https://www.notion.so/b20405ba0e8f43f2869ba2d7d0b48195<br>
 https://blog.naver.com/bettyjang
 <br><br>
 정예림(Yelim Jung) : https://m.blog.naver.com/118dg?suggestAddBuddy=true
