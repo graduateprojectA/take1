@@ -35,7 +35,7 @@ function App() {
               <Route path = "/major/:no" component = {MajorComponent}></Route>
               <Route path="/main" component={Main} exact={true} />
               <Route path="/join" component={Join} exact={true} />
-              <Route path="/tableCheck" component={CheckTimeComponent}></Route>
+              <Route path="/tableCheck/:user_no" component={CheckTimeComponent}></Route>
               <Route path="/courseCheck" component={CourseCheck} exact={true} />
               <Route path="/myPage" component={MyPage} exact={true} />
               <Route path="/classCheck" component={ClasCheck} exact={true} />
