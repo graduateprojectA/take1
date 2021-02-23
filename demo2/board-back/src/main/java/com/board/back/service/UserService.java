@@ -25,7 +25,6 @@ public class UserService {
     public ResponseEntity<User> getUser(Integer user_no) {
         User user = userRepository.findById(user_no)
                 .orElseThrow(() -> new ResourceNotFoundException("Not exist User Data by no : ["+user_no+"]"));
-
         return ResponseEntity.ok(user);
     }
 }

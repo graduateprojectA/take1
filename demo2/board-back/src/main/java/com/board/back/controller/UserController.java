@@ -35,7 +35,8 @@ public class UserController {
     //GET용 User2
     @GetMapping(value = "/login2")
     public void checkUser() {
-
+        if (loginService.getStatus() == true || loginService.getStatus() == false)
+            System.out.println(loginService.getStatus());;
 //        System.out.println(user.getId());
 //        List<User2> us= loginService.getAllUser();
 //        System.out.println(us);
