@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "http://localhost:3000")
 @RestController
 @RequestMapping("/api")
 public class UserController {
@@ -32,14 +32,11 @@ public class UserController {
         loginService.postUser(user);
     }
 
-    //GET용 User2
+    // GET용 User2
     @GetMapping(value = "/login2")
     public int checkUser() {
         if (loginService.getStatus() == true || loginService.getStatus() == false)
             return loginService.getNo();
-//        System.out.println(user.getId());
-//        List<User2> us= loginService.getAllUser();
-//        System.out.println(us);
         return loginService.getNo();
     }
 
@@ -52,9 +49,15 @@ public class UserController {
 
     /*
      * @PostMapping("/test") public void createTest(@RequestBody String testLine) {
-     * UserInput.insert_query(testLine); }
+     * UserInput.insert_query(testLine); } <<<<<<< HEAD
      * 
      * @GetMapping("/user/{user_no}") public ResponseEntity<User> getUserByNo(
+     * 
+     * =======
+     *
+     * @GetMapping("/user/{user_no}") public ResponseEntity<User> getUserByNo(
+     *
+     * >>>>>>> eaf07e8555defe8625ecc22eb009a4274f4ea6c2
      * 
      * @PathVariable Integer user_no) { return userService.getUser(user_no); }
      */
