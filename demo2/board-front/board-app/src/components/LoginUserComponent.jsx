@@ -96,7 +96,6 @@ class LoginUserComponent extends Component {
         if (this.state.user_no === 'login') {
             UserService.loginUser(user).then(res => {
                 this.props.history.push('/Main');
-
             });
         } 
     }
@@ -132,6 +131,7 @@ class LoginUserComponent extends Component {
                             value={this.state.user_pw} onChange={this.changePwHandler} />
 
                         <LoginButton onClick={this.loginUser}>로그인</LoginButton>
+                     <LoginButton onClick={UserService.login()}>로그인 결과</LoginButton>
                         <div>
                             <P1>
                                 아직 커벨리오의 회원이 아니신가요?<br />
