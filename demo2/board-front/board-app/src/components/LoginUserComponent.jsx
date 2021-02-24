@@ -77,7 +77,6 @@ class LoginUserComponent extends Component {
         this.changePwHandler = this.changePwHandler.bind(this);
     }
 
-
     changeIdHandler = (event) => {
         this.setState({user_id: event.target.value});
     }

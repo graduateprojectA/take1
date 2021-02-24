@@ -27,7 +27,7 @@ public class UserController {
     // create board
 
     @PostMapping("/login")
-    public int loginUser(@RequestBody User user) {
+    public void loginUser(@RequestBody User user) {
         System.out.println("@PostMapping(\"/login\")");
         loginService.postUser(user);
     }
