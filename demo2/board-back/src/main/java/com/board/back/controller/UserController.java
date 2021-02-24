@@ -18,9 +18,10 @@ import java.util.List;
 public class UserController {
     private LoginService loginService;
     private UserService userService;
+
     @Autowired
     public UserController(UserService userService, LoginService loginService) {
-        this.userService=userService;
+        this.userService = userService;
         this.loginService = loginService;
     }
     // create board
@@ -28,32 +29,35 @@ public class UserController {
     @PostMapping("/login")
     public int loginUser(@RequestBody User user) {
         System.out.println("@PostMapping(\"/login\")");
-        System.out.println(user.toString());
-        return 1;
+        loginService.postUser(user);
     }
+
+    //GET용 User2
     @GetMapping(value = "/login2")
-    public void list() {
-        List<User2> us= loginService.getAllUser();
-        System.out.println(us);
+    public int checkUser() {
+        if (loginService.getStatus() == true || loginService.getStatus() == false)
+            return loginService.getNo();
+//        System.out.println(user.getId());
+//        List<User2> us= loginService.getAllUser();
+//        System.out.println(us);
+        return loginService.getNo();
     }
+
     @PostMapping("/user")
     public User createUser(@RequestBody User user) {
         System.out.println("@PostMapping(\"/user\")");
         System.out.println(user.toString());
         return userService.createUser(user);
     }
-    /*
-    @PostMapping("/test")
-    public void createTest(@RequestBody String testLine) {
-        UserInput.insert_query(testLine);
-    }
-        @GetMapping("/user/{user_no}")
-    public ResponseEntity<User> getUserByNo(
-            @PathVariable Integer user_no) {
-        return userService.getUser(user_no);
-    }
-*/
-    // get
 
+    /*
+     * @PostMapping("/test") public void createTest(@RequestBody String testLine) {
+     * UserInput.insert_query(testLine); }
+     * 
+     * @GetMapping("/user/{user_no}") public ResponseEntity<User> getUserByNo(
+     * 
+     * @PathVariable Integer user_no) { return userService.getUser(user_no); }
+     */
+    // get
 
 }
