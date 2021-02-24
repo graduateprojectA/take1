@@ -19,15 +19,16 @@ class CheckTimeComponent extends Component {
         this.createTest = this.createTest.bind(this);
     }
     printTest = (event) => {
-        console.log("test성공");
+    console.log("test성공");
+  }
+  changeTest1Handler = (event) => {
+
+    if (this.test1 == 0) {
+      this.setState({ test1: 1 });
+    } else {
+      this.setState({ test1: 0 });
     }
-    changeTest1Handler = (event) => {
-        if (this.test1==0){
-            this.setState({test1: 1});
-        }else{
-            this.setState({test1: 0});
-        }
-    }
+  }
 
     changeTest2Handler = (event) => {
         if (this.test2==0){
@@ -76,16 +77,16 @@ class CheckTimeComponent extends Component {
                 </div>
                 <div className="TableBody">
                   <div className="TimeWrapDiv">
-                    <div className="TimeDiv">1교시</div><button className="TimeDiv" onClick={this.changeTest1Handler}>11</button><div className="TimeDiv">12</div><div className="TimeDiv">13</div><div className="TimeDiv">14</div><div className="TimeDiv">15</div>
+                    <div className="TimeDiv">1교시</div><button className="TimeDiv"  value={1} onChange={this.changeTest1Handler}>11</button><div className="TimeDiv">12</div><div className="TimeDiv">13</div><div className="TimeDiv">14</div><div className="TimeDiv">15</div>
                   </div>
                   <div className="TimeWrapDiv">
-                    <div className="TimeDiv">2교시</div><button className="TimeDiv" onClick={this.changeTest2Handler}>21</button><div className="TimeDiv">12</div><div className="TimeDiv">13</div><div className="TimeDiv">14</div><div className="TimeDiv">15</div>
+                    <div className="TimeDiv">2교시</div><button className="TimeDiv" onChange={this.changeTest2Handler}>21</button><div className="TimeDiv">12</div><div className="TimeDiv">13</div><div className="TimeDiv">14</div><div className="TimeDiv">15</div>
                   </div>
                   <div className="TimeWrapDiv">
                     <div className="TimeDiv">3교시</div><button className="TimeDiv" onClick={this.createTest}>31</button><div className="TimeDiv">12</div><div className="TimeDiv">13</div><div className="TimeDiv">14</div><div className="TimeDiv">15</div>
                   </div>
                   <div className="TimeWrapDiv">
-                    <div className="TimeDiv">4교시</div><div className="TimeDiv">11</div><div className="TimeDiv">12</div><div className="TimeDiv">13</div><div className="TimeDiv">14</div><div className="TimeDiv">15</div>
+                    <div className="TimeDiv">4교시</div><input type="checkbox">41</input><div className="TimeDiv">12</div><div className="TimeDiv">13</div><div className="TimeDiv">14</div><div className="TimeDiv">15</div>
                   </div>
                   <div className="TimeWrapDiv">
                     <div className="TimeDiv">5교시</div><div className="TimeDiv">11</div><div className="TimeDiv">12</div><div className="TimeDiv">13</div><div className="TimeDiv">14</div><div className="TimeDiv">15</div>
