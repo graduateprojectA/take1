@@ -90,3 +90,4 @@ public class Class {
                 + ", class_division=" + class_division + ", class_time=" + class_time + "]";
     }
 }
+
