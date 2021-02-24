@@ -59,15 +59,16 @@ If the credits in the generated timetable, such as when the lecture times overla
 
 화면 명세서
 - [x] 홈
-- [ ] 로그인 80
+- [x] 로그인
+- [ ] SESSION
 - [x] 회원가입
 - [ ] 마이페이지 
 - [ ] 여태 들은 수업 체크
 - [ ] 시간표 만들러가기 : 원하지 않는 시간대 입력 : 시간 제외 페이지
 - [ ] 분반 선택 : 과목 제외 페이지
 - [ ] 가중치값 설정
-- [ ] 시간표 만드는 로딩창
 - [ ] 시간표 최종본 출력
+- [ ] 교양 추천 
 
 
 ## 4) Reference🔗
