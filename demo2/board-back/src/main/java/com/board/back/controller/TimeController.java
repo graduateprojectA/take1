@@ -17,9 +17,9 @@ public class TimeController {
     }
 
     @PostMapping("/tableCheck")
-    public void time(@RequestBody User_time user) {
+    public User_time time(@RequestBody User_time user) {
         System.out.println("@PostMapping(\"/tableCheck\")");
-        timeService.excludeTime(user);
+        return timeService.excludeTime(user);
     }
 
 }

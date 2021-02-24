@@ -18,6 +18,6 @@ public class TimeService {
     public User_time excludeTime (User_time user_time){
         String user = user_time.toString();
         System.out.println(user);
-        return TimeRepository.createUser(user);
+        return timeRepository.save(user_time);
     }
 }
