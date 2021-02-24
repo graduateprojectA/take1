@@ -15,8 +15,9 @@ public class TimeService {
     private TimeRepository timeRepository;
 
     //create
-    public void excludeTime (User_time user_time){
-        int user_no = user_time.getUser_no();
-        System.out.println(user_no);
+    public User_time excludeTime (User_time user_time){
+        String user = user_time.toString();
+        System.out.println(user);
+        return TimeRepository.createUser(user);
     }
 }
