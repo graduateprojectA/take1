@@ -34,11 +34,13 @@ public class UserController {
 
     //GET용 User2
     @GetMapping(value = "/login2")
-    public void checkUser() {
-
+    public int checkUser() {
+        if (loginService.getStatus() == true || loginService.getStatus() == false)
+            return loginService.getNo();
 //        System.out.println(user.getId());
 //        List<User2> us= loginService.getAllUser();
 //        System.out.println(us);
+        return loginService.getNo();
     }
 
     @PostMapping("/user")
