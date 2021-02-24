@@ -16,4 +16,13 @@ public class SpringConfig {
         this.dataSource = dataSource;
         this.em = em;
     }
+    /*
+    @Bean
+    public LoginService loginService(){
+        return new LoginService(loginRepository());
+    }
+    @Bean
+    public LoginRepository loginRepository() {
+        return new JpaLoginRepository(em);
+    }*/
 }
