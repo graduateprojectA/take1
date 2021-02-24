@@ -19,11 +19,19 @@ public class LoginService {
     }
 
     Boolean status = null;
+    int no = 0;
+
     public void setStatus(boolean a){
         this.status = a;
     }
     public boolean getStatus(){
         return this.status;
+    }
+    public void setNo(int n){
+        this.no = n;
+    }
+    public int getNo(){
+        return this.no;
     }
 
     // login (React에서 로그인 버튼을 눌렀을 때 넘어온 정보: 학번, pw  ==  User)
@@ -32,15 +40,18 @@ public class LoginService {
         int user_id = user.getId();  //리액트로부터 받은 id
         String user_pw = user.getPassword();
         List<User2> us = getAllUser();
+
         Boolean fla = false;
         setStatus(false);
 
         for (int i = 0; i < us.size(); i++) {
             if (us.get(i).getId() == user_id) {
                 if (us.get(i).getPassword().equals(user_pw)) {
+                    setNo(us.get(i).getNo());
                     checkUser(true);
                     fla = true;
                     setStatus(true);
+
                     break;
                 }
             }
