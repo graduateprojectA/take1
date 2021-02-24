@@ -9,7 +9,9 @@ class UserService {
     TimeUser(user) {
         return axios.post("http://localhost:8080/api/time", test);
     }
-
+    login() {
+        return axios.get("http://localhost:8080/api/login2");
+    }
 }
 
 export default new UserService();
