@@ -41,6 +41,7 @@ function App() {
               <Route path = "/user" component = {ListUserComponent}></Route>
               <Route path = "/read-user/:user_no" component = {ReadUserComponent}></Route>
               */}
+              <Route path = "/user" component = {ListUserComponent}></Route>
               <Route path="/main" component={Main} exact={true} />
               <Route path="/join" component={Join} exact={true} />
               <Route path="/tableCheck/:user_no" component={CheckTimeComponent}></Route>

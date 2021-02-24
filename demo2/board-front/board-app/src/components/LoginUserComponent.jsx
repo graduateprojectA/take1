@@ -69,6 +69,7 @@ class LoginUserComponent extends Component {
         super(props);
         this.state = {
             user_no: this.props.match.params.user_no,
+            real_no:2,
             user_id: '',
             user_pw: ''
         }
@@ -76,7 +77,6 @@ class LoginUserComponent extends Component {
         this.changeIdHandler = this.changeIdHandler.bind(this);
         this.changePwHandler = this.changePwHandler.bind(this);
     }
-
 
     changeIdHandler = (event) => {
         this.setState({user_id: event.target.value});
@@ -96,7 +96,7 @@ class LoginUserComponent extends Component {
 
         if (this.state.user_no === 'login') {
             UserService.loginUser(user).then(res => {
-                this.props.history.push('/Main');
+                this.props.history.push('/User');
             });
         } 
     }
@@ -104,6 +104,11 @@ class LoginUserComponent extends Component {
 
     // For update function add
     componentDidMount() {
+
+        UserService.login().then((res) => {
+            this.setState({ login: res.data });
+            console.log("get result => " + JSON.stringify(res.data));
+        });
         if (this.state.user_no === 'login') {
             return
         } else {
@@ -132,7 +137,6 @@ class LoginUserComponent extends Component {
                             value={this.state.user_pw} onChange={this.changePwHandler} />
 
                         <LoginButton onClick={this.loginUser}>로그인</LoginButton>
-                     <LoginButton onClick={UserService.login()}>로그인 결과</LoginButton>
                         <div>
                             <P1>
                                 아직 커벨리오의 회원이 아니신가요?<br />
