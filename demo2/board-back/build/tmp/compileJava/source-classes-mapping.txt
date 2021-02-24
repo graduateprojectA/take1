@@ -12,8 +12,6 @@ com/board/back/model/Student.java
  com.board.back.model.Student
 com/board/back/controller/BoardController.java
  com.board.back.controller.BoardController
-com/board/back/SpringConfig.java
- com.board.back.SpringConfig
 com/board/back/exception/ResourceNotFoundException.java
  com.board.back.exception.ResourceNotFoundException
 com/board/back/controller/UserController.java

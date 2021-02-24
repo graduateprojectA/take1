@@ -1,4 +1,3 @@
-//
 // import React, { Component } from 'react';
 // import {Link, Route} from "react-router-dom";
 // import UserService from '../service/UserService';
@@ -8,8 +7,6 @@
 // class CheckTimeComponent extends Component {
 //     constructor(props) {
 //         super(props);
-//
-//
 // //         this.changeTest1Handler = this.changeTest1Handler.bind(this);
 // //         this.changeTest2Handler = this.changeTest2Handler.bind(this);
 // //         this.createTest = this.createTest.bind(this);
@@ -24,8 +21,6 @@
 // //             this.setState({test1: 0});
 // //         }
 // //     }
-//
-//
 //         this.changeTest1Handler = this.changeTest1Handler.bind(this);
 //         this.changeTest2Handler = this.changeTest2Handler.bind(this);
 //         this.createTest = this.createTest.bind(this);
@@ -34,14 +29,12 @@
 //     console.log("test성공");
 //   }
 //   changeTest1Handler = (event) => {
-//
 //     if (this.test1 == 0) {
 //       this.setState({ test1: 1 });
 //     } else {
 //       this.setState({ test1: 0 });
 //     }
 //   }
-//
 //     changeTest2Handler = (event) => {
 //         if (this.test2==0){
 //             this.setState({test2: 1});
@@ -56,19 +49,16 @@
 //             test2: this.state.test2
 //         };
 //         console.log(JSON.stringify(test));
-//
 //         if (this.state.user_no === '_test') {
 //             UserService.timeUser(test).then(res => {
 //                 this.props.history.push('/');
 //             });
-//         }
+//         } 
 //     }
-//
 //     // For update function add
 //     componentDidMount() {
 //         if (this.state.user_no === '_test') {
-//             return
-//         }
+//         } 
 //     }
 //     render() {
 //         return (
@@ -116,6 +106,4 @@
 //         );
 //     }
 // }
-//
-//
 // // export default CheckTimeComponent;
