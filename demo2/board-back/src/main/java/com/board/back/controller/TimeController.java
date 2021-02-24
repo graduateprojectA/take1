@@ -1,4 +1,5 @@
 package com.board.back.controller;
+
 import com.board.back.model.User;
 import com.board.back.model.User_time;
 import com.board.back.service.TimeService;
@@ -21,6 +22,4 @@ public class TimeController {
         System.out.println("@PostMapping(\"/tableCheck\")");
         return timeService.excludeTime(user);
     }
-
 }
-

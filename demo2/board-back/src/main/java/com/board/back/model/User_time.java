@@ -1,4 +1,5 @@
 package com.board.back.model;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -17,8 +18,8 @@ import org.hibernate.annotations.DynamicUpdate;
 public class User_time {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    //인덱스
-    @Column(name ="time_id")
+    // 인덱스
+    @Column(name = "time_id")
     private Integer time_id;
 
     @Column(name = "user_no")
@@ -38,8 +39,6 @@ public class User_time {
 
     @Column(name = "time_fri")
     private Integer time_fri;
-
-
 
     public Integer getTime_id() {
         return time_id;
@@ -97,11 +96,11 @@ public class User_time {
         this.time_fri = no;
     }
 
-//    public User_time() {
-//        super();
-//    }
+    // public User_time() {
+    // super();
+    // }
     public User_time(Integer time_id, Integer user_no, Integer time_mon, Integer time_tue, Integer time_wed,
-                     Integer time_thr, Integer time_fri) {
+            Integer time_thr, Integer time_fri) {
         super();
         this.time_id = time_id;
         this.user_no = user_no;
@@ -114,7 +113,7 @@ public class User_time {
 
     @Override
     public String toString() {
-        return "User_time [time_id=" + time_id + " , user_no=" + user_no + ", mon=" + time_mon
-                + ", tue=" + time_tue + ", wed=" + time_wed + ", thr=" + time_thr + ", fri=" + time_fri + "]";
+        return "User_time [time_id=" + time_id + " , user_no=" + user_no + ", mon=" + time_mon + ", tue=" + time_tue
+                + ", wed=" + time_wed + ", thr=" + time_thr + ", fri=" + time_fri + "]";
     }
 }

@@ -1,3 +1,4 @@
+
 package com.board.back.service;
 
 import com.board.back.model.User;
@@ -21,23 +22,26 @@ public class LoginService {
     Boolean status = null;
     int no = 0;
 
-    public void setStatus(boolean a){
+    public void setStatus(boolean a) {
         this.status = a;
     }
-    public boolean getStatus(){
+
+    public boolean getStatus() {
         return this.status;
     }
-    public void setNo(int n){
+
+    public void setNo(int n) {
         this.no = n;
     }
-    public int getNo(){
+
+    public int getNo() {
         return this.no;
     }
 
-    // login (React에서 로그인 버튼을 눌렀을 때 넘어온 정보: 학번, pw  ==  User)
+    // login (React에서 로그인 버튼을 눌렀을 때 넘어온 정보: 학번, pw == User)
     public void postUser(User user) {
-//        String u = user.toString();
-        int user_id = user.getId();  //리액트로부터 받은 id
+        // String u = user.toString();
+        int user_id = user.getId(); // 리액트로부터 받은 id
         String user_pw = user.getPassword();
         List<User2> us = getAllUser();
 
@@ -54,15 +58,16 @@ public class LoginService {
 
                     break;
                 }
-            }
-            else {
+            } else {
                 checkUser(false);
                 fla = false;
                 setStatus(false);
             }
         }
-        if (fla==true)                     System.out.println("Available user");
-        else                 System.out.println("Denied user");
+        if (fla == true)
+            System.out.println("Available user");
+        else
+            System.out.println("Denied user");
     }
 
     public boolean checkUser(Boolean a) {
@@ -70,9 +75,7 @@ public class LoginService {
     }
 }
 
-//        System.out.println("User : "+u);
-//        System.out.println("DB: "+us);
-//        System.out.println("DB num_1: "+us.get(0).getId());
-//        System.out.println("User Id: "+user_id);
-
-
+// System.out.println("User : "+u);
+// System.out.println("DB: "+us);
+// System.out.println("DB num_1: "+us.get(0).getId());
+// System.out.println("User Id: "+user_id);
