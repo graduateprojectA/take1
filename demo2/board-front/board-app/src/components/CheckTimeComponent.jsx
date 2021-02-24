@@ -5,8 +5,6 @@ import "../css/style.css";
 import Logo from "../cservice/Logo";
 import My from "../cservice/My";
 class CheckTimeComponent extends Component {
-
-   
     constructor(props) {
         super(props);
 
@@ -21,18 +19,19 @@ class CheckTimeComponent extends Component {
         this.createTest = this.createTest.bind(this);
     }
     printTest = (event) => {
-        console.log("test성공");
+    console.log("test성공");
+  }
+  changeTest1Handler = (event) => {
+
+    if (this.test1 == 0) {
+      this.setState({ test1: 1 });
+    } else {
+      this.setState({ test1: 0 });
     }
-    changeTest1Handler = (event) => {
-        if (test1==0){
-            this.setState({test1: 1});
-        }else{
-            this.setState({test1: 0});
-        }
-    }
+  }
 
     changeTest2Handler = (event) => {
-        if (test2==0){
+        if (this.test2==0){
             this.setState({test2: 1});
         }else{
             this.setState({test2: 0});
@@ -47,7 +46,7 @@ class CheckTimeComponent extends Component {
         console.log(JSON.stringify(test));
 
         if (this.state.user_no === '_test') {
-            UserService.timeUser(user).then(res => {
+            UserService.timeUser(test).then(res => {
                 this.props.history.push('/');
             });
         } 
@@ -55,19 +54,9 @@ class CheckTimeComponent extends Component {
 
     // For update function add
     componentDidMount() {
-        if (this.state.user_no === '_create') {
+        if (this.state.user_no === '_test') {
             return
-        } else {
-            UserService.getOneUser(this.state.test_no).then( (res) => {
-                let test = res.data;
-                console.log(JSON.stringify(test));
-                
-                this.setState({
-                        test1: test.test1,
-                        test2: test.test2
-                    });
-            });
-        }
+        } 
     }
     render() {
         return (
@@ -88,16 +77,16 @@ class CheckTimeComponent extends Component {
                 </div>
                 <div className="TableBody">
                   <div className="TimeWrapDiv">
-                    <div className="TimeDiv">1교시</div><button className="TimeDiv" onClick={this.changeTest1Handler}>11</button><div className="TimeDiv">12</div><div className="TimeDiv">13</div><div className="TimeDiv">14</div><div className="TimeDiv">15</div>
+                    <div className="TimeDiv">1교시</div><button className="TimeDiv"  value={1} onChange={this.changeTest1Handler}>11</button><div className="TimeDiv">12</div><div className="TimeDiv">13</div><div className="TimeDiv">14</div><div className="TimeDiv">15</div>
                   </div>
                   <div className="TimeWrapDiv">
-                    <div className="TimeDiv">2교시</div><button className="TimeDiv" onClick={this.changeTest2Handler}>21</button><div className="TimeDiv">12</div><div className="TimeDiv">13</div><div className="TimeDiv">14</div><div className="TimeDiv">15</div>
+                    <div className="TimeDiv">2교시</div><button className="TimeDiv" onChange={this.changeTest2Handler}>21</button><div className="TimeDiv">12</div><div className="TimeDiv">13</div><div className="TimeDiv">14</div><div className="TimeDiv">15</div>
                   </div>
                   <div className="TimeWrapDiv">
-                    <div className="TimeDiv">3교시</div><div className="TimeDiv">11</div><div className="TimeDiv">12</div><div className="TimeDiv">13</div><div className="TimeDiv">14</div><div className="TimeDiv">15</div>
+                    <div className="TimeDiv">3교시</div><button className="TimeDiv" onClick={this.createTest}>31</button><div className="TimeDiv">12</div><div className="TimeDiv">13</div><div className="TimeDiv">14</div><div className="TimeDiv">15</div>
                   </div>
                   <div className="TimeWrapDiv">
-                    <div className="TimeDiv">4교시</div><div className="TimeDiv">11</div><div className="TimeDiv">12</div><div className="TimeDiv">13</div><div className="TimeDiv">14</div><div className="TimeDiv">15</div>
+                    <div className="TimeDiv">4교시</div><input type="checkbox">41</input><div className="TimeDiv">12</div><div className="TimeDiv">13</div><div className="TimeDiv">14</div><div className="TimeDiv">15</div>
                   </div>
                   <div className="TimeWrapDiv">
                     <div className="TimeDiv">5교시</div><div className="TimeDiv">11</div><div className="TimeDiv">12</div><div className="TimeDiv">13</div><div className="TimeDiv">14</div><div className="TimeDiv">15</div>

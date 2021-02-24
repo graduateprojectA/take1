@@ -14,7 +14,6 @@ import org.hibernate.annotations.DynamicUpdate;
 @Table(name = "User_time")
 @DynamicInsert
 @DynamicUpdate
-
 public class User_time {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -98,9 +97,9 @@ public class User_time {
         this.time_fri = no;
     }
 
-    public User_time() {
-        super();
-    }
+    //    public User_time() {
+//        super();
+//    }
     public User_time(Integer time_id, Integer user_no, Integer time_mon, Integer time_tue, Integer time_wed,
                      Integer time_thr, Integer time_fri) {
         super();
