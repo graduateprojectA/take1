@@ -1,4 +1,3 @@
-
 package com.board.back.service;
 
 import com.board.back.model.User;
@@ -75,4 +74,5 @@ public class LoginService {
 //        System.out.println("DB: "+us);
 //        System.out.println("DB num_1: "+us.get(0).getId());
 //        System.out.println("User Id: "+user_id);
+
 

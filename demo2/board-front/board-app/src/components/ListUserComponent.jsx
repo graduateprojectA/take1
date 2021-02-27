@@ -4,11 +4,9 @@ import Main from "../cservice/Main";
 class ListUserComponent extends Component {
     constructor(props) {
         super(props)
-
         this.state = {
             user_no: 2
         }
-
     }
 
     componentDidMount() {
@@ -19,9 +17,6 @@ class ListUserComponent extends Component {
     }
     render() {
         return (
-            // <div>
-            //     <button className="btn btn-success" onClick={UserService.login()}>Save</button>
-            // </div>
            <Main user_no = {this.state.user_no}></Main>
         );
     }
