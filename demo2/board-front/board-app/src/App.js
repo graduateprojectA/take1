@@ -16,6 +16,7 @@ import Login from "./cservice/Login";
 import CourseCheck from "./cservice/CourseCheck";
 import MyPage from "./cservice/MyPage";
 import ClasCheck from "./cservice/ClassCheck";
+import EventPractice from "./cservice/EventPractice";
 import CreateUserComponent from './components/CreateUserComponent';
 
 import ListUserComponent from './components/ListUserComponent';
@@ -33,6 +34,9 @@ function App() {
             <Switch>
               <Route path = "/"component={Intro} exact={true} />
               <Route path="/intro" component={Intro} exact={true} />
+
+              <Route path = "/EP" component = {EventPractice} exact={true} />
+
               {/* <Route path = "/board" component = {ListBoardComponent}></Route>
               <Route path = "/create-board/:no" component = {CreateBoardComponent}></Route>
               <Route path = "/read-board/:no" component = {ReadBoardComponent}></Route>

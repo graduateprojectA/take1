@@ -17,7 +17,7 @@ class ListUserComponent extends Component {
     }
     render() {
         return (
-            <Main user_no = {this.state.user_no}/>
+           <Main user_no = {this.state.user_no}></Main>
         );
     }
 }
