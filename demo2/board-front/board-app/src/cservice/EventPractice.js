@@ -4,63 +4,20 @@ import UserService from '../service/UserService';
 import "../css/style.css";
 import Logo from "../cservice/Logo";
 import My from "../cservice/My";
-class CheckTimeComponent extends Component {
-    constructor(props) {
-        super(props);
 
-        this.state = {
-            test_no: this.props.match.params.test_no,
-            test1: 0,
-            test2: 0
-        }
-
-        this.changeTest1Handler = this.changeTest1Handler.bind(this);
-        this.changeTest2Handler = this.changeTest2Handler.bind(this);
-        this.createTest = this.createTest.bind(this);
-    }
-    printTest = (event) => {
-    console.log("test성공");
-  }
-  changeTest1Handler = (event) => {
-
-    if (this.test1 == 0) {
-      this.setState({ test1: 1 });
-    } else {
-      this.setState({ test1: 0 });
-    }
-  }
-
-    changeTest2Handler = (event) => {
-        if (this.test2==0){
-            this.setState({test2: 1});
-        }else{
-            this.setState({test2: 0});
-        }
-    }
-    createTest = (event) => {
-        event.preventDefault();
-        let test = {
-            test1: this.state.test1,
-            test2: this.state.test2
-        };
-        console.log(JSON.stringify(test));
-
-        if (this.state.user_no === '_test') {
-            UserService.timeUser(test).then(res => {
-                this.props.history.push('/');
-            });
-        } 
-    }
-
-    // For update function add
-    componentDidMount() {
-        if (this.state.user_no === '_test') {
-            return
-        } 
-    }
+class EventPractice extends Component {
+    state = {
+      checked: false
+    };
+  
+    handleChange = (e) => {
+      const { target: { checked } } = e;
+      this.setState({ checked });
+    };
+  
     render() {
-        return (
-            <div className="TableCheckDiv">
+      return (
+        <div className="TableCheckDiv">
             <Logo />
             <My />
             <Link to="./classCheck">
@@ -86,7 +43,7 @@ class CheckTimeComponent extends Component {
                     <div className="TimeDiv">3교시</div><button className="TimeDiv" onClick={this.createTest}>31</button><div className="TimeDiv">12</div><div className="TimeDiv">13</div><div className="TimeDiv">14</div><div className="TimeDiv">15</div>
                   </div>
                   <div className="TimeWrapDiv">
-                    <div className="TimeDiv">4교시</div><div className="TimeDiv">11</div><div className="TimeDiv">12</div><div className="TimeDiv">13</div><div className="TimeDiv">14</div><div className="TimeDiv">15</div>
+                    <div className="TimeDiv">4교시</div><input type="checkbox" checked={this.state.checked} onChange={this.handleChange}/><div className="TimeDiv">12</div><div className="TimeDiv">13</div><div className="TimeDiv">14</div><div className="TimeDiv">15</div>
                   </div>
                   <div className="TimeWrapDiv">
                     <div className="TimeDiv">5교시</div><div className="TimeDiv">11</div><div className="TimeDiv">12</div><div className="TimeDiv">13</div><div className="TimeDiv">14</div><div className="TimeDiv">15</div>
@@ -100,9 +57,10 @@ class CheckTimeComponent extends Component {
                 </div>
               </div>
             </div>
-          </div>
-        );
+        </div>
+      );
     }
-}
+  }
 
-export default CheckTimeComponent;
+
+export default EventPractice;

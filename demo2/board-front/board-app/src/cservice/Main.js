@@ -35,13 +35,14 @@ const TableCreButton = styled.button`
     font-size:1.1em;
 `;
 
-const Main = () => {
+const Main = (props) => {
     return(
         <div>
         <MainDiv>
             <Logo/>
             <My/>
             <MainText/>
+            <div>aaa{props.user_no}</div>
             <Link to = "tableCheck">
                 <TableCreButton>시간표만들러가기</TableCreButton>
             </Link>
