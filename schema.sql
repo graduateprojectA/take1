@@ -50,11 +50,9 @@ foreign key(field_no) references Field(field_no) on update cascade on delete cas
 #인덱스, 강의인 알아서 봐!
 create table Class(
 class_no int auto_increment primary key,
-course_no int,
 class_name varchar(300),
 class_division int,
-class_time int,
-foreign key(course_no) references Course(course_no) on update cascade on delete cascade
+class_time int
 );
 
 #원하지 않는 시간대 선택해서 제외
