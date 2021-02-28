@@ -60,10 +60,10 @@ If the credits in the generated timetable, such as when the lecture times overla
 화면 명세서
 - [x] 홈
 - [x] 로그인
-- [ ] SESSION
+- [x] SESSION
 - [x] 회원가입
-- [ ] 마이페이지 
-- [ ] 여태 들은 수업 체크
+- [ ] 마이페이지(커리큘럼 )
+- [ ] 여태 들은 수업 체크 20
 - [x] 시간표 만들러가기 : 원하지 않는 시간대 입력 : 시간 제외 페이지
 - [ ] 분반 선택 : 과목 제외 페이지
 - [ ] 가중치값 설정
