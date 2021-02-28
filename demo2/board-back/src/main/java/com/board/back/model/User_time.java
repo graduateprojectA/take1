@@ -97,7 +97,7 @@ public class User_time {
         this.time_fri = no;
     }
 
-    //    public User_time() {
+//    public User_time() {
 //        super();
 //    }
     public User_time(Integer time_id, Integer user_no, Integer time_mon, Integer time_tue, Integer time_wed,

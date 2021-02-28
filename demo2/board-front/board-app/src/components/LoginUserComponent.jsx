@@ -69,6 +69,7 @@ class LoginUserComponent extends Component {
         super(props);
         this.state = {
             user_no: this.props.match.params.user_no,
+            real_no:2,
             user_id: '',
             user_pw: ''
         }
@@ -76,7 +77,6 @@ class LoginUserComponent extends Component {
         this.changeIdHandler = this.changeIdHandler.bind(this);
         this.changePwHandler = this.changePwHandler.bind(this);
     }
-
 
     changeIdHandler = (event) => {
         this.setState({user_id: event.target.value});
@@ -100,6 +100,7 @@ class LoginUserComponent extends Component {
                     pathname: './user',
                     state: {user_no: this.user_no}
                 });
+
             });
         } 
     }
@@ -107,6 +108,11 @@ class LoginUserComponent extends Component {
 
     // For update function add
     componentDidMount() {
+
+        UserService.login().then((res) => {
+            this.setState({ login: res.data });
+            console.log("get result => " + JSON.stringify(res.data));
+        });
         if (this.state.user_no === 'login') {
             return
         } else {
