@@ -1,3 +1,4 @@
+# graduate
 create table Majors(
 major_no int auto_increment,
 major_name char(100) not null,
