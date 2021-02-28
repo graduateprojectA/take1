@@ -24,19 +24,27 @@ public class UserController {
         this.userService = userService;
         this.loginService = loginService;
     }
-    // create board
 
     @PostMapping("/login")
     public void loginUser(@RequestBody User user) {
         System.out.println("@PostMapping(\"/login\")");
+        System.out.println(user.toString());
         loginService.postUser(user);
     }
 
     // GET용 User2
+<<<<<<< HEAD
     @GetMapping(value = "/login2")
     public int checkUser() {
         if (loginService.getStatus() == true || loginService.getStatus() == false)
             return loginService.getNo();
+=======
+    @GetMapping("/login2")
+    public int checkUser() {
+        if (loginService.getStatus() == true || loginService.getStatus() == false)
+            return loginService.getNo();
+
+>>>>>>> seoyeong
         return loginService.getNo();
     }
 
