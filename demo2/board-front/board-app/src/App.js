@@ -30,7 +30,7 @@ function App() {
             <Switch>
               <Route path = "/"component={Intro} exact={true} />
               <Route path="/intro" component={Intro} exact={true} />
-              <Route path = "/EP" component = {EventPractice} exact={true} />
+              <Route path = "/tableCheck" component = {EventPractice} exact={true} />
               <Route path = "/create-board/:no" component = {CreateBoardComponent}></Route>
               <Route path = "/read-board/:no" component = {ReadBoardComponent}></Route>
               <Route path = "/major/:no" component = {MajorComponent}></Route>
