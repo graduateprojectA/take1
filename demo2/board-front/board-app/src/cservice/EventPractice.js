@@ -13,8 +13,13 @@ class EventPractice extends Component {
     };
 }
 handleChange = (e) => {
-    const { target: { box2 } } = e;
-    this.setState({ box2 });
+    const box = e.target.name;
+    const checked = e.target.checked;
+    if (checked ) {
+        this.setState({ [box]: true });
+    }else{
+        this.setState({ [box]: false });
+    }
   };
 
 render() {
@@ -40,11 +45,11 @@ render() {
                 <div className="TableBody">
                   <div className="TimeWrapDiv">
                     <div className="TimeDiv">1교시</div>
-                    <input type="checkbox" className="TimeDiv" name="box1"onChange={this.handleChange}/>
-                    <input type="checkbox" className="TimeDiv" name="box1"onChange={this.handleChange}/>
-                    <input type="checkbox" className="TimeDiv" name="box1"onChange={this.handleChange}/>
-                    <input type="checkbox" className="TimeDiv" name="box1"onChange={this.handleChange}/>
-                    <input type="checkbox" className="TimeDiv" name="box1"onChange={this.handleChange}/>
+                    <input type="checkbox" className="TimeDiv" name="box1" onChange={this.handleChange}/>
+                    <input type="checkbox" className="TimeDiv" name="box1" onChange={this.handleChange}/>
+                    <input type="checkbox" className="TimeDiv" name="box1" onChange={this.handleChange}/>
+                    <input type="checkbox" className="TimeDiv" name="box1" onChange={this.handleChange}/>
+                    <input type="checkbox" className="TimeDiv" name="box1" onChange={this.handleChange}/>
                   </div>
                   <div className="TimeWrapDiv">
                     <div className="TimeDiv">2교시</div><button className="TimeDiv" name="box2" onChange={this.handleChange}>21</button><div className="TimeDiv">12</div><div className="TimeDiv">13</div><div className="TimeDiv">14</div><div className="TimeDiv">15</div>
@@ -53,7 +58,7 @@ render() {
                     <div className="TimeDiv">3교시</div><button className="TimeDiv" onClick={this.createTest}>31</button><div className="TimeDiv">12</div><div className="TimeDiv">13</div><div className="TimeDiv">14</div><div className="TimeDiv">15</div>
                   </div>
                   <div className="TimeWrapDiv">
-                    <div className="TimeDiv">4교시</div><button className="TimeDiv" onClick={console.log(this.state.box1)}>31</button><div className="TimeDiv">12</div><div className="TimeDiv">13</div><div className="TimeDiv">14</div><div className="TimeDiv">15</div>
+                    <div className="TimeDiv">4교시</div><div className="TimeDiv">12</div><div className="TimeDiv">13</div><div className="TimeDiv">14</div><div className="TimeDiv">15</div>
                   </div>
                   <div className="TimeWrapDiv">
                     <div className="TimeDiv">5교시</div><div className="TimeDiv">11</div><div className="TimeDiv">12</div><div className="TimeDiv">13</div><div className="TimeDiv">14</div><div className="TimeDiv">15</div>
