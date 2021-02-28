@@ -24,6 +24,9 @@ public class Course {
     @Column(name = "major_no")
     private Integer major_no;
 
+    @Column(name="student_id")
+    private Integer student_id;
+
     @Column(name = "field_no")
     private Integer field_no;
 
@@ -54,6 +57,7 @@ public class Course {
     public Integer getMajor_no() {
         return major_no;
     }
+    public Integer getStudent_id() {return student_id;}
     public Integer getField_no() {
         return field_no;
     }
@@ -69,12 +73,13 @@ public class Course {
     public Course() {
         super();
     }
-    public Course(Integer course_no, Integer major_no, Integer field_no, Integer course_id,
+    public Course(Integer course_no, Integer major_no, Integer student_id, Integer field_no, Integer course_id,
                   String course_name, Integer course_grade, Integer course_semester, Float course_hours,
                   Integer course_credit, Integer pre_course_id) {
         super();
         this.course_no = course_no;
         this.major_no = major_no;
+        this.student_id = student_id;
         this.field_no = field_no;
         this.course_id = course_id;
         this.course_name = course_name;
@@ -86,9 +91,10 @@ public class Course {
     }
     @Override
     public String toString() {
-        return "Course [course_no=" + course_no + ", major_no=" + major_no + ", field_no=" + field_no
-                + ", course_id=" + course_id + ", course_name=" + course_name + ", course_grade=" + course_grade
-                + ", course_semester=" + course_semester + ", course_hours=" + course_hours
-                + ", course_credit=" + course_credit + ", pre_course_id=" + pre_course_id + "]";
+        return "Course [course_no=" + course_no + ", major_no=" + major_no + ", student_id="+student_id
+                +", field_no=" + field_no + ", course_id=" + course_id + ", course_name=" + course_name
+                + ", course_grade=" + course_grade + ", course_semester=" + course_semester
+                + ", course_hours=" + course_hours + ", course_credit=" + course_credit
+                + ", pre_course_id=" + pre_course_id + "]";
     }
 }
