@@ -1,6 +1,5 @@
-# 우리학교 학과 정보 
 create table Majors(
-major_no int not null,
+major_no int auto_increment,
 major_name char(100) not null,
 primary key(major_no)
 );
@@ -29,11 +28,13 @@ major_no int,
 foreign key(major_no) references Majors(major_no) on update cascade on delete cascade
 );
 
+
 # 실제 전공계획안에 있는 강의명
 # 인덱스,학번,전공,영역,학수번호,강의명, 권장학년,권장학기,시간,학점,선수과목학수번호
 create table Course(
 course_no int auto_increment primary key,
 major_no int not null,
+student_id int not null,
 field_no int not null,
 course_id int, #학수번호
 course_name varchar(50),
@@ -51,15 +52,16 @@ foreign key(field_no) references Field(field_no) on update cascade on delete cas
 create table Class(
 class_no int auto_increment primary key,
 class_name varchar(300),
-class_division int,
-class_time int
+course_id int,    #학수번호
+professor_name varchar(100),
+class_division int,    # 분반
+class_time int    #해당학기의 시간
 );
 
-#원하지 않는 시간대 선택해서 제외
 create table User_time(
 time_id int auto_increment primary key,
 user_no int not null,
-time_mon int, #1011111 (1은 가능한 시간대, 0은 불가능한 시간대)
+time_mon int, #10111111
 time_tue int,
 time_wed int,
 time_thr int,
@@ -67,7 +69,6 @@ time_fri int,
 foreign key(user_no) references User(user_no) on update cascade on delete cascade
 );
 
-#사용자가 여태 들은 수업 선택
 create table User_class(
 user_class_id int auto_increment primary key,
 user_no int not null,
@@ -78,13 +79,12 @@ foreign key(user_no) references User(user_no) on update cascade on delete cascad
 foreign key(class_no) references Class(class_no) on update cascade on delete cascade
 );
 
-#최종 시간표 
 create table User_timetable(
 user_timetable_no int auto_increment primary key,
 timetable_number int not null,
-class_no int not null, #사용자 분반
+class_no int not null,
 user_no int not null,
-credit int not null, # 사용자가 입력한 이번에 들을 학점 수
+credit int not null, # 사입듣학
 foreign key(class_no) references Class(class_no) on update cascade on delete cascade,
 foreign key(user_no) references User(user_no) on update cascade on delete cascade
 );
