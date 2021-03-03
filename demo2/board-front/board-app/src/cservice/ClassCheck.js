@@ -72,7 +72,7 @@ class ClassCheck extends Component {
         super(props);
         this.state = {
             user_no:2,
-            box1: "f",box2: 1,box3: 1,
+            box1: "f",box2: true,box3: 1,
             fruites: [
                 {id: 1, value: "banana", isChecked: false},
                 {id: 2, value: "apple", isChecked: false},
@@ -84,24 +84,21 @@ class ClassCheck extends Component {
     }
     handleCheckChieldElement = (event) => {
         let fruites = this.state.fruites
-        let f= this.state.f
+        let name= this.state.box1
+        let course_next=this.state.box2
         fruites.forEach(fruite => {
            if (fruite.value === event.target.value){
                
               fruite.isChecked =  event.target.checked
-              f=fruite.value
-              console.log(f)
+              if(fruite.isChecked){
+                name=fruite.value
+                console.log(name)
+              }
+              course_next=fruite.isChecked
+              console.log(course_next)
            }
         })
         this.setState({fruites: fruites})
-        let box1 = this.state.box1
-        const checked = event.target.checked;
-        if (checked ) {
-            this.setState({ [box1]: 0 });
-        }else{
-            this.setState({ [box1]: 1 });
-        }
-        
       }
     componentDidMount() {
         UserService.courseUser().then((res) => {
