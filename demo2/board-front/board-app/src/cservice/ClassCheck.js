@@ -2,14 +2,14 @@
 TableCheck
 */
 
-import React from "react";
-import {Link, Route} from "react-router-dom";
 import styled from "styled-components";
-import TableCheckLine from "./TableCheckLine";
+import React, { Component } from 'react';
+import UserService from '../service/UserService';
+import "../css/style.css";
 import Logo from "./Logo";
 import My from "./My";
 import backgroundImage2 from "../components/image/backgroundImage2.png";
-
+import  CheckBox  from './CheckBox';
 const ClassCheckDiv = styled.div`
     position: absolute;
     top: 0;
@@ -67,22 +67,65 @@ const PreA = styled.a`
     }
 `;
 
-const ClassCheck = () => {
-    return(
-        <ClassCheckDiv>
-            <Logo/>
-            <My/>
-            <ClassCheckWrapWrapDiv>
-                <ClassCheckP>제외할 수업을 선택해주세요.</ClassCheckP>
-            </ClassCheckWrapWrapDiv>
-            <Link to = "./tableCheck">
-                <PreA>&#10094;</PreA> 
-            </Link>
-            <Link to = "./ClassCheck">
-                <NextA>&#10095;</NextA>
-            </Link>
-        </ClassCheckDiv>    
-    );
-};
+class ClassCheck extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            user_no:2,
+            box1: 1,box2: 1,box3: 1,
+            fruite: [
+                {id: 1, value: "banana", isChecked: false},
+                {id: 2, value: "apple", isChecked: false},
+                {id: 3, value: "mango", isChecked: false},
+                {id: 4, value: "grap", isChecked: false}
+              ],
+            fruites: [
+                {user_no: 1, class_no: 1, class_pre:false, class_next:false},
+                {user_no: 2, class_no: 1, class_pre:false, class_next:false},
+                {user_no: 3, class_no: 1, class_pre:false, class_next:false},
+                {user_no: 4, class_no: 1, class_pre:false,  class_next:false}
+            ],
+            class:[]
+        };
+    }
+    handleCheckChieldElement = (event) => {
+        let fruites = this.state.fruites
+        fruites.forEach(fruite => {
+           if (fruite.class_no === event.target.class_no)
+              fruite.class_next =  event.target.checked
+        })
+        this.setState({fruites: fruites})
+      }
+    componentDidMount() {
+        UserService.courseUser().then((res) => {
+            this.setState({ class: res.data});
+            console.log("get result => " + JSON.stringify(res.data));
+        });
+        UserService.login().then((res) => {
+            this.setState({ user_no: res.data });
+            console.log("get result => " + JSON.stringify(res.data));
+        });
+    }
+    render() {
+        return (
+            <div>
+                <ClassCheckDiv>
+                    <Logo />
+                    <My />
+                    <ClassCheckWrapWrapDiv>
+                        <ClassCheckP>제외할 수업을 선택해주세요.</ClassCheckP>
+                        <ul>
+                            {
+                                this.state.class.map((c) => {
+                                    return (<CheckBox handleCheckChieldElement={this.handleCheckChieldElement}  {...c} />)
+                                })
+                            }
+                        </ul>
+                    </ClassCheckWrapWrapDiv>
+                </ClassCheckDiv>
+            </div>
+        );
+    }
+}
 
 export default ClassCheck;

@@ -12,6 +12,9 @@ class UserService {
     login() {
         return axios.get("http://localhost:8080/api/login2");
     }
+    courseUser() {
+        return axios.get("http://localhost:8080/api/course");
+    }
 }
 
 export default new UserService();

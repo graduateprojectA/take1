@@ -100,10 +100,7 @@ class LoginUserComponent extends Component {
                     pathname: './user',
                     state: {user_no: this.user_no}
                 });
-<<<<<<< HEAD
 
-=======
->>>>>>> seoyeong
             });
         } 
     }
