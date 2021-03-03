@@ -1,14 +1,12 @@
 import './App.css';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import HeaderComponent from './components/HeaderComponent';
-import FooterComponent from './components/FooterComponent';
-// import ListBoardComponent from './components/ListBoardComponent';
-// import CreateBoardComponent from './components/CreateBoardComponent';
-// import ReadBoardComponent from './components/ReadBoardComponent';
-// import MajorComponent from './components/majors/MajorComponent';
-// import TimetableComponent from './components/TimetableComponent';
-// import ListUserComponent from './components/ListUserComponent';
-// import ReadUserComponent from './components/ReadUserComponent';
+ import CreateBoardComponent from './components/CreateBoardComponent';
+ import ReadBoardComponent from './components/ReadBoardComponent';
+ import MajorComponent from './components/majors/MajorComponent';
+ import TimetableComponent from './components/TimetableComponent';
+ import ListUserComponent from './components/ListUserComponent';
+ import ReadUserComponent from './components/ReadUserComponent';
 import Intro from "./cservice/Intro";
 import Main from "./cservice/Main";
 import Join from "./cservice/Join";
@@ -18,10 +16,7 @@ import MyPage from "./cservice/MyPage";
 import ClasCheck from "./cservice/ClassCheck";
 import EventPractice from "./cservice/EventPractice";
 import CreateUserComponent from './components/CreateUserComponent';
-
-import ListUserComponent from './components/ListUserComponent';
-import ReadUserComponent from './components/ReadUserComponent';
-import LoginUserComponent from './components/LoginUserComponent';
+import LoginUserComponent from "./components/LoginUserComponent";
 import CheckTimeComponent from './components/CheckTimeComponent';
 
 
@@ -41,10 +36,8 @@ function App() {
               <Route path = "/timetable" component = {TimetableComponent}></Route>
               
               <Route path = "/read-user/:user_no" component = {ReadUserComponent}></Route>
-              */}
               <Route path = "/user" component = {ListUserComponent}></Route>
               <Route path="/main" component={Main} exact={true} />
-              <Route path = "/user" component = {ListUserComponent}></Route>
               <Route path="/join" component={Join} exact={true} />
               <Route path="/tableCheck/:user_no" component={CheckTimeComponent}></Route>
               <Route path="/courseCheck" component={CourseCheck} exact={true} />

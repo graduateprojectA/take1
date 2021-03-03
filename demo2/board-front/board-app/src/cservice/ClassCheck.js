@@ -2,14 +2,14 @@
 TableCheck
 */
 
-import React from "react";
-import {Link, Route} from "react-router-dom";
 import styled from "styled-components";
-import TableCheckLine from "./TableCheckLine";
+import React, { Component } from 'react';
+import UserService from '../service/UserService';
+import "../css/style.css";
 import Logo from "./Logo";
 import My from "./My";
 import backgroundImage2 from "../components/image/backgroundImage2.png";
-
+import  CheckBox  from './CheckBox';
 const ClassCheckDiv = styled.div`
     position: absolute;
     top: 0;
@@ -67,22 +67,74 @@ const PreA = styled.a`
     }
 `;
 
-const ClassCheck = () => {
-    return(
-        <ClassCheckDiv>
-            <Logo/>
-            <My/>
-            <ClassCheckWrapWrapDiv>
-                <ClassCheckP>제외할 수업을 선택해주세요.</ClassCheckP>
-            </ClassCheckWrapWrapDiv>
-            <Link to = "./tableCheck">
-                <PreA>&#10094;</PreA> 
-            </Link>
-            <Link to = "./ClassCheck">
-                <NextA>&#10095;</NextA>
-            </Link>
-        </ClassCheckDiv>    
-    );
-};
+class ClassCheck extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            user_no:2,
+            box1:"f",
+            fruites: [
+                {id: 1, value: "banana", isChecked: false},
+                {id: 2, value: "apple", isChecked: false},
+                {id: 3, value: "mango", isChecked: false},
+                {id: 4, value: "grap", isChecked: false}
+              ],
+            user_class: [
+                {user_no : 1, class_no: "기독교와세계", class_pre: false,class_next:false},
+                {user_no : 1, class_no: "공존과협력의유토피아", class_pre: false,class_next:false},
+                {user_no : 1, class_no: "관계의미학:사랑과윤리", class_pre: false,class_next:false},
+                {user_no : 1, class_no: "나눔리더십", class_pre: false,class_next:false},
+              ],
+            class:[]
+        };
+    }
+    handleCheckChieldElement = (event) => {
+        let user_class = this.state.user_class
+        user_class.forEach(u => {
+            if (u.class_no == event.target.value){
+                if (u.class_next) {
+                    u.class_next=false
+                }else{
+                    u.class_next=true
+                }
+                u.class_no=event.target.value
+                this.setState({ user_class: user_class })
+            }
+         })
+        
+      }
+    componentDidMount() {
+        UserService.courseUser().then((res) => {
+            this.setState({ class: res.data});
+            console.log("get result => " + JSON.stringify(res.data));
+        });
+        UserService.login().then((res) => {
+            this.setState({ user_no: res.data });
+            console.log("get result => " + JSON.stringify(res.data));
+        });
+    }
+    render() {
+        return (
+            <div>
+                <ClassCheckDiv>
+                    <Logo />
+                    <My />
+                    <ClassCheckWrapWrapDiv>
+                        <ClassCheckP>제외할 수업을 선택해주세요.</ClassCheckP>
+                        <div className="ClassDiv">
+                            {
+                                this.state.class.map((c) => {
+                                    return (<CheckBox handleCheckChieldElement={this.handleCheckChieldElement}  {...c}/>)
+                                })
+                                
+                            }
+                        </div>
+                        <button onClick={() => console.log(this.state.user_class)} />
+                    </ClassCheckWrapWrapDiv>
+                </ClassCheckDiv>
+            </div>
+        );
+    }
+}
 
 export default ClassCheck;
