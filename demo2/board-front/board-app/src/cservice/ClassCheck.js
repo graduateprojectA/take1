@@ -72,29 +72,36 @@ class ClassCheck extends Component {
         super(props);
         this.state = {
             user_no:2,
-            box1: 1,box2: 1,box3: 1,
-            fruite: [
+            box1: "f",box2: 1,box3: 1,
+            fruites: [
                 {id: 1, value: "banana", isChecked: false},
                 {id: 2, value: "apple", isChecked: false},
                 {id: 3, value: "mango", isChecked: false},
                 {id: 4, value: "grap", isChecked: false}
               ],
-            fruites: [
-                {user_no: 1, class_no: 1, class_pre:false, class_next:false},
-                {user_no: 2, class_no: 1, class_pre:false, class_next:false},
-                {user_no: 3, class_no: 1, class_pre:false, class_next:false},
-                {user_no: 4, class_no: 1, class_pre:false,  class_next:false}
-            ],
             class:[]
         };
     }
     handleCheckChieldElement = (event) => {
         let fruites = this.state.fruites
+        let f= this.state.f
         fruites.forEach(fruite => {
-           if (fruite.class_no === event.target.class_no)
-              fruite.class_next =  event.target.checked
+           if (fruite.value === event.target.value){
+               
+              fruite.isChecked =  event.target.checked
+              f=fruite.value
+              console.log(f)
+           }
         })
         this.setState({fruites: fruites})
+        let box1 = this.state.box1
+        const checked = event.target.checked;
+        if (checked ) {
+            this.setState({ [box1]: 0 });
+        }else{
+            this.setState({ [box1]: 1 });
+        }
+        
       }
     componentDidMount() {
         UserService.courseUser().then((res) => {
@@ -114,11 +121,19 @@ class ClassCheck extends Component {
                     <My />
                     <ClassCheckWrapWrapDiv>
                         <ClassCheckP>제외할 수업을 선택해주세요.</ClassCheckP>
-                        <ul>
+                        <div className="ClassDiv">
                             {
                                 this.state.class.map((c) => {
                                     return (<CheckBox handleCheckChieldElement={this.handleCheckChieldElement}  {...c} />)
                                 })
+                                
+                            }
+                        </div>
+                        <ul>
+                            {
+                                this.state.fruites.map((f) => {
+                                    return (<CheckBox handleCheckChieldElement={this.handleCheckChieldElement}  {...f} />)
+                                  })
                             }
                         </ul>
                     </ClassCheckWrapWrapDiv>
