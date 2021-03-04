@@ -33,7 +33,6 @@ public class UserController {
     }
 
     // GET용 User2
-
     @GetMapping("/login2")
     public int checkUser() {
         if (loginService.getStatus() == true || loginService.getStatus() == false)
