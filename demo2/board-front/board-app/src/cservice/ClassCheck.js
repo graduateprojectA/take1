@@ -10,8 +10,6 @@ import Logo from "./Logo";
 import My from "./My";
 import backgroundImage2 from "../components/image/backgroundImage2.png";
 import  CheckBox  from './CheckBox';
-import PhoneForm from './PhoneForm';
-import PhoneInfoList from './PhoneInfoList';
 const ClassCheckDiv = styled.div`
     position: absolute;
     top: 0;
