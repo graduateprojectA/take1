@@ -4,12 +4,6 @@ import com.board.back.model.User_time;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.board.back.repository.TimeRepository;
-<<<<<<< HEAD
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Service;
-=======
->>>>>>> seoyeong
 
 @Service
 public class TimeService {

@@ -1,3 +1,4 @@
+
 package com.board.back.service;
 import com.board.back.model.Course;
 import com.board.back.model.User;
@@ -50,17 +51,16 @@ public class CourseService {
         setUser_no(no);
         List<User2> us = loginRepository.findAll(); //전체 출력
         Optional <User2> a = loginRepository.findById(no); //해당 user_no에 해당하는 정보만 출력
-        System.out.println(us); 
+        System.out.println(us);
         System.out.println(a);
 
         int full_id = a.get().getId();
         int first_id = full_id / 1000000;
-        int second_id = full_id % 1000000;
+        int second_id = full_id % 1000000 / 100000 ;
 
         setUser_id(first_id*10+second_id);
         setUser_grade(a.get().getGrade());
         setUser_major(a.get().getMajor());
     }
 
-    }
-
+}
