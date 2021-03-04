@@ -35,6 +35,8 @@ foreign key(major_no) references Majors(major_no) on update cascade on delete ca
 create table Field(
 field_no int auto_increment primary key,
 check_field_no int,
+major_no int not null,
+student_id int not null,	#학번 18, 19, 20, 21
 field_name varchar(30),
 field_number int, #영역 개수
 field_credit int,
@@ -70,8 +72,6 @@ class_division int, 	# 분반
 class_time int 	#해당학기의 시간
 );
 
-# 커리큘럼 선택 시 사용
-# 융복합교양 전체가 충족 되었는지, 융복합교양 분야 5 중 3 이상이 만족 되었는지
 create table User_check_field(
 user_check_field_no int auto_increment primary key,
 user_no int not null,
@@ -81,7 +81,6 @@ foreign key(user_no) references User(user_no) on update cascade on delete cascad
 foreign key(check_field_no) references Check_field(check_field_no) on update cascade on delete cascade
 );
 
-# 융복합교양(표현과예술)이 충족 되었는지, 융복합교양(표현과예술)에서 3학점 1과목 이상을 들었는지
 create table User_field(
 user_field_no int auto_increment primary key,
 user_no int no null,
@@ -105,7 +104,6 @@ foreign key(user_no) references User(user_no) on update cascade on delete cascad
 foreign key(course_no) references Course(course_no) on update cascade on delete cascade
 );
 
-# 시간표 선택 시 사용
 # 이번 학기 열리는 강의들 중 사용자에게 해당되는 강의
 create table User_class(
 user_class_no int auto_increment primary key,
@@ -139,9 +137,3 @@ credit int not null, # 사입듣학
 foreign key(class_no) references Class(class_no) on update cascade on delete cascade,
 foreign key(user_no) references User(user_no) on update cascade on delete cascade
 );
-
-
-
-
-
-
