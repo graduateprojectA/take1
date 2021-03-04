@@ -1,10 +1,8 @@
 package com.board.back.service;
-import com.board.back.model.Course;
-import com.board.back.model.User;
-import com.board.back.model.User2;
-import com.board.back.model.User_class;
+import com.board.back.model.*;
 import com.board.back.repository.LoginRepository;
 import com.board.back.repository.CourseRepository;
+import com.board.back.repository.UserCourseRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.List;
@@ -16,6 +14,8 @@ public class CourseService {
     private CourseRepository courseRepository;
     @Autowired
     private LoginRepository loginRepository;
+    @Autowired
+    private UserCourseRepository UserCourseRepository;
 
     int user_no = 0;
     int user_id = 0;
@@ -45,7 +45,6 @@ public class CourseService {
     }
 
 
-
     public void getUser(Integer no) {
         setUser_no(no);
         List<User2> us = loginRepository.findAll(); //전체 출력
@@ -55,12 +54,18 @@ public class CourseService {
 
         int full_id = a.get().getId();
         int first_id = full_id / 1000000;
-        int second_id = full_id % 1000000;
+        int second_id = full_id % 1000000 / 100000;
 
-        setUser_id(first_id*10+second_id);
-        setUser_grade(a.get().getGrade());
-        setUser_major(a.get().getMajor());
+        setUser_id(first_id*10+second_id); //학번
+        setUser_grade(a.get().getGrade()); //학년
+        setUser_major(a.get().getMajor()); //전공(숫자)
     }
+
+//    public void createCourse(List<User_course> uco, Integer size){
+//        for(int i=0; i<size; i++){
+//            UserCourseRepository.save(uco.get(i));
+//        }
+//    }
 
     }
 

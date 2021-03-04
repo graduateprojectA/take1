@@ -18,13 +18,13 @@ import org.hibernate.annotations.DynamicUpdate;
 
 //create table Field(
 //        field_no int auto_increment primary key,
-//        student_id int not null,   #학번 18, 19, 20, 21
+//        check_field_no int,
 //        field_name varchar(30),
 //        field_number int, #영역 개수
 //        field_credit int,
-//        major_no int,
-//        foreign key(major_no) references Majors(major_no) on update cascade on delete cascade
+//        foreign key(check_field_no) references Check_field(check_field_no) on update cascade on delete cascade
 //        );
+
 
 public class Field {
     @Id
@@ -49,9 +49,6 @@ public class Field {
     @Column(name = "field_credit")
     private Integer field_credit;
 
-    @Column(name ="major_no")
-    private Integer major_no;
-
     public Integer getField_no() {
         return field_no;
     }
@@ -70,28 +67,23 @@ public class Field {
         return field_credit;
     }
 
-    public Integer getMajor_no() {
-        return major_no;
-    }
 
     public Field() {
         super();
     }
     public Field(Integer field_no, Integer student_id, String field_name, Integer field_number,
-                 Integer field_credit, Integer major_no) {
+                 Integer field_credit) {
         super();
         this.field_no = field_no;
         this.student_id = student_id;
         this.field_name = field_name;
         this.field_number = field_number;
         this.field_credit = field_credit;
-        this.major_no = major_no;
     }
 
     @Override
     public String toString() {
         return "Field [field_no=" + field_no + ", student_id=" + student_id + ", field_name=" + field_name
-                + ", field_number=" + field_number + ", field_credit=" + field_credit + ", major_no="
-                + major_no + "]";
+                + ", field_number=" + field_number + ", field_credit=" + field_credit + "]";
     }
 }

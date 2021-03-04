@@ -1,23 +1,14 @@
 package com.board.back.controller;
-<<<<<<< HEAD
-
 import com.board.back.model.Course;
-=======
-import com.board.back.model.Course;
-import com.board.back.model.User;
-import com.board.back.model.User2;
-import com.board.back.model.User_class;
+import com.board.back.model.User_course;
 import com.board.back.repository.CourseRepository;
->>>>>>> seoyeong
+import com.board.back.repository.UserCourseRepository;
 import com.board.back.service.CourseService;
+import com.board.back.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
-<<<<<<< HEAD
-=======
 import java.util.List;
 
->>>>>>> seoyeong
 @CrossOrigin(origins = "http://localhost:3000")
 @RestController
 @RequestMapping("/api")
@@ -26,6 +17,9 @@ public class CourseController {
 
     @Autowired
     private CourseRepository courseRepository;
+
+    @Autowired
+    private UserCourseRepository UserCourseRepository;
 
     @Autowired
     public CourseController(CourseService courseService) {
@@ -39,14 +33,12 @@ public class CourseController {
     }
 
     @GetMapping("/course")
-    public List<Course> returnCourse(){
+    public List<User_course> returnCourse(){
         if(courseService.getUser_no() != 0) {
-            int id = courseService.getUser_id();
-            int major = courseService.getUser_major();
+            int no = courseService.getUser_no();
             //List<Course> a = courseRepository.findAll();
-            System.out.println("SUCCESS");
             //System.out.println(courseRepository.findByIdAndMajor(id,major));
-            return courseRepository.findByIdAndMajor(id,major);
+            return UserCourseRepository.findByUser(no);
         }
         else {
             System.out.println("FAIL");
@@ -55,10 +47,10 @@ public class CourseController {
     }
 
 //    @PostMapping("/courseCheck")
-//    public Course createCourse(@RequestBody Course course) {
+//    public void createCourse(@RequestBody List<User_course> uco) {
 //        System.out.println("@PostMapping(\"/course\")");
-//        System.out.println(course.toString());
-//        return courseService.createCourse(course);
+//        System.out.println(uco.toString());
+//        courseService.createCourse(uco, uco.size());
 //    }
 }
 

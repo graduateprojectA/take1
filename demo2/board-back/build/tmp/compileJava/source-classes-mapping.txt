@@ -1,10 +1,19 @@
 com/board/back/BoardBackApplication.java
  com.board.back.BoardBackApplication
+<<<<<<< HEAD
+com/board/back/model/User_check_field.java
+ com.board.back.model.User_check_field
+com/board/back/service/TimeService.java
+ com.board.back.service.TimeService
+com/board/back/repository/TimeRepository.java
+ com.board.back.repository.TimeRepository
+=======
 com/board/back/util/ValidationUtil.java
  com.board.back.util.ValidationUtil
  com.board.back.util.ValidationUtil$ValidationUtilHolder
 com/board/back/controller/CourseController.java
  com.board.back.controller.CourseController
+>>>>>>> main
 com/board/back/service/LoginService.java
  com.board.back.service.LoginService
 com/board/back/model/User_timetable.java
@@ -13,15 +22,16 @@ com/board/back/model/Student.java
  com.board.back.model.Student
 com/board/back/controller/BoardController.java
  com.board.back.controller.BoardController
+com/board/back/model/Check_field.java
+ com.board.back.model.Check_field
 com/board/back/exception/ResourceNotFoundException.java
  com.board.back.exception.ResourceNotFoundException
 com/board/back/model/Class.java
  com.board.back.model.Class
 com/board/back/model/User2.java
  com.board.back.model.User2
-com/board/back/util/ValidationUtil.java
- com.board.back.util.ValidationUtil
- com.board.back.util.ValidationUtil$ValidationUtilHolder
+com/board/back/model/User_field.java
+ com.board.back.model.User_field
 com/board/back/util/EncryptUtil.java
  com.board.back.util.EncryptUtil
  com.board.back.util.EncryptUtil$1
@@ -38,6 +48,9 @@ com/board/back/model/Board.java
  com.board.back.model.Board
 com/board/back/model/Majors.java
  com.board.back.model.Majors
+com/board/back/util/ValidationUtil.java
+ com.board.back.util.ValidationUtil
+ com.board.back.util.ValidationUtil$ValidationUtilHolder
 com/board/back/model/User.java
  com.board.back.model.User
 com/board/back/exception/SystemMaintenanceException.java
@@ -46,6 +59,8 @@ com/board/back/model/User_class.java
  com.board.back.model.User_class
 com/board/back/util/PagingUtil.java
  com.board.back.util.PagingUtil
+com/board/back/repository/CourseRepository.java
+ com.board.back.repository.CourseRepository
 com/board/back/model/Field.java
  com.board.back.model.Field
 com/board/back/repository/LoginRepository.java
@@ -56,6 +71,12 @@ com/board/back/exception/ValidationCheckException.java
  com.board.back.exception.ValidationCheckException
 com/board/back/repository/UserRepository.java
  com.board.back.repository.UserRepository
+<<<<<<< HEAD
+com/board/back/model/User_course.java
+ com.board.back.model.User_course
+com/board/back/controller/UserController.java
+ com.board.back.controller.UserController
+=======
 com/board/back/service/UserService.java
  com.board.back.service.UserService
 <<<<<<< HEAD
@@ -70,10 +91,18 @@ com/board/back/controller/UserController.java
 =======
 com/board/back/model/Class.java
  com.board.back.model.Class
+>>>>>>> main
 com/board/back/service/CourseService.java
  com.board.back.service.CourseService
+com/board/back/repository/UserCourseRepository.java
+ com.board.back.repository.UserCourseRepository
+com/board/back/service/UserService.java
+ com.board.back.service.UserService
 com/board/back/controller/CourseController.java
  com.board.back.controller.CourseController
+<<<<<<< HEAD
+=======
 com/board/back/repository/CourseRepository.java
  com.board.back.repository.CourseRepository
 >>>>>>> seoyeong
+>>>>>>> main
