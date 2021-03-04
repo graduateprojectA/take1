@@ -71,16 +71,7 @@ public class LoginService {
     }
 }
 
-<<<<<<< HEAD
-//        System.out.println("User : "+u);
-//        System.out.println("DB: "+us);
-//        System.out.println("DB num_1: "+us.get(0).getId());
-//        System.out.println("User Id: "+user_id);
-
-
-=======
 // System.out.println("User : "+u);
 // System.out.println("DB: "+us);
 // System.out.println("DB num_1: "+us.get(0).getId());
 // System.out.println("User Id: "+user_id);
->>>>>>> seoyeong
