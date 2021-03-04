@@ -1,10 +1,8 @@
 package com.board.back.service;
-import com.board.back.model.Course;
-import com.board.back.model.User;
-import com.board.back.model.User2;
-import com.board.back.model.User_class;
+import com.board.back.model.*;
 import com.board.back.repository.LoginRepository;
 import com.board.back.repository.CourseRepository;
+import com.board.back.repository.UserCourseRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.List;
@@ -16,6 +14,8 @@ public class CourseService {
     private CourseRepository courseRepository;
     @Autowired
     private LoginRepository loginRepository;
+    @Autowired
+    private UserCourseRepository UserCourseRepository;
 
     int user_no = 0;
     int user_id = 0;
@@ -45,7 +45,6 @@ public class CourseService {
     }
 
 
-
     public void getUser(Integer no) {
         setUser_no(no);
         List<User2> us = loginRepository.findAll(); //전체 출력
@@ -61,6 +60,12 @@ public class CourseService {
         setUser_grade(a.get().getGrade());
         setUser_major(a.get().getMajor());
     }
+
+//    public void createCourse(List<User_course> uco, Integer size){
+//        for(int i=0; i<size; i++){
+//            UserCourseRepository.save(uco.get(i));
+//        }
+//    }
 
     }
 
