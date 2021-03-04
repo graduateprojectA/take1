@@ -83,5 +83,3 @@ If the credits in the generated timetable, such as when the lecture times overla
 <br><br>
 장진희(Jinhui Chang) : https://www.notion.so/b20405ba0e8f43f2869ba2d7d0b48195<br>
 https://blog.naver.com/bettyjang
-<br><br>
-정예림(Yelim Jung) : https://m.blog.naver.com/118dg?suggestAddBuddy=true
