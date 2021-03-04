@@ -1,12 +1,35 @@
 import React, { Component } from 'react';
 
 class PhoneForm extends Component {
+  constructor(props) {
+    super(props);
     state = {
       user_no: '',
       course_no: '',
       field_no: '',
       course_done: '',
     }
+    this.state = {
+        user_no:2,
+        id:0,
+        box1:"f",
+        fruites: [
+            {id: 1, value: "banana", isChecked: false},
+            {id: 2, value: "apple", isChecked: false},
+            {id: 3, value: "mango", isChecked: false},
+            {id: 4, value: "grap", isChecked: false}
+          ],
+        user_class: [
+            {user_no : 1, class_no: "기독교와세계", class_pre: false,class_next:false},
+            {user_no : 1, class_no: "공존과협력의유토피아", class_pre: false,class_next:false},
+            {user_no : 1, class_no: "관계의미학:사랑과윤리", class_pre: false,class_next:false},
+            {user_no : 1, class_no: "나눔리더십", class_pre: false,class_next:false},
+        ],
+        information: [],
+        class: []
+    };
+}
+    
     handleChange = (e) => {
       this.setState({
         [e.target.name]: e.target.value

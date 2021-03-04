@@ -146,6 +146,7 @@ class ClassCheck extends Component {
                             <PhoneInfoList data={this.state.information} />
                         </div>
                         <button onClick={() => console.log(this.state.information)} />
+                        <button onClick={() => UserService.SendCourseUser(information)} />
                     </ClassCheckWrapWrapDiv>
                 </ClassCheckDiv>
             </div>
