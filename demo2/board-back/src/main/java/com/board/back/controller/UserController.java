@@ -41,7 +41,6 @@ public class UserController {
         userService.createUser(user);
     }
 
-<<<<<<< HEAD
     /*
      * @PostMapping("/test") public void createTest(@RequestBody String testLine) {
      * UserInput.insert_query(testLine); }
@@ -52,7 +51,5 @@ public class UserController {
      * @PathVariable Integer user_no) { return userService.getUser(user_no); }
      */
     // get
-=======
->>>>>>> jpaspring
 
 }

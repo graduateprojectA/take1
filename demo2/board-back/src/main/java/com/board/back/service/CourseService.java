@@ -55,26 +55,18 @@ public class CourseService {
 
         int full_id = a.get().getId();
         int first_id = full_id / 1000000;
-<<<<<<< HEAD
-        int second_id = full_id % 1000000 / 100000;
-=======
         int second_id = full_id % 1000000 / 100000 ;
->>>>>>> jpaspring
 
         setUser_id(first_id*10+second_id); //학번
         setUser_grade(a.get().getGrade()); //학년
         setUser_major(a.get().getMajor()); //전공(숫자)
     }
 
-<<<<<<< HEAD
-//    public void createCourse(List<User_course> uco, Integer size){
-//        for(int i=0; i<size; i++){
-//            UserCourseRepository.save(uco.get(i));
-//        }
-//    }
+    public void createCourse(List<User_course> uco, Integer size){
+        for(int i=0; i<size; i++){
+            UserCourseRepository.save(uco.get(i));
+        }
+    }
 
     }
 
-=======
-}
->>>>>>> jpaspring
