@@ -47,6 +47,7 @@ public class User_check_field {
         public void setCheck_field_no(Integer no){this.check_field_no = no;}
         public void setCheck_field_done(Boolean a){this.check_field_done = a;}
 
+
         public User_check_field() {
             super();
         }
@@ -57,6 +58,12 @@ public class User_check_field {
             this.check_field_no = check_field_no;
             this.check_field_done = check_field_done;
         }
+        public User_check_field(Integer user_no, Integer check_field_no, Boolean check_field_done) {
+            super();
+            this.user_no = user_no;
+            this.check_field_no = check_field_no;
+            this.check_field_done = check_field_done;
+    }
 
         @Override
         public String toString() {

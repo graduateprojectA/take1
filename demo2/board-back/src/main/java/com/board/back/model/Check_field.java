@@ -67,10 +67,10 @@ public class Check_field {
     public Check_field() {
         super();
     }
-    public Check_field(Integer field_no, Integer major_no, Integer student_id, String check_field_name, Integer check_field_number,
+    public Check_field(Integer check_field_no, Integer major_no, Integer student_id, String check_field_name, Integer check_field_number,
                  Integer check_field_credit) {
         super();
-        this.check_field_no = field_no;
+        this.check_field_no = check_field_no;
         this.major_no = major_no;
         this.student_id = student_id;
         this.check_field_name = check_field_name;
