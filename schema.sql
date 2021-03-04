@@ -70,6 +70,7 @@ class_division int, 	# 분반
 class_time int 	#해당학기의 시간
 );
 
+# 전공기초 / 융복합교양
 create table User_check_field(
 user_check_field_no int auto_increment primary key,
 user_no int not null,
@@ -79,6 +80,7 @@ foreign key(user_no) references User(user_no) on update cascade on delete cascad
 foreign key(check_field_no) references Check_field(check_field_no) on update cascade on delete cascade
 );
 
+# 전공기초(필수) 전공기초(물리) 전공기초(수학) / 융복합교양(표현과예술)
 create table User_field(
 user_field_no int auto_increment primary key,
 user_no int no null,
@@ -88,6 +90,7 @@ foreign key(user_no) references User(user_no) on update cascade on delete cascad
 foreign key(field_no) references Field(field_no) on update cascade on delete cascade
 );
 
+# 강의 ex) 인간과언어
 create table User_course(
 user_course_no int auto_increment primary key,
 user_no int not null,
