@@ -97,7 +97,7 @@ class LoginUserComponent extends Component {
         if (this.state.user_no === 'login') {
             UserService.loginUser(user).then(res => {
                 this.props.history.push({
-                    pathname: './user',
+                    pathname: './classCheck',
                     state: {user_no: this.user_no}
                 });
 
