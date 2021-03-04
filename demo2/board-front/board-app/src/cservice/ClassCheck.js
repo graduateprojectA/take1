@@ -10,6 +10,8 @@ import Logo from "./Logo";
 import My from "./My";
 import backgroundImage2 from "../components/image/backgroundImage2.png";
 import  CheckBox  from './CheckBox';
+import PhoneForm from './PhoneForm';
+import PhoneInfoList from './PhoneInfoList';
 const ClassCheckDiv = styled.div`
     position: absolute;
     top: 0;
@@ -72,6 +74,7 @@ class ClassCheck extends Component {
         super(props);
         this.state = {
             user_no:2,
+            id:0,
             box1:"f",
             fruites: [
                 {id: 1, value: "banana", isChecked: false},
@@ -84,10 +87,17 @@ class ClassCheck extends Component {
                 {user_no : 1, class_no: "공존과협력의유토피아", class_pre: false,class_next:false},
                 {user_no : 1, class_no: "관계의미학:사랑과윤리", class_pre: false,class_next:false},
                 {user_no : 1, class_no: "나눔리더십", class_pre: false,class_next:false},
-              ],
-            class:[]
+            ],
+            information: [],
+            class: []
         };
     }
+    handleCreate = (data) => {
+        const { information } = this.state;
+        this.setState({
+          information: information.concat({ course_no: this.course_no, ...data })
+        })
+      }
     handleCheckChieldElement = (event) => {
         let user_class = this.state.user_class
         user_class.forEach(u => {
@@ -126,10 +136,16 @@ class ClassCheck extends Component {
                                 this.state.class.map((c) => {
                                     return (<CheckBox handleCheckChieldElement={this.handleCheckChieldElement}  {...c}/>)
                                 })
-                                
+
                             }
                         </div>
-                        <button onClick={() => console.log(this.state.user_class)} />
+                        <div>
+                            <PhoneForm
+                                onCreate={this.handleCreate}
+                            />
+                            <PhoneInfoList data={this.state.information} />
+                        </div>
+                        <button onClick={() => console.log(this.state.information)} />
                     </ClassCheckWrapWrapDiv>
                 </ClassCheckDiv>
             </div>
