@@ -56,6 +56,13 @@ public class User_field {
         this.field_done = field_done;
     }
 
+    public User_field(Integer user_no, Integer field_no, Boolean field_done) {
+        super();
+        this.user_no = user_no;
+        this.field_no = field_no;
+        this.field_done = field_done;
+    }
+
     @Override
     public String toString() {
         return "User_field [user_field_no=" + user_field_no + ", user_no=" + user_no

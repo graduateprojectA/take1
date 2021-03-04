@@ -78,6 +78,17 @@ private Integer user_course_no;
         this.course_name = course_name;
         this.course_done = course_done;
     }
+    public User_course(Integer user_no, Integer field_no, Integer course_no,
+                       Integer course_id,String course_name,Boolean course_done) {
+        super();
+        this.user_no = user_no;
+        this.field_no = field_no;
+        this.course_no = course_no;
+        this.course_id = course_id;
+        this.course_name = course_name;
+        this.course_done = course_done;
+    }
+
 
     @Override
     public String toString() {
