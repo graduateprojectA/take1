@@ -29,11 +29,21 @@
       <change beforePath="$PROJECT_DIR$/.gradle/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/checksums/checksums.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/source-classes-mapping.txt" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/source-classes-mapping.txt" afterDir="false" />
+<<<<<<< HEAD
+      <change beforePath="$PROJECT_DIR$/../board-front/board-app/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../board-front/board-app/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../board-front/board-app/src/components/LoginUserComponent.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../board-front/board-app/src/components/LoginUserComponent.jsx" afterDir="false" />
+=======
       <change beforePath="$PROJECT_DIR$/src/main/java/com/board/back/controller/CourseController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/board/back/controller/CourseController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/board/back/model/User_course.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/board/back/model/User_course.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/board/back/repository/UserCourseRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/board/back/repository/UserCourseRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/board/back/service/CourseService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/board/back/service/CourseService.java" afterDir="false" />
+<<<<<<< HEAD
       <change beforePath="$PROJECT_DIR$/src/main/java/com/board/back/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/board/back/service/UserService.java" afterDir="false" />
+=======
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/board/back/service/LoginService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/board/back/service/LoginService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../board-front/board-app/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/../board-front/board-app/src/App.js" afterDir="false" />
+>>>>>>> seoyeong
+>>>>>>> main
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -165,11 +175,38 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="371" y="87" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1280.680@0.0.1280.680" timestamp="1612193509748" />
-    <state x="421" y="96" key="FileChooserDialogImpl" timestamp="1612604067545">
-      <screen x="0" y="0" width="1280" height="680" />
+    <state x="505" y="118" key="FileChooserDialogImpl" timestamp="1614151991443">
+      <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="421" y="96" key="FileChooserDialogImpl/0.0.1280.680@0.0.1280.680" timestamp="1612604067545" />
+<<<<<<< HEAD
     <state width="1237" height="153" key="GridCell.Tab.0.bottom" timestamp="1614862834460">
+=======
+<<<<<<< HEAD
+    <state x="505" y="118" key="FileChooserDialogImpl/0.0.1536.834@0.0.1536.834" timestamp="1614151991443" />
+    <state width="1493" height="465" key="GridCell.Tab.0.bottom" timestamp="1614155711754">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state width="1237" height="279" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1614148414354" />
+    <state width="1493" height="465" key="GridCell.Tab.0.bottom/0.0.1536.834@0.0.1536.834" timestamp="1614155711754" />
+    <state width="1493" height="465" key="GridCell.Tab.0.center" timestamp="1614155711753">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state width="1237" height="279" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1614148414352" />
+    <state width="1493" height="465" key="GridCell.Tab.0.center/0.0.1536.834@0.0.1536.834" timestamp="1614155711753" />
+    <state width="1493" height="465" key="GridCell.Tab.0.left" timestamp="1614155711753">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state width="1237" height="279" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1614148414351" />
+    <state width="1493" height="465" key="GridCell.Tab.0.left/0.0.1536.834@0.0.1536.834" timestamp="1614155711753" />
+    <state width="1493" height="465" key="GridCell.Tab.0.right" timestamp="1614155711753">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state width="1237" height="279" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1614148414354" />
+    <state width="1493" height="465" key="GridCell.Tab.0.right/0.0.1536.834@0.0.1536.834" timestamp="1614155711753" />
+=======
+    <state width="1237" height="212" key="GridCell.Tab.0.bottom" timestamp="1614501918259">
+>>>>>>> main
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state width="1237" height="153" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1614862834460" />
@@ -201,14 +238,20 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state width="1237" height="204" key="GridCell.Tab.1.right/0.0.1280.680@0.0.1280.680" timestamp="1614496516550" />
+>>>>>>> seoyeong
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/board/back/BoardBackApplication.java</url>
+<<<<<<< HEAD
+          <line>11</line>
+          <option name="timeStamp" value="1" />
+=======
           <line>10</line>
           <option name="timeStamp" value="2" />
+>>>>>>> seoyeong
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/board/back/model/User_field.java</url>

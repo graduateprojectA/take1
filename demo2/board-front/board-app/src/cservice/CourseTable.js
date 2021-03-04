@@ -1,4 +1,4 @@
-import { useTable, useRowSelect } from "react-table";
+/*import { useTable, useRowSelect } from "react-table";
 import React from 'react';
 import styled from "styled-components";
 
@@ -111,4 +111,4 @@ const {
       );
 
 }
-// export default React.memo({Thead,Tbody});
+// export default React.memo({Thead,Tbody});*/

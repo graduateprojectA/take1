@@ -22,4 +22,9 @@ public class TimeController {
         System.out.println("@PostMapping(\"/tableCheck\")");
         return timeService.excludeTime(user);
     }
+<<<<<<< HEAD
+
 }
+=======
+}
+>>>>>>> seoyeong

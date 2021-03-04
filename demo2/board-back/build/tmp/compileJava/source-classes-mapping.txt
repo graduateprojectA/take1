@@ -1,11 +1,19 @@
 com/board/back/BoardBackApplication.java
  com.board.back.BoardBackApplication
+<<<<<<< HEAD
 com/board/back/model/User_check_field.java
  com.board.back.model.User_check_field
 com/board/back/service/TimeService.java
  com.board.back.service.TimeService
 com/board/back/repository/TimeRepository.java
  com.board.back.repository.TimeRepository
+=======
+com/board/back/util/ValidationUtil.java
+ com.board.back.util.ValidationUtil
+ com.board.back.util.ValidationUtil$ValidationUtilHolder
+com/board/back/controller/CourseController.java
+ com.board.back.controller.CourseController
+>>>>>>> main
 com/board/back/service/LoginService.java
  com.board.back.service.LoginService
 com/board/back/model/User_timetable.java
@@ -32,8 +40,8 @@ com/board/back/model/Course.java
  com.board.back.model.Course
 com/board/back/model/User_time.java
  com.board.back.model.User_time
-com/board/back/controller/TimeController.java
- com.board.back.controller.TimeController
+com/board/back/util/PagingUtil.java
+ com.board.back.util.PagingUtil
 com/board/back/service/BoardService.java
  com.board.back.service.BoardService
 com/board/back/model/Board.java
@@ -63,10 +71,27 @@ com/board/back/exception/ValidationCheckException.java
  com.board.back.exception.ValidationCheckException
 com/board/back/repository/UserRepository.java
  com.board.back.repository.UserRepository
+<<<<<<< HEAD
 com/board/back/model/User_course.java
  com.board.back.model.User_course
 com/board/back/controller/UserController.java
  com.board.back.controller.UserController
+=======
+com/board/back/service/UserService.java
+ com.board.back.service.UserService
+<<<<<<< HEAD
+com/board/back/service/TimeService.java
+ com.board.back.service.TimeService
+com/board/back/repository/TimeRepository.java
+ com.board.back.repository.TimeRepository
+com/board/back/controller/TimeController.java
+ com.board.back.controller.TimeController
+com/board/back/controller/UserController.java
+ com.board.back.controller.UserController
+=======
+com/board/back/model/Class.java
+ com.board.back.model.Class
+>>>>>>> main
 com/board/back/service/CourseService.java
  com.board.back.service.CourseService
 com/board/back/repository/UserCourseRepository.java
@@ -75,3 +100,9 @@ com/board/back/service/UserService.java
  com.board.back.service.UserService
 com/board/back/controller/CourseController.java
  com.board.back.controller.CourseController
+<<<<<<< HEAD
+=======
+com/board/back/repository/CourseRepository.java
+ com.board.back.repository.CourseRepository
+>>>>>>> seoyeong
+>>>>>>> main

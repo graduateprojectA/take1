@@ -27,11 +27,18 @@ public class UserController {
     }
 
     // GET용 User2
+<<<<<<< HEAD
+    @GetMapping(value = "/login2")
+    public int checkUser() {
+        if (loginService.getStatus() == true || loginService.getStatus() == false)
+            return loginService.getNo();
+=======
     @GetMapping("/login2")
     public int checkUser() {
         if (loginService.getStatus() == true || loginService.getStatus() == false)
             return loginService.getNo();
 
+>>>>>>> seoyeong
         return loginService.getNo();
     }
 

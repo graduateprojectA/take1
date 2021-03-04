@@ -6,9 +6,7 @@ import com.board.back.repository.UserCourseRepository;
 import com.board.back.service.CourseService;
 import com.board.back.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
 
 @CrossOrigin(origins = "http://localhost:3000")
