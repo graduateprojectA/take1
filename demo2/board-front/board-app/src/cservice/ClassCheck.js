@@ -95,6 +95,15 @@ class ClassCheck extends Component {
            }
         this.setState({user_class: user_class})})
       }
+      completeCheck = (event) => {
+        event.preventDefault();
+        let time = {            
+            user_class: this.state.user_class
+        };
+        UserService.SendClassUser(time).then(res => {
+                this.props.history.push('/');
+        });
+    }
     componentDidMount() {
         UserService.courseUser().then((res) => {
             this.setState({ user_class: res.data});
@@ -113,8 +122,9 @@ class ClassCheck extends Component {
                     <My />
                     <ClassCheckWrapWrapDiv>
                         <ClassCheckP>제외할 수업을 선택해주세요.</ClassCheckP>
-
                         <button onClick={() => console.log(this.state.user_class)} />
+                        
+              <button className="NextA" onClick={this.completeCheck}>&#10095;</button>
                         <ul>
                             {
                                 this.state.user_class.map((fruite) => {
