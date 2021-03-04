@@ -18,20 +18,26 @@ import org.hibernate.annotations.DynamicUpdate;
 
 //create table Field(
 //        field_no int auto_increment primary key,
-//        student_id int not null,   #학번 18, 19, 20, 21
+//        check_field_no int,
+//        major_no int not null,
+//        student_id int not null,	#학번 18, 19, 20, 21
 //        field_name varchar(30),
 //        field_number int, #영역 개수
 //        field_credit int,
-//        major_no int,
-//        foreign key(major_no) references Majors(major_no) on update cascade on delete cascade
+//        foreign key(check_field_no) references Check_field(check_field_no) on update cascade on delete cascade
 //        );
-
 public class Field {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     //인덱스
     @Column(name ="field_no")
     private Integer field_no;
+
+    @Column(name ="check_field_no")
+    private Integer check_field_no;
+
+    @Column(name="major_no")
+    private Integer major_no;
 
     // 학생 학번
     @Column(name = "student_id")
@@ -49,49 +55,43 @@ public class Field {
     @Column(name = "field_credit")
     private Integer field_credit;
 
-    @Column(name ="major_no")
-    private Integer major_no;
-
     public Integer getField_no() {
         return field_no;
     }
-
+    public Integer getCheck_field_no() {
+        return check_field_no;
+    }
+    public Integer getMajor_no() { return major_no; }
     public Integer getStudent_id() {
         return student_id;
     }
-
     public String getField_name() { return field_name; }
-
     public Integer getField_number() {
         return field_number;
     }
-
     public Integer getField_credit() {
         return field_credit;
     }
 
-    public Integer getMajor_no() {
-        return major_no;
-    }
 
     public Field() {
         super();
     }
-    public Field(Integer field_no, Integer student_id, String field_name, Integer field_number,
-                 Integer field_credit, Integer major_no) {
+    public Field(Integer field_no, Integer check_field_no, Integer major_no,Integer student_id, String field_name, Integer field_number,
+                 Integer field_credit) {
         super();
         this.field_no = field_no;
+        this.check_field_no = check_field_no;
+        this.major_no = major_no;
         this.student_id = student_id;
         this.field_name = field_name;
         this.field_number = field_number;
         this.field_credit = field_credit;
-        this.major_no = major_no;
     }
 
     @Override
     public String toString() {
         return "Field [field_no=" + field_no + ", student_id=" + student_id + ", field_name=" + field_name
-                + ", field_number=" + field_number + ", field_credit=" + field_credit + ", major_no="
-                + major_no + "]";
+                + ", field_number=" + field_number + ", field_credit=" + field_credit + "]";
     }
 }
