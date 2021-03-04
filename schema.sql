@@ -70,7 +70,8 @@ class_division int, 	# 분반
 class_time int 	#해당학기의 시간
 );
 
-# 전공기초 / 융복합교양
+# 커리큘럼 선택 시 사용
+# 융복합교양 전체가 충족 되었는지, 융복합교양 분야 5 중 3 이상이 만족 되었는지
 create table User_check_field(
 user_check_field_no int auto_increment primary key,
 user_no int not null,
@@ -80,7 +81,7 @@ foreign key(user_no) references User(user_no) on update cascade on delete cascad
 foreign key(check_field_no) references Check_field(check_field_no) on update cascade on delete cascade
 );
 
-# 전공기초(필수) 전공기초(물리) 전공기초(수학) / 융복합교양(표현과예술)
+# 융복합교양(표현과예술)이 충족 되었는지, 융복합교양(표현과예술)에서 3학점 1과목 이상을 들었는지
 create table User_field(
 user_field_no int auto_increment primary key,
 user_no int no null,
@@ -90,7 +91,7 @@ foreign key(user_no) references User(user_no) on update cascade on delete cascad
 foreign key(field_no) references Field(field_no) on update cascade on delete cascade
 );
 
-# 강의 ex) 인간과언어
+# 강의 ex) 인간과언어 를 들었는지
 create table User_course(
 user_course_no int auto_increment primary key,
 user_no int not null,
@@ -100,6 +101,7 @@ foreign key(user_no) references User(user_no) on update cascade on delete cascad
 foreign key(course_no) references Course(course_no) on update cascade on delete cascade
 );
 
+# 시간표 선택 시 사용
 # 이번 학기 열리는 강의들 중 사용자에게 해당되는 강의
 create table User_class(
 user_class_no int auto_increment primary key,
