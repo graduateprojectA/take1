@@ -95,8 +95,10 @@ foreign key(field_no) references Field(field_no) on update cascade on delete cas
 create table User_course(
 user_course_no int auto_increment primary key,
 user_no int not null,
+field_no int not null,
 course_no int not null,
 course_done boolean,
+foreign key(field_no) references Field(field_no) on update cascade on delete cascade,
 foreign key(user_no) references User(user_no) on update cascade on delete cascade,
 foreign key(course_no) references Course(course_no) on update cascade on delete cascade
 );
