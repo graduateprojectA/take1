@@ -55,7 +55,7 @@ public class CourseService {
 
         int full_id = a.get().getId();
         int first_id = full_id / 1000000;
-        int second_id = full_id % 1000000;
+        int second_id = full_id % 1000000 / 100000;
 
         setUser_id(first_id*10+second_id);
         setUser_grade(a.get().getGrade());

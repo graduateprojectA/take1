@@ -1,9 +1,8 @@
 package com.board.back.controller;
 import com.board.back.model.Course;
-import com.board.back.model.User;
-import com.board.back.model.User2;
-import com.board.back.model.User_class;
+import com.board.back.model.User_course;
 import com.board.back.repository.CourseRepository;
+import com.board.back.repository.UserCourseRepository;
 import com.board.back.service.CourseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -19,6 +18,9 @@ public class CourseController {
 
     @Autowired
     private CourseRepository courseRepository;
+
+    @Autowired
+    private UserCourseRepository UserCourseRepository;
 
     @Autowired
     public CourseController(CourseService courseService) {
@@ -47,12 +49,13 @@ public class CourseController {
         }
     }
 
-//    @PostMapping("/courseCheck")
-//    public Course createCourse(@RequestBody Course course) {
-//        System.out.println("@PostMapping(\"/course\")");
-//        System.out.println(course.toString());
-//        return courseService.createCourse(course);
-//    }
+    @PostMapping("/courseCheck")
+    public void createCourse(@RequestBody List<User_course> uco) {
+        System.out.println("@PostMapping(\"/course\")");
+        System.out.println(uco.toString());
+        System.out.println(uco.size());
+//        return UserCourseRepository.save(uco);
+    }
 }
 
 

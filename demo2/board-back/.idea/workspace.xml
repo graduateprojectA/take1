@@ -20,9 +20,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2a36eb25-e1bd-411b-bedd-71c67e2ff6e8" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/fileChanges/last-build.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/fileHashes/fileHashes.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/gc.properties" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/board/back/model/Check_field.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/board/back/model/User_check_field.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/board/back/model/User_course.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/board/back/model/User_field.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/board/back/repository/UserCourseRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.6.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.6.1/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.6.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.6.1/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.6.1/fileContent/fileContent.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.6.1/fileContent/fileContent.lock" afterDir="false" />
@@ -35,14 +37,10 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/source-classes-mapping.txt" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/source-classes-mapping.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/board/back/controller/CourseController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/board/back/controller/CourseController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/board/back/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/board/back/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/board/back/model/Class.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/board/back/model/Class.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/board/back/model/Course.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/board/back/model/Course.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/board/back/model/Field.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/board/back/model/Field.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/board/back/model/User_class.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/board/back/model/User_class.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/board/back/repository/CourseRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/board/back/repository/CourseRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/board/back/repository/LoginRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/board/back/repository/LoginRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/board/back/service/CourseService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/board/back/service/CourseService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/board/back/service/LoginService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/board/back/service/LoginService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../board-front/board-app/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/../board-front/board-app/src/App.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -72,8 +70,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -178,22 +176,22 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="421" y="96" key="FileChooserDialogImpl/0.0.1280.680@0.0.1280.680" timestamp="1612604067545" />
-    <state width="1237" height="212" key="GridCell.Tab.0.bottom" timestamp="1614501918259">
+    <state width="1237" height="262" key="GridCell.Tab.0.bottom" timestamp="1614854866736">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="212" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1614501918259" />
-    <state width="1237" height="212" key="GridCell.Tab.0.center" timestamp="1614501918258">
+    <state width="1237" height="262" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1614854866736" />
+    <state width="1237" height="262" key="GridCell.Tab.0.center" timestamp="1614854866736">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="212" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1614501918258" />
-    <state width="1237" height="212" key="GridCell.Tab.0.left" timestamp="1614501918258">
+    <state width="1237" height="262" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1614854866736" />
+    <state width="1237" height="262" key="GridCell.Tab.0.left" timestamp="1614854866736">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="212" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1614501918258" />
-    <state width="1237" height="212" key="GridCell.Tab.0.right" timestamp="1614501918259">
+    <state width="1237" height="262" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1614854866736" />
+    <state width="1237" height="262" key="GridCell.Tab.0.right" timestamp="1614854866736">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="212" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1614501918259" />
+    <state width="1237" height="262" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1614854866736" />
     <state width="1237" height="204" key="GridCell.Tab.1.bottom" timestamp="1614496516550">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
@@ -218,6 +216,11 @@
           <url>file://$PROJECT_DIR$/src/main/java/com/board/back/BoardBackApplication.java</url>
           <line>10</line>
           <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/board/back/model/User_field.java</url>
+          <line>22</line>
+          <option name="timeStamp" value="3" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

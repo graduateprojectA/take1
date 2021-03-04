@@ -41,12 +41,12 @@ com/board/back/model/User.java
  com.board.back.model.User
 com/board/back/exception/SystemMaintenanceException.java
  com.board.back.exception.SystemMaintenanceException
-com/board/back/model/User_class.java
- com.board.back.model.User_class
+com/board/back/repository/CourseRepository.java
+ com.board.back.repository.CourseRepository
 com/board/back/util/PagingUtil.java
  com.board.back.util.PagingUtil
-com/board/back/model/Field.java
- com.board.back.model.Field
+com/board/back/service/CourseService.java
+ com.board.back.service.CourseService
 com/board/back/repository/LoginRepository.java
  com.board.back.repository.LoginRepository
 com/board/back/repository/BoardRepository.java
@@ -59,9 +59,19 @@ com/board/back/service/UserService.java
  com.board.back.service.UserService
 com/board/back/model/Class.java
  com.board.back.model.Class
-com/board/back/service/CourseService.java
- com.board.back.service.CourseService
+com/board/back/model/User_course.java
+ com.board.back.model.User_course
+com/board/back/model/User_check_field.java
+ com.board.back.model.User_check_field
+com/board/back/model/Check_field.java
+ com.board.back.model.Check_field
+com/board/back/model/User_class.java
+ com.board.back.model.User_class
+com/board/back/model/Field.java
+ com.board.back.model.Field
+com/board/back/model/User_field.java
+ com.board.back.model.User_field
+com/board/back/repository/UserCourseRepository.java
+ com.board.back.repository.UserCourseRepository
 com/board/back/controller/CourseController.java
  com.board.back.controller.CourseController
-com/board/back/repository/CourseRepository.java
- com.board.back.repository.CourseRepository
