@@ -83,7 +83,7 @@ foreign key(check_field_no) references Check_field(check_field_no) on update cas
 
 create table User_field(
 user_field_no int auto_increment primary key,
-user_no int no null,
+user_no int not null,
 field_no int not null,
 field_done boolean,
 foreign key(user_no) references User(user_no) on update cascade on delete cascade,
