@@ -8,7 +8,7 @@ import org.springframework.data.repository.query.Param;
 import java.util.List;
 
 public interface UserCourseRepository extends JpaRepository<User_course, Integer>{
-    @Query(value="SELECT * FROM Course s WHERE s.student_id = :student_id and s.major_no = :major_no group by s.course_id",
+    @Query(value="SELECT * FROM User_course s WHERE s.user_no = :user_no",
             nativeQuery = true)
-    List<Course> findByIdAndMajor(@Param("student_id")int student_id, @Param("major_no")int major_no);
+    List<User_course> findByUser(@Param("user_no")int user_no);
 }

@@ -9,7 +9,6 @@ import com.board.back.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-
 import java.util.List;
 
 @Service
@@ -35,16 +34,15 @@ public class UserService {
 
         //해당 User 전공 및 학번에 맞는 커리큘럼 미리 저장
         List<Course> a = courseRepository.findByIdAndMajor(full_id,user.getMajor());
-
         for(int i=0; i<a.size(); i++){
             User_course uco = new User_course();
             uco.setUser_no(user.getNo());
             uco.setField_no(a.get(i).getField_no());
             uco.setCourse_no(a.get(i).getCourse_no());
+            uco.setCourse_id(a.get(i).getCourse_id());
+            uco.setCourse_name(a.get(i).getCourse_name());
             uco.setCourse_done(false);
-            System.out.println(uco);
-//            System.out.println("user:"+uco.getUser_no()+"field_no:"+uco.getField_no()+"course_no:"+uco.getCourse_no()
-//            +"course_done:"+uco.getCourse_done());
+//            System.out.println(uco);
             UserCourseRepository.save(uco);
         }
     }

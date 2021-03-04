@@ -21,6 +21,9 @@ public class CourseController {
     private CourseRepository courseRepository;
 
     @Autowired
+    private UserCourseRepository UserCourseRepository;
+
+    @Autowired
     public CourseController(CourseService courseService) {
         this.courseService = courseService;
     }
@@ -32,14 +35,12 @@ public class CourseController {
     }
 
     @GetMapping("/course")
-    public List<Course> returnCourse(){
+    public List<User_course> returnCourse(){
         if(courseService.getUser_no() != 0) {
-            int id = courseService.getUser_id();
-            int major = courseService.getUser_major();
+            int no = courseService.getUser_no();
             //List<Course> a = courseRepository.findAll();
-            System.out.println("SUCCESS");
             //System.out.println(courseRepository.findByIdAndMajor(id,major));
-            return courseRepository.findByIdAndMajor(id,major);
+            return UserCourseRepository.findByUser(no);
         }
         else {
             System.out.println("FAIL");

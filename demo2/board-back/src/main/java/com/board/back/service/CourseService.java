@@ -56,9 +56,9 @@ public class CourseService {
         int first_id = full_id / 1000000;
         int second_id = full_id % 1000000 / 100000;
 
-        setUser_id(first_id*10+second_id);
-        setUser_grade(a.get().getGrade());
-        setUser_major(a.get().getMajor());
+        setUser_id(first_id*10+second_id); //학번
+        setUser_grade(a.get().getGrade()); //학년
+        setUser_major(a.get().getMajor()); //전공(숫자)
     }
 
 //    public void createCourse(List<User_course> uco, Integer size){

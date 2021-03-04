@@ -34,6 +34,12 @@ private Integer user_course_no;
     @Column(name = "course_no")
     private Integer course_no;
 
+    @Column(name= "course_id")
+    private Integer course_id;
+
+    @Column(name="course_name")
+    private String course_name;
+
     @Column(name = "course_done")
     private Boolean course_done;
 
@@ -43,6 +49,10 @@ private Integer user_course_no;
     public Integer getUser_no() { return user_no; }
     public Integer getField_no() { return field_no;}
     public Integer getCourse_no() { return course_no; }
+    public Integer getCourse_id() {
+        return course_id;
+    }
+    public String getCourse_name() {return course_name;}
     public Boolean getCourse_done() {
         return course_done;
     }
@@ -50,23 +60,29 @@ private Integer user_course_no;
     public void setUser_no(Integer no){this.user_no = no;}
     public void setField_no(Integer no){this.field_no = no;}
     public void setCourse_no(Integer no){this.course_no = no;}
+    public void setCourse_id(Integer no){this.course_id = no;}
+    public void setCourse_name(String a){this.course_name=a;}
     public void setCourse_done(Boolean a){this.course_done = a;}
 
     public User_course() {
         super();
     }
-    public User_course(Integer user_course_no, Integer user_no, Integer field_no, Integer course_no, Boolean course_done) {
+    public User_course(Integer user_course_no, Integer user_no, Integer field_no, Integer course_no,
+                       Integer course_id,String course_name,Boolean course_done) {
         super();
         this.user_course_no = user_course_no;
         this.user_no = user_no;
         this.field_no = field_no;
         this.course_no = course_no;
+        this.course_id = course_id;
+        this.course_name = course_name;
         this.course_done = course_done;
     }
 
     @Override
     public String toString() {
-        return "User_course [user_course_no=" + user_course_no + ", user_no=" + user_no + ", course_no="
-                + course_no + ", field_no="+field_no+", course_done=" + course_done + "]";
+        return "User_course [user_course_no=" + user_course_no + ", user_no=" + user_no + ", field_no="+field_no
+                +", course_no=" + course_no +", course_id="+course_id+", course_name"+course_name
+                +", course_done=" + course_done + "]";
     }
 }
