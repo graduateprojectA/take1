@@ -1,12 +1,13 @@
-package com.board.back.model;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
-import org.hibernate.annotations.DynamicInsert;
-import org.hibernate.annotations.DynamicUpdate;
+
+        package com.board.back.model;
+        import javax.persistence.Column;
+        import javax.persistence.Entity;
+        import javax.persistence.GeneratedValue;
+        import javax.persistence.GenerationType;
+        import javax.persistence.Id;
+        import javax.persistence.Table;
+        import org.hibernate.annotations.DynamicInsert;
+        import org.hibernate.annotations.DynamicUpdate;
 
 //유저테이블
 @Entity
@@ -98,4 +99,3 @@ public class Class {
                 + ", class_time=" + class_time + "]";
     }
 }
-
