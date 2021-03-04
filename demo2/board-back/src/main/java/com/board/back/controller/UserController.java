@@ -27,18 +27,10 @@ public class UserController {
     }
 
     // GET용 User2
-<<<<<<< HEAD
-    @GetMapping(value = "/login2")
-    public int checkUser() {
-        if (loginService.getStatus() == true || loginService.getStatus() == false)
-            return loginService.getNo();
-=======
     @GetMapping("/login2")
     public int checkUser() {
         if (loginService.getStatus() == true || loginService.getStatus() == false)
             return loginService.getNo();
-
->>>>>>> seoyeong
         return loginService.getNo();
     }
 
@@ -51,12 +43,7 @@ public class UserController {
 
     /*
      * @PostMapping("/test") public void createTest(@RequestBody String testLine) {
-     * UserInput.insert_query(testLine); } <<<<<<< HEAD
-     * 
-     * @GetMapping("/user/{user_no}") public ResponseEntity<User> getUserByNo(
-     * 
-     * =======
-     *
+     * UserInput.insert_query(testLine); }
      * @GetMapping("/user/{user_no}") public ResponseEntity<User> getUserByNo(
      *
      * >>>>>>> eaf07e8555defe8625ecc22eb009a4274f4ea6c2
