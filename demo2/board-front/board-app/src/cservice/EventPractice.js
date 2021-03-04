@@ -41,7 +41,7 @@ completeCheck = (event) => {
     console.log(JSON.stringify(time));
 
     UserService.TimeUser(time).then(res => {
-            this.props.history.push('./classCheck');
+            this.props.history.push('./courseCheck');
     });
 }
 componentDidMount() {
