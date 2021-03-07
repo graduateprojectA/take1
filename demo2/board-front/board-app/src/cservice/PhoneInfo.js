@@ -7,7 +7,9 @@ class PhoneInfo extends Component {
       couse_no: 0, 
       field_no: 0,
       course_done:false
-    }
+    },
+    info2: {
+    },
   }
   
   render() {
@@ -18,15 +20,11 @@ class PhoneInfo extends Component {
     };
 
     const {
-        user_no, course_no, field_no, course_done
-    } = this.props.info;
-    
+      field_no
+  } = this.props;
     return (
       <div style={style}>
-        <div><b>{user_no}</b></div>
-        <div><b>{course_no}</b></div>
         <div><b>{field_no}</b></div>
-        <div>{course_done}</div>
       </div>
     );
   }
