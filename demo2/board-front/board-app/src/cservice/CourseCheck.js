@@ -75,6 +75,7 @@ class CourseCheck extends Component {
     this.state = {
         user_no:2,
         id:0,
+        tt : false,
         box1:"f",
         fruites: [
             {id: 1, value: "banana", isChecked: false},
@@ -100,13 +101,13 @@ class CourseCheck extends Component {
     })
   }
   handleChange = (e) => {
-    const box = e.target.name;
+    const test = e.target.value;
     const checked = e.target.checked;
     if (checked ) {
-        this.setState({ [box]: 0 });
+        this.setState({checked:false});
     }else{
-        this.setState({ [box]: 1 });
-    }console.log(box)
+        this.setState({checked:true});
+    }console.log(checked)
   };
   componentDidMount() {
     UserService.courseUser().then((res) => {
@@ -119,6 +120,10 @@ class CourseCheck extends Component {
     });
   }
   render() {
+    const test = this.state.class.map((p) =>
+    <div key={p.user_course_num} ip={p.course_id} checked={this.state.checked}>
+    </div>
+  );
     return (
       <div>
         <ClassCheckDiv>
@@ -127,14 +132,15 @@ class CourseCheck extends Component {
           <ClassCheckWrapWrapDiv>
             <ClassCheckP>제외할 수업을 선택해주세요.</ClassCheckP>
             <div className="ClassDiv">
-              <ul>
+                <div>{test}</div>
+                <ul>
                 {
                   this.state.class.map(c =>
-                    <li><input type="checkbox" name={c.course_name} onChange={this.handleChange}/> {c.course_id} : {c.course_name}</li>)
+                    <li><input type="checkbox" value={c} onChange={this.handleChange}/> {c.course_id} : {c.course_name}</li>)
                 }
               </ul>
             </div>
-            <button onClick={() => this.NameList()} />
+            <button onClick={() => console.log(test)} />
           </ClassCheckWrapWrapDiv>
         </ClassCheckDiv>
       </div>
