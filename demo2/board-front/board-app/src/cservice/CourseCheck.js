@@ -10,7 +10,7 @@ import Logo from "./Logo";
 import My from "./My";
 import backgroundImage2 from "../components/image/backgroundImage2.png";
 import  CheckBox  from './CheckBox';
-
+import PhoneInfoList from './PhoneInfoList';
 import PhoneForm from './PhoneForm';
 const ClassCheckDiv = styled.div`
     position: absolute;
@@ -70,24 +70,73 @@ const PreA = styled.a`
 `;
 
 class CourseCheck extends Component {
-  id = 2
-  state = {
-    information: []
-  }
+  constructor(props) {
+    super(props);
+    this.state = {
+        user_no:2,
+        id:0,
+        box1:"f",
+        fruites: [
+            {id: 1, value: "banana", isChecked: false},
+            {id: 2, value: "apple", isChecked: false},
+            {id: 3, value: "mango", isChecked: false},
+            {id: 4, value: "grap", isChecked: false}
+          ],
+        user_class: [
+            {user_no : 1, class_no: "기독교와세계", class_pre: false,class_next:false},
+            {user_no : 1, class_no: "공존과협력의유토피아", class_pre: false,class_next:false},
+            {user_no : 1, class_no: "관계의미학:사랑과윤리", class_pre: false,class_next:false},
+            {user_no : 1, class_no: "나눔리더십", class_pre: false,class_next:false},
+        ],
+        information: [],
+        apple: [],
+        class: []
+    };
+}
   handleCreate = (data) => {
     const { information } = this.state;
     this.setState({
       information: information.concat({ id: this.id++, ...data })
     })
   }
+  handleChange = (e) => {
+    const box = e.target.name;
+    const checked = e.target.checked;
+    if (checked ) {
+        this.setState({ [box]: 0 });
+    }else{
+        this.setState({ [box]: 1 });
+    }console.log(box)
+  };
+  componentDidMount() {
+    UserService.courseUser().then((res) => {
+      this.setState({ class: res.data });
+      console.log("get result => " + JSON.stringify(res.data));
+    });
+    UserService.login().then((res) => {
+      this.setState({ user_no: res.data });
+      console.log("get result => " + JSON.stringify(res.data));
+    });
+  }
   render() {
-    const { information } = this.state;
     return (
       <div>
-        <PhoneForm
-          onCreate={this.handleCreate}
-        />
-        {JSON.stringify(information)}
+        <ClassCheckDiv>
+          <Logo />
+          <My />
+          <ClassCheckWrapWrapDiv>
+            <ClassCheckP>제외할 수업을 선택해주세요.</ClassCheckP>
+            <div className="ClassDiv">
+              <ul>
+                {
+                  this.state.class.map(c =>
+                    <li><input type="checkbox" name={c.course_name} onChange={this.handleChange}/> {c.course_id} : {c.course_name}</li>)
+                }
+              </ul>
+            </div>
+            <button onClick={() => this.NameList()} />
+          </ClassCheckWrapWrapDiv>
+        </ClassCheckDiv>
       </div>
     );
   }

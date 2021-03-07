@@ -99,7 +99,7 @@ class ClassCheck extends Component {
             user_class: this.state.user_class
         };
         UserService.SendClassUser(time).then(res => {
-                this.props.history.push('/');
+                this.props.history.push('./courseCheck');
         });
     }
     componentDidMount() {
@@ -121,8 +121,8 @@ class ClassCheck extends Component {
                     <ClassCheckWrapWrapDiv>
                         <ClassCheckP>제외할 수업을 선택해주세요.</ClassCheckP>
                         <button onClick={() => console.log(this.state.user_class)} />
-                        
-              <button className="NextA" onClick={this.completeCheck}>&#10095;</button>
+
+                        <button className="NextA" onClick={this.completeCheck}>&#10095;</button>
                         <ul>
                             {
                                 this.state.user_class.map((fruite) => {

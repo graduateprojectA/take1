@@ -3,18 +3,24 @@ import PhoneInfo from './PhoneInfo';
 
 class PhoneInfoList extends Component {
   static defaultProps = {
-    data: []
+    data: [],
+    apple: []
   }
 
   render() {
-    const { data } = this.props;
+    /*
+    const { data } = this.props.data;
     const list = data.map(
       info => (<PhoneInfo key={info.course_no} info={info}/>)
+    );*/
+    const { apple } = this.props;
+    const list2 = apple.map(
+      info2 => (<PhoneInfo key={info2.user_course_no} info2={info2}/>)
     );
 
     return (
       <div>
-        {list}    
+        {list2}    
       </div>
     );
   }
