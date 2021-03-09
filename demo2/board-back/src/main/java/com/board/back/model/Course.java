@@ -70,6 +70,19 @@ public class Course {
     public Float getCourse_hours() {return course_hours;}
     public Integer getCourse_credit() {return course_credit;}
     public Integer getPre_course_id() {return pre_course_id;}
+
+
+//    //정말 어쩔 수 없이 임의로 만들어버린 생성자
+//    // 특히나 새로 만든 field_credit은 db에는 없음
+//    private Integer field_credit;
+//    public Course(Integer course_id, Integer field_no, Integer course_credit, Integer field_credit){
+//        this.course_id = course_id;
+//        this.field_no = field_no;
+//        this.course_credit = course_credit;
+//        this.field_credit = field_credit;
+//    }
+
+    
     public Course() {
         super();
     }

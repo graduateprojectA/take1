@@ -89,7 +89,6 @@ private Integer user_course_no;
         this.course_done = course_done;
     }
 
-
     @Override
     public String toString() {
         return "User_course [user_course_no=" + user_course_no + ", user_no=" + user_no + ", field_no="+field_no
