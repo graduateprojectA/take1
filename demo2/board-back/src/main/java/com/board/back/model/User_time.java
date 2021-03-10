@@ -96,13 +96,6 @@ public class User_time {
         this.time_fri = no;
     }
 
-<<<<<<< HEAD
-    // public User_time() {
-    // super();
-    // }
-
-=======
->>>>>>> jpaspring
     public User_time(Integer time_id, Integer user_no, Integer time_mon, Integer time_tue, Integer time_wed,
             Integer time_thr, Integer time_fri) {
         super();
