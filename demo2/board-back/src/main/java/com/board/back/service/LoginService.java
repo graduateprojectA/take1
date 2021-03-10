@@ -1,4 +1,5 @@
 package com.board.back.service;
+
 import com.board.back.model.User;
 import com.board.back.model.User2;
 import com.board.back.repository.LoginRepository;

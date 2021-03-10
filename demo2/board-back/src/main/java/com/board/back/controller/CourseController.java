@@ -44,11 +44,10 @@ public class CourseController {
             return null;
         }
     }
-
     @PostMapping("/courseCheck")
-    public void createCourse(@RequestBody List<User_course> uco) {
-        System.out.println("@PostMapping(\"/course\")");
+    public void updateCourse(@RequestBody List<User_course> uco) {
+        System.out.println("@PostMapping(\"/courseCheck\")");
         System.out.println(uco.toString());
-        courseService.createCourse(uco, uco.size());
+        courseService.updateCourse(uco,uco.size());
     }
 }

@@ -40,5 +40,4 @@ public class UserController {
         System.out.println(user.toString());
         userService.createUser(user);
     }
-
 }
