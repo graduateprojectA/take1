@@ -25,13 +25,15 @@ public class ClassController {
     public void getUser(@RequestBody String no) {
         String id = no.replace("=", "");
         int num = Integer.parseInt(id);
-        System.out.println(num);
+        classService.getUser(num);
+        classService.printClass(num);
     }
 
     @GetMapping("/class")
-    public void printClass(){
-        System.out.println("@GetMapping(\"/printClass\")");
-        classService.printClass();
+    public List<Class> printClass(){
+        if(classService.getStatus()== true)
+            return classService.getResult();
+        else
+            return null;
     }
-
 }

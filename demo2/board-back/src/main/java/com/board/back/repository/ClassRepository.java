@@ -7,7 +7,7 @@ import org.springframework.data.repository.query.Param;
 import java.util.List;
 
 public interface ClassRepository extends JpaRepository<Class, Integer> {
-    @Query(value="SELECT * from class s", nativeQuery = true)
-    List<Class> printClass();
+    @Query(value="SELECT * from class s where course_id in :d", nativeQuery = true)
+    List<Class> printClass(@Param("d")List<Integer>d);
 }
 
