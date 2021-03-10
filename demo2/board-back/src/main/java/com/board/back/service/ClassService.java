@@ -4,11 +4,11 @@ import com.board.back.model.Class;
 import com.board.back.repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import sun.reflect.generics.repository.ClassRepository;
 
 import java.util.List;
 import java.util.Optional;
 
+@Service
 public class ClassService {
     @Autowired
     private ClassRepository classRepository;
@@ -50,10 +50,12 @@ public class ClassService {
 
         setUser_id(first_id*10+second_id); //학번
         setUser_major(a.get().getMajor()); //전공(숫자)
+        System.out.println(getUser_no()+" "+getUser_id()+" "+ getUser_major());
     }
 
-//    public List<Class> printClass(){
-//        List<Integer> a = userCheckFieldRepository.printFalseUserCheckField(getUser_no()); //1,2,3,5,6,7,8
-//        return classRepository.printClass();
-//    }
+    public void printClass(){
+        List<Integer> a = userCheckFieldRepository.printFalseUserCheckField(getUser_no()); //1,2,3,5,6,7,8
+        System.out.println(a.toString());
+//        classRepository.printClass();
+    }
 }

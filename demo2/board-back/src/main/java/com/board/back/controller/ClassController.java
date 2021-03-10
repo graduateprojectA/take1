@@ -27,10 +27,10 @@ public class ClassController {
         classService.getUser(no);
     }
 
-//    @GetMapping("/class")
-//    public List<Class> printClass(){
-//        System.out.println("@GetMapping(\"/printClass\")");
-//        return classService.printClass();
-//    }
+    @GetMapping("/class")
+    public void printClass(){
+        System.out.println("@GetMapping(\"/printClass\")");
+        classService.printClass();
+    }
 
 }

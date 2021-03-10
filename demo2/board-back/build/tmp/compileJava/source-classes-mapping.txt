@@ -73,13 +73,19 @@ com/board/back/repository/LoginRepository.java
  com.board.back.repository.LoginRepository
 com/board/back/service/LoginService.java
  com.board.back.service.LoginService
-com/board/back/repository/CheckFieldRepository.java
- com.board.back.repository.CheckFieldRepository
 com/board/back/service/CourseService.java
  com.board.back.service.CourseService
-com/board/back/service/UserService.java
- com.board.back.service.UserService
-com/board/back/controller/CourseController.java
- com.board.back.controller.CourseController
 com/board/back/repository/UserCheckFieldRepository.java
  com.board.back.repository.UserCheckFieldRepository
+com/board/back/repository/CheckFieldRepository.java
+ com.board.back.repository.CheckFieldRepository
+com/board/back/controller/CourseController.java
+ com.board.back.controller.CourseController
+com/board/back/service/UserService.java
+ com.board.back.service.UserService
+com/board/back/repository/ClassRepository.java
+ com.board.back.repository.ClassRepository
+com/board/back/controller/ClassController.java
+ com.board.back.controller.ClassController
+com/board/back/service/ClassService.java
+ com.board.back.service.ClassService
