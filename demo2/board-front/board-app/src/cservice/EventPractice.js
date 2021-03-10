@@ -40,6 +40,7 @@ completeCheck = (event) => {
     };
     console.log(JSON.stringify(time));
 
+    UserService.classUser(time.user_no);
     UserService.TimeUser(time).then(res => {
             this.props.history.push('./courseCheck');
     });

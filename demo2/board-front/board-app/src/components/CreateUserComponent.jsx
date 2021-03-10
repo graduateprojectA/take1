@@ -66,14 +66,10 @@ class CreateUserComponent extends Component {
         };
         console.log("user => "+ JSON.stringify(user));
 
-        if (this.state.user_no === '_create') {
-            UserService.createUser(user).then(res => {
-                this.props.history.push('/classCheck');
-            });
-        } else {
-            UserService.updateUser(this.state.user_no, user).then(res => {
-                this.props.history.push('/classCheck');
-            });
+        if (this.state.user_no == '_create') {
+            UserService.createUser(user);
+                console.log("dho");
+                this.props.history.push('../classCheck');
         }
     }
 

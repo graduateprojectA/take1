@@ -21,6 +21,9 @@ class UserService {
     course2User() {
         return axios.get("http://localhost:8080/api/course");
     }
+    classUser(user_no) {
+        return axios.post("http://localhost:8080/api/classUser", user_no);
+    }
 }
 
 export default new UserService();

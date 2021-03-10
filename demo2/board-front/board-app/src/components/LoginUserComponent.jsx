@@ -92,17 +92,11 @@ class LoginUserComponent extends Component {
             user_id: this.state.user_id,
             user_pw: this.state.user_pw
         };
-        console.log("user => "+ JSON.stringify(user));
+        console.log("user2 => "+ JSON.stringify(user));
 
-        if (this.state.user_no === 'login') {
             UserService.loginUser(user).then(res => {
-                this.props.history.push({
-                    pathname: './classCheck',
-                    state: {user_no: this.user_no}
-                });
-
+                this.props.history.push('/Main');
             });
-        } 
     }
 
 
@@ -113,19 +107,6 @@ class LoginUserComponent extends Component {
             this.setState({ login: res.data });
             console.log("get result => " + JSON.stringify(res.data));
         });
-        if (this.state.user_no === 'login') {
-            return
-        } else {
-            UserService.getOneUser(this.state.user_no).then( (res) => {
-                let user = res.data;
-                console.log("user => "+ JSON.stringify(user));
-                
-                this.setState({
-                        user_id: user.user_id,
-                        user_pw: user.user_pw
-                    });
-            });
-        }
     }
     render() {
         return (
