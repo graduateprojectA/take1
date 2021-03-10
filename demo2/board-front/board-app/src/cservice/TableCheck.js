@@ -13,7 +13,7 @@ const TableCheck = () => {
     <div className="TableCheckDiv">
       <Logo />
       <My />
-      <Link to="./classCheck">
+      <Link to="./courseCheck">
         <button className="NextA">&#10095;</button>
       </Link>
       <div className="TableCheckWrapWrapDiv">

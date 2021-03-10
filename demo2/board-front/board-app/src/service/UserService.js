@@ -16,7 +16,10 @@ class UserService {
         return axios.get("http://localhost:8080/api/course");
     }
     SendClassUser(user_course) {
-        return axios.post("http://localhost:8080/api/?", user_course);
+        return axios.post("http://localhost:8080/api/courseCheck", user_course);
+    }
+    course2User() {
+        return axios.get("http://localhost:8080/api/course");
     }
 }
 

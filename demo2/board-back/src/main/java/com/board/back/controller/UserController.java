@@ -40,16 +40,4 @@ public class UserController {
         System.out.println(user.toString());
         userService.createUser(user);
     }
-
-    /*
-     * @PostMapping("/test") public void createTest(@RequestBody String testLine) {
-     * UserInput.insert_query(testLine); }
-     * @GetMapping("/user/{user_no}") public ResponseEntity<User> getUserByNo(
-     *
-     * >>>>>>> eaf07e8555defe8625ecc22eb009a4274f4ea6c2
-     * 
-     * @PathVariable Integer user_no) { return userService.getUser(user_no); }
-     */
-    // get
-
 }

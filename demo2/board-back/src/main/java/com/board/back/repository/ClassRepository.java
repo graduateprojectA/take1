@@ -10,3 +10,4 @@ public interface ClassRepository extends JpaRepository<Class, Integer> {
     @Query(value="SELECT * from class s", nativeQuery = true)
     List<Class> printClass();
 }
+

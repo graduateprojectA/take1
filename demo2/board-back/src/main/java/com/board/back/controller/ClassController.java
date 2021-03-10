@@ -22,9 +22,10 @@ public class ClassController {
     }
 
     @PostMapping("/classUser")
-    public void getUser(@RequestBody Integer no) {
-        System.out.println("@PostMapping(\"/getUser\")");
-        classService.getUser(no);
+    public void getUser(@RequestBody String no) {
+        String id = no.replace("=", "");
+        int num = Integer.parseInt(id);
+        System.out.println(num);
     }
 
     @GetMapping("/class")

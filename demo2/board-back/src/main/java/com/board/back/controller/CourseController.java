@@ -44,7 +44,6 @@ public class CourseController {
             return null;
         }
     }
-
     @PostMapping("/courseCheck")
     public void updateCourse(@RequestBody List<User_course> uco) {
         System.out.println("@PostMapping(\"/courseCheck\")");
