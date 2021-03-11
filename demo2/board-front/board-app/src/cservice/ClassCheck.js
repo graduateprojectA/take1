@@ -10,6 +10,8 @@ import Logo from "./Logo";
 import My from "./My";
 import backgroundImage2 from "../components/image/backgroundImage2.png";
 import  CheckBox  from './CheckBox';
+import PhoneInfoList from './PhoneInfoList';
+import PhoneForm from './PhoneForm';
 const ClassCheckDiv = styled.div`
     position: absolute;
     top: 0;
@@ -68,74 +70,81 @@ const PreA = styled.a`
 `;
 
 class ClassCheck extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            user_class: [
-                {user_no : 1, class_no: "기독교와세계", class_pre: false,class_next:false},
-                {user_no : 1, class_no: "공존과협력의유토피아", class_pre: false,class_next:false},
-                {user_no : 1, class_no: "관계의미학:사랑과윤리", class_pre: false,class_next:false},
-                {user_no : 1, class_no: "나눔리더십", class_pre: false,class_next:false},
-            ],
-            class: []
-        };
-    }
-  
-    handleCheckChieldElement = (event) => {
-        let user_class = this.state.user_class
-        user_class.forEach(u => {
-           if (u.user_course_no == event.target.value) {
-            if (u.course_done) {
-                u.course_done = false
-            } else {
-                u.course_done = true
-            }
-           }
-        this.setState({user_class: user_class})})
-      }
-      completeCheck = (event) => {
-        event.preventDefault();
-        let time = {            
-            user_class: this.state.user_class
-        };
-        UserService.SendClassUser(time).then(res => {
-                this.props.history.push('./courseCheck');
-        });
-    }
-    componentDidMount() {
-        UserService.courseUser().then((res) => {
-            this.setState({ user_class: res.data});
-            console.log("get result => " + JSON.stringify(res.data));
-        });
-        UserService.login().then((res) => {
-            this.setState({ user_no: res.data });
-            console.log("get result => " + JSON.stringify(res.data));
-        });
-    }
-    render() {
-        return (
-            <div>
-                <ClassCheckDiv>
-                    <Logo />
-                    <My />
-                    <ClassCheckWrapWrapDiv>
-                        <ClassCheckP>제외할 수업을 선택해주세요.</ClassCheckP>
-                        <button onClick={() => console.log(this.state.user_class)} />
-
-                        <button className="NextA" onClick={this.completeCheck}>&#10095;</button>
-                        <ul>
-                            {
-                                this.state.user_class.map((fruite) => {
-                                    return (<CheckBox handleCheckChieldElement={this.handleCheckChieldElement}  {...fruite} />)
-                                })
-                            }
-                        </ul>
-                    </ClassCheckWrapWrapDiv>
-                </ClassCheckDiv>
-                
+  constructor(props) {
+    super(props);
+    this.state = {
+        user_no:2,
+        class: [
+            {user_no : 1, class_no: "기독교와세계", class_pre: false,class_next:false},
+            {user_no : 1, class_no: "공존과협력의유토피아", class_pre: false,class_next:false},
+            {user_no : 1, class_no: "관계의미학:사랑과윤리", class_pre: false,class_next:false},
+            {user_no : 1, class_no: "나눔리더십", class_pre: false,class_next:false},
+        ],
+        user_class: [{
+            user_class_no: 0,
+            user_no: 0,
+            class_no: 0,
+            class_pre: false,
+            class_next: false
+        }],
+        info:[]
+    };
+}
+  handleChange = (e) => {
+    const checked = e.target.checked;
+    if (checked ) {
+        this.setState({checked:false});
+    }else{
+        this.setState({checked:true});
+    }console.log(checked)
+  };
+  createClass = (event) => {
+    event.preventDefault();
+     this.state.class.map((p) =>
+    this.setState({user_class:p})
+  )
+    console.log(JSON.stringify(this.state.user_class));
+}
+  componentDidMount() {
+    UserService.class2User().then((res) => {
+      this.setState({ class: res.data });
+      console.log("get result => " + JSON.stringify(res.data));
+    });
+    UserService.login().then((res) => {
+      this.setState({ user_no: res.data });
+      console.log("get result => " + JSON.stringify(res.data));
+    });
+  }
+  render() {
+    const newArr =this.state.class.map((p) =>
+    this.state.user_class = {
+      user_class_no: p.class_no,
+      user_no: this.state.user_no,
+      class_no: p.class_name,
+      class_next: this.state.checked
+  }
+  );
+    return (
+      <div>
+        <ClassCheckDiv>
+          <Logo />
+          <My />
+          <ClassCheckWrapWrapDiv>
+            <ClassCheckP>제외할 수업을 선택해주세요.</ClassCheckP>
+            <div className="ClassDiv">
+                <ul>
+                {
+                  this.state.class.map(c =>
+                    <li><input type="checkbox" value={c} onChange={this.handleChange}/>{c.class_name} {c.class_division}분반</li>)
+                }
+              </ul>
             </div>
-        );
-    }
+            <button onClick={()=>console.log(newArr)} />
+          </ClassCheckWrapWrapDiv>
+        </ClassCheckDiv>
+      </div>
+    );
+  }
 }
 
 export default ClassCheck;

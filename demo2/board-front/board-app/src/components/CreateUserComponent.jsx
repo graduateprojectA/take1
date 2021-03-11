@@ -65,11 +65,14 @@ class CreateUserComponent extends Component {
             user_grade: this.state.user_grade
         };
         console.log("user => "+ JSON.stringify(user));
-
+        let log = {
+            user_id: this.state.user_id,
+            user_pw: this.state.user_pw
+        };
         if (this.state.user_no == '_create') {
             UserService.createUser(user);
                 console.log("dho");
-                this.props.history.push('../classCheck');
+                this.props.history.push('../login');
         }
     }
 
