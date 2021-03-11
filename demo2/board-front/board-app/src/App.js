@@ -34,7 +34,6 @@ function App() {
               <Route path = "/read-board/:no" component = {ReadBoardComponent}></Route>
               <Route path = "/major/:no" component = {MajorComponent}></Route> 
               <Route path = "/timetable" component = {TimetableComponent}></Route>
-              
               <Route path = "/read-user/:user_no" component = {ReadUserComponent}></Route>
               <Route path = "/user" component = {ListUserComponent}></Route>
               <Route path="/main" component={Main} exact={true} />
