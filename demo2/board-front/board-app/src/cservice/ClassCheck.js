@@ -92,11 +92,19 @@ class ClassCheck extends Component {
 }
   handleChange = (e) => {
     const checked = e.target.checked;
-    if (checked ) {
-        this.setState({checked:false});
-    }else{
-        this.setState({checked:true});
-    }console.log(checked)
+    let info=this.state.info;
+    info.map(u => {
+           if (u.class_no == e.target.value) {
+            if (u.class_next) {
+                u.class_next = false
+            } else {
+                u.class_next = true
+            }
+           }
+          
+        this.setState({info: info})
+      })
+    console.log(checked);
   };
   createClass = (event) => {
     event.preventDefault();
@@ -118,10 +126,10 @@ class ClassCheck extends Component {
   render() {
     const newArr =this.state.class.map((p) =>
     this.state.user_class = {
-      user_class_no: p.class_no,
       user_no: this.state.user_no,
-      class_no: p.class_name,
-      class_next: this.state.checked
+      class_no: p.class_no,
+      class_pre:false,
+      class_next: false
   }
   );
     return (
@@ -134,12 +142,14 @@ class ClassCheck extends Component {
             <div className="ClassDiv">
                 <ul>
                 {
-                  this.state.class.map(c =>
-                    <li><input type="checkbox" value={c} onChange={this.handleChange}/>{c.class_name} {c.class_division}분반</li>)
+                  newArr.map(c =>
+                    <li><input type="checkbox" value={c.class_no} onChange={this.handleChange}/>{c.class_no}</li>)
                 }
               </ul>
             </div>
-            <button onClick={()=>console.log(newArr)} />
+            
+            <button onClick={()=>this.setState({info: newArr})} />
+            <button onClick={()=>console.log(this.state.info)} />
           </ClassCheckWrapWrapDiv>
         </ClassCheckDiv>
       </div>
