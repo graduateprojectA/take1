@@ -106,12 +106,11 @@ class ClassCheck extends Component {
       })
     console.log(checked);
   };
-  createClass = (event) => {
+  completeClass = (event) => {
     event.preventDefault();
-     this.state.class.map((p) =>
-    this.setState({user_class:p})
-  )
-    console.log(JSON.stringify(this.state.user_class));
+    UserService.CheckClassUser(this.state.info).then(res => {
+            this.props.history.push('./');
+    });
 }
   componentDidMount() {
     UserService.class2User().then((res) => {
@@ -149,7 +148,7 @@ class ClassCheck extends Component {
             </div>
             
             <button onClick={()=>this.setState({info: newArr})} />
-            <button onClick={()=>console.log(this.state.info)} />
+            <button onClick={this.completeClass} />
           </ClassCheckWrapWrapDiv>
         </ClassCheckDiv>
       </div>

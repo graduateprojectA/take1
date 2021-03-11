@@ -27,6 +27,9 @@ class UserService {
     class2User() {
         return axios.get("http://localhost:8080/api/class");
     }
+    CheckClassUser(user_class) {
+        return axios.post("http://localhost:8080/api/classCheck", user_class);
+    }
 }
 
 export default new UserService();
