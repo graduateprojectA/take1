@@ -77,6 +77,13 @@ public class User_class {
         this.class_pre = class_pre;
         this.class_next = class_next;
     }
+    public User_class(Integer user_no, Integer class_no, Boolean class_pre, Boolean class_next){
+        super();
+        this.user_no = user_no;
+        this.class_no = class_no;
+        this.class_pre = class_pre;
+        this.class_next = class_next;
+    }
 
     @Override
     public String toString() {

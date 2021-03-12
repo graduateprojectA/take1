@@ -1,5 +1,7 @@
 package com.board.back.controller;
 import com.board.back.model.Class;
+import com.board.back.model.User_class;
+import com.board.back.repository.ClassRepository;
 import com.board.back.service.ClassService;
 import com.board.back.service.CourseService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +17,8 @@ public class ClassController {
     private ClassService classService;
     @Autowired
     private CourseService courseService;
+    @Autowired
+    private ClassRepository classRepository;
 
     @Autowired
     public ClassController(ClassService classService) {
@@ -36,4 +40,11 @@ public class ClassController {
         else
             return null;
     }
+
+    @PostMapping("/classCheck")
+    public void getUser_class(@RequestBody List<User_class> uclass) {
+        System.out.println("@PostMapping(\"/getUserClass\")");
+        classService.saveClass(uclass);
+    }
+
 }

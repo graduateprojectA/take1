@@ -22,6 +22,8 @@ public class ClassService {
     private UserFieldRepository userFieldRepository;
     @Autowired
     private UserCourseRepository userCourseRepository;
+    @Autowired
+    private UserClassRepository userClassRepository;
 
     int user_no = 0;
     int user_id = 0;
@@ -98,4 +100,8 @@ public class ClassService {
         System.out.println(getStatus());
     }
 
+    public void saveClass(List<User_class> uclass){
+        for (int i=0; i<uclass.size(); i++) {
+            userClassRepository.save(uclass.get(i));
+        }}
 }
