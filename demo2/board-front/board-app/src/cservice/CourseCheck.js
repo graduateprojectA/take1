@@ -71,6 +71,7 @@ class CourseCheck extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            user_no:2,
             user_class: [
                 {user_no : 1, class_no: "기독교와세계", class_pre: false,class_next:false},
                 {user_no : 1, class_no: "공존과협력의유토피아", class_pre: false,class_next:false},
@@ -98,17 +99,20 @@ class CourseCheck extends Component {
         let time = {            
             user_class: this.state.user_class
         };
+        console.log("time" + JSON.stringify(time));
         UserService.SendClassUser(time).then(res => {
-                this.props.history.push('./courseCheck');
+                this.props.history.push('./');
         });
     }
     componentDidMount() {
-        UserService.course2User().then((res) => {
-            this.setState({ user_class: res.data});
-            console.log("get result => " + JSON.stringify(res.data));
-        });
         UserService.login().then((res) => {
             this.setState({ user_no: res.data });
+            UserService.postUser(this.state.user_no).then((res)=>{
+                UserService.course2User().then((res) => {
+                    this.setState({ user_class: res.data});
+                    console.log("get result => " + JSON.stringify(res.data));
+                });
+            });
             console.log("get result => " + JSON.stringify(res.data));
         });
     }

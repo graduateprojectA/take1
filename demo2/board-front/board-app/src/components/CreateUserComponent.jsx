@@ -71,8 +71,9 @@ class CreateUserComponent extends Component {
         };
         if (this.state.user_no == '_create') {
             UserService.createUser(user);
-                console.log("dho");
-                this.props.history.push('../login');
+            UserService.loginUser(log).then(res => {
+                this.props.history.push('../courseCheck');
+            });
         }
     }
 

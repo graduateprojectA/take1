@@ -30,6 +30,12 @@ class UserService {
     CheckClassUser(user_class) {
         return axios.post("http://localhost:8080/api/classCheck", user_class);
     }
+    postUser(user_no){
+        return axios({method :'post',
+        url:'http://localhost:8080/api/courseUser', 
+        headers :{'Content-Type': 'application/json' }, 
+        data: user_no});
+    }
 }
 
 export default new UserService();
