@@ -92,13 +92,12 @@ class CourseCheck extends Component {
                 u.course_done = true
             }
            }
-        this.setState({user_class: user_class})})
+        this.setState({user_class: user_class})
+    })
       }
       completeCheck = (event) => {
         event.preventDefault();
-        let time = {            
-            user_class: this.state.user_class
-        };
+        let time = this.state.user_class;
         console.log("time" + JSON.stringify(time));
         UserService.SendClassUser(time).then(res => {
                 this.props.history.push('./');
