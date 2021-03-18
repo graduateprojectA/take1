@@ -9,9 +9,8 @@ import "../css/style.css";
 import Logo from "./Logo";
 import My from "./My";
 import backgroundImage2 from "../components/image/backgroundImage2.png";
-import  CheckBox  from './CheckBox';
-import PhoneInfoList from './PhoneInfoList';
-import PhoneForm from './PhoneForm';
+import { Multiselect } from "multiselect-react-dropdown";
+import '../../node_modules/bootstrap/dist/js/bootstrap.min.js';
 const ClassCheckDiv = styled.div`
     position: absolute;
     top: 0;
@@ -87,15 +86,23 @@ class ClassCheck extends Component {
             class_pre: false,
             class_next: false
         }],
-        newArr:[]
+        newArr:[],
+        filArr:[],
+        objectArray: [
+          { key: "Option 1", cat: "Group 1" },
+          { key: "Option 2", cat: "Group 1" },
+          { key: "Option 3", cat: "Group 1" },
+          { key: "Option 4", cat: "Group 2" },
+          { key: "Option 5", cat: "Group 2" },
+          { key: "Option 6", cat: "Group 2" },
+          { key: "Option 7", cat: "Group 2" }
+        ]
     };
 }
   handleChange = (e) => {
     let newArr=this.state.newArr;
     newArr.map(u => {
            if (u.class_no == e.target.value) {
-             console.log(u.class_no)
-             console.log(u.class_next)
             if (u.class_next) {
                 u.class_next = false
             } else {
@@ -120,7 +127,8 @@ class ClassCheck extends Component {
           class_no: p.class_no,
           class_pre:false,
           class_next: false
-      } );
+      }
+       );
       console.log("get result => " + JSON.stringify(res.data));
     });
     UserService.login().then((res) => {
@@ -136,8 +144,27 @@ class ClassCheck extends Component {
           <My />
           <ClassCheckWrapWrapDiv>
             <ClassCheckP>제외할 수업을 선택해주세요.</ClassCheckP>
-            
-            <button onClick={()=>console.log(this.state.newArr)} />
+            <Multiselect
+                options={this.state.newArr}
+                displayValue="class_no"
+                showCheckbox={true}
+            />
+            <div class="dropdown">
+              <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                Dropdown button
+                </button>
+              <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                <li><a class="dropdown-item" href="#">Action</a></li>
+                <li><a class="dropdown-item" href="#">Another action</a></li>
+                <li><a class="dropdown-item" href="#">Something else here</a></li>
+              </ul>
+            </div>
+            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+  <strong>Holy guacamole!</strong> You should check in on some of those fields below.
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+            <button onClick={() => console.log(this.state.newArr)} />
+            <button onClick={()=>console.log(this.state.filArr)} />
             <div className="ClassDiv">
                 <ul>
                 {
@@ -146,6 +173,7 @@ class ClassCheck extends Component {
                 }
               </ul>
             </div>
+            
             <button onClick={this.completeClass} />
           </ClassCheckWrapWrapDiv>
         </ClassCheckDiv>

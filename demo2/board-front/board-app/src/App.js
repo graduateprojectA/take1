@@ -18,7 +18,7 @@ import EventPractice from "./cservice/EventPractice";
 import CreateUserComponent from './components/CreateUserComponent';
 import LoginUserComponent from "./components/LoginUserComponent";
 import CheckTimeComponent from './components/CheckTimeComponent';
-
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
   return (

@@ -27,6 +27,7 @@ const My = () => {
         <Link to = "./MyPage">
         <LogoButton>
             <LogoImg src = {my}/>
+
         </LogoButton>
         </Link>
     );
