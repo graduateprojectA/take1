@@ -88,6 +88,7 @@ class ClassCheck extends Component {
         }],
         newArr:[],
         filArr:[],
+        twoArr:[],
         objectArray: [
           { key: "Option 1", cat: "Group 1" },
           { key: "Option 2", cat: "Group 1" },
@@ -129,6 +130,12 @@ class ClassCheck extends Component {
           class_next: false
       }
        );
+       this.state.filArr =this.state.class.filter(p =>
+        (p.class_no<386)
+       );
+       this.state.twoArr =this.state.class.filter(p =>
+        (p.class_no>385 && p.class_no<400)
+       );
       console.log("get result => " + JSON.stringify(res.data));
     });
     UserService.login().then((res) => {
@@ -144,25 +151,31 @@ class ClassCheck extends Component {
           <My />
           <ClassCheckWrapWrapDiv>
             <ClassCheckP>제외할 수업을 선택해주세요.</ClassCheckP>
-            <Multiselect
-                options={this.state.newArr}
-                displayValue="class_no"
-                showCheckbox={true}
-            />
-            <button onClick={() => console.log(this.state.newArr)} />
+            <button onClick={() => console.log(this.state.twoArr)} />
             <button onClick={()=>console.log(this.state.filArr)} />
+            <button onClick={()=>console.log(this.state.newArr)} />
             <div className="dropdown">
             <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                 Dropdown button
                 </button>
                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                 {
-                  this.state.newArr.map(c =>
+                  this.state.filArr.map(c =>
                     <li><input type="checkbox" class="dropdown-item" value={c.class_no} onChange={this.handleChange}/>{c.class_no}</li>)
                 }
               </ul>
             </div>
-            
+            <div className="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                Dropdown button
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                {
+                  this.state.twoArr.map(c =>
+                    <li><input type="checkbox" class="dropdown-item" value={c.class_no} onChange={this.handleChange}/>{c.class_no}</li>)
+                }
+              </ul>
+            </div>
             <button onClick={this.completeClass} />
           </ClassCheckWrapWrapDiv>
         </ClassCheckDiv>
