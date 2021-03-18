@@ -87,24 +87,23 @@ class ClassCheck extends Component {
             class_pre: false,
             class_next: false
         }],
-        info:[]
+        newArr:[]
     };
 }
   handleChange = (e) => {
-    const checked = e.target.checked;
-    let info=this.state.info;
-    info.map(u => {
+    let newArr=this.state.newArr;
+    newArr.map(u => {
            if (u.class_no == e.target.value) {
+             console.log(u.class_no)
+             console.log(u.class_next)
             if (u.class_next) {
                 u.class_next = false
             } else {
                 u.class_next = true
             }
            }
-          
-        this.setState({info: info})
+        this.setState({newArr: newArr})
       })
-    console.log(checked);
   };
   completeClass = (event) => {
     event.preventDefault();
@@ -115,6 +114,13 @@ class ClassCheck extends Component {
   componentDidMount() {
     UserService.class2User().then((res) => {
       this.setState({ class: res.data });
+      this.state.newArr =this.state.class.map(p =>
+        this.state.user_class = {
+          user_no: this.state.user_no,
+          class_no: p.class_no,
+          class_pre:false,
+          class_next: false
+      } );
       console.log("get result => " + JSON.stringify(res.data));
     });
     UserService.login().then((res) => {
@@ -123,14 +129,6 @@ class ClassCheck extends Component {
     });
   }
   render() {
-    const newArr =this.state.class.map((p) =>
-    this.state.user_class = {
-      user_no: this.state.user_no,
-      class_no: p.class_no,
-      class_pre:false,
-      class_next: false
-  }
-  );
     return (
       <div>
         <ClassCheckDiv>
@@ -138,16 +136,16 @@ class ClassCheck extends Component {
           <My />
           <ClassCheckWrapWrapDiv>
             <ClassCheckP>제외할 수업을 선택해주세요.</ClassCheckP>
+            
+            <button onClick={()=>console.log(this.state.newArr)} />
             <div className="ClassDiv">
                 <ul>
                 {
-                  newArr.map(c =>
+                  this.state.newArr.map(c =>
                     <li><input type="checkbox" value={c.class_no} onChange={this.handleChange}/>{c.class_no}</li>)
                 }
               </ul>
             </div>
-            
-            <button onClick={()=>this.setState({info: newArr})} />
             <button onClick={this.completeClass} />
           </ClassCheckWrapWrapDiv>
         </ClassCheckDiv>
