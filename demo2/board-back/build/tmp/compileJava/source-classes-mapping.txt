@@ -54,8 +54,8 @@ com/board/back/repository/BoardRepository.java
  com.board.back.repository.BoardRepository
 com/board/back/repository/ClassRepository.java
  com.board.back.repository.ClassRepository
-com/board/back/repository/CourseRepository.java
- com.board.back.repository.CourseRepository
+com/board/back/model/User_class.java
+ com.board.back.model.User_class
 com/board/back/repository/UserCourseRepository.java
  com.board.back.repository.UserCourseRepository
 com/board/back/service/TimeService.java
@@ -68,17 +68,17 @@ com/board/back/controller/TimeController.java
  com.board.back.controller.TimeController
 com/board/back/controller/UserController.java
  com.board.back.controller.UserController
-com/board/back/service/CourseService.java
- com.board.back.service.CourseService
-com/board/back/controller/CourseController.java
- com.board.back.controller.CourseController
-com/board/back/service/UserService.java
- com.board.back.service.UserService
-com/board/back/model/User_class.java
- com.board.back.model.User_class
+com/board/back/service/ClassService.java
+ com.board.back.service.ClassService
 com/board/back/repository/UserClassRepository.java
  com.board.back.repository.UserClassRepository
 com/board/back/controller/ClassController.java
  com.board.back.controller.ClassController
-com/board/back/service/ClassService.java
- com.board.back.service.ClassService
+com/board/back/service/CourseService.java
+ com.board.back.service.CourseService
+com/board/back/service/UserService.java
+ com.board.back.service.UserService
+com/board/back/controller/CourseController.java
+ com.board.back.controller.CourseController
+com/board/back/repository/CourseRepository.java
+ com.board.back.repository.CourseRepository
