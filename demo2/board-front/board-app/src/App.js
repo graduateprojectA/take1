@@ -11,6 +11,7 @@ import Intro from "./cservice/Intro";
 import Main from "./cservice/Main";
 import CourseCheck from "./cservice/CourseCheck";
 import MyPage from "./cservice/MyPage";
+import Timetest from "./cservice/Timetest";
 import ClasCheck from "./cservice/ClassCheck";
 import EventPractice from "./cservice/EventPractice";
 import CreateUserComponent from './components/CreateUserComponent';
@@ -37,6 +38,7 @@ function App() {
               <Route path="/tableCheck/:user_no" component={CheckTimeComponent}></Route>
               <Route path="/courseCheck" component={CourseCheck} exact={true} />
               <Route path="/myPage" component={MyPage} exact={true} />
+              <Route path = "/time/table" component = {Timetest} exact={true} />
               <Route path="/classCheck" component={ClasCheck} exact={true} />
               <Route path = "/create-user/:user_no" component = {CreateUserComponent}></Route>
               <Route path = "/:user_no" component = {LoginUserComponent}></Route>
