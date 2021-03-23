@@ -76,7 +76,11 @@ presentation_per int, 	#발표
 project_per int,	#프로젝트
 assignment_per int,	#과제물
 attendance_per int, 	#출석
-extra_per int	#기타
+extra_per int,	#기타
+mid_plan int,	#중간고사일정
+final_plan int, 	#기말고사일정
+extra_plan varchar(500), 	#기타일정
+class_location varchar(300)	#강의실위치
 );
 
 create table User_check_field(
@@ -129,7 +133,7 @@ exam_pre int,	#중간, 기말
 quiz_pre int, 	#퀴즈
 presentation_pre int, 	#발표
 project_pre int,	#프로젝트
-assignment_pre int,	#과제물
+assingment_pre int,	#과제물
 attendance_pre int,		#출석
 foreign key(user_no) references User(user_no) on update cascade on delete cascade
 );
