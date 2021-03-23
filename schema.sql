@@ -123,14 +123,15 @@ foreign key(class_no) references Class(class_no) on update cascade on delete cas
 );
 
 # 사용자가 선택한 가중치값
-create table User_preperence(
+create table User_preference(
 user_no int primary key,
 exam_pre int,	#중간, 기말
 quiz_pre int, 	#퀴즈
 presentation_pre int, 	#발표
 project_pre int,	#프로젝트
 assingment_pre int,	#과제물
-attendance_pre int		#출석
+attendance_pre int,		#출석
+foreign key(user_no) references User(user_no) on update cascade on delete cascade
 );
 
 #사용자가 시간 선택
