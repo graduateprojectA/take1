@@ -9,7 +9,6 @@ import "../css/style.css";
 import Logo from "./Logo";
 import My from "./My";
 import backgroundImage2 from "../components/image/backgroundImage2.png";
-import { Multiselect } from "multiselect-react-dropdown";
 import '../../node_modules/bootstrap/dist/js/bootstrap.min.js';
 const ClassCheckDiv = styled.div`
     position: absolute;
