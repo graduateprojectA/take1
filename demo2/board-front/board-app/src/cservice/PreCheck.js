@@ -50,6 +50,7 @@ handleChange = (e) => {
   if (checked ) {
       this.setState({ [box]: this.state.count });
       this.setState({count : this.state.count+1});
+      e.target.disabled = true;
   }else{
       this.setState({ [box]: 0 });
       this.setState({count : this.state.count-1});
