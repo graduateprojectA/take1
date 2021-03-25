@@ -1,6 +1,6 @@
 package com.board.back.controller;
-import com.board.back.model.Class;
 import com.board.back.model.User_class;
+import com.board.back.model.newClass;
 import com.board.back.repository.ClassRepository;
 import com.board.back.service.ClassService;
 import com.board.back.service.CourseService;
@@ -34,7 +34,7 @@ public class ClassController {
     }
 
     @GetMapping("/class")
-    public List<Class> printClass(){
+    public List<newClass> printClass(){
         if(classService.getStatus()== true)
             return classService.getResult();
         else

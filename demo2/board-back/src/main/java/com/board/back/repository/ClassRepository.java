@@ -9,5 +9,8 @@ import java.util.List;
 public interface ClassRepository extends JpaRepository<Class, Integer> {
     @Query(value="SELECT * from class s where course_id in :d", nativeQuery = true)
     List<Class> printClass(@Param("d")List<Integer>d);
+
+    @Query(value="SELECT course_id from class s where s.course_id in :d group by s.course_id", nativeQuery = true)
+    List<Integer> printClassCourseId(@Param("d")List<Integer>d);
 }
 

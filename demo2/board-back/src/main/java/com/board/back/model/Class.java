@@ -125,6 +125,7 @@ public class Class {
     public String getClass_location() {return class_location;}
     public void setClass_location(String a){this.class_location = a;}
 
+
     public Class() {
         super();
     }
