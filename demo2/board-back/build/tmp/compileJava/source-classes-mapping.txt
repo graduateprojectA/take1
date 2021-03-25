@@ -82,3 +82,11 @@ com/board/back/controller/CourseController.java
  com.board.back.controller.CourseController
 com/board/back/repository/CourseRepository.java
  com.board.back.repository.CourseRepository
+com/board/back/model/Class.java
+ com.board.back.model.Class
+com/board/back/repository/UserPreferenceRepository.java
+ com.board.back.repository.UserPreferenceRepository
+com/board/back/model/User_preference.java
+ com.board.back.model.User_preference
+com/board/back/controller/PreferenceController.java
+ com.board.back.controller.PreferenceController
