@@ -9,8 +9,6 @@ import HeaderComponent from './components/HeaderComponent';
  import ReadUserComponent from './components/ReadUserComponent';
 import Intro from "./cservice/Intro";
 import Main from "./cservice/Main";
-import Join from "./cservice/Join";
-import Login from "./cservice/Login";
 import CourseCheck from "./cservice/CourseCheck";
 import MyPage from "./cservice/MyPage";
 import ClasCheck from "./cservice/ClassCheck";
@@ -18,8 +16,7 @@ import EventPractice from "./cservice/EventPractice";
 import CreateUserComponent from './components/CreateUserComponent';
 import LoginUserComponent from "./components/LoginUserComponent";
 import CheckTimeComponent from './components/CheckTimeComponent';
-
-
+import 'bootstrap/dist/css/bootstrap.min.css';
 function App() {
   return (
     <div> 
@@ -37,7 +34,6 @@ function App() {
               <Route path = "/read-user/:user_no" component = {ReadUserComponent}></Route>
               <Route path = "/user" component = {ListUserComponent}></Route>
               <Route path="/main" component={Main} exact={true} />
-              <Route path="/join" component={Join} exact={true} />
               <Route path="/tableCheck/:user_no" component={CheckTimeComponent}></Route>
               <Route path="/courseCheck" component={CourseCheck} exact={true} />
               <Route path="/myPage" component={MyPage} exact={true} />

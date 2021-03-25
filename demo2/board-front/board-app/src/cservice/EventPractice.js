@@ -4,7 +4,6 @@ import UserService from '../service/UserService';
 import "../css/style.css";
 import Logo from "../cservice/Logo";
 import My from "../cservice/My";
-import Main from "../cservice/Main";
 class EventPractice extends Component {
   constructor(props) {
     super(props);
@@ -42,7 +41,7 @@ completeCheck = (event) => {
 
     UserService.classUser(time.user_no);
     UserService.TimeUser(time).then(res => {
-            this.props.history.push('./courseCheck');
+            this.props.history.push('./classCheck');
     });
 }
 componentDidMount() {

@@ -68,8 +68,19 @@ class_no int auto_increment primary key,
 class_name varchar(300),
 course_id int, 	#학수번호
 professor_name varchar(100),
-class_division int, 	# 분반
-class_time int 	#해당학기의 시간
+class_division int, 	#분반
+class_time int, 	#해당학기의 시간
+exam_per int,	#중간, 기말
+quiz_per int, 	#퀴즈
+presentation_per int, 	#발표
+project_per int,	#프로젝트
+assignment_per int,	#과제물
+attendance_per int, 	#출석
+extra_per int,	#기타
+mid_plan int,	#중간고사일정
+final_plan int, 	#기말고사일정
+extra_plan varchar(500), 	#기타일정
+class_location varchar(300)	#강의실위치
 );
 
 create table User_check_field(
@@ -113,6 +124,19 @@ class_pre boolean,
 class_next boolean,
 foreign key(user_no) references User(user_no) on update cascade on delete cascade,
 foreign key(class_no) references Class(class_no) on update cascade on delete cascade
+);
+
+# 사용자가 선택한 가중치값
+create table User_preference(
+user_preference_no int auto_increment primary key,
+user_no int not null,
+exam_pre int,	#중간, 기말
+quiz_pre int, 	#퀴즈
+presentation_pre int, 	#발표
+project_pre int,	#프로젝트
+assignment_pre int,	#과제물
+attendance_pre int,		#출석
+foreign key(user_no) references User(user_no) on update cascade on delete cascade
 );
 
 #사용자가 시간 선택
