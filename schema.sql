@@ -134,7 +134,7 @@ exam_pre int,	#중간, 기말
 quiz_pre int, 	#퀴즈
 presentation_pre int, 	#발표
 project_pre int,	#프로젝트
-assingment_pre int,	#과제물
+assignment_pre int,	#과제물
 attendance_pre int,		#출석
 foreign key(user_no) references User(user_no) on update cascade on delete cascade
 );
