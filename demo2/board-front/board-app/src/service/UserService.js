@@ -36,6 +36,9 @@ class UserService {
         headers :{'Content-Type': 'application/json' }, 
         data: user_no});
     }
+    SendPre(pre) {
+        return axios.post("http://localhost:8080/api/preferenceUser", pre);
+    }
 }
 
 export default new UserService();
