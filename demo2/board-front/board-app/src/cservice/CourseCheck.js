@@ -88,7 +88,6 @@ class CourseCheck extends Component {
     }
     render() {
         return (
-            <div>
                 <ClassCheckDiv>
                     <Logo />
                     <My />
@@ -106,8 +105,6 @@ class CourseCheck extends Component {
                         </ul>
                     </ClassCheckWrapWrapDiv>
                 </ClassCheckDiv>
-                
-            </div>
         );
     }
 }

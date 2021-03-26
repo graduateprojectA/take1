@@ -144,7 +144,6 @@ class ClassCheck extends Component {
   }
   render() {
     return (
-      <div>
         <ClassCheckDiv>
           <Logo />
           <My />
@@ -178,7 +177,6 @@ class ClassCheck extends Component {
             <button onClick={this.completeClass} />
           </ClassCheckWrapWrapDiv>
         </ClassCheckDiv>
-      </div>
     );
   }
 }

@@ -85,7 +85,6 @@ completeCheck = (event) => {
 }
   render() {
     return (
-      <div>
         <ClassCheckDiv>
           <Logo />
           <My />
@@ -105,7 +104,6 @@ completeCheck = (event) => {
             {this.state.exam_pre} {this.state.quiz_pre} {this.state.presentation_pre} {this.state.project_pre} {this.state.assignment_pre} {this.state.attendance_pre}
           </ClassCheckWrapWrapDiv>
         </ClassCheckDiv>
-      </div>
     );
   }
 }
