@@ -78,10 +78,10 @@ completeCheck = (event) => {
     attendance_pre : this.state.attendance_pre
   };
   console.log("가중치 : " + JSON.stringify(user_pre));
-  /*
-  UserService.SendPre(pre).then(res => {
+  
+  UserService.SendPre(user_pre).then(res => {
           this.props.history.push('./');
-  });*/
+  });
 }
   render() {
     return (

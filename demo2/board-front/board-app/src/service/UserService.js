@@ -36,8 +36,8 @@ class UserService {
         headers :{'Content-Type': 'application/json' }, 
         data: user_no});
     }
-    sendPre(pre) {
-        return axios.post("http://localhost:8080/api/preCheck", pre);
+    SendPre(pre) {
+        return axios.post("http://localhost:8080/api/preferenceUser", pre);
     }
 }
 

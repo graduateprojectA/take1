@@ -130,10 +130,10 @@ class ClassCheck extends Component {
       }
        );
        this.state.filArr =this.state.class.filter(p =>
-        (p.class_no<386)
+        (p.field_no==8)
        );
        this.state.twoArr =this.state.class.filter(p =>
-        (p.class_no>385 && p.class_no<400)
+        (p.field_no==10)
        );
       console.log("get result => " + JSON.stringify(res.data));
     });
