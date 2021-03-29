@@ -88,8 +88,9 @@ class ClassCheck extends Component {
             class_next: false
         }],
         newArr:[],
-        filArr:[],
-        twoArr:[],
+        Arr7:[],
+        Arr8:[],
+        Arr10:[],
         objectArray: [
           { key: "Option 1", cat: "Group 1" },
           { key: "Option 2", cat: "Group 1" },
@@ -145,11 +146,13 @@ class ClassCheck extends Component {
         class_next: false
     }
      )});
-
-     this.state.filArr =this.state.class.filter(p =>
+     this.state.Arr7 =this.state.class.filter(p =>
+      (p.field_no==7)
+     );
+     this.state.Arr8 =this.state.class.filter(p =>
       (p.field_no==8)
      );
-     this.state.twoArr =this.state.class.filter(p =>
+     this.state.Arr10 =this.state.class.filter(p =>
       (p.field_no==10)
      );
   }
@@ -160,36 +163,32 @@ class ClassCheck extends Component {
           <My />
           <ClassCheckWrapWrapDiv>
             <ClassCheckP>제외할 수업을 선택해주세요.</ClassCheckP>
-            <button onClick={() => console.log(this.state.twoArr)} />
-            <button onClick={()=>console.log(this.state.filArr)} />
-            <button onClick={()=>console.log(this.state.newArr)} />
-            <br/>
             <button onClick={this.reset}>reset</button>
             <button onClick={this.filldata}>fill</button>
             <div className="dropdown">
             <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                Dropdown button
+            융복합(표현과예술)
                 </button>
                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                 {
-                  this.state.filArr.map(c =>
+                  this.state.Arr8.map(c =>
                     <li><input type="checkbox" class="dropdown-item" value={c.class_no} onChange={this.handleChange}/>{c.class_name} {c.class_division}분반</li>)
                 }
               </ul>
             </div>
-            <br/><br/><br/><br/>
+            <br/>
             <div className="dropdown">
             <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                Dropdown button
+            융복합(인간과사회)
                 </button>
                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                 {
-                  this.state.twoArr.map(c =>
+                  this.state.Arr10.map(c =>
                     <li><input type="checkbox" class="dropdown-item" value={c.class_no} onChange={this.handleChange}/>{c.class_name} {c.class_division}분반</li>)
                 }
               </ul>
             </div>
-            <button onClick={this.completeClass} />
+            <button onClick={this.completeClass}>전송</button>
           </ClassCheckWrapWrapDiv>
         </ClassCheckDiv>
     );
