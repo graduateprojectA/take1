@@ -6,7 +6,9 @@ import CourseCheck from "./cservice/CourseCheck";
 import MyPage from "./cservice/MyPage";
 import preCheck from "./cservice/PreCheck";
 import Timetest from "./cservice/Timetest";
-import ClasCheck from "./cservice/ClassCheck";
+import ClassCheck from "./cservice/ClassCheck";
+import preClassCheck from "./cservice/preClassCheck";
+import frontClass from "./cservice/frontClass";
 import EventPractice from "./cservice/EventPractice";
 import CreateUserComponent from './components/CreateUserComponent';
 import LoginUserComponent from "./components/LoginUserComponent";
@@ -27,7 +29,9 @@ function App() {
               <Route path="/preCheck" component={preCheck} exact={true} />
               <Route path="/myPage" component={MyPage} exact={true} />
               <Route path = "/time/table" component = {Timetest} exact={true} />
-              <Route path="/classCheck" component={ClasCheck} exact={true} />
+              <Route path="/classCheck" component={ClassCheck} exact={true} />
+              <Route path="/preclassCheck" component={preClassCheck} exact={true} />
+              <Route path="/frontClass" component={frontClass} exact={true} />
               <Route path = "/create-user/:user_no" component = {CreateUserComponent}></Route>
               <Route path = "/:user_no" component = {LoginUserComponent}></Route>
             render={({ location }) => (

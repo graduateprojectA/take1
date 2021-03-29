@@ -10,6 +10,8 @@ import Logo from "./Logo";
 import My from "./My";
 import backgroundImage2 from "../components/image/backgroundImage2.png";
 import '../../node_modules/bootstrap/dist/js/bootstrap.min.js';
+
+import Cs from "./frontClass";
 const ClassCheckDiv = styled.div`
     position: absolute;
     top: 0;
@@ -109,8 +111,9 @@ class ClassCheck extends Component {
                 u.class_next = true
             }
            }
-        this.setState({newArr: newArr})
       })
+      this.setState({newArr: newArr})
+      console.log(newArr)
   };
   completeClass = (event) => {
     event.preventDefault();
@@ -121,26 +124,34 @@ class ClassCheck extends Component {
   componentDidMount() {
     UserService.class2User().then((res) => {
       this.setState({ class: res.data });
-      this.state.newArr =this.state.class.map(p =>
-        this.state.user_class = {
-          user_no: this.state.user_no,
-          class_no: p.class_no,
-          class_pre:false,
-          class_next: false
-      }
-       );
-       this.state.filArr =this.state.class.filter(p =>
-        (p.field_no==8)
-       );
-       this.state.twoArr =this.state.class.filter(p =>
-        (p.field_no==10)
-       );
-      console.log("get result => " + JSON.stringify(res.data));
+    console.log("get result => " + JSON.stringify(res.data));
     });
     UserService.login().then((res) => {
       this.setState({ user_no: res.data });
       console.log("get result => " + JSON.stringify(res.data));
     });
+  }
+  reset=(event)=>{
+    event.preventDefault();
+    window.location.replace("/classCheck")
+  }
+  filldata = (event)=>{
+    event.preventDefault();
+    this.setState({newArr : this.state.class.map(p =>
+      this.state.user_class = {
+        user_no: this.state.user_no,
+        class_no: p.class_no,
+        class_pre:false,
+        class_next: false
+    }
+     )});
+
+     this.state.filArr =this.state.class.filter(p =>
+      (p.field_no==8)
+     );
+     this.state.twoArr =this.state.class.filter(p =>
+      (p.field_no==10)
+     );
   }
   render() {
     return (
@@ -152,6 +163,9 @@ class ClassCheck extends Component {
             <button onClick={() => console.log(this.state.twoArr)} />
             <button onClick={()=>console.log(this.state.filArr)} />
             <button onClick={()=>console.log(this.state.newArr)} />
+            <br/>
+            <button onClick={this.reset}>reset</button>
+            <button onClick={this.filldata}>fill</button>
             <div className="dropdown">
             <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                 Dropdown button
@@ -159,10 +173,11 @@ class ClassCheck extends Component {
                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                 {
                   this.state.filArr.map(c =>
-                    <li><input type="checkbox" class="dropdown-item" value={c.class_no} onChange={this.handleChange}/>{c.class_no}</li>)
+                    <li><input type="checkbox" class="dropdown-item" value={c.class_no} onChange={this.handleChange}/>{c.class_name} {c.class_division}분반</li>)
                 }
               </ul>
             </div>
+            <br/><br/><br/><br/>
             <div className="dropdown">
             <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                 Dropdown button
@@ -170,7 +185,7 @@ class ClassCheck extends Component {
                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                 {
                   this.state.twoArr.map(c =>
-                    <li><input type="checkbox" class="dropdown-item" value={c.class_no} onChange={this.handleChange}/>{c.class_no}</li>)
+                    <li><input type="checkbox" class="dropdown-item" value={c.class_no} onChange={this.handleChange}/>{c.class_name} {c.class_division}분반</li>)
                 }
               </ul>
             </div>
