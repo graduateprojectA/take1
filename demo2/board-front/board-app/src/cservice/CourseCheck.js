@@ -38,35 +38,6 @@ const ClassCheckP = styled.p`
     text-align: center; 
     font-size: 1.2em;
 `;
-
-const NextA = styled.a`
-    font-size: 40px;
-    cursor: pointer;
-    position: absolute;
-    top: 50%;
-    margin-top:-20px;
-    padding: 16px;
-    color: white;
-    right: 1%;
-    &:hover{
-        color: #00462A;
-    }
-`;
-
-const PreA = styled.a`
-    font-size: 40px;
-    cursor: pointer;
-    position: absolute;
-    top: 50%;
-    margin-top:-20px;
-    padding: 16px;
-    color: white;
-    left: 1%;
-    &:hover{
-        color: #00462A;
-    }
-`;
-
 class CourseCheck extends Component {
     constructor(props) {
         super(props);
@@ -100,7 +71,7 @@ class CourseCheck extends Component {
         let time = this.state.user_class;
         console.log("time" + JSON.stringify(time));
         UserService.SendClassUser(time).then(res => {
-                this.props.history.push('./');
+                this.props.history.push('./precheck');
         });
     }
     componentDidMount() {
@@ -117,7 +88,6 @@ class CourseCheck extends Component {
     }
     render() {
         return (
-            <div>
                 <ClassCheckDiv>
                     <Logo />
                     <My />
@@ -135,8 +105,6 @@ class CourseCheck extends Component {
                         </ul>
                     </ClassCheckWrapWrapDiv>
                 </ClassCheckDiv>
-                
-            </div>
         );
     }
 }
