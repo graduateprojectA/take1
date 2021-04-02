@@ -10,8 +10,8 @@ com/board/back/exception/ValidationCheckException.java
  com.board.back.exception.ValidationCheckException
 com/board/back/model/User_timetable.java
  com.board.back.model.User_timetable
-com/board/back/model/Student.java
- com.board.back.model.Student
+com/board/back/service/ClassService.java
+ com.board.back.service.ClassService
 com/board/back/controller/BoardController.java
  com.board.back.controller.BoardController
 com/board/back/model/Check_field.java
@@ -90,5 +90,3 @@ com/board/back/model/newClass.java
  com.board.back.model.newClass
 com/board/back/controller/ClassController.java
  com.board.back.controller.ClassController
-com/board/back/service/ClassService.java
- com.board.back.service.ClassService
