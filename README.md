@@ -57,15 +57,15 @@ If the credits in the generated timetable, such as when the lecture times overla
 - [ ] 사용자로부터 가중치값 설정받고 가중치값에 맞는 시간표 생성
 - [ ] 사용자에게 맞춤형 (교양)수업 추천
 
-화면 명세서
+화면 명세서 (디자인은 아직 개판이나, spring boot 코드는 okay~~~)
 - [x] 홈
 - [x] 로그인
-- [ ] SESSION
+- [x] SESSION
 - [x] 회원가입
-- [ ] 마이페이지 
-- [ ] 여태 들은 수업 체크
+- [ ] 마이페이지(커리큘럼 )
+- [x] 여태 들은 수업 체크 
 - [x] 시간표 만들러가기 : 원하지 않는 시간대 입력 : 시간 제외 페이지
-- [ ] 분반 선택 : 과목 제외 페이지
+- [ ] 분반 선택 : 과목 제외 페이지 50
 - [ ] 가중치값 설정
 - [ ] 시간표 최종본 출력
 - [ ] 교양 추천 
@@ -83,5 +83,3 @@ If the credits in the generated timetable, such as when the lecture times overla
 <br><br>
 장진희(Jinhui Chang) : https://www.notion.so/b20405ba0e8f43f2869ba2d7d0b48195<br>
 https://blog.naver.com/bettyjang
-<br><br>
-정예림(Yelim Jung) : https://m.blog.naver.com/118dg?suggestAddBuddy=true

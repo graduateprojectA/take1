@@ -20,13 +20,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2a36eb25-e1bd-411b-bedd-71c67e2ff6e8" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/fileChanges/last-build.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/fileHashes/fileHashes.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/gc.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.6.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.6.1/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.6.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.6.1/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.6.1/fileContent/fileContent.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.6.1/fileContent/fileContent.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.6.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.6.1/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.6.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.6.1/fileHashes/fileHashes.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.6.1/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.6.1/javaCompile/classAnalysis.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.6.1/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.6.1/javaCompile/javaCompile.lock" afterDir="false" />
@@ -39,15 +34,16 @@
       <change beforePath="$PROJECT_DIR$/../board-front/board-app/src/components/LoginUserComponent.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../board-front/board-app/src/components/LoginUserComponent.jsx" afterDir="false" />
 =======
       <change beforePath="$PROJECT_DIR$/src/main/java/com/board/back/controller/CourseController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/board/back/controller/CourseController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/board/back/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/board/back/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/board/back/model/Class.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/board/back/model/Class.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/board/back/model/Course.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/board/back/model/Course.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/board/back/repository/CourseRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/board/back/repository/CourseRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/board/back/repository/LoginRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/board/back/repository/LoginRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/board/back/model/User_course.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/board/back/model/User_course.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/board/back/repository/UserCourseRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/board/back/repository/UserCourseRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/board/back/service/CourseService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/board/back/service/CourseService.java" afterDir="false" />
+<<<<<<< HEAD
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/board/back/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/board/back/service/UserService.java" afterDir="false" />
+=======
       <change beforePath="$PROJECT_DIR$/src/main/java/com/board/back/service/LoginService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/board/back/service/LoginService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../board-front/board-app/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/../board-front/board-app/src/App.js" afterDir="false" />
 >>>>>>> seoyeong
+>>>>>>> main
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -77,8 +73,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -184,6 +180,9 @@
     </state>
     <state x="421" y="96" key="FileChooserDialogImpl/0.0.1280.680@0.0.1280.680" timestamp="1612604067545" />
 <<<<<<< HEAD
+    <state width="1237" height="153" key="GridCell.Tab.0.bottom" timestamp="1614862834460">
+=======
+<<<<<<< HEAD
     <state x="505" y="118" key="FileChooserDialogImpl/0.0.1536.834@0.0.1536.834" timestamp="1614151991443" />
     <state width="1493" height="465" key="GridCell.Tab.0.bottom" timestamp="1614155711754">
       <screen x="0" y="0" width="1536" height="834" />
@@ -207,21 +206,22 @@
     <state width="1493" height="465" key="GridCell.Tab.0.right/0.0.1536.834@0.0.1536.834" timestamp="1614155711753" />
 =======
     <state width="1237" height="212" key="GridCell.Tab.0.bottom" timestamp="1614501918259">
+>>>>>>> main
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="212" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1614501918259" />
-    <state width="1237" height="212" key="GridCell.Tab.0.center" timestamp="1614501918258">
+    <state width="1237" height="153" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1614862834460" />
+    <state width="1237" height="153" key="GridCell.Tab.0.center" timestamp="1614862834459">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="212" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1614501918258" />
-    <state width="1237" height="212" key="GridCell.Tab.0.left" timestamp="1614501918258">
+    <state width="1237" height="153" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1614862834459" />
+    <state width="1237" height="153" key="GridCell.Tab.0.left" timestamp="1614862834459">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="212" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1614501918258" />
-    <state width="1237" height="212" key="GridCell.Tab.0.right" timestamp="1614501918259">
+    <state width="1237" height="153" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1614862834459" />
+    <state width="1237" height="153" key="GridCell.Tab.0.right" timestamp="1614862834460">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="212" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1614501918259" />
+    <state width="1237" height="153" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1614862834460" />
     <state width="1237" height="204" key="GridCell.Tab.1.bottom" timestamp="1614496516550">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
@@ -252,6 +252,11 @@
           <line>10</line>
           <option name="timeStamp" value="2" />
 >>>>>>> seoyeong
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/board/back/model/User_field.java</url>
+          <line>22</line>
+          <option name="timeStamp" value="3" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
