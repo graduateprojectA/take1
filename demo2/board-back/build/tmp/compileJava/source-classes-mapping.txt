@@ -55,8 +55,8 @@ com/board/back/repository/UserClassRepository.java
  com.board.back.repository.UserClassRepository
 com/board/back/model/Check_field.java
  com.board.back.model.Check_field
-com/board/back/controller/UserController.java
- com.board.back.controller.UserController
+com/board/back/controller/CourseController.java
+ com.board.back.controller.CourseController
 com/board/back/repository/UserFieldRepository.java
  com.board.back.repository.UserFieldRepository
 com/board/back/model/User_preference.java
@@ -97,5 +97,5 @@ com/board/back/service/UserService.java
  com.board.back.service.UserService
 com/board/back/repository/ClassRepository.java
  com.board.back.repository.ClassRepository
-com/board/back/controller/CourseController.java
- com.board.back.controller.CourseController
+com/board/back/controller/UserController.java
+ com.board.back.controller.UserController
