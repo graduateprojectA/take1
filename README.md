@@ -49,7 +49,7 @@ If the credits in the generated timetable, such as when the lecture times overla
 - [x] DEMO 코드 완성 (html,js,php 등 사용) - 레파지토리 demo 참고.
 
 알고리즘
-- [ ] 2021-1에 열릴 과목들 DB에 입력
+- [x] 2021-1에 열릴 과목들 DB에 입력
 - [ ] 컴퓨터공학과를 비롯한 모든 전공 18~21학번 커리큘럼 DB에 입력
 - [ ] 분반 별 가능한 모든 시간표 생성 가능  (ex: A분반이 2개 B분반이 3개 나머지가 다 1개면 총 경우의 수에 맞게 시간표 6개 생성)
 - [x] 사용자가 입력한 원하지 않는 시간대 및 DB 연동 
@@ -65,8 +65,8 @@ If the credits in the generated timetable, such as when the lecture times overla
 - [ ] 마이페이지(커리큘럼 )
 - [x] 여태 들은 수업 체크 
 - [x] 시간표 만들러가기 : 원하지 않는 시간대 입력 : 시간 제외 페이지
-- [ ] 분반 선택 : 과목 제외 페이지 50
-- [ ] 가중치값 설정
+- [x] 분반 선택 : 과목 제외 페이지
+- [x] 가중치값 설정
 - [ ] 시간표 최종본 출력
 - [ ] 교양 추천 
 
