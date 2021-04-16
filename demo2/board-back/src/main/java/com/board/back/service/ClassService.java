@@ -98,9 +98,12 @@ public class ClassService {
 //        setResult(e);
 
         List<Class> e = classRepository.printClass(d);
+//        for (int i=0; i<e.size();i++)
+//            System.out.print(e.get(i));
+
         List<newClass> final_result = new ArrayList<>();
         for (int i = 0; i < e.size(); i++) {
-            Integer k = userCourseRepository.getFieldNo(e.get(i).getCourse_id());
+            Integer k = userCourseRepository.getFieldNo(e.get(i).getCourse_id(), getUser_no());
             newClass tmp = new newClass(e.get(i).getClass_no(), e.get(i).getCourse_id(), e.get(i).getClass_name(),
                     e.get(i).getProfessor_name(), e.get(i).getClass_division(), e.get(i).getClass_time(),
                     e.get(i).getExam_per(), e.get(i).getQuiz_per(), e.get(i).getPresentation_per(),
@@ -114,7 +117,7 @@ public class ClassService {
         setResult(final_result);
     }
 
-        //temp
+    //temp
 //        Integer tmp_field_no = 0;
 //        List <Integer> f = classRepository.printClassCourseId(d);
 //        for(int i=0; i < f.size(); i++){
