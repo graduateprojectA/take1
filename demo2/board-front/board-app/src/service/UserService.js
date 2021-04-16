@@ -1,10 +1,10 @@
 import axios from 'axios';
 class UserService {
     createUser(user) {
-        return axios.post("http://ec2-13-125-250-42.ap-northeast-2.compute.amazonaws.com/:8080/api/user", user);
+        return axios.post("http://localhost:8080/api/user", user);
     }
     loginUser(user) {
-        return axios.post("http://ec2-13-125-250-42.ap-northeast-2.compute.amazonaws.com/api/login", user);
+        return axios.post("http://localhost:8080/api/login", user);
     }
     TimeUser(time) {
         return axios.post("http://localhost:8080/api/tableCheck", time);
