@@ -115,7 +115,6 @@
   margin-top: 7%;
   border: none;
   background: transparent;
-  /* display: none; */
 }
 input[type="checkbox"] {
   background: none;
@@ -129,4 +128,7 @@ input[type="checkbox"]:checked {
   background: rgb(52, 92, 54);
   width: 100%;
   height: 100%;
+}
+input[id="order"] {
+  border: 1px solid;
 }

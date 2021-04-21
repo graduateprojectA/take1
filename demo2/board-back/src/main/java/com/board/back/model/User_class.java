@@ -28,6 +28,9 @@ public class User_class {
     @Column(name = "class_no")
     private Integer class_no;
 
+    @Column(name = "class_credit")
+    private Integer class_credit;
+
     @Column(name="class_pre")
     private Boolean class_pre;
 
@@ -57,6 +60,10 @@ public class User_class {
         this.class_no = no;
     }
 
+    public Integer getClass_credit() {return class_credit;}
+
+    public void setClass_credit(Integer no){this.class_credit = no;}
+
     public Boolean getClass_pre() {return class_pre;}
 
     public void setClass_pre(Boolean answer) {this.class_pre = answer;}
@@ -69,25 +76,30 @@ public class User_class {
     public User_class() {
         super();
     }
-    public User_class(Integer user_class_no, Integer user_no, Integer class_no, Boolean class_pre, Boolean class_next) {
+    public User_class(Integer user_class_no, Integer user_no, Integer class_no,
+                      Integer class_credit, Boolean class_pre, Boolean class_next) {
         super();
         this.user_class_no = user_class_no;
         this.user_no = user_no;
         this.class_no = class_no;
+        this.class_credit = class_credit;
         this.class_pre = class_pre;
         this.class_next = class_next;
     }
-    public User_class(Integer user_no, Integer class_no, Boolean class_pre, Boolean class_next){
+    public User_class(Integer user_no, Integer class_no, Integer class_credit,
+                      Boolean class_pre, Boolean class_next){
         super();
         this.user_no = user_no;
         this.class_no = class_no;
+        this.class_credit = class_credit;
         this.class_pre = class_pre;
         this.class_next = class_next;
     }
 
     @Override
     public String toString() {
-        return "User_class [user_class_no=" + user_class_no + " , user_no=" + user_no + ", class_no=" + class_no
+        return "User_class [user_class_no=" + user_class_no + " , user_no=" + user_no
+                + ", class_no=" + class_no + ", class_credit=" + class_credit
                 + ", class_pre=" + class_pre + ", class_next=" + class_next + "]";
     }
 }

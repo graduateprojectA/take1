@@ -6,34 +6,21 @@ import Logo from "./Logo";
 import My from "./My";
 import backgroundImage2 from "../components/image/backgroundImage2.png";
 import  CheckBox  from './CheckBox';
-const ClassCheckDiv = styled.div`
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: url(${backgroundImage2});
-    background-size: cover;
-`;
 
-const ClassCheckWrapWrapDiv = styled.div`
-    position: absolute;
-    top: 120px;
-    left: 50%;
-    margin-left: -370px;
-    border: solid 1px;
-    height: 585px;
-    width: 740px;
-    background-color: #fff5ee;
-    opacity: 0.8;
-    border: solid 5px #00462A;
-    border-radius: 10px;
-`;
+// const ClassCheckWrapWrapDiv = styled.div`
+//     position: absolute;
+//     top: 120px;
+//     left: 50%;
+//     margin-left: -370px;
+//     border: solid 1px;
+//     height: 585px;
+//     width: 740px;
+//     background-color: #fff5ee;
+//     opacity: 0.8;
+//     border: solid 5px #00462A;
+//     border-radius: 10px;
+// `;
 
-const ClassCheckP = styled.p`
-    text-align: center; 
-    font-size: 1.2em;
-`;
 class PhoneInfo extends Component {
   constructor(props) {
     super(props);
@@ -85,25 +72,30 @@ completeCheck = (event) => {
 }
   render() {
     return (
-        <ClassCheckDiv>
+        <div className="TableCheckDiv">
           <Logo />
           <My />
-          <ClassCheckWrapWrapDiv>
-            <ClassCheckP>순서를 선택해주세요.</ClassCheckP>
-            <button className="NextA" onClick={this.completeCheck}>&#10095;</button>
+          <button className="NextA" onClick={this.completeCheck}>&#10095;</button>
+          <div className="TableCheckWrapWrapDiv"><br/>
+          <h4 style={{color:"red", display:"inline"}}>[가중치값 설정] </h4>
+          <h4 style={{display:"inline"}}>교양 수업 추천을 위해 진행되는 단계입니다.<br/>
+            중요하게 생각하시는 항목을 순서대로 선택 해주세요.
+            <br/> 우측 흰색 화살표를 눌러, 다음 페이지로 이동하세요.</h4>
+            <br/>
             <button onClick={() => console.log(this.state.exam_pre)} />
             <button onClick={this.reset}>reset</button>
-            <br/><br/><br/>
-            <input type="checkbox" name="exam_pre" onChange={this.handleChange}/>시험
-            <input type="checkbox"  name="quiz_pre" onChange={this.handleChange}/>퀴즈
-            <input type="checkbox" name="presentation_pre"  onChange={this.handleChange}/>발표
+            <tr className="TimeDiv">    
+            <input type="checkbox" name="exam_pre" id="order" onChange={this.handleChange}/>시험
+            <input type="checkbox" name="quiz_pre" onChange={this.handleChange}/>퀴즈
+            <input type="checkbox" name="presentation_pre" onChange={this.handleChange}/>발표
             <input type="checkbox" name="project_pre" onChange={this.handleChange}/>프로젝트
             <input type="checkbox" name="assignment_pre" onChange={this.handleChange}/>과제
             <input type="checkbox" name="attendance_pre" onChange={this.handleChange}/>출석
             <br/>
+          </tr>
             {this.state.exam_pre} {this.state.quiz_pre} {this.state.presentation_pre} {this.state.project_pre} {this.state.assignment_pre} {this.state.attendance_pre}
-          </ClassCheckWrapWrapDiv>
-        </ClassCheckDiv>
+          </div>
+        </div>
     );
   }
 }
