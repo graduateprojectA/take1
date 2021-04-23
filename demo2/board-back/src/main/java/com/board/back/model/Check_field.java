@@ -9,7 +9,7 @@ import org.hibernate.annotations.DynamicInsert;
 import org.hibernate.annotations.DynamicUpdate;
 //유저테이블
 @Entity
-@Table(name = "Check_field")
+@Table(name = "check_field")
 @DynamicInsert
 @DynamicUpdate
 
