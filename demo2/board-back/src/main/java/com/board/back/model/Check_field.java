@@ -15,12 +15,12 @@ import org.hibernate.annotations.DynamicUpdate;
 
 public class Check_field {
 //    create table Check_field(
-//      check_field_no int auto_increment primary key,
-//      major_no int not null,
-//      student_id int not null,	#학번 18, 19, 20, 21
-//      check_field_name varchar(30),
-//      check_field_number int,
-//     check_field_credit int,
+//            check_field_no int auto_increment primary key,
+//            major_no int not null,
+//            student_id int not null,	#학번 18, 19, 20, 21
+//            check_field_name varchar(30),
+//    check_field_number int,
+//    check_field_credit int,
 //    foreign key(major_no) references Majors(major_no) on update cascade on delete cascade
 //);
 
