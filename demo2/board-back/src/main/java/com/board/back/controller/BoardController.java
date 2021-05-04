@@ -20,7 +20,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.board.back.model.Board;
 import com.board.back.service.BoardService;
 
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin(origins = "https://master.dws671g9otpnl.amplifyapp.com:3000")
 @RestController
 @RequestMapping("/api")
 public class BoardController {

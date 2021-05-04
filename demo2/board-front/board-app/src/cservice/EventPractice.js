@@ -52,81 +52,82 @@ componentDidMount() {
 }
 render() {
     return (
-        
         <div className="TableCheckDiv">
             <Logo />
             <My />
-              <button className="NextA" onClick={this.completeCheck}>&#10095;</button>
-            <div className="TableCheckWrapWrapDiv">
-              <div className="TimeTable">
-                <div className="DayWrapDiv">
-                    <div className="DayDiv">월</div>
-                    <div className="DayDiv">화</div>
-                    <div className="DayDiv">수</div>
-                    <div className="DayDiv">목</div>
-                    <div className="DayDiv">금</div>
-                </div>
-                <div className="TableBody">
-                  <div className="TimeWrapDiv">
-                    <div className="TimeDiv">1교시</div>
-                    <input type="checkbox" className="TimeDiv" name="box1_1" onChange={this.handleChange}/>
-                    <input type="checkbox" className="TimeDiv" name="box1_2" onChange={this.handleChange}/>
-                    <input type="checkbox" className="TimeDiv" name="box1_3" onChange={this.handleChange}/>
-                    <input type="checkbox" className="TimeDiv" name="box1_4" onChange={this.handleChange}/>
-                    <input type="checkbox" className="TimeDiv" name="box1_5" onChange={this.handleChange}/>
-                  </div>
-                  <div className="TimeWrapDiv">
-                    <div className="TimeDiv">2교시</div>
-                    <input type="checkbox" className="TimeDiv" name="box2_1" onChange={this.handleChange}/>
-                    <input type="checkbox" className="TimeDiv" name="box2_2" onChange={this.handleChange}/>
-                    <input type="checkbox" className="TimeDiv" name="box2_3" onChange={this.handleChange}/>
-                    <input type="checkbox" className="TimeDiv" name="box2_4" onChange={this.handleChange}/>
-                    <input type="checkbox" className="TimeDiv" name="box2_5" onChange={this.handleChange}/>
-                  </div>
-                  <div className="TimeWrapDiv">
-                    <div className="TimeDiv">3교시</div>
-                    <input type="checkbox" className="TimeDiv" name="box3_1" onChange={this.handleChange}/>
-                    <input type="checkbox" className="TimeDiv" name="box3_2" onChange={this.handleChange}/>
-                    <input type="checkbox" className="TimeDiv" name="box3_3" onChange={this.handleChange}/>
-                    <input type="checkbox" className="TimeDiv" name="box3_4" onChange={this.handleChange}/>
-                    <input type="checkbox" className="TimeDiv" name="box3_5" onChange={this.handleChange}/>
-                  </div>
-                  <div className="TimeWrapDiv">
-                    <div className="TimeDiv">4교시</div>
-                    <input type="checkbox" className="TimeDiv" name="box4_1" onChange={this.handleChange}/>
-                    <input type="checkbox" className="TimeDiv" name="box4_2" onChange={this.handleChange}/>
-                    <input type="checkbox" className="TimeDiv" name="box4_3" onChange={this.handleChange}/>
-                    <input type="checkbox" className="TimeDiv" name="box4_4" onChange={this.handleChange}/>
-                    <input type="checkbox" className="TimeDiv" name="box4_5" onChange={this.handleChange}/>
-                  </div>
-                  <div className="TimeWrapDiv">
-                    <div className="TimeDiv">5교시</div>
-                    <input type="checkbox" className="TimeDiv" name="box5_1" onChange={this.handleChange}/>
-                    <input type="checkbox" className="TimeDiv" name="box5_2" onChange={this.handleChange}/>
-                    <input type="checkbox" className="TimeDiv" name="box5_3" onChange={this.handleChange}/>
-                    <input type="checkbox" className="TimeDiv" name="box5_4" onChange={this.handleChange}/>
-                    <input type="checkbox" className="TimeDiv" name="box5_5" onChange={this.handleChange}/>
-                  </div>
-                  <div className="TimeWrapDiv">
-                    <div className="TimeDiv">6교시</div>
-                    <input type="checkbox" className="TimeDiv" name="box6_1" onChange={this.handleChange}/>
-                    <input type="checkbox" className="TimeDiv" name="box6_2" onChange={this.handleChange}/>
-                    <input type="checkbox" className="TimeDiv" name="box6_3" onChange={this.handleChange}/>
-                    <input type="checkbox" className="TimeDiv" name="box6_4" onChange={this.handleChange}/>
-                    <input type="checkbox" className="TimeDiv" name="box6_5" onChange={this.handleChange}/>
-                  </div>
-                  <div className="TimeWrapDiv">
-                    <div className="TimeDiv">7교시</div>                    
-                    <input type="checkbox" className="TimeDiv" name="box7_1" onChange={this.handleChange}/>
-                    <input type="checkbox" className="TimeDiv" name="box7_2" onChange={this.handleChange}/>
-                    <input type="checkbox" className="TimeDiv" name="box7_3" onChange={this.handleChange}/>
-                    <input type="checkbox" className="TimeDiv" name="box7_4" onChange={this.handleChange}/>
-                    <input type="checkbox" className="TimeDiv" name="box7_5" onChange={this.handleChange}/>
-                  </div>
-                </div>
+            <button className="NextA" onClick={this.completeCheck}>&#10095;</button>
+            <div className="TableCheckWrapWrapDiv"><br/>
+            <h4 style={{color:"red", display:"inline"}}>[시간대 제외] </h4>
+            <h4 style={{display:"inline"}}>제외하고자 하는 시간을 선택하세요.<br/>
+            없다면, 우측 흰색 화살표를 눌러, 다음 페이지로 이동하세요.</h4>
+              <table className="TimeTable">
+              <tr classname="TimeDiv">
+              <th className="DayDiv">교시/요일</th>
+              <th className="DayDiv">월</th>
+              <th className="DayDiv">화</th>
+              <th className="DayDiv">수</th>
+              <th className="DayDiv">목</th>
+              <th className="DayDiv">금</th> 
+              </tr>
+              <tr className="TimeDiv">
+              <td className="DayDiv">1</td>
+              <td className="DayDiv"><input type="checkbox" name="box1_1" className="CheckDiv" onChange={this.handleChange}/></td>
+              <td className="DayDiv"><input type="checkbox" name="box1_2" className="CheckDiv" onChange={this.handleChange}/></td>
+              <td className="DayDiv"><input type="checkbox" name="box1_3" className="CheckDiv" onChange={this.handleChange}/></td>
+              <td className="DayDiv"><input type="checkbox" name="box1_4" className="CheckDiv" onChange={this.handleChange}/></td>
+              <td className="DayDiv"><input type="checkbox" name="box1_5" className="CheckDiv" onChange={this.handleChange}/></td>
+              </tr>
+              <tr className="TimeDiv">
+              <td className="DayDiv">2</td>
+              <td className="DayDiv"><input type="checkbox" name="box2_1" className="CheckDiv" onChange={this.handleChange}/></td>
+              <td className="DayDiv"><input type="checkbox" name="box2_2" className="CheckDiv" onChange={this.handleChange}/></td>
+              <td className="DayDiv"><input type="checkbox" name="box2_3" className="CheckDiv" onChange={this.handleChange}/></td>
+              <td className="DayDiv"><input type="checkbox" name="box2_4" className="CheckDiv" onChange={this.handleChange}/></td>
+              <td className="DayDiv"><input type="checkbox" name="box2_5" className="CheckDiv" onChange={this.handleChange}/></td>
+              </tr>
+              <tr className="TimeDiv">
+              <td className="DayDiv">3</td>
+              <td className="DayDiv"><input type="checkbox" name="box3_1" className="CheckDiv" onChange={this.handleChange}/></td>
+              <td className="DayDiv"><input type="checkbox" name="box3_2" className="CheckDiv" onChange={this.handleChange}/></td>
+              <td className="DayDiv"><input type="checkbox" name="box3_3" className="CheckDiv" onChange={this.handleChange}/></td>
+              <td className="DayDiv"><input type="checkbox" name="box3_4" className="CheckDiv" onChange={this.handleChange}/></td>
+              <td className="DayDiv"><input type="checkbox" name="box3_5" className="CheckDiv" onChange={this.handleChange}/></td>
+              </tr>  
+              <tr className="TimeDiv">
+              <td className="DayDiv">4</td>
+              <td className="DayDiv"><input type="checkbox" name="box4_1" className="CheckDiv" onChange={this.handleChange}/></td>
+              <td className="DayDiv"><input type="checkbox" name="box4_2" className="CheckDiv" onChange={this.handleChange}/></td>
+              <td className="DayDiv"><input type="checkbox" name="box4_3" className="CheckDiv" onChange={this.handleChange}/></td>
+              <td className="DayDiv"><input type="checkbox" name="box4_4" className="CheckDiv" onChange={this.handleChange}/></td>
+              <td className="DayDiv"><input type="checkbox" name="box4_5" className="CheckDiv" onChange={this.handleChange}/></td>
+              </tr>
+              <tr className="TimeDiv">
+              <td className="DayDiv">5</td>
+              <td className="DayDiv"><input type="checkbox" name="box5_1" className="CheckDiv" onChange={this.handleChange}/></td>
+              <td className="DayDiv"><input type="checkbox" name="box5_2" className="CheckDiv" onChange={this.handleChange}/></td>
+              <td className="DayDiv"><input type="checkbox" name="box5_3" className="CheckDiv" onChange={this.handleChange}/></td>
+              <td className="DayDiv"><input type="checkbox" name="box5_4" className="CheckDiv" onChange={this.handleChange}/></td>
+              <td className="DayDiv"><input type="checkbox" name="box5_5" className="CheckDiv" onChange={this.handleChange}/></td>
+              </tr>
+              <tr className="TimeDiv">
+              <td className="DayDiv">6</td>
+              <td className="DayDiv"><input type="checkbox" name="box6_1" className="CheckDiv" onChange={this.handleChange}/></td>
+              <td className="DayDiv"><input type="checkbox" name="box6_2" className="CheckDiv" onChange={this.handleChange}/></td>
+              <td className="DayDiv"><input type="checkbox" name="box6_3" className="CheckDiv" onChange={this.handleChange}/></td>
+              <td className="DayDiv"><input type="checkbox" name="box6_4" className="CheckDiv" onChange={this.handleChange}/></td>
+              <td className="DayDiv"><input type="checkbox" name="box6_5" className="CheckDiv" onChange={this.handleChange}/></td>
+              </tr>
+              <tr className="TimeDiv">
+              <td className="DayDiv">7</td>
+              <td className="DayDiv"><input type="checkbox" name="box7_1" className="CheckDiv" onChange={this.handleChange}/></td>
+              <td className="DayDiv"><input type="checkbox" name="box7_2" className="CheckDiv" onChange={this.handleChange}/></td>
+              <td className="DayDiv"><input type="checkbox" name="box7_3" className="CheckDiv" onChange={this.handleChange}/></td>
+              <td className="DayDiv"><input type="checkbox" name="box7_4" className="CheckDiv" onChange={this.handleChange}/></td>
+              <td className="DayDiv"><input type="checkbox" name="box7_5" className="CheckDiv" onChange={this.handleChange}/></td>
+              </tr>                                                                                
+              </table>
               </div>
             </div>
-          </div>
     );
 }
   }

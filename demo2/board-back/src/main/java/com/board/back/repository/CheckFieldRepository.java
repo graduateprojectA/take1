@@ -8,7 +8,7 @@ import org.springframework.data.repository.query.Param;
 import java.util.List;
 
 public interface CheckFieldRepository extends JpaRepository<Check_field, Integer>{
-    @Query(value="SELECT * FROM Check_field s WHERE s.student_id = :student_id and s.major_no = :major_no",
+    @Query(value="SELECT * FROM check_field s WHERE s.student_id = :student_id and s.major_no = :major_no",
             nativeQuery = true)
     List<Check_field> findByIdAndMajor(@Param("student_id")int student_id, @Param("major_no")int major_no);
 

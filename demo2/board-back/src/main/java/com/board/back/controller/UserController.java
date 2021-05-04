@@ -5,7 +5,7 @@ import com.board.back.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin(origins = "https://master.d2vrsciweduti9.amplifyapp.com")
 @RestController
 @RequestMapping("/api")
 public class UserController {

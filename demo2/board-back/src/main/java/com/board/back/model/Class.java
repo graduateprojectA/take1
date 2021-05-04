@@ -37,6 +37,9 @@ public class Class {
     @Column(name = "class_time")
     private Integer class_time;
 
+    @Column(name = "class_credit")
+    private Integer class_credit;
+
     @Column(name = "exam_per")
     private Integer exam_per;
 
@@ -102,6 +105,8 @@ public class Class {
     public void setClass_time(Integer time) {
         this.class_time = time;
     }
+    public Integer getClass_credit() {return class_credit;}
+    public void setClass_credit(Integer c){this.class_credit = c;}
     public Integer getExam_per() {return exam_per;}
     public void setExam_per(Integer no) {this.exam_per = exam_per;}
     public Integer getQuiz_per() {return quiz_per;}
@@ -130,7 +135,7 @@ public class Class {
         super();
     }
     public Class(Integer class_no, Integer course_id, String class_name, String professor_name,
-                 Integer class_division, Integer class_time,Integer exam_per, Integer quiz_per,
+                 Integer class_division, Integer class_time, Integer class_credit, Integer exam_per, Integer quiz_per,
                  Integer presentation_per, Integer project_per, Integer assignment_per, Integer attendance_per,
                  Integer extra_per, Integer mid_plan, Integer final_plan, String extra_plan, String class_location) {
         super();
@@ -140,6 +145,7 @@ public class Class {
         this.professor_name = professor_name;
         this.class_division = class_division;
         this.class_time = class_time;
+        this.class_credit = class_credit;
         this.exam_per = exam_per;
         this.quiz_per = quiz_per;
         this.presentation_per = presentation_per;
@@ -156,7 +162,8 @@ public class Class {
     public String toString() {
         return "Class [class_no=" + class_no + ", course_id=" + course_id + ", class_name=" + class_name
                 + ", professor_name=" +professor_name + ", class_division=" + class_division
-                + ", class_time=" + class_time + ", exam_per=" + exam_per + ", quiz_per=" + quiz_per
+                + ", class_time=" + class_time + ", class_credit=" + class_credit
+                + ", exam_per=" + exam_per + ", quiz_per=" + quiz_per
                 + ", presentation_per=" + presentation_per + ", project_per=" + project_per
                 + ", assignment_per=" + assignment_per + ", attendance_per=" + attendance_per
                 + ", extra_per=" + extra_per + ", mid_plan=" + mid_plan+ ", final_plan=" + final_plan

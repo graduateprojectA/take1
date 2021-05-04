@@ -39,6 +39,12 @@ class UserService {
     SendPre(pre) {
         return axios.post("http://localhost:8080/api/preferenceUser", pre);
     }
+    my(){
+        return axios.get("http://localhost:8080/api/my");
+    }
+    my2(user_no){
+        return axios.post("http://localhost:8080/api/my2",user_no);
+    }
 }
 
 export default new UserService();
