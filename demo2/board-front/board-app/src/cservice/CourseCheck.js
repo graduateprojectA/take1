@@ -49,7 +49,7 @@ class CourseCheck extends Component {
                 {user_no : 1, class_no: "관계의미학:사랑과윤리", class_pre: false,class_next:false},
                 {user_no : 1, class_no: "나눔리더십", class_pre: false,class_next:false},
             ],
-            class: [],Arr1:[],Arr2:[],
+            class: [],n:[],
             page_num: 0,
         };
     }
@@ -59,11 +59,11 @@ class CourseCheck extends Component {
     }
     fill1data = (event)=>{
         event.preventDefault();
-         this.setState({Arr1 : this.state.user_class.filter(p =>(p.field_no==1))});
+         this.setState({n : this.state.user_class.filter(p =>(p.field_no==1))});
     }
     fill2data = (event)=>{
         event.preventDefault();
-        this.setState({Arr2 : this.state.user_class.filter(p =>(p.field_no==2))});
+        this.setState({n : this.state.user_class.filter(p =>(p.field_no==2))});
     }
     handleCheckChieldElement = (event) => {
         let user_class = this.state.user_class
@@ -112,14 +112,7 @@ class CourseCheck extends Component {
                         <button className="NextA" onClick={this.completeCheck}>&#10095;</button>
                         <ul>
                             {
-                                this.state.Arr1.map((fruite) => {
-                                    return (<CheckBox handleCheckChieldElement={this.handleCheckChieldElement}  {...fruite} />)
-                                })
-                            }
-                        </ul>
-                        <ul>
-                            {
-                                this.state.Arr2.map((fruite) => {
+                                this.state.n.map((fruite) => {
                                     return (<CheckBox handleCheckChieldElement={this.handleCheckChieldElement}  {...fruite} />)
                                 })
                             }
