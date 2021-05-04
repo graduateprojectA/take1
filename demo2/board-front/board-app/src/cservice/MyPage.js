@@ -19,16 +19,27 @@ const MyWrapDiv = styled.div`
     position: absolute;
     top: 20%;
     left: 50%;
-    margin-left: -370px;
+    margin-left: -25%;
     border: solid 1px;
     height: 70%;
-    width: 740px;
+    width: 50%;
     background-color: #fff5ee;
     opacity: 0.8;
     border: solid 5px #00462A;
     border-radius: 10px;
 `;
-
+const MyInfoDiv = styled.div`
+    position: absolute;
+    top: 30%;
+    left: 10%;
+    border: solid 1px;
+    height: 10%;
+    width: 10%;
+    background-color: #fff5ee;
+    opacity: 0.8;
+    border: solid 5px #00462A;
+    border-radius: 10px;
+`;
 class MyPage extends Component {
     constructor(props) {
         super(props);
@@ -42,7 +53,7 @@ class MyPage extends Component {
           this.setState({ user_no: res.data });
           console.log("get result => " + JSON.stringify(res.data));
         });
-        UserService.my(this.state.user_no).then((res)=>{
+        UserService.my().then((res)=>{
             this.setState({ user_info: res.data });
         });
       }
@@ -50,13 +61,80 @@ class MyPage extends Component {
         return (
         <MypageDiv>
             <Logo />
-            <MyWrapDiv>
+            <MyInfoDiv>
             학번 : {this.state.user_info.user_id}
             <br/>
             전공 : {this.state.user_info.user_major} {this.state.user_info.user_grade}학년 
+            </MyInfoDiv>
+            <MyWrapDiv>
             <br/>
-            내가 선택한 시간표
-            
+            <br/>
+              <table className="TimeTable">
+              <tr classname="TimeDiv">
+              <th className="DayDiv">교시/요일</th>
+              <th className="DayDiv">월</th>
+              <th className="DayDiv">화</th>
+              <th className="DayDiv">수</th>
+              <th className="DayDiv">목</th>
+              <th className="DayDiv">금</th> 
+              </tr>
+              <tr className="TimeDiv">
+              <td className="DayDiv">1</td>
+              <td className="DayDiv"></td>
+              <td className="DayDiv"></td>
+              <td className="DayDiv"></td>
+              <td className="DayDiv"></td>
+              <td className="DayDiv"></td>
+              </tr>
+              <tr className="TimeDiv">
+              <td className="DayDiv">2</td>
+              <td className="DayDiv"></td>
+              <td className="DayDiv"></td>
+              <td className="DayDiv"></td>
+              <td className="DayDiv"></td>
+              <td className="DayDiv"></td>
+              </tr>
+              <tr className="TimeDiv">
+              <td className="DayDiv">3</td>
+              <td className="DayDiv"></td>
+              <td className="DayDiv"></td>
+              <td className="DayDiv"></td>
+              <td className="DayDiv"></td>
+              <td className="DayDiv"></td>
+              </tr>  
+              <tr className="TimeDiv">
+              <td className="DayDiv">4</td>
+              <td className="DayDiv"></td>
+              <td className="DayDiv"></td>
+              <td className="DayDiv"></td>
+              <td className="DayDiv"></td>
+              <td className="DayDiv"></td>
+              </tr>
+              <tr className="TimeDiv">
+              <td className="DayDiv">5</td>
+              <td className="DayDiv"></td>
+              <td className="DayDiv"></td>
+              <td className="DayDiv"></td>
+              <td className="DayDiv"></td>
+              <td className="DayDiv"></td>
+              </tr>
+              <tr className="TimeDiv">
+              <td className="DayDiv">6</td>
+              <td className="DayDiv"></td>
+              <td className="DayDiv"></td>
+              <td className="DayDiv"></td>
+              <td className="DayDiv"></td>
+              <td className="DayDiv"></td>
+              </tr>
+              <tr className="TimeDiv">
+              <td className="DayDiv">7</td>
+              <td className="DayDiv"></td>
+              <td className="DayDiv"></td>
+              <td className="DayDiv"></td>
+              <td className="DayDiv"></td>
+              <td className="DayDiv"></td>
+              </tr>                                                                                
+              </table>
             </MyWrapDiv>
         </MypageDiv>
     );
