@@ -3,7 +3,7 @@ TableCheck
 */
 
 import styled from "styled-components";
-import React, { Component } from 'react';
+import React, { Component} from 'react';
 import UserService from '../service/UserService';
 import "../css/style.css";
 import Logo from "./Logo";
@@ -49,10 +49,22 @@ class CourseCheck extends Component {
                 {user_no : 1, class_no: "관계의미학:사랑과윤리", class_pre: false,class_next:false},
                 {user_no : 1, class_no: "나눔리더십", class_pre: false,class_next:false},
             ],
-            class: []
+            class: [],Arr1:[],Arr2:[],
+            page_num: 0,
         };
     }
-  
+    changeHandler = (event) => {
+        this.setState({page_num: event.target.value});
+        console.log(JSON.stringify(this.state.page_num));
+    }
+    fill1data = (event)=>{
+        event.preventDefault();
+         this.setState({Arr1 : this.state.user_class.filter(p =>(p.field_no==1))});
+    }
+    fill2data = (event)=>{
+        event.preventDefault();
+        this.setState({Arr2 : this.state.user_class.filter(p =>(p.field_no==2))});
+    }
     handleCheckChieldElement = (event) => {
         let user_class = this.state.user_class
         user_class.forEach(u => {
@@ -93,12 +105,21 @@ class CourseCheck extends Component {
                     <My />
                     <ClassCheckWrapWrapDiv>
                         <ClassCheckP>제외할 수업을 선택해주세요.</ClassCheckP>
+                        <button onClick={this.fill1data}>1</button>
+                        <button onClick={this.fill2data}>2</button>
                         <button onClick={() => console.log(this.state.user_class)} />
-
+                        <input type="text" name="user_id" value={this.state.page_num} onChange={this.changeHandler} />
                         <button className="NextA" onClick={this.completeCheck}>&#10095;</button>
                         <ul>
                             {
-                                this.state.user_class.map((fruite) => {
+                                this.state.Arr1.map((fruite) => {
+                                    return (<CheckBox handleCheckChieldElement={this.handleCheckChieldElement}  {...fruite} />)
+                                })
+                            }
+                        </ul>
+                        <ul>
+                            {
+                                this.state.Arr2.map((fruite) => {
                                     return (<CheckBox handleCheckChieldElement={this.handleCheckChieldElement}  {...fruite} />)
                                 })
                             }
