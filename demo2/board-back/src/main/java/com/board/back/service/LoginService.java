@@ -1,5 +1,6 @@
 package com.board.back.service;
 
+import com.board.back.controller.UserController;
 import com.board.back.model.User;
 import com.board.back.model.User2;
 import com.board.back.repository.LoginRepository;
@@ -11,29 +12,39 @@ import java.util.List;
 public class LoginService {
     @Autowired
     private LoginRepository loginRepository;
+    private UserController userController;
 
     public List<User2> getAllUser() {
         return loginRepository.findAll();
     }
 
     Boolean status = null;
-    int no = 0;
-
     public void setStatus(boolean a) {
         this.status = a;
     }
-
     public boolean getStatus() {
         return this.status;
     }
 
+    int no = 0;
     public void setNo(int n) {
         this.no = n;
     }
-
     public int getNo() {
         return this.no;
     }
+
+    int id = 0;
+    public void setId(int id) {this.id = id;}
+    public int getId()  {return this.id;}
+
+    Boolean mypageStatus = false;
+    public void setMypageStatus(boolean a){this.mypageStatus = a;}
+    public boolean getMypageStatus() {return this.mypageStatus;}
+
+    User2 tmp = new User2();
+    public void setTmp(User2 a) {this.tmp = a;}
+    public User2 getTmp() {return this.tmp;}
 
     // login (React에서 로그인 버튼을 눌렀을 때 넘어온 정보: 학번, pw == User)
     public void postUser(User user) {
@@ -69,5 +80,10 @@ public class LoginService {
 
     public boolean checkUser(Boolean a) {
         return a;
+    }
+    public void myPageUser(int id){
+        setMypageStatus(true);
+        setId(id);
+        setTmp(loginRepository.findUser(id));
     }
 }

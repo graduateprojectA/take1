@@ -1,5 +1,7 @@
 package com.board.back.controller;
 import com.board.back.model.User;
+import com.board.back.model.User2;
+import com.board.back.repository.LoginRepository;
 import com.board.back.service.LoginService;
 import com.board.back.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,10 +11,9 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/api")
 public class UserController {
-
     private LoginService loginService;
     private UserService userService;
-
+    private LoginRepository loginRepository;
     @Autowired
     public UserController(UserService userService, LoginService loginService) {
         this.userService = userService;
@@ -40,4 +41,17 @@ public class UserController {
         System.out.println(user.toString());
         userService.createUser(user);
     }
-}
+
+    @PostMapping("/my2")
+    public void getUser (@RequestBody Integer user_id){
+        loginService.myPageUser(user_id);
+    }
+
+    @GetMapping("/my")
+    public User2 mypageUser(){
+        if (loginService.getMypageStatus() == true) {
+            return loginService.getTmp();
+        }
+        return null;
+    }
+    }
