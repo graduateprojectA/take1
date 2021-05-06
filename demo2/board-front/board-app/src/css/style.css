@@ -151,3 +151,7 @@ input[type="checkbox"]:checked {
   border: none;
   background: transparent;
 }
+.pagiation{
+  margin-top: 50%;
+  text-align: center;
+}
