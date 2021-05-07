@@ -6,8 +6,8 @@ com/board/back/repository/TimeRepository.java
  com.board.back.repository.TimeRepository
 com/board/back/controller/CourseController.java
  com.board.back.controller.CourseController
-com/board/back/model/User_timetable.java
- com.board.back.model.User_timetable
+com/board/back/controller/UserController.java
+ com.board.back.controller.UserController
 com/board/back/model/newClass.java
  com.board.back.model.newClass
 com/board/back/model/Class.java
@@ -97,5 +97,7 @@ com/board/back/service/ClassService.java
  com.board.back.service.ClassService
 com/board/back/service/LoginService.java
  com.board.back.service.LoginService
-com/board/back/controller/UserController.java
- com.board.back.controller.UserController
+com/board/back/model/User_timetable.java
+ com.board.back.model.User_timetable
+com/board/back/model/User_timetable2.java
+ com.board.back.model.User_timetable2
