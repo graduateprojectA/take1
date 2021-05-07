@@ -179,14 +179,20 @@ foreign key(user_no) references user(user_no) on update cascade on delete cascad
 );
 
 # 최종적으로 만들어진 사용자의 시간표
-create table user_timetable(
+create table User_timetable(
 user_timetable_no int auto_increment primary key,
-timetable_number int not null,
-class_no int not null,
 user_no int not null,
+class_1 int,
+class_2 int,
+class_3 int,
+class_4 int,
+class_5 int,
+class_6 int,
+class_7 int,
+class_8 int,
+class_9 int,
 credit int not null, # 사입듣학
-foreign key(class_no) references class(class_no) on update cascade on delete cascade,
-foreign key(user_no) references user(user_no) on update cascade on delete cascade
+foreign key(user_no) references User(user_no) on update cascade on delete cascade
 );
 
 # 최종적으로 만들어진 사용자의 교양시간표
