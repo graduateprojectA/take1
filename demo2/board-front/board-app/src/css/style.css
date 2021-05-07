@@ -152,6 +152,14 @@ input[type="checkbox"]:checked {
   background: transparent;
 }
 .pagiation{
-  margin-top: 10%;
+  margin-top: 5%;
   text-align: center;
+}
+.nextArrow {
+  position: absolute;
+  right: 5%;
+}
+.preArrow {
+  position: absolute;
+  left: 5%;
 }

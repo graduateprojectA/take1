@@ -153,7 +153,9 @@ class CourseCheck extends Component {
                     <Logo />
                     <My />
                     <ClassCheckWrapWrapDiv>
-                        <ClassCheckP>제외할 수업을 선택해주세요.</ClassCheckP>
+                    <ClassCheckP>
+            {this.state.name}
+            </ClassCheckP>
                         
                         <button onClick={() => console.log(this.state.user_course)} />
                         <input type="text" name="user_id" value={this.state.page_num} onChange={this.changeHandler} />
