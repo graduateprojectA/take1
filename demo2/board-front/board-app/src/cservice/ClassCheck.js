@@ -10,8 +10,7 @@ import Logo from "./Logo";
 import My from "./My";
 import backgroundImage2 from "../components/image/backgroundImage2.png";
 import '../../node_modules/bootstrap/dist/js/bootstrap.min.js';
-
-import Cs from "./frontClass";
+import CheckBox2 from "./CheckBox2";
 const ClassCheckDiv = styled.div`
     position: absolute;
     top: 0;
@@ -80,29 +79,14 @@ class ClassCheck extends Component {
             {user_no : 1, class_no: "관계의미학:사랑과윤리", class_pre: false,class_next:false},
             {user_no : 1, class_no: "나눔리더십", class_pre: false,class_next:false},
         ],
-        user_class: [{
-            user_class_no: 0,
-            user_no: 0,
-            class_no: 0,
-            class_pre: false,
-            class_next: false
-        }],
+        user_class: [],
         newArr:[],
-        Arr1:[],Arr2:[],Arr3:[],Arr4:[],Arr5:[],Arr6:[],Arr7:[],Arr8:[],Arr9:[],Arr10:[],Arr11:[],Arr12:[],Arr13:[],
-        objectArray: [
-          { key: "Option 1", cat: "Group 1" },
-          { key: "Option 2", cat: "Group 1" },
-          { key: "Option 3", cat: "Group 1" },
-          { key: "Option 4", cat: "Group 2" },
-          { key: "Option 5", cat: "Group 2" },
-          { key: "Option 6", cat: "Group 2" },
-          { key: "Option 7", cat: "Group 2" }
-        ]
+        n:[]
     };
 }
   handleChange = (e) => {
-    let newArr=this.state.newArr;
-    newArr.map(u => {
+    let y=this.state.newArr;
+    y.map(u => {
            if (u.class_no == e.target.value) {
             if (u.class_next) {
                 u.class_next = false
@@ -111,72 +95,80 @@ class ClassCheck extends Component {
             }
            }
       })
-      this.setState({newArr: newArr})
-      console.log(newArr)
+      this.setState({newArr: y})
   };
   completeClass = (event) => {
     event.preventDefault();
-    UserService.CheckClassUser(this.state.info).then(res => {
-            this.props.history.push('./');
+    console.log(this.state.newArr)
+    UserService.CheckClassUser(this.state.newArr).then(res => {
+            this.props.history.push('./myPage');
     });
 }
   componentDidMount() {
     UserService.class2User().then((res) => {
       this.setState({ class: res.data });
+      this.setState({newArr : res.data.map(p =>
+        this.state.user_class = {
+          user_no: this.state.user_no,
+          class_no: p.class_no,
+          class_credit : p.class_credit,
+          class_pre:false,
+          class_next: false
+      }
+       )});
     console.log("get result => " + JSON.stringify(res.data));
     });
     UserService.login().then((res) => {
       this.setState({ user_no: res.data });
       console.log("get result => " + JSON.stringify(res.data));
     });
-  }
-  reset=(event)=>{
-    event.preventDefault();
-    window.location.replace("/classCheck")
+   
   }
   fill1data = (event)=>{
     event.preventDefault();
-     this.setState({n : this.state.user_class.filter(p =>(p.field_no==1 || p.field_no==2 ||  p.field_no==22 ||  p.field_no==23 || p.field_no==43 ||  p.field_no==61))});
-}
+     this.setState({n : this.state.class.filter(p =>(p.field_no==1 || p.field_no==2 ||  p.field_no==22 ||  p.field_no==23 || p.field_no==43 ||  p.field_no==61))});
+     
+    }
 fill2data = (event)=>{
     event.preventDefault();
-    this.setState({n : this.state.user_class.filter(p =>(p.field_no==3 || p.field_no==24 ||  p.field_no==44 ||  p.field_no==62))});
+    this.setState({n : this.state.class.filter(p =>(p.field_no==3 || p.field_no==24 ||  p.field_no==44 ||  p.field_no==62))});
 }
 fill3data = (event)=>{
     event.preventDefault();
-     this.setState({n : this.state.user_class.filter(p =>(p.field_no==4 || p.field_no==5 ||  p.field_no==6 ||  p.field_no==25 || p.field_no==26 ||  p.field_no==27 ||  p.field_no==45 ||  p.field_no==63 ))});
+     this.setState({n : this.state.class.filter(p =>(p.field_no==4 || p.field_no==5 ||  p.field_no==6 ||  p.field_no==25 || p.field_no==26 ||  p.field_no==27 ||  p.field_no==45 ||  p.field_no==63 ))});
 }
 fill4data = (event)=>{
     event.preventDefault();
-    this.setState({n : this.state.user_class.filter(p => (p.field_no==7 || p.field_no==28 ||  p.field_no==46 ||  p.field_no==64))});
+    this.setState({n : this.state.class.filter(p => (p.field_no==7 || p.field_no==28 ||  p.field_no==46 ||  p.field_no==64))});
 }
 fill5data = (event)=>{
     event.preventDefault();
-     this.setState({n : this.state.user_class.filter(p => (p.field_no==8 || p.field_no==29 ||  p.field_no==47 ||  p.field_no==65))});
+     this.setState({n : this.state.class.filter(p => (p.field_no==8 || p.field_no==29 ||  p.field_no==47 ||  p.field_no==65))});
 }
 fill6data = (event)=>{
     event.preventDefault();
-    this.setState({n : this.state.user_class.filter(p =>(p.field_no==9 || p.field_no==30 ||  p.field_no==48 ||  p.field_no==66))});
+    this.setState({n : this.state.class.filter(p =>(p.field_no==9 || p.field_no==30 ||  p.field_no==48 ||  p.field_no==66))});
 }
 fill7data = (event)=>{
     event.preventDefault();
-     this.setState({n : this.state.user_class.filter(p =>(p.field_no==10 || p.field_no==31 ||  p.field_no==49 ||  p.field_no==67))});
+     this.setState({n : this.state.class.filter(p =>(p.field_no==10 || p.field_no==31 ||  p.field_no==49 ||  p.field_no==67))});
 }
 fill8data = (event)=>{
     event.preventDefault();
-    this.setState({n : this.state.user_class.filter(p =>(p.field_no==11 || p.field_no==32 ||  p.field_no==50 ||  p.field_no==68))});
+    this.setState({n : this.state.class.filter(p =>(p.field_no==11 || p.field_no==32 ||  p.field_no==50 ||  p.field_no==68))});
+    console.log(JSON.stringify(this.state.n));
 }
 fill9data = (event)=>{
     event.preventDefault();
-     this.setState({n : this.state.user_class.filter(p =>(p.field_no==12 || p.field_no==33))});
+     this.setState({n : this.state.class.filter(p =>(p.field_no==12 || p.field_no==33))});
 }
 fill10data = (event)=>{
     event.preventDefault();
-    this.setState({n : this.state.user_class.filter(p =>(p.field_no==51 ||  p.field_no==69))});
+    this.setState({n : this.state.class.filter(p =>(p.field_no==51 ||  p.field_no==69))});
 }
 fill11data = (event)=>{
     event.preventDefault();
-     this.setState({n : this.state.user_class.filter(p => 
+     this.setState({n : this.state.class.filter(p => 
         (p.field_no==13 || p.field_no==14 ||  p.field_no==15 ||  p.field_no==16 || p.field_no==17 || p.field_no==18 ||  p.field_no==19
             ||  p.field_no==34 || p.field_no==35 ||  p.field_no==36 ||  p.field_no==37 || p.field_no==38 || p.field_no==39 ||  p.field_no==40
             ||  p.field_no==52 || p.field_no==53 ||  p.field_no==54 ||  p.field_no==55 || p.field_no==56 || p.field_no==57 ||  p.field_no==58
@@ -185,11 +177,11 @@ fill11data = (event)=>{
 }
 fill12data = (event)=>{
     event.preventDefault();
-    this.setState({n : this.state.user_class.filter(p =>(p.field_no==20 || p.field_no==41 ||  p.field_no==59 ||  p.field_no==77))});
+    this.setState({n : this.state.class.filter(p =>(p.field_no==20 || p.field_no==41 ||  p.field_no==59 ||  p.field_no==77))});
 }
 fill13data = (event)=>{
     event.preventDefault();
-    this.setState({n : this.state.user_class.filter(p =>(p.field_no==21 || p.field_no==42 ||  p.field_no==60 ||  p.field_no==78))});
+    this.setState({n : this.state.class.filter(p =>(p.field_no==21 || p.field_no==42 ||  p.field_no==60 ||  p.field_no==78))});
 }
   render() {
     return (
@@ -198,7 +190,13 @@ fill13data = (event)=>{
           <My />
           <ClassCheckWrapWrapDiv>
             <ClassCheckP>제외할 수업을 선택해주세요.</ClassCheckP>
-            <button onClick={this.reset}>reset</button>
+            <ul>
+                            {
+                                this.state.n.map((fruite) => {
+                                    return (<CheckBox2 handleChange={this.handleChange}  {...fruite} />)
+                                })
+                            }
+                        </ul>
             <div className="pagiation">
                         <button onClick={this.fill1data}>1</button><button onClick={this.fill2data}>2</button><button onClick={this.fill3data}>3</button>
                         <button onClick={this.fill4data}>4</button><button onClick={this.fill5data}>5</button><button onClick={this.fill6data}>6</button>
