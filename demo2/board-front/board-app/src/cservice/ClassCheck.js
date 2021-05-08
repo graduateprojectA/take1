@@ -36,6 +36,7 @@ const ClassCheckWrapWrapDiv = styled.div`
 `;
 
 const ClassCheckP = styled.p`
+top: 5%;
     text-align: center; 
     font-size: 1.2em;
 `;
@@ -79,10 +80,10 @@ class ClassCheck extends Component {
             {user_no : 1, class_no: "관계의미학:사랑과윤리", class_pre: false,class_next:false},
             {user_no : 1, class_no: "나눔리더십", class_pre: false,class_next:false},
         ],
-        user_class: [],
-        p_class:[],t:[],page:[],
+        user_class: [],nextf:false,pref:false,
+        p_class:[],t:[],
         newArr:[],
-        n:[],m:[],pagenum:0,maxnum:0,page:[],start:1,end:20,
+        n:[],m:[],pagenum:0,maxnum:0,page:[],start:1,end:20,sindex:0,eindex:0,y:0,
         name:"",
     };
 }
@@ -121,52 +122,362 @@ class ClassCheck extends Component {
   }
   fill1data = (event)=>{
     event.preventDefault();
-     this.setState({n : this.state.class.filter(p =>(p.field_no==1 || p.field_no==2 ||  p.field_no==22 ||  p.field_no==23 || p.field_no==43 ||  p.field_no==61))});
+    let x = this.state.class.filter(p =>(p.field_no==1 || p.field_no==2 ||  p.field_no==22 ||  p.field_no==23 || p.field_no==43 ||  p.field_no==61));
+     let y =x.length;
+     if(y>20){
+         let s=1;
+         let pe=0;
+         let e=20;
+         let page= x.map(p =>
+             this.state.p_class = {
+               page_no: s++,
+               class_no: p.class_no,
+               class_name:p.class_name
+           });
+           let temp = page.filter(p=>p.page_no>pe);
+           this.setState({n:temp.filter(p=>p.page_no<e)});
+           console.log(temp.filter(p=>p.page_no<e));
+           this.setState({t:temp});
+           s=1;
+           this.setState({page : x.map(p =>
+             this.state.p_class = {
+               page_no: s++,
+               class_no: p.class_no,
+               class_name:p.class_name
+           })});
+           
+           this.setState({y:y});
+           this.setState({pref:false});
+           this.setState({nextf:false});
+     }else{
+         this.setState({n:x});
+         this.setState({pref:true});
+           this.setState({nextf:true});
+     }
      this.setState({name:"이화진선미"});
     }
 fill2data = (event)=>{
     event.preventDefault();
-    this.setState({n : this.state.class.filter(p =>(p.field_no==3 || p.field_no==24 ||  p.field_no==44 ||  p.field_no==62))});
+    let x=this.state.class.filter(p =>(p.field_no==3 || p.field_no==24 ||  p.field_no==44 ||  p.field_no==62));
+    let y =x.length;
+    if(y>20){
+        let s=1;
+        let pe=0;
+        let e=20;
+        let page= x.map(p =>
+            this.state.p_class = {
+              page_no: s++,
+              class_no: p.class_no,
+              class_name:p.class_name
+          });
+          let temp = page.filter(p=>p.page_no>pe);
+          this.setState({n:temp.filter(p=>p.page_no<e)});
+          console.log(temp.filter(p=>p.page_no<e));
+          this.setState({t:temp});
+          s=1;
+          this.setState({page : x.map(p =>
+            this.state.p_class = {
+              page_no: s++,
+              class_no: p.class_no,
+              class_name:p.class_name
+          })});
+          
+          this.setState({y:y});
+          this.setState({pref:false});
+          this.setState({nextf:false});
+    }else{
+        this.setState({n:x});
+        this.setState({pref:true});
+          this.setState({nextf:true});
+    }
     this.setState({name:"사고와 표현"});
 }
 fill3data = (event)=>{
     event.preventDefault();
-     this.setState({n : this.state.class.filter(p =>(p.field_no==4 || p.field_no==5 ||  p.field_no==6 ||  p.field_no==25 || p.field_no==26 ||  p.field_no==27 ||  p.field_no==45 ||  p.field_no==63 ))});
+     let x = this.state.class.filter(p =>(p.field_no==4 || p.field_no==5 ||  p.field_no==6 ||  p.field_no==25 || p.field_no==26 ||  p.field_no==27 ||  p.field_no==45 ||  p.field_no==63 ));
+     let y =x.length;
+     if(y>20){
+         let s=1;
+         let pe=0;
+         let e=20;
+         let page= x.map(p =>
+             this.state.p_class = {
+               page_no: s++,
+               class_no: p.class_no,
+               class_name:p.class_name
+           });
+           let temp = page.filter(p=>p.page_no>pe);
+           this.setState({n:temp.filter(p=>p.page_no<e)});
+           console.log(temp.filter(p=>p.page_no<e));
+           this.setState({t:temp});
+           s=1;
+           this.setState({page : x.map(p =>
+             this.state.p_class = {
+               page_no: s++,
+               class_no: p.class_no,
+               class_name:p.class_name
+           })});
+           
+           this.setState({y:y});
+           this.setState({pref:false});
+           this.setState({nextf:false});
+     }else{
+         this.setState({n:x});
+         this.setState({pref:true});
+           this.setState({nextf:true});
+     }
      this.setState({name:"글로벌의사소통"});
 }
 fill4data = (event)=>{
     event.preventDefault();
-    this.setState({n : this.state.class.filter(p => (p.field_no==7 || p.field_no==28 ||  p.field_no==46 ||  p.field_no==64))});
+    let x= this.state.class.filter(p => (p.field_no==7 || p.field_no==28 ||  p.field_no==46 ||  p.field_no==64));
+    let y =x.length;
+    if(y>20){
+        let s=1;
+        let pe=0;
+        let e=20;
+        let page= x.map(p =>
+            this.state.p_class = {
+              page_no: s++,
+              class_no: p.class_no,
+              class_name:p.class_name
+          });
+          let temp = page.filter(p=>p.page_no>pe);
+          this.setState({n:temp.filter(p=>p.page_no<e)});
+          console.log(temp.filter(p=>p.page_no<e));
+          this.setState({t:temp});
+          s=1;
+          this.setState({page : x.map(p =>
+            this.state.p_class = {
+              page_no: s++,
+              class_no: p.class_no,
+              class_name:p.class_name
+          })});
+          
+          this.setState({y:y});
+          this.setState({pref:false});
+          this.setState({nextf:false});
+    }else{
+        this.setState({n:x});
+        this.setState({pref:true});
+          this.setState({nextf:true});
+    }
     this.setState({name:"융복합(문학과 언어)"});
 }
 fill5data = (event)=>{
     event.preventDefault();
-     this.setState({n : this.state.class.filter(p => (p.field_no==8 || p.field_no==29 ||  p.field_no==47 ||  p.field_no==65))});
+    let x= this.state.class.filter(p => (p.field_no==8 || p.field_no==29 ||  p.field_no==47 ||  p.field_no==65));
+     let y =x.length;
+     if(y>20){
+         let s=1;
+         let pe=0;
+         let e=20;
+         let page= x.map(p =>
+             this.state.p_class = {
+               page_no: s++,
+               class_no: p.class_no,
+               class_name:p.class_name
+           });
+           let temp = page.filter(p=>p.page_no>pe);
+           this.setState({n:temp.filter(p=>p.page_no<e)});
+           console.log(temp.filter(p=>p.page_no<e));
+           this.setState({t:temp});
+           s=1;
+           this.setState({page : x.map(p =>
+             this.state.p_class = {
+               page_no: s++,
+               class_no: p.class_no,
+               class_name:p.class_name
+           })});
+           
+           this.setState({y:y});
+           this.setState({pref:false});
+           this.setState({nextf:false});
+     }else{
+         this.setState({n:x});
+         this.setState({pref:true});
+           this.setState({nextf:true});
+     }
      this.setState({name:"융복합(표현과 예술)"});
 }
 fill6data = (event)=>{
     event.preventDefault();
-    this.setState({n : this.state.class.filter(p =>(p.field_no==9 || p.field_no==30 ||  p.field_no==48 ||  p.field_no==66))});
+    let x=this.state.class.filter(p =>(p.field_no==9 || p.field_no==30 ||  p.field_no==48 ||  p.field_no==66));
+    let y =x.length;
+    if(y>20){
+        let s=1;
+        let pe=0;
+        let e=20;
+        let page= x.map(p =>
+            this.state.p_class = {
+              page_no: s++,
+              class_no: p.class_no,
+              class_name:p.class_name
+          });
+          let temp = page.filter(p=>p.page_no>pe);
+          this.setState({n:temp.filter(p=>p.page_no<e)});
+          console.log(temp.filter(p=>p.page_no<e));
+          this.setState({t:temp});
+          s=1;
+          this.setState({page : x.map(p =>
+            this.state.p_class = {
+              page_no: s++,
+              class_no: p.class_no,
+              class_name:p.class_name
+          })});
+          
+          this.setState({y:y});
+          this.setState({pref:false});
+          this.setState({nextf:false});
+    }else{
+        this.setState({n:x});
+        this.setState({pref:true});
+          this.setState({nextf:true});
+    }
     this.setState({name:"융복합(역사와 철학)"});
 }
 fill7data = (event)=>{
     event.preventDefault();
-     this.setState({n : this.state.class.filter(p =>(p.field_no==10 || p.field_no==31 ||  p.field_no==49 ||  p.field_no==67))});
+     let x= this.state.class.filter(p =>(p.field_no==10 || p.field_no==31 ||  p.field_no==49 ||  p.field_no==67));
+     let y =x.length;
+     if(y>20){
+         let s=1;
+         let pe=0;
+         let e=20;
+         let page= x.map(p =>
+             this.state.p_class = {
+               page_no: s++,
+               class_no: p.class_no,
+               class_name:p.class_name
+           });
+           let temp = page.filter(p=>p.page_no>pe);
+           this.setState({n:temp.filter(p=>p.page_no<e)});
+           console.log(temp.filter(p=>p.page_no<e));
+           this.setState({t:temp});
+           s=1;
+           this.setState({page : x.map(p =>
+             this.state.p_class = {
+               page_no: s++,
+               class_no: p.class_no,
+               class_name:p.class_name
+           })});
+           
+           this.setState({y:y});
+           this.setState({pref:false});
+           this.setState({nextf:false});
+     }else{
+         this.setState({n:x});
+         this.setState({pref:true});
+           this.setState({nextf:true});
+     }
      this.setState({name:"융복합(인간과 사회)"});
 }
 fill8data = (event)=>{
     event.preventDefault();
-    this.setState({n : this.state.class.filter(p =>(p.field_no==11 || p.field_no==32 ||  p.field_no==50 ||  p.field_no==68))});
+    let x= this.state.class.filter(p =>(p.field_no==11 || p.field_no==32 ||  p.field_no==50 ||  p.field_no==68));
+    let y =x.length;
+    if(y>20){
+        let s=1;
+        let pe=0;
+        let e=20;
+        let page= x.map(p =>
+            this.state.p_class = {
+              page_no: s++,
+              class_no: p.class_no,
+              class_name:p.class_name
+          });
+          let temp = page.filter(p=>p.page_no>pe);
+          this.setState({n:temp.filter(p=>p.page_no<e)});
+          console.log(temp.filter(p=>p.page_no<e));
+          this.setState({t:temp});
+          s=1;
+          this.setState({page : x.map(p =>
+            this.state.p_class = {
+              page_no: s++,
+              class_no: p.class_no,
+              class_name:p.class_name
+          })});
+          
+          this.setState({y:y});
+          this.setState({pref:false});
+          this.setState({nextf:false});
+    }else{
+        this.setState({n:x});
+        this.setState({pref:true});
+          this.setState({nextf:true});
+    }
     this.setState({name:"융복합(과학과기술)"});
 }
 fill9data = (event)=>{
     event.preventDefault();
-     this.setState({n : this.state.class.filter(p =>(p.field_no==12 || p.field_no==33))});
+     let x= this.state.class.filter(p =>(p.field_no==12 || p.field_no==33));
+     let y =x.length;
+     if(y>20){
+        let s=1;
+        let pe=0;
+        let e=20;
+        let page= x.map(p =>
+            this.state.p_class = {
+              page_no: s++,
+              class_no: p.class_no,
+              class_name:p.class_name
+          });
+          let temp = page.filter(p=>p.page_no>pe);
+          this.setState({n:temp.filter(p=>p.page_no<e)});
+          console.log(temp.filter(p=>p.page_no<e));
+          this.setState({t:temp});
+          s=1;
+          this.setState({page : x.map(p =>
+            this.state.p_class = {
+              page_no: s++,
+              class_no: p.class_no,
+              class_name:p.class_name
+          })});
+          
+          this.setState({y:y});
+          this.setState({pref:false});
+          this.setState({nextf:false});
+    }else{
+        this.setState({n:x});
+        this.setState({pref:true});
+          this.setState({nextf:true});
+    }
      this.setState({name:"융합기초"});
 }
 fill10data = (event)=>{
     event.preventDefault();
-    this.setState({n : this.state.class.filter(p =>(p.field_no==51 ||  p.field_no==69))});
+    let x = this.state.class.filter(p => (p.field_no==51 ||  p.field_no==69));
+    let y =x.length;
+    if(y>20){
+        let s=1;
+        let pe=0;
+        let e=20;
+        let page= x.map(p =>
+            this.state.p_class = {
+              page_no: s++,
+              class_no: p.class_no,
+              class_name:p.class_name
+          });
+          let temp = page.filter(p=>p.page_no>pe);
+          this.setState({n:temp.filter(p=>p.page_no<e)});
+          console.log(temp.filter(p=>p.page_no<e));
+          this.setState({t:temp});
+          s=1;
+          this.setState({page : x.map(p =>
+            this.state.p_class = {
+              page_no: s++,
+              class_no: p.class_no,
+              class_name:p.class_name
+          })});
+          
+          this.setState({y:y});
+          this.setState({pref:false});
+          this.setState({nextf:false});
+    }else{
+        this.setState({n:x});
+        this.setState({pref:true});
+          this.setState({nextf:true});
+    }
     this.setState({name:"컴퓨팅과 수리적 사고"});
 }
 fill11data = (event)=>{
@@ -179,23 +490,33 @@ fill11data = (event)=>{
             );
      let y =x.length;
     if(y>20){
+        let s=1;
+        let pe=0;
+        let e=20;
         let page= x.map(p =>
             this.state.p_class = {
-              page_no: this.state.start++,
+              page_no: s++,
               class_no: p.class_no,
               class_name:p.class_name
           });
-          let temp = page.filter(p=>p.page_no>this.state.pagenum);
-          this.setState({n:temp.filter(p=>p.page_no<this.state.end)});
+          let temp = page.filter(p=>p.page_no>pe);
+          this.setState({n:temp.filter(p=>p.page_no<e)});
           this.setState({t:temp});
+          s=1;
           this.setState({page : x.map(p =>
             this.state.p_class = {
-              page_no: this.state.start++,
+              page_no: s++,
               class_no: p.class_no,
               class_name:p.class_name
           })});
+          
+          this.setState({y:y});
+          this.setState({pref:false});
+          this.setState({nextf:false});
     }else{
         this.setState({n:x});
+        this.setState({pref:true});
+          this.setState({nextf:true});
     }
     this.setState({name:"전공기초"});
 }
@@ -203,28 +524,76 @@ fill12data = (event)=>{
     event.preventDefault();
     let x = this.state.class.filter(p => 
         (p.field_no==20 || p.field_no==41 ||  p.field_no==59 ||  p.field_no==77));
-     let y =x.length;
-    if(y>20){
-        this.setState({max:parseInt(y/20)+1});
-        let page = x.map(p =>
-            this.state.p_class = {
-              page_no: this.state.start++,
-              class_no: p.class_no
-          });
-        console.log(page);
-    }else{
-        this.setState({n:x});
-    }
+        let y =x.length;
+        if(y>20){
+            let s=1;
+            let pe=0;
+            let e=20;
+            let page= x.map(p =>
+                this.state.p_class = {
+                  page_no: s++,
+                  class_no: p.class_no,
+                  class_name:p.class_name
+              });
+              let temp = page.filter(p=>p.page_no>pe);
+              this.setState({n:temp.filter(p=>p.page_no<e)});
+              console.log(temp.filter(p=>p.page_no<e));
+              this.setState({t:temp});
+              s=1;
+              this.setState({page : x.map(p =>
+                this.state.p_class = {
+                  page_no: s++,
+                  class_no: p.class_no,
+                  class_name:p.class_name
+              })});
+              
+              this.setState({y:y});
+              this.setState({pref:false});
+              this.setState({nextf:false});
+        }else{
+            this.setState({n:x});
+            this.setState({pref:true});
+              this.setState({nextf:true});
+        }
     this.setState({name:"전공필수"});
 }
 fill13data = (event)=>{
     event.preventDefault();
-    this.setState({n : this.state.class.filter(p =>(p.field_no==21 || p.field_no==42 ||  p.field_no==60 ||  p.field_no==78))});
+    let x= this.state.class.filter(p =>(p.field_no==21 || p.field_no==42 ||  p.field_no==60 ||  p.field_no==78));
+    let y =x.length;
+    if(y>20){
+        let s=1;
+        let pe=0;
+        let e=20;
+        let page= x.map(p =>
+            this.state.p_class = {
+              page_no: s++,
+              class_no: p.class_no,
+              class_name:p.class_name
+          });
+          let temp = page.filter(p=>p.page_no>pe);
+          this.setState({n:temp.filter(p=>p.page_no<e)});
+          console.log(temp.filter(p=>p.page_no<e));
+          this.setState({t:temp});
+          s=1;
+          this.setState({page : x.map(p =>
+            this.state.p_class = {
+              page_no: s++,
+              class_no: p.class_no,
+              class_name:p.class_name
+          })});
+          
+          this.setState({y:y});
+          this.setState({pref:false});
+          this.setState({nextf:false});
+    }else{
+        this.setState({n:x});
+        this.setState({pref:true});
+          this.setState({nextf:true});
+    }
     this.setState({name:"전공선택"});
 }
-writelen=(event)=>{
-    console.log(this.state.m.length);
-}
+
 setup = (event)=>{
       this.setState({newArr : this.state.class.map(p =>
         this.state.user_class = {
@@ -241,18 +610,33 @@ setup = (event)=>{
 next=(event)=>{
    let e=this.state.end+20;
    let s=this.state.pagenum+20;
+   console.log(e);
+    console.log(s);
+   if(e<=this.state.y){
     let x=this.state.t.filter(p=>p.page_no<e);
     this.setState({n:x.filter(p=>p.page_no>s)});
     this.setState({end:e});
     this.setState({pagenum:s});
+    this.setState({pref:false});
+}else{
+    this.setState({nextf:true});
 }
+   }
+    
 pre=(event)=>{
     let e=this.state.end-20;
     let s=this.state.pagenum-20;
-     let x=this.state.t.filter(p=>p.page_no<e);
-     this.setState({n:x.filter(p=>p.page_no>s)});
-     this.setState({end:e});
-     this.setState({pagenum:s});
+    console.log(e);
+    console.log(s);
+    if(s>0){
+        let x=this.state.t.filter(p=>p.page_no<e);
+        this.setState({n:x.filter(p=>p.page_no>s)});
+        this.setState({end:e});
+        this.setState({pagenum:s});
+        this.setState({nextf:false});
+    }else{
+        this.setState({pref:true});
+    }
 }
 reset=(event)=>{
   event.preventDefault();
@@ -263,15 +647,15 @@ reset=(event)=>{
         <ClassCheckDiv>
           <Logo />
           <My />
+          <button onClick={this.reset} >reset</button>
+            <button onClick={this.setup} >확인</button>
           <ClassCheckWrapWrapDiv>
             <ClassCheckP>
-            <button onClick={this.reset} >reset</button>
-            <button onClick={this.setup} >확인</button>
-            <br/><br/>
             {this.state.name}
             </ClassCheckP>
-            <button onClick={this.pre} >&#10094;</button>
-            <button onClick={this.next} className="nextArrow">&#10095;</button>
+            <button onClick={this.pre} className="preArrow" disabled={this.state.pref} >&#10094;</button>
+            <button onClick={this.next} className="nextArrow" disabled={this.state.nextf}>&#10095;</button>
+            <div className="udn">
             <ul>
                             {
                                 this.state.n.map((fruite) => {
@@ -279,12 +663,12 @@ reset=(event)=>{
                                 })
                             }
                         </ul>
-            
+            </div>
             <div className="pagiation">
-                        <button onClick={this.fill1data}>1</button><button onClick={this.fill2data}>2</button><button onClick={this.fill3data}>3</button>
-                        <button onClick={this.fill4data}>4</button><button onClick={this.fill5data}>5</button><button onClick={this.fill6data}>6</button>
-                        <button onClick={this.fill7data}>7</button><button onClick={this.fill8data}>8</button><button onClick={this.fill9data}>9</button>
-                        <button onClick={this.fill10data}>10</button><button onClick={this.fill11data}>11</button><button onClick={this.fill12data}>12</button><button onClick={this.fill13data}>13</button>
+                        <button onClick={this.fill1data} className="pagebutton">1</button><button onClick={this.fill2data}className="pagebutton">2</button><button onClick={this.fill3data}className="pagebutton">3</button>
+                        <button onClick={this.fill4data}className="pagebutton">4</button><button onClick={this.fill5data}className="pagebutton">5</button><button onClick={this.fill6data}className="pagebutton">6</button>
+                        <button onClick={this.fill7data}className="pagebutton">7</button><button onClick={this.fill8data}className="pagebutton">8</button><button onClick={this.fill9data}className="pagebutton">9</button>
+                        <button onClick={this.fill10data}className="pagebutton">10</button><button onClick={this.fill11data}className="pagebutton">11</button><button onClick={this.fill12data}className="pagebutton">12</button><button onClick={this.fill13data}className="pagebutton">13</button>
                         </div>
                         
             
