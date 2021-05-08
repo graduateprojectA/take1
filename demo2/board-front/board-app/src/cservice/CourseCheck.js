@@ -49,8 +49,8 @@ class CourseCheck extends Component {
                 {user_no : 1, class_no: "관계의미학:사랑과윤리", class_pre: false,class_next:false},
                 {user_no : 1, class_no: "나눔리더십", class_pre: false,class_next:false},
             ],
-            class: [],n:[],
-            page_num: 0,
+            class: [],n:[],nextf:false,pref:false,page:[],p_class:[],t:[],y:0,end:21,
+            pagenum: 1,
         };
     }
     changeHandler = (event) => {
@@ -59,60 +59,477 @@ class CourseCheck extends Component {
     }
     fill1data = (event)=>{
         event.preventDefault();
-         this.setState({n : this.state.user_course.filter(p =>(p.field_no==1 || p.field_no==2 ||  p.field_no==22 ||  p.field_no==23 || p.field_no==43 ||  p.field_no==61))});
+         let x = this.state.user_course.filter(p =>(p.field_no==1 || p.field_no==2 ||  p.field_no==22 ||  p.field_no==23 || p.field_no==43 ||  p.field_no==61));
+         let y =x.length;
+        if(y>20){
+            let s=1;
+         let pe=0;
+         let e=20;
+         let page= x.map(p =>
+             this.state.p_class = {
+                user_course_no : p.user_course_no,
+               page_no: s++,
+               course_no: p.course_no,
+               course_name:p.course_name
+           });
+           let temp = page.filter(p=>p.page_no>pe);
+           this.setState({n:temp.filter(p=>p.page_no<e)});
+           this.setState({t:temp});
+           s=1;
+           this.setState({page : x.map(p =>
+            this.state.p_class = {
+              user_course_no : p.user_course_no,
+              page_no: s++,
+              course_no: p.course_no,
+              course_name:p.course_name
+          })});
+           
+           this.setState({y:y});
+              this.setState({pref:false});
+              this.setState({nextf:false});
+        }else{
+            this.setState({n:x});
+            this.setState({pref:true});
+              this.setState({nextf:true});
+        }
     }
     fill2data = (event)=>{
         event.preventDefault();
-        this.setState({n : this.state.user_course.filter(p =>(p.field_no==3 || p.field_no==24 ||  p.field_no==44 ||  p.field_no==62))});
+        let x= this.state.user_course.filter(p =>(p.field_no==3 || p.field_no==24 ||  p.field_no==44 ||  p.field_no==62));
+        let y =x.length;
+        if(y>20){
+            let s=1;
+         let pe=0;
+         let e=20;
+         let page= x.map(p =>
+             this.state.p_class = {
+                user_course_no : p.user_course_no,
+               page_no: s++,
+               course_no: p.course_no,
+               course_name:p.course_name
+           });
+           let temp = page.filter(p=>p.page_no>pe);
+           this.setState({n:temp.filter(p=>p.page_no<e)});
+           this.setState({t:temp});
+           s=1;
+           this.setState({page : x.map(p =>
+            this.state.p_class = {
+              user_course_no : p.user_course_no,
+              page_no: s++,
+              course_no: p.course_no,
+              course_name:p.course_name
+          })});
+           
+           this.setState({y:y});
+              this.setState({pref:false});
+              this.setState({nextf:false});
+        }else{
+            this.setState({n:x});
+            this.setState({pref:true});
+              this.setState({nextf:true});
+        }
     }
     fill3data = (event)=>{
         event.preventDefault();
-         this.setState({n : this.state.user_course.filter(p =>(p.field_no==4 || p.field_no==5 ||  p.field_no==6 ||  p.field_no==25 || p.field_no==26 ||  p.field_no==27 ||  p.field_no==45 ||  p.field_no==63 ))});
+        let x= this.state.user_course.filter(p =>(p.field_no==4 || p.field_no==5 ||  p.field_no==6 ||  p.field_no==25 || p.field_no==26 ||  p.field_no==27 ||  p.field_no==45 ||  p.field_no==63 ));
+         let y =x.length;
+        if(y>20){
+            let s=1;
+         let pe=0;
+         let e=20;
+         let page= x.map(p =>
+             this.state.p_class = {
+                user_course_no : p.user_course_no,
+               page_no: s++,
+               course_no: p.course_no,
+               course_name:p.course_name
+           });
+           let temp = page.filter(p=>p.page_no>pe);
+           this.setState({n:temp.filter(p=>p.page_no<e)});
+           this.setState({t:temp});
+           s=1;
+           this.setState({page : x.map(p =>
+            this.state.p_class = {
+              user_course_no : p.user_course_no,
+              page_no: s++,
+              course_no: p.course_no,
+              course_name:p.course_name
+          })});
+           
+           this.setState({y:y});
+              this.setState({pref:false});
+              this.setState({nextf:false});
+        }else{
+            this.setState({n:x});
+            this.setState({pref:true});
+              this.setState({nextf:true});
+        }
     }
     fill4data = (event)=>{
         event.preventDefault();
-        this.setState({n : this.state.user_course.filter(p => (p.field_no==7 || p.field_no==28 ||  p.field_no==46 ||  p.field_no==64))});
+        let x= this.state.user_course.filter(p => (p.field_no==7 || p.field_no==28 ||  p.field_no==46 ||  p.field_no==64));
+        let y =x.length;
+        if(y>20){
+            let s=1;
+         let pe=0;
+         let e=20;
+         let page= x.map(p =>
+             this.state.p_class = {
+                user_course_no : p.user_course_no,
+               page_no: s++,
+               course_no: p.course_no,
+               course_name:p.course_name
+           });
+           let temp = page.filter(p=>p.page_no>pe);
+           this.setState({n:temp.filter(p=>p.page_no<e)});
+           this.setState({t:temp});
+           s=1;
+           this.setState({page : x.map(p =>
+            this.state.p_class = {
+              user_course_no : p.user_course_no,
+              page_no: s++,
+              course_no: p.course_no,
+              course_name:p.course_name
+          })});
+           
+           this.setState({y:y});
+              this.setState({pref:false});
+              this.setState({nextf:false});
+        }else{
+            this.setState({n:x});
+            this.setState({pref:true});
+              this.setState({nextf:true});
+        }
     }
     fill5data = (event)=>{
         event.preventDefault();
-         this.setState({n : this.state.user_course.filter(p => (p.field_no==8 || p.field_no==29 ||  p.field_no==47 ||  p.field_no==65))});
+         let x = this.state.user_course.filter(p => 
+            (p.field_no==8 || p.field_no==29 ||  p.field_no==47 ||  p.field_no==65));
+         let y =x.length;
+        if(y>20){
+            let s=1;
+         let pe=0;
+         let e=20;
+         let page= x.map(p =>
+             this.state.p_class = {
+                user_course_no : p.user_course_no,
+               page_no: s++,
+               course_no: p.course_no,
+               course_name:p.course_name
+           });
+           let temp = page.filter(p=>p.page_no>pe);
+           this.setState({n:temp.filter(p=>p.page_no<e)});
+           this.setState({t:temp});
+           s=1;
+           this.setState({page : x.map(p =>
+            this.state.p_class = {
+              user_course_no : p.user_course_no,
+              page_no: s++,
+              course_no: p.course_no,
+              course_name:p.course_name
+          })});
+           
+           this.setState({y:y});
+              this.setState({pref:false});
+              this.setState({nextf:false});
+        }else{
+            this.setState({n:x});
+            this.setState({pref:true});
+              this.setState({nextf:true});
+        }
     }
     fill6data = (event)=>{
         event.preventDefault();
-        this.setState({n : this.state.user_course.filter(p =>(p.field_no==9 || p.field_no==30 ||  p.field_no==48 ||  p.field_no==66))});
+        let x = this.state.user_course.filter(p =>(p.field_no==9 || p.field_no==30 ||  p.field_no==48 ||  p.field_no==66));
+        let y =x.length;
+        if(y>20){
+            let s=1;
+         let pe=0;
+         let e=20;
+         let page= x.map(p =>
+             this.state.p_class = {
+                user_course_no : p.user_course_no,
+               page_no: s++,
+               course_no: p.course_no,
+               course_name:p.course_name
+           });
+           let temp = page.filter(p=>p.page_no>pe);
+           this.setState({n:temp.filter(p=>p.page_no<e)});
+           this.setState({t:temp});
+           s=1;
+           this.setState({page : x.map(p =>
+            this.state.p_class = {
+              user_course_no : p.user_course_no,
+              page_no: s++,
+              course_no: p.course_no,
+              course_name:p.course_name
+          })});
+           
+           this.setState({y:y});
+              this.setState({pref:false});
+              this.setState({nextf:false});
+        }else{
+            this.setState({n:x});
+            this.setState({pref:true});
+              this.setState({nextf:true});
+        }
     }
     fill7data = (event)=>{
         event.preventDefault();
-         this.setState({n : this.state.user_course.filter(p =>(p.field_no==10 || p.field_no==31 ||  p.field_no==49 ||  p.field_no==67))});
+        let x = this.state.user_course.filter(p =>(p.field_no==10 || p.field_no==31 ||  p.field_no==49 ||  p.field_no==67));
+         let y =x.length;
+        if(y>20){
+            let s=1;
+         let pe=0;
+         let e=20;
+         let page= x.map(p =>
+             this.state.p_class = {
+                user_course_no : p.user_course_no,
+               page_no: s++,
+               course_no: p.course_no,
+               course_name:p.course_name
+           });
+           let temp = page.filter(p=>p.page_no>pe);
+           this.setState({n:temp.filter(p=>p.page_no<e)});
+           this.setState({t:temp});
+           s=1;
+           this.setState({page : x.map(p =>
+            this.state.p_class = {
+              user_course_no : p.user_course_no,
+              page_no: s++,
+              course_no: p.course_no,
+              course_name:p.course_name
+          })});
+           
+           this.setState({y:y});
+              this.setState({pref:false});
+              this.setState({nextf:false});
+        }else{
+            this.setState({n:x});
+            this.setState({pref:true});
+              this.setState({nextf:true});
+        }
     }
     fill8data = (event)=>{
         event.preventDefault();
-        this.setState({n : this.state.user_course.filter(p =>(p.field_no==11 || p.field_no==32 ||  p.field_no==50 ||  p.field_no==68))});
+        let x = this.state.user_course.filter(p =>(p.field_no==11 || p.field_no==32 ||  p.field_no==50 ||  p.field_no==68));
+        let y =x.length;
+        if(y>20){
+            let s=1;
+         let pe=0;
+         let e=20;
+         let page= x.map(p =>
+             this.state.p_class = {
+                user_course_no : p.user_course_no,
+               page_no: s++,
+               course_no: p.course_no,
+               course_name:p.course_name
+           });
+           let temp = page.filter(p=>p.page_no>pe);
+           this.setState({n:temp.filter(p=>p.page_no<e)});
+           this.setState({t:temp});
+           s=1;
+           this.setState({page : x.map(p =>
+            this.state.p_class = {
+              user_course_no : p.user_course_no,
+              page_no: s++,
+              course_no: p.course_no,
+              course_name:p.course_name
+          })});
+           
+           this.setState({y:y});
+              this.setState({pref:false});
+              this.setState({nextf:false});
+        }else{
+            this.setState({n:x});
+            this.setState({pref:true});
+              this.setState({nextf:true});
+        }
     }
     fill9data = (event)=>{
         event.preventDefault();
-         this.setState({n : this.state.user_course.filter(p =>(p.field_no==12 || p.field_no==33))});
+         let x= this.state.user_course.filter(p =>(p.field_no==12 || p.field_no==33));
+         let y =x.length;
+        if(y>20){
+            let s=1;
+         let pe=0;
+         let e=20;
+         let page= x.map(p =>
+             this.state.p_class = {
+                user_course_no : p.user_course_no,
+               page_no: s++,
+               course_no: p.course_no,
+               course_name:p.course_name
+           });
+           let temp = page.filter(p=>p.page_no>pe);
+           this.setState({n:temp.filter(p=>p.page_no<e)});
+           this.setState({t:temp});
+           s=1;
+           this.setState({page : x.map(p =>
+            this.state.p_class = {
+              user_course_no : p.user_course_no,
+              page_no: s++,
+              course_no: p.course_no,
+              course_name:p.course_name
+          })});
+           
+           this.setState({y:y});
+              this.setState({pref:false});
+              this.setState({nextf:false});
+        }else{
+            this.setState({n:x});
+            this.setState({pref:true});
+              this.setState({nextf:true});
+        }
     }
     fill10data = (event)=>{
         event.preventDefault();
-        this.setState({n : this.state.user_course.filter(p =>(p.field_no==51 ||  p.field_no==69))});
+        let x = this.state.user_course.filter(p =>(p.field_no==51 ||  p.field_no==69));
+        let y =x.length;
+        if(y>20){
+            let s=1;
+         let pe=0;
+         let e=20;
+         let page= x.map(p =>
+             this.state.p_class = {
+                user_course_no : p.user_course_no,
+               page_no: s++,
+               course_no: p.course_no,
+               course_name:p.course_name
+           });
+           let temp = page.filter(p=>p.page_no>pe);
+           this.setState({n:temp.filter(p=>p.page_no<e)});
+           this.setState({t:temp});
+           s=1;
+           this.setState({page : x.map(p =>
+            this.state.p_class = {
+              user_course_no : p.user_course_no,
+              page_no: s++,
+              course_no: p.course_no,
+              course_name:p.course_name
+          })});
+           
+           this.setState({y:y});
+              this.setState({pref:false});
+              this.setState({nextf:false});
+        }else{
+            this.setState({n:x});
+            this.setState({pref:true});
+              this.setState({nextf:true});
+        }
     }
     fill11data = (event)=>{
         event.preventDefault();
-         this.setState({n : this.state.user_course.filter(p => 
+        let x = this.state.user_course.filter(p => 
             (p.field_no==13 || p.field_no==14 ||  p.field_no==15 ||  p.field_no==16 || p.field_no==17 || p.field_no==18 ||  p.field_no==19
                 ||  p.field_no==34 || p.field_no==35 ||  p.field_no==36 ||  p.field_no==37 || p.field_no==38 || p.field_no==39 ||  p.field_no==40
                 ||  p.field_no==52 || p.field_no==53 ||  p.field_no==54 ||  p.field_no==55 || p.field_no==56 || p.field_no==57 ||  p.field_no==58
                 ||  p.field_no==70 || p.field_no==71 ||  p.field_no==72 ||  p.field_no==73 || p.field_no==74 || p.field_no==75 ||  p.field_no==76)
-                )});
+                );
+                let y =x.length;
+                if(y>20){
+                    let s=1;
+                 let pe=0;
+                 let e=20;
+                 let page= x.map(p =>
+                     this.state.p_class = {
+                        user_course_no : p.user_course_no,
+                       page_no: s++,
+                       course_no: p.course_no,
+                       course_name:p.course_name
+                   });
+                   let temp = page.filter(p=>p.page_no>pe);
+                   this.setState({n:temp.filter(p=>p.page_no<e)});
+                   this.setState({t:temp});
+                   s=1;
+                   this.setState({page : x.map(p =>
+                    this.state.p_class = {
+                      user_course_no : p.user_course_no,
+                      page_no: s++,
+                      course_no: p.course_no,
+                      course_name:p.course_name
+                  })});
+                   
+                   this.setState({y:y});
+                      this.setState({pref:false});
+                      this.setState({nextf:false});
+                }else{
+                    this.setState({n:x});
+                    this.setState({pref:true});
+                      this.setState({nextf:true});
+                }
     }
     fill12data = (event)=>{
         event.preventDefault();
-        this.setState({n : this.state.user_course.filter(p =>(p.field_no==20 || p.field_no==41 ||  p.field_no==59 ||  p.field_no==77))});
+        let x =this.state.user_course.filter(p =>(p.field_no==20 || p.field_no==41 ||  p.field_no==59 ||  p.field_no==77));
+        let y =x.length;
+        if(y>20){
+            let s=1;
+         let pe=0;
+         let e=20;
+         let page= x.map(p =>
+             this.state.p_class = {
+                user_course_no : p.user_course_no,
+               page_no: s++,
+               course_no: p.course_no,
+               course_name:p.course_name
+           });
+           let temp = page.filter(p=>p.page_no>pe);
+           this.setState({n:temp.filter(p=>p.page_no<e)});
+           this.setState({t:temp});
+           s=1;
+           this.setState({page : x.map(p =>
+            this.state.p_class = {
+              user_course_no : p.user_course_no,
+              page_no: s++,
+              course_no: p.course_no,
+              course_name:p.course_name
+          })});
+           
+           this.setState({y:y});
+              this.setState({pref:false});
+              this.setState({nextf:false});
+        }else{
+            this.setState({n:x});
+            this.setState({pref:true});
+              this.setState({nextf:true});
+        }
     }
     fill13data = (event)=>{
         event.preventDefault();
-        this.setState({n : this.state.user_course.filter(p =>(p.field_no==21 || p.field_no==42 ||  p.field_no==60 ||  p.field_no==78))});
+        let x = this.state.user_course.filter(p =>(p.field_no==21 || p.field_no==42 ||  p.field_no==60 ||  p.field_no==78));
+        let y =x.length;
+        if(y>20){
+            let s=1;
+         let pe=0;
+         let e=20;
+         let page= x.map(p =>
+             this.state.p_class = {
+                user_course_no : p.user_course_no,
+               page_no: s++,
+               course_no: p.course_no,
+               course_name:p.course_name
+           });
+           let temp = page.filter(p=>p.page_no>pe);
+           this.setState({n:temp.filter(p=>p.page_no<e)});
+           this.setState({t:temp});
+           s=1;
+           this.setState({page : x.map(p =>
+            this.state.p_class = {
+              user_course_no : p.user_course_no,
+              page_no: s++,
+              course_no: p.course_no,
+              course_name:p.course_name
+          })});
+           
+           this.setState({y:y});
+              this.setState({pref:false});
+              this.setState({nextf:false});
+        }else{
+            this.setState({n:x});
+            this.setState({pref:true});
+              this.setState({nextf:true});
+        }
     }
     handleCheckChieldElement = (event) => {
         let user_course = this.state.user_course
@@ -127,6 +544,45 @@ class CourseCheck extends Component {
         this.setState({user_course: user_course})
     })
       }
+      next=(event)=>{
+        let e=this.state.end+20;
+        let s=this.state.pagenum+20;
+        console.log(e);
+         console.log(s);
+        if(e<=this.state.y){
+         let x=this.state.t.filter(p=>p.page_no<e);
+         this.setState({n:x.filter(p=>p.page_no>s)});
+         this.setState({end:e});
+         this.setState({pagenum:s});
+         this.setState({pref:false});
+     }else{
+         this.setState({nextf:true});
+         let x=this.state.t.filter(p=>p.page_no<e);
+         this.setState({n:x.filter(p=>p.page_no>s)});
+         this.setState({end:e});
+         this.setState({pagenum:s});
+     }
+        }
+         
+     pre=(event)=>{
+         let e=this.state.end-20;
+         let s=this.state.pagenum-20;
+         console.log(e);
+         console.log(s);
+         if(s>0){
+             let x=this.state.t.filter(p=>p.page_no<e);
+             this.setState({n:x.filter(p=>p.page_no>s)});
+             this.setState({end:e});
+             this.setState({pagenum:s});
+             this.setState({nextf:false});
+         }else{
+            this.setState({pref:true});
+            let x=this.state.t.filter(p=>p.page_no<e);
+            this.setState({n:x.filter(p=>p.page_no>s)});
+            this.setState({end:e});
+            this.setState({pagenum:s});
+         }
+     }
       completeCheck = (event) => {
         event.preventDefault();
         let time = this.state.user_course;
@@ -156,10 +612,8 @@ class CourseCheck extends Component {
                     <ClassCheckP>
             {this.state.name}
             </ClassCheckP>
-                        
-                        <button onClick={() => console.log(this.state.user_course)} />
-                        <input type="text" name="user_id" value={this.state.page_num} onChange={this.changeHandler} />
-                        <button className="NextA" onClick={this.completeCheck}>&#10095;</button>
+            <button onClick={this.pre} className="preArrow" disabled={this.state.pref} >&#10094;</button>
+            <button onClick={this.next} className="nextArrow" disabled={this.state.nextf}>&#10095;</button>
                         <ul>
                             {
                                 this.state.n.map((fruite) => {
@@ -174,6 +628,7 @@ class CourseCheck extends Component {
                         <button onClick={this.fill10data}>10</button><button onClick={this.fill11data}>11</button><button onClick={this.fill12data}>12</button><button onClick={this.fill13data}>13</button>
                         </div>
                     </ClassCheckWrapWrapDiv>
+                    <button className="NextA" onClick={this.completeCheck}>&#10095;</button>
                 </ClassCheckDiv>
         );
     }
