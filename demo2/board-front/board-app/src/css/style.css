@@ -152,6 +152,37 @@ input[type="checkbox"]:checked {
   background: transparent;
 }
 .pagiation{
-  margin-top: 50%;
+  margin-top: 5%;
   text-align: center;
+}
+.nextArrow {
+   font-size: 2em;
+  cursor: pointer;
+  padding: 6px;
+  color: #144C09;
+  background: none;
+  border: none;
+  position: absolute;
+  right: 5%;
+}
+.preArrow {
+  font-size: 2em;
+  cursor: pointer;
+  padding: 6px;
+  color: #144C09;
+  background: none;
+  border: none;
+  position: absolute;
+  left: 5%;
+}
+.pagebutton {
+  font-size: 1.5em;
+  cursor: pointer;
+  padding: 6px;
+  color: #144C09;
+  background: none;
+  border: none;
+}
+.udn{
+  margin-left:10%;
 }
