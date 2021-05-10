@@ -25,8 +25,8 @@ public class MajorController {
 
 	@PostMapping("/major")
 	public void createUser(@RequestBody User user) {
-		timetableService.getMajor(5);
-		timetableService.getTime(5);
+		timetableService.getMajor(23);
+		timetableService.getTime(6);
 		timetableService.getUser_class(6);
 	}
 }
