@@ -91,7 +91,7 @@ class CourseCheck extends Component {
             this.setState({n:x});
             this.setState({pref:true});
               this.setState({nextf:true});
-        }
+        } this.setState({name:"이화진선미"});
     }
     fill2data = (event)=>{
         event.preventDefault();
@@ -127,7 +127,7 @@ class CourseCheck extends Component {
             this.setState({n:x});
             this.setState({pref:true});
               this.setState({nextf:true});
-        }
+        } this.setState({name:"사고와 표현"});
     }
     fill3data = (event)=>{
         event.preventDefault();
@@ -163,7 +163,7 @@ class CourseCheck extends Component {
             this.setState({n:x});
             this.setState({pref:true});
               this.setState({nextf:true});
-        }
+        }this.setState({name:"글로벌의사소통"});
     }
     fill4data = (event)=>{
         event.preventDefault();
@@ -199,7 +199,7 @@ class CourseCheck extends Component {
             this.setState({n:x});
             this.setState({pref:true});
               this.setState({nextf:true});
-        }
+        }this.setState({name:"융복합(문학과 언어)"});
     }
     fill5data = (event)=>{
         event.preventDefault();
@@ -236,7 +236,7 @@ class CourseCheck extends Component {
             this.setState({n:x});
             this.setState({pref:true});
               this.setState({nextf:true});
-        }
+        }this.setState({name:"융복합(표현과 예술)"});
     }
     fill6data = (event)=>{
         event.preventDefault();
@@ -272,7 +272,7 @@ class CourseCheck extends Component {
             this.setState({n:x});
             this.setState({pref:true});
               this.setState({nextf:true});
-        }
+        }this.setState({name:"융복합(역사와 철학)"});
     }
     fill7data = (event)=>{
         event.preventDefault();
@@ -308,7 +308,7 @@ class CourseCheck extends Component {
             this.setState({n:x});
             this.setState({pref:true});
               this.setState({nextf:true});
-        }
+        } this.setState({name:"융복합(인간과 사회)"});
     }
     fill8data = (event)=>{
         event.preventDefault();
@@ -344,7 +344,7 @@ class CourseCheck extends Component {
             this.setState({n:x});
             this.setState({pref:true});
               this.setState({nextf:true});
-        }
+        }this.setState({name:"융복합(과학과기술)"});
     }
     fill9data = (event)=>{
         event.preventDefault();
@@ -380,7 +380,7 @@ class CourseCheck extends Component {
             this.setState({n:x});
             this.setState({pref:true});
               this.setState({nextf:true});
-        }
+        }this.setState({name:"융합기초"});
     }
     fill10data = (event)=>{
         event.preventDefault();
@@ -416,7 +416,7 @@ class CourseCheck extends Component {
             this.setState({n:x});
             this.setState({pref:true});
               this.setState({nextf:true});
-        }
+        } this.setState({name:"컴퓨팅과 수리적 사고"});
     }
     fill11data = (event)=>{
         event.preventDefault();
@@ -457,7 +457,7 @@ class CourseCheck extends Component {
                     this.setState({n:x});
                     this.setState({pref:true});
                       this.setState({nextf:true});
-                }
+                }this.setState({name:"전공기초"});
     }
     fill12data = (event)=>{
         event.preventDefault();
@@ -493,7 +493,7 @@ class CourseCheck extends Component {
             this.setState({n:x});
             this.setState({pref:true});
               this.setState({nextf:true});
-        }
+        }this.setState({name:"전공필수"});
     }
     fill13data = (event)=>{
         event.preventDefault();
@@ -529,7 +529,7 @@ class CourseCheck extends Component {
             this.setState({n:x});
             this.setState({pref:true});
               this.setState({nextf:true});
-        }
+        }this.setState({name:"전공선택"});
     }
     handleCheckChieldElement = (event) => {
         let user_course = this.state.user_course

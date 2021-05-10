@@ -103,10 +103,10 @@ class ClassCheck extends Component {
   completeClass = (event) => {
     event.preventDefault();
     console.log(this.state.newArr)
-    /*
+    
     UserService.CheckClassUser(this.state.newArr).then(res => {
             this.props.history.push('./myPage');
-    });*/
+    });
 }
   componentDidMount() {
     UserService.class2User().then((res) => {
