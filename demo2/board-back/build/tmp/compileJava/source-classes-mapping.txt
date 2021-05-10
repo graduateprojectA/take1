@@ -1,13 +1,13 @@
 com/board/back/BoardBackApplication.java
  com.board.back.BoardBackApplication
-com/board/back/service/TimeService.java
- com.board.back.service.TimeService
-com/board/back/repository/TimeRepository.java
- com.board.back.repository.TimeRepository
+com/board/back/controller/TimeController.java
+ com.board.back.controller.TimeController
+com/board/back/controller/CourseController.java
+ com.board.back.controller.CourseController
 com/board/back/model/User_timetable.java
  com.board.back.model.User_timetable
-com/board/back/controller/BoardController.java
- com.board.back.controller.BoardController
+com/board/back/controller/UserController.java
+ com.board.back.controller.UserController
 com/board/back/repository/UserFieldRepository.java
  com.board.back.repository.UserFieldRepository
 com/board/back/model/User_elective_timetable.java
@@ -28,8 +28,8 @@ com/board/back/model/Majors.java
  com.board.back.model.Majors
 com/board/back/model/User_course.java
  com.board.back.model.User_course
-com/board/back/service/ClassService.java
- com.board.back.service.ClassService
+com/board/back/repository/TimeRepository.java
+ com.board.back.repository.TimeRepository
 com/board/back/repository/UserCourseRepository.java
  com.board.back.repository.UserCourseRepository
 com/board/back/repository/UserCheckFieldRepository.java
@@ -50,8 +50,8 @@ com/board/back/model/newClass.java
  com.board.back.model.newClass
 com/board/back/repository/ClassRepository.java
  com.board.back.repository.ClassRepository
-com/board/back/repository/UserClassRepository.java
- com.board.back.repository.UserClassRepository
+com/board/back/service/TimeService.java
+ com.board.back.service.TimeService
 com/board/back/model/Check_field.java
  com.board.back.model.Check_field
 com/board/back/exception/ResourceNotFoundException.java
@@ -93,9 +93,13 @@ com/board/back/controller/ClassController.java
  com.board.back.controller.ClassController
 com/board/back/controller/PreferenceController.java
  com.board.back.controller.PreferenceController
-com/board/back/controller/TimeController.java
- com.board.back.controller.TimeController
-com/board/back/controller/CourseController.java
- com.board.back.controller.CourseController
-com/board/back/controller/UserController.java
- com.board.back.controller.UserController
+com/board/back/repository/MajorRepository.java
+ com.board.back.repository.MajorRepository
+com/board/back/service/TimetableService.java
+ com.board.back.service.TimetableService
+com/board/back/repository/UserClassRepository.java
+ com.board.back.repository.UserClassRepository
+com/board/back/service/ClassService.java
+ com.board.back.service.ClassService
+com/board/back/controller/MajorController.java
+ com.board.back.controller.MajorController
