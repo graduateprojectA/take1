@@ -101,3 +101,7 @@ com/board/back/model/User_timetable.java
  com.board.back.model.User_timetable
 com/board/back/model/User_timetable2.java
  com.board.back.model.User_timetable2
+com/board/back/service/TimetableService.java
+ com.board.back.service.TimetableService
+com/board/back/service/class_character.java
+ com.board.back.service.class_character

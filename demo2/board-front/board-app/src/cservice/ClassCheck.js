@@ -1,5 +1,5 @@
 /*
-TableCheck
+ClassCheck
 */
 
 import styled from "styled-components";
@@ -21,52 +21,11 @@ const ClassCheckDiv = styled.div`
     background-size: cover;
 `;
 
-const ClassCheckWrapWrapDiv = styled.div`
-    position: absolute;
-    top: 120px;
-    left: 50%;
-    margin-left: -370px;
-    border: solid 1px;
-    height: 80%;
-    width: 740px;
-    background-color: #fff5ee;
-    opacity: 0.8;
-    border: solid 5px #00462A;
-    border-radius: 10px;
-`;
-
 const ClassCheckP = styled.p`
-top: 5%;
+    margin-top: 1%;
     text-align: center; 
     font-size: 1.2em;
-`;
-
-const NextA = styled.a`
-    font-size: 40px;
-    cursor: pointer;
-    position: absolute;
-    top: 50%;
-    margin-top:-20px;
-    padding: 16px;
-    color: white;
-    right: 1%;
-    &:hover{
-        color: #00462A;
-    }
-`;
-
-const PreA = styled.a`
-    font-size: 40px;
-    cursor: pointer;
-    position: absolute;
-    top: 50%;
-    margin-top:-20px;
-    padding: 16px;
-    color: white;
-    left: 1%;
-    &:hover{
-        color: #00462A;
-    }
+    background-color: yellow;
 `;
 
 class ClassCheck extends Component {
@@ -647,33 +606,43 @@ reset=(event)=>{
         <ClassCheckDiv>
           <Logo />
           <My />
-          <button onClick={this.reset} >reset</button>
-            <button onClick={this.setup} >확인</button>
-          <ClassCheckWrapWrapDiv>
-            <ClassCheckP>
-            {this.state.name}
-            </ClassCheckP>
-            <button onClick={this.pre} className="preArrow" disabled={this.state.pref} >&#10094;</button>
-            <button onClick={this.next} className="nextArrow" disabled={this.state.nextf}>&#10095;</button>
-            <div className="udn">
-            <ul>
-                            {
-                                this.state.n.map((fruite) => {
-                                    return (<CheckBox2 handleChange={this.handleChange}  {...fruite} />)
-                                })
-                            }
-                        </ul>
-            </div>
-            <div className="pagiation">
-                        <button onClick={this.fill1data} className="pagebutton">1</button><button onClick={this.fill2data}className="pagebutton">2</button><button onClick={this.fill3data}className="pagebutton">3</button>
-                        <button onClick={this.fill4data}className="pagebutton">4</button><button onClick={this.fill5data}className="pagebutton">5</button><button onClick={this.fill6data}className="pagebutton">6</button>
-                        <button onClick={this.fill7data}className="pagebutton">7</button><button onClick={this.fill8data}className="pagebutton">8</button><button onClick={this.fill9data}className="pagebutton">9</button>
-                        <button onClick={this.fill10data}className="pagebutton">10</button><button onClick={this.fill11data}className="pagebutton">11</button><button onClick={this.fill12data}className="pagebutton">12</button><button onClick={this.fill13data}className="pagebutton">13</button>
-                        </div>
-                        
-            
-          </ClassCheckWrapWrapDiv>
           <button className="NextA" onClick={this.completeClass}>&#10095;</button>
+          <button onClick={this.reset} >reset</button>
+          <button onClick={this.setup} >확인</button>
+          <div className="TableCheckWrapWrapDiv"><br/>
+                <h4 style={{color:"red", display:"inline"}}>[수업 분반 확인] </h4>
+                <h4 style={{display:"inline"}}>원하지 않는 분반을 선택해주세요.<br/>
+                선택하지 않은 수업들은 모두 시간표 조합에 적용됩니다. <br/> 
+                우측 흰색 화살표를 눌러, 최적의 시간표를 얻어보세요!</h4>
+          <ClassCheckP>{this.state.name}</ClassCheckP>
+          <div className="classList">
+          <ul>
+          {
+            this.state.n.map((fruite) => {
+              return (<CheckBox2 handleChange={this.handleChange}  {...fruite} />)
+                })
+          }
+          </ul>
+          </div>
+          {/* 밑에 페이지 넘버 */}
+          <button onClick={this.pre} className="preArrow" disabled={this.state.pref} >Pre</button>
+          <button onClick={this.next} className="nextArrow" disabled={this.state.nextf}>Next</button>
+          <div className="pagiation">
+            <button onClick={this.fill1data} className="pagebtn">1</button>
+            <button onClick={this.fill2data} className="pagebtn">2</button>
+            <button onClick={this.fill3data} className="pagebtn">3</button>
+            <button onClick={this.fill4data} className="pagebtn">4</button>
+            <button onClick={this.fill5data} className="pagebtn">5</button>
+            <button onClick={this.fill6data} className="pagebtn">6</button>
+            <button onClick={this.fill7data} className="pagebtn">7</button>
+            <button onClick={this.fill8data} className="pagebtn">8</button>
+            <button onClick={this.fill9data} className="pagebtn">9</button>
+            <button onClick={this.fill10data} className="pagebtn">10</button>
+            <button onClick={this.fill11data} className="pagebtn">11</button>
+            <button onClick={this.fill12data} className="pagebtn">12</button>
+            <button onClick={this.fill13data} className="pagebtn">13</button>
+            </div>
+          </div>
         </ClassCheckDiv>
     );
   }
