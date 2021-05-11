@@ -42,7 +42,8 @@ class ClassCheck extends Component {
         user_class: [],nextf:false,pref:false,
         p_class:[],t:[],
         newArr:[],
-        n:[],m:[],pagenum:0,maxnum:0,page:[],start:1,end:20,sindex:0,eindex:0,y:0,
+        n:[],m:[],pagenum:0,maxnum:0,page:[],start:1,end:20,sindex:0,eindex:0,y:0, 
+        testd:[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40],
         name:"",
     };
 }
@@ -70,6 +71,16 @@ class ClassCheck extends Component {
   componentDidMount() {
     UserService.class2User().then((res) => {
       this.setState({ class: res.data });
+      let s=0;
+      this.setState({page : res.data.map(p =>
+                    this.state.p_class = {
+                      page_no: s++,
+                      class_no: p.class_no,
+                      class_name:p.class_name,
+                      professor_name:p.professor_name,
+                      class_division:p.class_division
+      })});
+      this.setState({end:s/15+1});
     console.log(res.data);
     });
     UserService.login().then((res) => {
@@ -79,7 +90,11 @@ class ClassCheck extends Component {
 
    
   }
-
+  changeHandler = (event) => {
+    let u=this.state.page;
+    let s = (event.target.value-1)*15;
+    this.setState({ n: u.filter(p=>p.page_no>=s&&p.page_no<s+15)});
+}
 setup = (event)=>{
       this.setState({newArr : this.state.class.map(p =>
         this.state.user_class = {
@@ -120,26 +135,15 @@ reset=(event)=>{
                 })
           }
           </ul>
-          </div>
-          {/* 밑에 페이지 넘버 */}
-          <button onClick={this.pre} className="preArrow" disabled={this.state.pref} >Pre</button>
-          <button onClick={this.next} className="nextArrow" disabled={this.state.nextf}>Next</button>
-          <div className="pagiation">
-            <button onClick={this.fill1data} className="pagebtn">1</button>
-            <button onClick={this.fill2data} className="pagebtn">2</button>
-            <button onClick={this.fill3data} className="pagebtn">3</button>
-            <button onClick={this.fill4data} className="pagebtn">4</button>
-            <button onClick={this.fill5data} className="pagebtn">5</button>
-            <button onClick={this.fill6data} className="pagebtn">6</button>
-            <button onClick={this.fill7data} className="pagebtn">7</button>
-            <button onClick={this.fill8data} className="pagebtn">8</button>
-            <button onClick={this.fill9data} className="pagebtn">9</button>
-            <button onClick={this.fill10data} className="pagebtn">10</button>
-            <button onClick={this.fill11data} className="pagebtn">11</button>
-            <button onClick={this.fill12data} className="pagebtn">12</button>
-            <button onClick={this.fill13data} className="pagebtn">13</button>
-            </div>
-          </div>
+          <ul className="pagination">
+        {this.state.testd.map(p => (
+          <li>
+          <button onClick={this.changeHandler} className="pagebtn"value={p} style={{display: p<=this.state.end?'inline':'none'}}>{p}</button>
+          </li>
+        ))}
+      </ul>
+      </div>
+      </div>
         </ClassCheckDiv>
     );
   }
