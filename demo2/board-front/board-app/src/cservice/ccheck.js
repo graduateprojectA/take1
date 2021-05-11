@@ -1,6 +1,3 @@
-/*
-CourseCheck
-*/
 import styled from "styled-components";
 import React, { Component} from 'react';
 import UserService from '../service/UserService';
@@ -9,7 +6,6 @@ import Logo from "./Logo";
 import My from "./My";
 import backgroundImage2 from "../components/image/backgroundImage2.png";
 import  CheckBox  from './CheckBox';
-
 const ClassCheckDiv = styled.div`
     position: absolute;
     top: 0;
@@ -26,7 +22,7 @@ const ClassCheckP = styled.p`
     background-color: yellow;
 `;
 
-class CourseCheck extends Component {
+class ccheck extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -55,11 +51,16 @@ class CourseCheck extends Component {
                       course_no: p.course_no,
                       course_name:p.course_name
                   })});
-                  this.setState({end:s/15+1});
+                  this.setState({end:s/20+1});
                 });
             });
             console.log("get result => " + JSON.stringify(res.data));
         });
+    }
+    showtable=(event)=>{
+      event.preventDefault();
+       let u=this.state.page;
+       this.setState({ n: u.filter(p=>p.page_no>=0&&p.page_no<20)});
     }
     completeCheck = (event) => {
       event.preventDefault();
@@ -68,8 +69,8 @@ class CourseCheck extends Component {
   }
   changeHandler = (event) => {
     let u=this.state.page;
-    let s = (event.target.value-1)*15;
-    this.setState({ n: u.filter(p=>p.page_no>=s&&p.page_no<s+15)});
+    let s = (event.target.value-1)*20;
+    this.setState({ n: u.filter(p=>p.page_no>=s&&p.page_no<s+20)});
 }
   handleCheckChieldElement = (event) => {
     let user_course = this.state.user_course
@@ -106,10 +107,11 @@ class CourseCheck extends Component {
           <ul className="pagination">
         {this.state.testd.map(p => (
           <li>
-          <button onClick={this.changeHandler} className="pagebtn"value={p} style={{display: p<=this.state.end?'inline':'none'}}>{p}</button>
+          <button onClick={this.changeHandler} value={p} style={{display: p<=this.state.end?'inline':'none'}}>{p}</button>
           </li>
         ))}
       </ul>
+          <button onClick={this.completeCheck}>끝</button>
           </div>  
           </div>
           </ClassCheckDiv>
@@ -117,5 +119,4 @@ class CourseCheck extends Component {
     }
 }
 
-
-export default CourseCheck;
+export default ccheck;

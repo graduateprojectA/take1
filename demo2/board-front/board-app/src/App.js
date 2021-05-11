@@ -13,6 +13,8 @@ import EventPractice from "./cservice/EventPractice";
 import CreateUserComponent from './components/CreateUserComponent';
 import LoginUserComponent from "./components/LoginUserComponent";
 import CheckTimeComponent from './components/CheckTimeComponent';
+import moviespage from './cservice/MoviesPage';
+import cc from './cservice/ccheck';
 import 'bootstrap/dist/css/bootstrap.min.css';
 function App() {
   return (
@@ -32,6 +34,8 @@ function App() {
               <Route path="/classCheck" component={ClassCheck} exact={true} />
               <Route path="/preclassCheck" component={preClassCheck} exact={true} />
               <Route path="/frontClass" component={frontClass} exact={true} />
+              <Route path = "/movie" component = {moviespage}></Route>
+              <Route path = "/cc" component = {cc}></Route>
               <Route path = "/create-user/:user_no" component = {CreateUserComponent}></Route>
               <Route path = "/:user_no" component = {LoginUserComponent}></Route>
             render={({ location }) => (
