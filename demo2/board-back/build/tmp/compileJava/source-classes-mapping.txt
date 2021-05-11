@@ -10,6 +10,8 @@ com/board/back/repository/MajorRepository.java
  com.board.back.repository.MajorRepository
 com/board/back/controller/MajorController.java
  com.board.back.controller.MajorController
+com/board/back/service/class_character.java
+ com.board.back.service.class_character
 com/board/back/repository/UserFieldRepository.java
  com.board.back.repository.UserFieldRepository
 com/board/back/model/User_elective_timetable.java
@@ -24,8 +26,6 @@ com/board/back/model/User_time.java
  com.board.back.model.User_time
 com/board/back/controller/TimeController.java
  com.board.back.controller.TimeController
-com/board/back/model/Board.java
- com.board.back.model.Board
 com/board/back/model/Majors.java
  com.board.back.model.Majors
 com/board/back/model/User_course.java
@@ -56,6 +56,8 @@ com/board/back/repository/UserClassRepository.java
  com.board.back.repository.UserClassRepository
 com/board/back/model/Check_field.java
  com.board.back.model.Check_field
+com/board/back/model/User_timetable2.java
+ com.board.back.model.User_timetable2
 com/board/back/exception/ResourceNotFoundException.java
  com.board.back.exception.ResourceNotFoundException
 com/board/back/controller/UserController.java
@@ -70,8 +72,6 @@ com/board/back/model/Course.java
  com.board.back.model.Course
 com/board/back/controller/ClassController.java
  com.board.back.controller.ClassController
-com/board/back/service/BoardService.java
- com.board.back.service.BoardService
 com/board/back/repository/UserTimetableRepository.java
  com.board.back.repository.UserTimetableRepository
 com/board/back/model/User.java
@@ -86,8 +86,6 @@ com/board/back/model/Field.java
  com.board.back.model.Field
 com/board/back/repository/LoginRepository.java
  com.board.back.repository.LoginRepository
-com/board/back/repository/BoardRepository.java
- com.board.back.repository.BoardRepository
 com/board/back/repository/UserPreferenceRepository.java
  com.board.back.repository.UserPreferenceRepository
 com/board/back/exception/ValidationCheckException.java

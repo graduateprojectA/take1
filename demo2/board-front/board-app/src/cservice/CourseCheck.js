@@ -1,7 +1,6 @@
 /*
-TableCheck
+CourseCheck
 */
-
 import styled from "styled-components";
 import React, { Component} from 'react';
 import UserService from '../service/UserService';
@@ -10,6 +9,7 @@ import Logo from "./Logo";
 import My from "./My";
 import backgroundImage2 from "../components/image/backgroundImage2.png";
 import  CheckBox  from './CheckBox';
+
 const ClassCheckDiv = styled.div`
     position: absolute;
     top: 0;
@@ -19,25 +19,13 @@ const ClassCheckDiv = styled.div`
     background-image: url(${backgroundImage2});
     background-size: cover;
 `;
-
-const ClassCheckWrapWrapDiv = styled.div`
-    position: absolute;
-    top: 120px;
-    left: 50%;
-    margin-left: -370px;
-    border: solid 1px;
-    height: 585px;
-    width: 740px;
-    background-color: #fff5ee;
-    opacity: 0.8;
-    border: solid 5px #00462A;
-    border-radius: 10px;
-`;
-
 const ClassCheckP = styled.p`
+    margin-top: 1%;
     text-align: center; 
     font-size: 1.2em;
+    background-color: yellow;
 `;
+
 class CourseCheck extends Component {
     constructor(props) {
         super(props);
@@ -605,31 +593,45 @@ class CourseCheck extends Component {
     }
     render() {
         return (
-                <ClassCheckDiv>
-                    <Logo />
-                    <My />
-                    <ClassCheckWrapWrapDiv>
-                    <ClassCheckP>
-            {this.state.name}
-            </ClassCheckP>
-            <button onClick={this.pre} className="preArrow" disabled={this.state.pref} >&#10094;</button>
-            <button onClick={this.next} className="nextArrow" disabled={this.state.nextf}>&#10095;</button>
-                        <ul>
-                            {
-                                this.state.n.map((fruite) => {
-                                    return (<CheckBox handleCheckChieldElement={this.handleCheckChieldElement}  {...fruite} />)
-                                })
-                            }
-                        </ul>
-                        <div className="pagiation">
-                        <button onClick={this.fill1data}>1</button><button onClick={this.fill2data}>2</button><button onClick={this.fill3data}>3</button>
-                        <button onClick={this.fill4data}>4</button><button onClick={this.fill5data}>5</button><button onClick={this.fill6data}>6</button>
-                        <button onClick={this.fill7data}>7</button><button onClick={this.fill8data}>8</button><button onClick={this.fill9data}>9</button>
-                        <button onClick={this.fill10data}>10</button><button onClick={this.fill11data}>11</button><button onClick={this.fill12data}>12</button><button onClick={this.fill13data}>13</button>
-                        </div>
-                    </ClassCheckWrapWrapDiv>
-                    <button className="NextA" onClick={this.completeCheck}>&#10095;</button>
-                </ClassCheckDiv>
+            <ClassCheckDiv>
+            <Logo />
+            <My />
+            <button className="NextA" onClick={this.completeCheck}>&#10095;</button>
+            <div className="TableCheckWrapWrapDiv"><br/>
+                <h4 style={{color:"red", display:"inline"}}>[커리큘럼 확인] </h4>
+                <h4 style={{display:"inline"}}>여태 들었던 모든 수업을 선택해주세요.<br/>
+                재수강을 원하실 경우에는 체크하지 말아주세요. <br/> 
+                우측 흰색 화살표를 눌러, 다음 페이지로 이동하세요.</h4>
+            <ClassCheckP>{this.state.name}</ClassCheckP>
+            <div className="courseList">
+            <ul>
+                {
+                    this.state.n.map((fruite) => {
+                        return (<CheckBox handleCheckChieldElement={this.handleCheckChieldElement}  {...fruite} />)
+                    })
+                }
+            </ul>
+            </div>    
+            {/* 밑에 페이지 넘버 */}
+            <button onClick={this.pre} className="preArrow" disabled={this.state.pref} >Pre</button>
+            <button onClick={this.next} className="nextArrow" disabled={this.state.nextf}>Next</button>
+            <div className="pagiation">
+            <button onClick={this.fill1data} className="pagebtn">1</button>
+            <button onClick={this.fill2data} className="pagebtn">2</button>
+            <button onClick={this.fill3data} className="pagebtn">3</button>
+            <button onClick={this.fill4data} className="pagebtn">4</button>
+            <button onClick={this.fill5data} className="pagebtn">5</button>
+            <button onClick={this.fill6data} className="pagebtn">6</button>
+            <button onClick={this.fill7data} className="pagebtn">7</button>
+            <button onClick={this.fill8data} className="pagebtn">8</button>
+            <button onClick={this.fill9data} className="pagebtn">9</button>
+            <button onClick={this.fill10data} className="pagebtn">10</button>
+            <button onClick={this.fill11data} className="pagebtn">11</button>
+            <button onClick={this.fill12data} className="pagebtn">12</button>
+            <button onClick={this.fill13data} className="pagebtn">13</button>
+            </div>
+            </div>
+            </ClassCheckDiv>
         );
     }
 }

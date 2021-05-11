@@ -53,12 +53,8 @@ public class User_timetable {
     @Column(name = "credit")
     private Integer credit;
 
-
     public Integer getUser_timetable_no() { return user_timetable_no;}
-
     public void setUser_timetable_no(Integer no) { this.user_timetable_no = no;}
-
-
 
     public void setClass(Integer no, int index) {
         if(index==1){
@@ -91,14 +87,6 @@ public class User_timetable {
     public Integer getClass_8() {return class_8;}
     public Integer getClass_9() {return class_9;}
 
-    public Integer getUser_no() {return user_no;}
-
-    public void setUser_no(Integer no) {this.user_no = no;}
-
-    public Integer getCredit() {return credit;}
-
-    public void setCredit(Integer credit) {this.credit = credit;}
-
     public User_timetable() {
         super();
     }
@@ -116,13 +104,14 @@ public class User_timetable {
         this.class_7=class_7;
         this.class_8=class_8;
         this.class_9=class_9;
-
-        this.user_no = user_no;
         this.credit = credit;
     }
 
     @Override
     public String toString() {
-        return "User_timetable [user_timetable_no=" + user_timetable_no + " , user_no=" + user_no + ", credit=" + credit + "]";
+        return "User_timetable [user_timetable_no=" + user_timetable_no + ", user_no=" + user_no
+                +", class_1="+ class_1+", class_2="+ class_2+", class_3="+ class_3+", class_4="+ class_4
+                +", class_5="+ class_5+", class_6="+ class_6+", class_7="+ class_7+", class_8="+ class_8
+                +", class_9="+ class_9+ ", credit=" + credit + "]";
     }
 }
