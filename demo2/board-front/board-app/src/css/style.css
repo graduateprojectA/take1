@@ -129,8 +129,13 @@
   width: 100%;
   height: 100%;
 }
-/* .CheckCheck input[type="checkbox"] {
-} */
+.Check1 {
+  font-size: 1.2em;
+}
+.Check1 input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+}
 .WeightTable {
   margin-top: 3%;
   margin-left: 5%;
@@ -156,29 +161,25 @@
   text-align: left;
   font-size: 0.9em;
   position: absolute;
-  margin-top: 1%;
-  left: 27%;
-}
-.classList {
-  text-align: left;
-  font-size: 0.9em;
-  position: absolute;
-  margin-top: 1%;
-  left: 5%;
-}
-.pagiation {
-  bottom: 5%;
-  position: absolute;
-  left: 5%;
+  margin-top: 3%;
+  left: 15%;
 }
 .pagebtn {
   border: 1px solid;
   border-radius: 40%;
-  font-size: 1.3em;
+  font-size: 1em;
   color: #00462a;
   background-color: none;
 }
-.nextArrow {
+.pagination {
+  position: absolute;
+  top: 90%;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+/* .nextArrow {
   font-size: 2em;
   cursor: pointer;
   padding: 6px;
@@ -203,9 +204,9 @@
   left: 10%;
   bottom: 4%;
   font-size: 1.3em;
-}
+} */
 .pagebutton {
-  font-size: 1.5em;
+  font-size: 1.2em;
   cursor: pointer;
   padding: 6px;
   color: #144c09;

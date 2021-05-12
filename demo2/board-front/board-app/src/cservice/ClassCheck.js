@@ -126,8 +126,8 @@ reset=(event)=>{
                 <h4 style={{display:"inline"}}>원하지 않는 분반을 선택해주세요.<br/>
                 선택하지 않은 수업들은 모두 시간표 조합에 적용됩니다. <br/> 
                 우측 흰색 화살표를 눌러, 최적의 시간표를 얻어보세요!</h4>
-          <ClassCheckP>{this.state.name}</ClassCheckP>
-          <div className="classList">
+          {/* <ClassCheckP>{this.state.name}</ClassCheckP> */}
+          <div className="courseList">
           <ul>
           {
             this.state.n.map((fruite) => {
@@ -135,16 +135,14 @@ reset=(event)=>{
                 })
           }
           </ul>
-          <ul className="pagination">
+        </div>
+        <div className="pagination">
         {this.state.testd.map(p => (
-          <li>
-          <button onClick={this.changeHandler} className="pagebtn"value={p} style={{display: p<=this.state.end?'inline':'none'}}>{p}</button>
-          </li>
+        <li><button onClick={this.changeHandler} className="pagebtn"value={p} style={{display: p<=this.state.end?'inline':'none'}}>{p}</button></li>
         ))}
-      </ul>
       </div>
       </div>
-        </ClassCheckDiv>
+    </ClassCheckDiv>
     );
   }
 }

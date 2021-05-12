@@ -95,6 +95,7 @@ class CourseCheck extends Component {
               <h4 style={{display:"inline"}}>여태 들었던 모든 수업을 선택해주세요.<br/>
               재수강을 원하실 경우에는 체크하지 말아주세요. <br/> 
               우측 흰색 화살표를 눌러, 다음 페이지로 이동하세요.</h4>
+        
           <div className="courseList">
           <ul>
               {
@@ -103,15 +104,14 @@ class CourseCheck extends Component {
                   })
               }
           </ul>
-          <ul className="pagination">
-        {this.state.testd.map(p => (
-          <li>
-          <button onClick={this.changeHandler} className="pagebtn"value={p} style={{display: p<=this.state.end?'inline':'none'}}>{p}</button>
-          </li>
-        ))}
-      </ul>
-          </div>  
-          </div>
+        </div>
+          <div className="pagination">
+          {this.state.testd.map(p => (
+          <li><button onClick={this.changeHandler} className="pagebtn"value={p} style={{display: p<=this.state.end?'inline':'none'}}>{p}</button></li>
+          ))}
+          </div> 
+          </div> 
+          
           </ClassCheckDiv>
         );
     }
