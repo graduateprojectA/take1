@@ -65,6 +65,9 @@ class CourseCheck extends Component {
       event.preventDefault();
       let time = this.state.user_course;
       console.log("time" + JSON.stringify(time));
+      UserService.SendClassUser(time).then(res => {
+        this.props.history.push('./precheck');
+});
   }
   changeHandler = (event) => {
     let u=this.state.page;
