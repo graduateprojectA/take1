@@ -10,23 +10,7 @@ import My from "./My";
 import backgroundImage2 from "../components/image/backgroundImage2.png";
 import  CheckBox  from './CheckBox';
 
-const ClassCheckDiv = styled.div`
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: url(${backgroundImage2});
-    background-size: cover;
-`;
-const ClassCheckP = styled.p`
-    margin-top: 1%;
-    text-align: center; 
-    font-size: 1.2em;
-    background-color: yellow;
-`;
-
-class CourseCheck extends Component {
+class loading extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -37,7 +21,7 @@ class CourseCheck extends Component {
                 {user_no : 1, class_no: "관계의미학:사랑과윤리", class_pre: false,class_next:false},
                 {user_no : 1, class_no: "나눔리더십", class_pre: false,class_next:false},
             ],
-            class: [],n:[],nextf:false,pref:false,page:[],p_class:[],t:[],y:0,end:0,start:0,s:0,
+            class: [],n:[],nextf:false,pref:false,page:[],p_class:[],t:[],y:0,end:0,start:0,
             testd:[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
         };
     }
@@ -56,26 +40,24 @@ class CourseCheck extends Component {
                       course_name:p.course_name
                   })});
                   this.setState({end:s/15+1});
-                  this.setState({ n: this.state.page.filter(p=>p.page_no>=0&&p.page_no<15)});
+                  this.setState({ n: u.filter(p=>p.page_no>=0&&p.page_no<15)});
                 });
             });
             console.log("get result => " + JSON.stringify(res.data));
         });
-        console.log("p: "+JSON.stringify(this.props));
     }
     completeCheck = (event) => {
       event.preventDefault();
       let time = this.state.user_course;
       console.log("time" + JSON.stringify(time));
       UserService.SendClassUser(time).then(res => {
-        this.props.history.push('./precheck');
+        this.props.history.push('./coursecheck');
 });
   }
   changeHandler = (event) => {
     let u=this.state.page;
     let s = (event.target.value-1)*15;
     this.setState({ n: u.filter(p=>p.page_no>=s&&p.page_no<s+15)});
-    this.setState({s:s});
 }
   handleCheckChieldElement = (event) => {
     let user_course = this.state.user_course
@@ -90,34 +72,6 @@ class CourseCheck extends Component {
     this.setState({user_course: user_course})
 })
   }
-  next=(event)=>{
-    let u=this.state.page;
-    let t = this.state.s+15;
-    console.log((this.state.end*15)+" "+t);
-    if(t<(this.state.end*15-15)){
-        this.setState({pref:false});
-        this.setState({ n: u.filter(p=>p.page_no>=t&&p.page_no<t+15)});
-        this.setState({s:t});
-    }else{
-        this.setState({nextf:true});
-        this.setState({s:t});
-    }
-    
-    }
-     
- pre=(event)=>{
-    let u=this.state.page;
-    let t = this.state.s-15;
-    if(t>=0){
-        this.setState({nextf:false});
-        this.setState({ n: u.filter(p=>p.page_no>=t&&p.page_no<t+15)});
-    this.setState({s:t});
-    }else{
-        this.setState({pref:true});
-        this.setState({s:t});
-    }
-    
- }
     render() {
         return (
           <ClassCheckDiv>
@@ -138,8 +92,7 @@ class CourseCheck extends Component {
                   })
               }
           </ul>
-        </div><button onClick={this.pre} className="preArrow" disabled={this.state.pref} >Pre</button>
-            <button onClick={this.next} className="nextArrow" disabled={this.state.nextf}>Next</button>
+        </div>
           <div className="pagination">
           {this.state.testd.map(p => (
           <li><button onClick={this.changeHandler} className="pagebtn"value={p} style={{display: p<=this.state.end?'inline':'none'}}>{p}</button></li>
@@ -153,4 +106,4 @@ class CourseCheck extends Component {
 }
 
 
-export default CourseCheck;
+export default loading;
