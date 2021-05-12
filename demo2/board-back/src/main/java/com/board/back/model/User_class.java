@@ -14,7 +14,6 @@ import org.hibernate.annotations.DynamicUpdate;
 @Table(name = "User_class")
 @DynamicInsert
 @DynamicUpdate
-
 public class User_class {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
