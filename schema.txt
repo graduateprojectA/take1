@@ -29,7 +29,12 @@ foreign key(user_major) references Majors(major_no) on update cascade on delete 
 # 전공선택, 글로벌의사소통, 창의융복합 등 상위 field
 create table Check_field(
 check_field_no int auto_increment primary key,
-check_field_name varchar(30)
+major_no int not null,
+student_id int not null,   #학번 18, 19, 20, 21
+check_field_name varchar(30),
+check_field_number int,
+check_field_credit int,
+foreign key(major_no) references Majors(major_no) on update cascade on delete cascade
 );
 
 # 영역 #제발 강의랑 헷갈리지 마세요 #ex)이화진선미
