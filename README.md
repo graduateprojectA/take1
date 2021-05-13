@@ -2,7 +2,8 @@
 
 ## 1) 시연 영상 (유튜브채널 주소) 📽
 
-웹사이트 CurVelio 시연 영상 (Web Site CurVelio Demonstration Video): https://www.youtube.com/watch?v=jL7Vck2iIyc&feature=youtu.be
+Web Site 'CurVelio' Demonstration Video: 
+(Web Site 'CurVelio' Prototype Video: https://www.youtube.com/watch?v=jL7Vck2iIyc&feature=youtu.be)
 
 ## 2) 프로젝트에 대한 소개✏
 
@@ -22,11 +23,10 @@ If the credits in the generated timetable, such as when the lecture times overla
 
 ### 시나리오 설계 (보류)
 
-1. 사용자로부터 학번, 해당 학년/학기, 여태 들은 수업, 원하지 않는 시간대를 입력받습니다.
-2. 원하지 않는 분반, 추가적으로 필요한 분반(재수강 등의 이유로)을 우선적으로 입력받습니다. 
-3. 사용자가 중요하게 생각하는 카테고리 항목의 가중치값(건물 간 거리, 공강 시간, 시험 기간 등)을 입력받습니다.
-4. 시간표 생성!
-5. 추가적으로 남은 학점 수에 교양 과목을 추천합니다.
+1. 사용자로부터 학번, 해당 학년/학기, 여태 들은 수업, 수업 방식에 대한 가중치값, 원하지 않는 시간대를 입력받습니다.
+2. 1번의 과정을 통해 걸러진 수업과 여러 분반들을 출력하고, 사용자로부터 원하지 않는 수업 분반을 입력받습니다. 
+3. 1번과 2번 과정을 고려하여 최적의 시간표를 생성합니다.
+4. 추가적으로 빈 시간대에 추천할 만한 교양 수업을 추천합니다. 
 <br>
 사용자의 입력값에 따라, 시간표가 자동으로 생성됩니다. 
 <br>
@@ -42,33 +42,33 @@ If the credits in the generated timetable, such as when the lecture times overla
 ## 3) To Do List📃
 
 전체적인 구조
-- [x] React & Spring boot 연동하기
+- [x] React & Spring boot 연동
 - [x] UI 설계
-- [ ] React 코드
-- [ ] SpringBoot 코드
-- [x] DEMO 코드 완성 (html,js,php 등 사용) - 레파지토리 demo 참고.
+- [ ] React 
+- [ ] SpringBoot
+- [x] Java Algorithm
+- [x] DEMO 코드 완성 (html,js,php 등 사용) - Repository demo 참고.
 
-알고리즘
-- [x] 2021-1에 열릴 과목들 DB에 입력
+작업
+- [x] DB: 2021-1 모든 수업 DB에 입력
 - [ ] 컴퓨터공학과를 비롯한 모든 전공 18~21학번 커리큘럼 DB에 입력
-- [ ] 분반 별 가능한 모든 시간표 생성 가능  (ex: A분반이 2개 B분반이 3개 나머지가 다 1개면 총 경우의 수에 맞게 시간표 6개 생성)
-- [x] 사용자가 입력한 원하지 않는 시간대 및 DB 연동 
-- [x] 강의 계획안 크롤링 가능
-- [ ] 사용자로부터 가중치값 설정받고 가중치값에 맞는 시간표 생성
-- [ ] 사용자에게 맞춤형 (교양)수업 추천
+- [x] 분반 별 가능한 모든 시간표 생성 가능 (가중치값 고려)
+- [x] 사용자가 입력값과 DB 연동 
+- [x] 강의 계획안 크롤링
+- [x] 사용자에게 맞춤형 (교양)수업 추천
 
-화면 명세서 (디자인은 아직 개판이나, spring boot 코드는 okay~~~)
-- [x] 홈
+화면 명세서
+- [x] 메인 : 로그인/회원가입
 - [x] 로그인
-- [x] SESSION
 - [x] 회원가입
-- [ ] 마이페이지(커리큘럼 )
-- [x] 여태 들은 수업 체크 
-- [x] 시간표 만들러가기 : 원하지 않는 시간대 입력 : 시간 제외 페이지
-- [x] 분반 선택 : 과목 제외 페이지
+- [x] 여태 들었던 수업 체크
 - [x] 가중치값 설정
+- [x] 원하지 않는 시간대 체크
+- [x] 이번 학기 추천 수업 확인 및 원하지 않는 분반 체크
+- [ ] 마이페이지(커리큘럼 )
 - [ ] 시간표 최종본 출력
-- [ ] 교양 추천 
+- [x] 시간표 조합 알고리즘 
+- [x] 교양 추천 알고리즘 
 
 
 ## 4) Reference🔗
