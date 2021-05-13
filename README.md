@@ -3,7 +3,7 @@
 ## 1) 시연 영상 (유튜브채널 주소) 📽
 
 Web Site 'CurVelio' Demonstration Video: 
-<
+<br>
 (Web Site 'CurVelio' Prototype Video: https://www.youtube.com/watch?v=jL7Vck2iIyc&feature=youtu.be)
 
 ## 2) 프로젝트에 대한 소개✏
