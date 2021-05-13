@@ -3,7 +3,7 @@
 create table College(
 college_no int auto_increment,
 college_name char(100) not null,
-primary key(college_no);
+primary key(college_no)
 );
 
 create table Majors(
