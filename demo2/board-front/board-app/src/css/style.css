@@ -179,32 +179,34 @@
   width: 100%;
   height: 100%;
 }
-/* .nextArrow {
-  font-size: 2em;
+.arrowp{
+  position: absolute;
+  bottom: 4%;
+  left: 0%;
+}
+.arrown{
+  position: absolute;
+  bottom: 4%;
+  right: 0%
+}
+ .nextArrow {
   cursor: pointer;
   padding: 6px;
   color: white;
   background: #144c09;
   border: none;
   border-radius: 5px 20px;
-  position: absolute;
-  right: 10%;
-  bottom: 4%;
   font-size: 1.3em;
 }
 .preArrow {
-  font-size: 2em;
   cursor: pointer;
   padding: 6px;
   color: white;
   background: #144c09;
   border: none;
   border-radius: 5px 20px;
-  position: absolute;
-  left: 10%;
-  bottom: 4%;
   font-size: 1.3em;
-} */
+} 
 .pagebutton {
   font-size: 1.2em;
   cursor: pointer;
