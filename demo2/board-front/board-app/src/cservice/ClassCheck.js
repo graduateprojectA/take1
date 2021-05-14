@@ -62,11 +62,15 @@ class ClassCheck extends Component {
       let s=0;
       let yy = x.map(p =>
         this.state.p_class = {
-          page_no: s++,
-          class_no: p.class_no,
-          class_name:p.class_name,
-          professor_name:p.professor_name,
-          class_next:p.class_next
+          user_no:this.state.user_no,
+        page_no: s++,
+        class_no: p.class_no,
+        class_name:p.class_name,
+        professor_name:p.professor_name,
+        class_division:p.class_division,
+        class_credit:p.class_credit,
+        class_pre:false,
+        class_next:p.class_next
 });console.log(yy);
 this.setState({page:yy});
   };
@@ -77,10 +81,14 @@ this.setState({page:yy});
     let s=0;
     let newArr = this.state.page.map(p =>
       this.state.p_class = {
+        user_no:this.state.user_no,
         page_no: s++,
         class_no: p.class_no,
         class_name:p.class_name,
+        class_division:p.class_division,
         professor_name:p.professor_name,
+        class_credit:p.class_credit,
+        class_pre:false,
         class_next:p.class_next
       });
       console.log(newArr)

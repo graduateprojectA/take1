@@ -1,15 +1,7 @@
-/*
-CourseCheck
-*/
-import styled from "styled-components";
+import CourseCheck from "./CourseCheck";
 import React, { Component} from 'react';
-import UserService from '../service/UserService';
 import "../css/style.css";
-import Logo from "./Logo";
-import My from "./My";
-import backgroundImage2 from "../components/image/backgroundImage2.png";
-import  CheckBox  from './CheckBox';
-
+import UserService from '../service/UserService';
 class loading extends Component {
     constructor(props) {
         super(props);
@@ -25,12 +17,16 @@ class loading extends Component {
             testd:[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
         };
     }
+    co(){
+      this.props.history.push('./courseCheck');
+    };
     componentDidMount() {
         UserService.login().then((res) => {
             this.setState({ user_no: res.data });
             UserService.postUser(this.state.user_no).then((res)=>{
                 UserService.course2User().then((res) => {
                   this.setState({ user_course: res.data});
+                  console.log("get result => " + JSON.stringify(res.data));
                   let s=0;
                   this.setState({page : res.data.map(p =>
                     this.state.p_class = {
@@ -40,67 +36,18 @@ class loading extends Component {
                       course_name:p.course_name
                   })});
                   this.setState({end:s/15+1});
-                  this.setState({ n: u.filter(p=>p.page_no>=0&&p.page_no<15)});
+                  this.setState({ n: this.state.page.filter(p=>p.page_no>=0&&p.page_no<15)});
                 });
             });
-            console.log("get result => " + JSON.stringify(res.data));
         });
     }
-    completeCheck = (event) => {
-      event.preventDefault();
-      let time = this.state.user_course;
-      console.log("time" + JSON.stringify(time));
-      UserService.SendClassUser(time).then(res => {
-        this.props.history.push('./coursecheck');
-});
-  }
-  changeHandler = (event) => {
-    let u=this.state.page;
-    let s = (event.target.value-1)*15;
-    this.setState({ n: u.filter(p=>p.page_no>=s&&p.page_no<s+15)});
-}
-  handleCheckChieldElement = (event) => {
-    let user_course = this.state.user_course
-    user_course.forEach(u => {
-       if (u.user_course_no == event.target.value) {
-        if (u.course_done) {
-            u.course_done = false
-        } else {
-            u.course_done = true
-        }
-       }
-    this.setState({user_course: user_course})
-})
-  }
+
     render() {
         return (
-          <ClassCheckDiv>
-          <Logo />
-          <My />
-          <button className="NextA" onClick={this.completeCheck}>&#10095;</button>
-          <div className="TableCheckWrapWrapDiv"><br/>
-              <h4 style={{color:"red", display:"inline"}}>[커리큘럼 확인] </h4>
-              <h4 style={{display:"inline"}}>여태 들었던 모든 수업을 선택해주세요.<br/>
-              재수강을 원하실 경우에는 체크하지 말아주세요. <br/> 
-              우측 흰색 화살표를 눌러, 다음 페이지로 이동하세요.</h4>
-        
-          <div className="courseList">
-          <ul>
-              {
-                  this.state.n.map((fruite) => {
-                      return (<CheckBox handleCheckChieldElement={this.handleCheckChieldElement}  {...fruite} />)
-                  })
-              }
-          </ul>
-        </div>
-          <div className="pagination">
-          {this.state.testd.map(p => (
-          <li><button onClick={this.changeHandler} className="pagebtn"value={p} style={{display: p<=this.state.end?'inline':'none'}}>{p}</button></li>
-          ))}
-          </div> 
-          </div> 
+          <div>
+          <CourseCheck user_no={this.state.user_no} user_course={this.state.user_course} page={this.state.page} end={this.state.end} n={this.state.n}><button onClick={this.co} >Next</button></CourseCheck>
           
-          </ClassCheckDiv>
+          </div>
         );
     }
 }
