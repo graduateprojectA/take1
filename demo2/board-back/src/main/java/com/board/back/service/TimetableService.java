@@ -33,17 +33,17 @@ public class TimetableService {
     ArrayList<Class_character> first_able_class_list = new ArrayList<Class_character> ();
     ArrayList<Class_character> second_able_class_list = new ArrayList<Class_character> ();
     ArrayList<Class_character> third_able_class_list = new ArrayList<Class_character> ();
-    static String user_pre[] = new String[6];
+    String user_pre[] = new String[6];
     ArrayList<Class_character> able_elective_class = new ArrayList<Class_character> ();
     int first_class_check[] = new int[100];
     int second_class_check[] = new int[100];
     int third_class_check[] = new int[100];
     int first_timetable_smallest_credit = 0;
     int first_timetable_smallest_class_num = 0;
-    static int second_timetable_smallest_credit = 0;
-    static int second_timetable_smallest_class_num = 0;
-    static int third_timetable_smallest_credit = 0;
-    static int third_timetable_smallest_class_num = 0;
+    int second_timetable_smallest_credit = 0;
+    int second_timetable_smallest_class_num = 0;
+    int third_timetable_smallest_credit = 0;
+    int third_timetable_smallest_class_num = 0;
     ArrayList<New_timetable> new_timetable_list = new ArrayList<New_timetable> ();
     int user_no = 6;
     int dfs_array[] = new int[10000];
@@ -135,17 +135,17 @@ public class TimetableService {
             if (v == n) {
                 for(int aaaa = 0; aaaa < 5; aaaa ++) {
                     New_timetable now_timetable = new_timetable_list.get(aaaa);
-                    int now_timetable_out_time[][] = now_timetable.timetable_out_time;
-                    int now_timetable_credit = now_timetable.credit;
+                    int now_timetable_out_time[][] = now_timetable.getTimetable_out_time();
+                    int now_timetable_credit = now_timetable.getCredit();
                     int course_equal_check[] = new int[40000];
 
                     for(int i = 0; i < n; i++) {
                         if(second_class_check[i] == 1) {
                             Class_character now_class = second_able_class_list.get(i);
-                            int now_credit = now_class.class_credit;
-                            int now_time = now_class.class_time;
-                            int now_no = now_class.class_no;
-                            int now_course_id = now_class.course_id;
+                            int now_credit = now_class.getClass_credit();
+                            int now_time = now_class.getClass_time();
+                            int now_no = now_class.getClass_no();
+                            int now_course_id = now_class.getCourse_id();
 
                             // 1) 같은 학수번호 제거
                             if(course_equal_check[now_course_id] == 1) {
@@ -179,7 +179,7 @@ public class TimetableService {
                     }
                     // 여기까지 통과했으면 저장
                     if(now_timetable_credit > 0) {
-                        String new_timetable_time = now_timetable.new_timetable;
+                        String new_timetable_time = now_timetable.getNew_timetable();
                         for(int i = 0; i < n; i++) {
                             new_timetable_time  = new_timetable_time + Integer.toString(second_class_check[i]);
                         }
@@ -191,6 +191,77 @@ public class TimetableService {
                 second_select(v+1, n);
                 second_class_check[v] = 0;
                 second_select(v+1, n);
+            }
+        }
+    }
+    public void third_select(int v, int n) {
+        int check_class_num = 0;
+        for(int i = 0; i <= v; i ++) {
+            check_class_num += third_class_check[i];
+        }
+        if(check_class_num + second_timetable_smallest_class_num > 9) {
+            return;
+        }
+        else {
+            if (v == n) {
+                for(int aaaa = 0; aaaa < 5; aaaa ++) {
+                    New_timetable now_timetable = new_timetable_list.get(aaaa);
+                    int now_timetable_out_time[][] = now_timetable.getTimetable_out_time();
+                    int now_timetable_credit = now_timetable.getCredit();
+                    int course_equal_check[] = new int[40000];
+
+                    for(int i = 0; i < n; i++) {
+                        if(third_class_check[i] == 1) {
+                            Class_character now_class = third_able_class_list.get(i);
+                            int now_credit = now_class.getClass_credit();
+                            int now_time = now_class.getClass_time();
+                            int now_no = now_class.getClass_no();
+                            int now_course_id = now_class.getCourse_id();
+
+                            // 1) 같은 학수번호 제거
+                            if(course_equal_check[now_course_id] == 1) {
+                                return;
+                            }
+                            course_equal_check[now_course_id] = 1;
+                            // 2) 시간 0인 수업 제거
+                            if(now_time == 0) {
+                                return;
+                            }
+                            // 3) 총학점 제거
+                            now_timetable_credit += now_credit;
+                            if(now_timetable_credit > 21 || now_timetable_credit < 3) {
+                                return;
+                            }
+                            // 4) 수업끼리 시간 겹치면 제거
+                            String now_time_str = Integer.toString(now_time);
+                            for(int j = 0; j < now_time_str.length(); j++) {
+                                int now_time_integer_first = Integer.parseInt(now_time_str.substring(0, 1))-1;
+                                int now_time_integer_second = Integer.parseInt(now_time_str.substring(1, 2))-1;
+                                if(now_timetable_out_time[now_time_integer_first][now_time_integer_second] == 1) {
+                                    return;
+                                }else {
+                                    now_timetable_out_time[now_time_integer_first][now_time_integer_second] = 1;
+                                }
+                                if (now_time_str.length() >= 2) {
+                                    now_time_str = now_time_str.substring(2, now_time_str.length());
+                                }
+                            }
+                        }
+                    }
+                    // 여기까지 통과했으면 저장
+                    if(now_timetable_credit > 0) {
+                        String new_timetable_time = now_timetable.getNew_timetable();
+                        for(int i = 0; i < n; i++) {
+                            new_timetable_time  = new_timetable_time + Integer.toString(third_class_check[i]);
+                        }
+                        new_timetable_list.add(new New_timetable(now_timetable_out_time, now_timetable_credit, new_timetable_time));
+                    }
+                }
+            }else {
+                third_class_check[v] = 1;
+                third_select(v+1, n);
+                third_class_check[v] = 0;
+                third_select(v+1, n);
             }
         }
     }
@@ -324,7 +395,7 @@ public class TimetableService {
 
         for(int i = 0; i < new_timetable_list.size(); i++) {
             New_timetable now_timetable = new_timetable_list.get(i);
-            System.out.printf("%d %s\n", now_timetable.credit, now_timetable.new_timetable);
+            System.out.printf("%d %s\n", now_timetable.getCredit(), now_timetable.getNew_timetable());
         }
         System.out.printf("size: %d\n", new_timetable_list.size());
         int len2 = new_timetable_list.size();
@@ -337,117 +408,49 @@ public class TimetableService {
         System.out.println("======================second sorted===============");
         for(int i = 0; i < 5; i++) {
             New_timetable a = new_timetable_list.get(i);
-            int now_credit = a.credit;
-            String now_time = a.new_timetable;
+            int now_credit = a.getCredit();
+            String now_time = a.getNew_timetable();
             System.out.printf("%d %s\n", now_credit, now_time);
         }
-        second_timetable_smallest_credit = new_timetable_list.get(4).credit;
-        String[] second_timetable_smallest_class_num_list = new_timetable_list.get(4).new_timetable.split("");
+        second_timetable_smallest_credit = new_timetable_list.get(4).getCredit();
+        String[] second_timetable_smallest_class_num_list = new_timetable_list.get(4).getNew_timetable().split("");
         for(int i = 0; i < second_timetable_smallest_class_num_list.length; i++) {
             if(second_timetable_smallest_class_num_list[i].equals("1")) {
                 second_timetable_smallest_class_num++;
             }
         }
         System.out.printf("smallest credit, class_num: %d, %d\n\n", second_timetable_smallest_credit, second_timetable_smallest_class_num);
+        System.out.printf("\n5. third 가능한 과목 개수 : %d\n", third_able_class_list.size());
+        third_select(0, third_able_class_list.size());
+        Collections.sort(new_timetable_list);
+        Collections.reverse(new_timetable_list);
 
+        for(int i = 0; i < new_timetable_list.size(); i++) {
+            New_timetable now_timetable = new_timetable_list.get(i);
+            System.out.printf("%d %s\n", now_timetable.getCredit(), now_timetable.getNew_timetable());
         }
-
-    public void dfs(int v, int n) {
-        int me_sum = 0;
-        for(int i = 0; i <= v; i ++) {
-            me_sum += class_check[i];
-        }
-
-        if(me_sum > 9) {
-            System.out.println();
-            return;
-        }
-        else {
-            if (v == n) {
-                for(int i = 0; i < n; i++) {
-                    System.out.printf("%d", class_check[i]);
-                }
-                System.out.println("");
-
-                int credit = 0;
-                for(int jj = 0; jj < 3000; jj++) {
-                    class_equal_check[jj] = 0;
-                }
-
-                for(int i = 0; i < n; i++) {
-                    if(class_check[i] == 1) {
-                        int now_credit = able_class_list[i][2];
-                        int now_time = able_class_list[i][1];
-                        int now_no = able_class_list[i][0];
-
-                        if (class_equal_check[now_no] == 1) {
-                            return;
-                        }
-                        class_equal_check[now_no] = 1;
-                        if (now_time == 0) {
-                            return;
-                        }
-                        credit += now_credit;
-                    }
-                }
-                System.out.printf(" %d\n", credit);
-                if (credit >
-                        21 || credit < 17) {
-                    return;
-                }
-                else{
-                    int now_out_time[][] = new int[5][7];
-                    for(int i = 0; i < 5; i++) {
-                        for(int j = 0; j < 7; j++) {
-                            now_out_time[i][j] = out_time[i][j];
-                        }
-                    }
-
-                    int now_out_class[] = new int[n];
-
-                    for(int i = 0; i < n; i++) {
-                        if(class_check[i] == 1) {
-                            String now_time = Integer.toString(able_class_list[i][1]);
-                            int now_class_no = able_class_list[i][0];
-
-                            for(int j = 0; j < now_time.length(); j++) {
-                                int now_time_integer_first = Integer.parseInt(now_time.substring(0, 1))-1;
-                                int now_time_integer_second = Integer.parseInt(now_time.substring(1, 2))-1;
-                                if(now_out_time[now_time_integer_first][now_time_integer_second] == 1) {
-                                    return;
-                                }else {
-                                    now_out_time[now_time_integer_first][now_time_integer_second] = 1;
-                                }
-                                if (now_time.length() >= 2) {
-                                    now_time = now_time.substring(2, now_time.length());
-                                }
-                                //error!!!!!!!!!!!
-                                //class_no아니라 학수번호 확인해야함!!
-//								if(class_check[now_class_no] == 1) {
-//									return;
-//								}else {
-//									class_check[now_class_no] = 1;
-//								}
-                            }
-                        }
-                    }
-
-                    System.out.println("timetable add");
-                    String new_timetable_time = "";
-                    for(int i = 0; i < n; i++) {
-                        new_timetable_time  = new_timetable_time + Integer.toString(class_check[i]);
-                        System.out.printf("%s", Integer.toString(class_check[i]));
-                    }
-                    new_timetable.add(new_timetable_time);
-                    System.out.println("");
-                }
-                return;
-            }else {
-                class_check[v] = 1;
-                dfs(v+1, n);
-                class_check[v] = 0;
-                dfs(v+1, n);
+        System.out.printf("size: %d\n", new_timetable_list.size());
+        int len3 = new_timetable_list.size();
+        if (len3 > 5) {
+            for(int i = len3-1; i >= 5; i--) {
+                new_timetable_list.remove(i);
             }
         }
-    }*/
+        System.out.printf("size: %d\n", new_timetable_list.size());
+        System.out.println("======================third sorted===============");
+        for(int i = 0; i < 5; i++) {
+            New_timetable a = new_timetable_list.get(i);
+            int now_credit = a.getCredit();
+            String now_time = a.getNew_timetable();
+            System.out.printf("%d %s\n", now_credit, now_time);
+        }
+        third_timetable_smallest_credit = new_timetable_list.get(4).getCredit();
+        String[] third_timetable_smallest_class_num_list = new_timetable_list.get(4).getNew_timetable().split("");
+        for(int i = 0; i < third_timetable_smallest_class_num_list.length; i++) {
+            if(third_timetable_smallest_class_num_list[i].equals("1")) {
+                third_timetable_smallest_class_num++;
+            }
+        }
+        System.out.printf("smallest credit, class_num: %d, %d\n\n", third_timetable_smallest_credit, third_timetable_smallest_class_num);
+        }
 }
