@@ -92,6 +92,6 @@ public class Field {
     @Override
     public String toString() {
         return "Field [field_no=" + field_no + ", student_id=" + student_id + ", field_name=" + field_name
-                + ", field_number=" + field_number + ", field_credit=" + field_credit + "]";
+                + ", field_number=" + field_number + ", check_field_no=" + check_field_no + "]";
     }
 }

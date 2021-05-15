@@ -16,4 +16,7 @@ public interface ClassRepository extends JpaRepository<Class, Integer> {
     @Query(value="SELECT class_time from Class s where s.class_no in :d", nativeQuery = true)
     List<Integer> findCtime(@Param("d")List<Integer>d);
 
+    @Query(value="select course_id from Class s where s.class_no in :class_no",
+            nativeQuery = true)
+    List<Integer> findCCID(@Param("class_no")List<Integer>class_no);
 }
