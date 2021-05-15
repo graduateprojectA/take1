@@ -5,6 +5,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -21,4 +22,7 @@ public interface FieldRepository extends JpaRepository<Field, Integer>{
 
     @Query(value="SELECT s.field_no from field s WHERE s.check_field_no in :a", nativeQuery = true)
     List<Integer> printFalseField(@Param("a")List<Integer>a);
+
+    @Query(value="SELECT * from field s WHERE s.field_no in :field_no", nativeQuery = true)
+    List<Field> printCFN(@Param("field_no")ArrayList<Integer>field_no);
 }

@@ -12,7 +12,6 @@ import org.hibernate.annotations.DynamicUpdate;
 @Table(name = "check_field")
 @DynamicInsert
 @DynamicUpdate
-
 public class Check_field {
 //    create table Check_field(
 //            check_field_no int auto_increment primary key,
