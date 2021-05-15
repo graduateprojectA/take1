@@ -52,10 +52,12 @@ public class User_timetable {
 
     @Column(name = "credit")
     private Integer credit;
-
-    public Integer getUser_timetable_no() { return user_timetable_no;}
     public void setUser_timetable_no(Integer no) { this.user_timetable_no = no;}
-
+    public Integer getUser_timetable_no() { return user_timetable_no;}
+    public void setUser_no(Integer no) { this.user_no = no;}
+    public Integer getUser_no() { return user_no;}
+    public void setCredit(Integer no) { this.credit = no;}
+    public Integer getCredit() { return credit;}
     public void setClass(Integer no, int index) {
         if(index==1){
             this.class_1= no;
@@ -95,6 +97,7 @@ public class User_timetable {
                           Integer credit) {
         super();
         this.user_timetable_no = user_timetable_no;
+        this.user_no = user_no;
         this.class_1=class_1;
         this.class_2=class_2;
         this.class_3=class_3;

@@ -452,5 +452,129 @@ public class TimetableService {
             }
         }
         System.out.printf("smallest credit, class_num: %d, %d\n\n", third_timetable_smallest_credit, third_timetable_smallest_class_num);
+        int timetable_number = 1;
+        int timetable_class_no[] = new int[first_able_class_list.size() + second_able_class_list.size() + third_able_class_list.size()];
+        for (int i = 0; i < 5; i++) {
+            New_timetable now_timetable_add = new_timetable_list.get(i);
+            int credit = now_timetable_add.getCredit();
+            String new_timetable = now_timetable_add.getNew_timetable();
+            for(int abc = 0; abc < first_able_class_list.size(); abc++) {
+                timetable_class_no[abc] = first_able_class_list.get(abc).getClass_no();
+            }
+            for(int abc = 0; abc < second_able_class_list.size(); abc++) {
+                timetable_class_no[abc+first_able_class_list.size()] = second_able_class_list.get(abc).getClass_no();
+            }
+            for(int abc = 0; abc < third_able_class_list.size(); abc++) {
+                timetable_class_no[abc+first_able_class_list.size()+second_able_class_list.size()] = third_able_class_list.get(abc).getClass_no();
+            }
+            String[] now_timetable_list = new_timetable.split("");
+            int class_num_check = 1;
+            User_timetable user_timetable=new User_timetable();
+            user_timetable.setUser_no(user_no);
+            user_timetable.setCredit(credit);
+            for (int k = 0; k < now_timetable_list.length; k++) {
+                if(now_timetable_list[k].equals("1")) {
+                    user_timetable.setClass(timetable_class_no[k],class_num_check);
+                    class_num_check += 1;
+                }
+            }
+            for (int k = class_num_check; k <= 9; k++) {
+                user_timetable.setClass(-1,class_num_check);
+                class_num_check += 1;
+            }
+            userTimetableRepository.save(user_timetable);
+            System.out.println("DB ADD");
+            timetable_number += 1;
         }
+        //교양추천
+        User_preference user_p = new User_preference();
+        user_p = userPreferenceRepository.findCpreference(user_no);
+        int exam_pre = user_p.getExam_pre();
+        user_pre[exam_pre - 1] = "exam_per";
+        int quiz_pre = user_p.getQuiz_pre();
+        user_pre[quiz_pre - 1] = "quiz_per";
+        int presentation_pre = user_p.getPresentation_pre();
+        user_pre[presentation_pre - 1] = "presentation_per";
+        int project_pre = user_p.getProject_pre();
+        user_pre[project_pre - 1] = "project_per";
+        int assignment_pre = user_p.getAssignment_pre();
+        user_pre[assignment_pre - 1] = "assignment_per";
+        int attendance_pre = user_p.getAttendance_pre();
+        user_pre[attendance_pre - 1] = "attendance_per";
+
+        List<Class_elective> user_class_e;
+        user_class_e = classElectiveRepository.findCelective(user_pre[0], user_pre[1], user_pre[2], user_pre[3],
+                user_pre[4], user_pre[5]);
+        int elective_class_num = 1;
+        for (int i = 0; i < user_class_e.size(); i++) {
+            int new_class_no = user_class_e.get(i).getClass_no();
+            int new_class_time = user_class_e.get(i).getClass_time();
+            int new_class_credit = user_class_e.get(i).getClass_credit();
+            Class_character new_elective_class = new Class_character(new_class_no, new_class_time,
+                    new_class_credit, -1);
+            able_elective_class.add(new_elective_class);
+            if (elective_class_num > 150) {
+                break;
+            }
+            elective_class_num++;
+        }
+
+        for (int i = 0; i < 5; i++) {
+            int final_elective_class[] = new int[5];
+            New_timetable now_timetable = new_timetable_list.get(i);
+            int now_timetable_out_time[][] = now_timetable.timetable_out_time;
+            elective_class_num = 0;
+            AA:
+            for (int j = 0; j < 150; j++) {
+                Class_character now_elective_class = able_elective_class.get(j);
+                String now_elective_time = Integer.toString(now_elective_class.class_time);
+                for (int aak = 0; aak < now_elective_time.length(); aak++) {
+                    int now_time_integer_first = Integer.parseInt(now_elective_time.substring(0, 1)) - 1;
+                    int now_time_integer_second = Integer.parseInt(now_elective_time.substring(1, 2)) - 1;
+                    if (now_timetable_out_time[now_time_integer_first][now_time_integer_second] == 1) {
+                        continue AA;
+                    }
+                    if (now_elective_time.length() >= 2) {
+                        now_elective_time = now_elective_time.substring(2, now_elective_time.length());
+                    }
+                }
+                System.out.printf("final_elective_class_add: %d\n", now_elective_class.class_no);
+                final_elective_class[elective_class_num] = now_elective_class.class_no;
+                elective_class_num++;
+                if (elective_class_num > 4) break;
+            }
+
+            int class_num_check = 1;
+            int now_timetable_class_no[] = new int[9];
+            String now_timetable_list[] = now_timetable.new_timetable.split("");
+            for (int k = 0; k < now_timetable_list.length; k++) {
+                if (now_timetable_list[k].equals("1")) {
+                    now_timetable_class_no[class_num_check - 1] = timetable_class_no[k];
+                    class_num_check += 1;
+                }
+            }
+            for (int k = class_num_check; k <= 9; k++) {
+                now_timetable_class_no[class_num_check - 1] = -1;
+                class_num_check += 1;
+            }
+
+            int user_timetable_no = 0;
+            List<User_timetable> user_tt;
+            user_tt = userTimetableRepository.findCuser_timetable(user_no, now_timetable_class_no[0],
+                    now_timetable_class_no[1], now_timetable_class_no[2], now_timetable_class_no[3],
+                    now_timetable_class_no[4], now_timetable_class_no[5], now_timetable_class_no[6],
+                    now_timetable_class_no[7], now_timetable_class_no[8]);
+
+            for (int j = 0; j < user_tt.size(); j++) {
+                user_timetable_no = user_tt.get(j).getUser_timetable_no();
+                for (int timetable = 0; timetable < 5; timetable++) {
+                    if (final_elective_class[timetable] != 0) {
+                        System.out.printf("\ntimetable_no: %d, elective_class_no: %d\n", user_timetable_no, final_elective_class[timetable]);
+                        userElectiveTimetableRepository.liberalArts(user_timetable_no, final_elective_class[timetable], user_no);
+                    }
+                }
+                System.out.println("DB ADD");
+            }
+        }
+    }
 }

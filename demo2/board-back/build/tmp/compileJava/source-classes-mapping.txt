@@ -2,8 +2,8 @@ com/board/back/BoardBackApplication.java
  com.board.back.BoardBackApplication
 com/board/back/repository/TimeRepository.java
  com.board.back.repository.TimeRepository
-com/board/back/model/User_timetable.java
- com.board.back.model.User_timetable
+com/board/back/model/New_timetable.java
+ com.board.back.model.New_timetable
 com/board/back/service/TimeService.java
  com.board.back.service.TimeService
 com/board/back/repository/MajorRepository.java
@@ -99,9 +99,9 @@ com/board/back/model/User_field.java
  com.board.back.model.User_field
 com/board/back/service/UserService.java
  com.board.back.service.UserService
-com/board/back/model/New_timetable.java
- com.board.back.model.New_timetable
 com/board/back/service/TimetableService.java
  com.board.back.service.TimetableService
+com/board/back/model/User_timetable.java
+ com.board.back.model.User_timetable
 com/board/back/controller/MajorController.java
  com.board.back.controller.MajorController
