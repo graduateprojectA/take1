@@ -10,56 +10,55 @@ import javax.persistence.*;
 @DynamicInsert
 @DynamicUpdate
 public class User_preference {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="user_preference_no")
-    private Integer user_preference_no;
+    private int user_preference_no;
 
     @Column(name = "user_no")
-    private Integer user_no;
+    private int user_no;
 
     @Column(name = "exam_pre")
-    private Integer exam_pre;
+    private int exam_pre;
 
     @Column(name = "quiz_pre")
-    private Integer quiz_pre;
+    private int quiz_pre;
 
     @Column(name = "presentation_pre")
-    private Integer presentation_pre;
+    private int presentation_pre;
 
     @Column(name = "project_pre")
-    private Integer project_pre;
+    private int project_pre;
 
     @Column(name="assignment_pre")
-    private Integer assignment_pre;
+    private int assignment_pre;
 
     @Column(name = "attendance_pre")
-    private Integer attendance_pre;
+    private int attendance_pre;
 
-    public Integer getUser_preference_no() {return user_preference_no;}
-    public Integer getUser_no() { return user_no; }
-    public Integer getExam_pre() {return exam_pre;}
-    public Integer getQuiz_pre() {return quiz_pre;}
-    public Integer getPresentation_pre() {return presentation_pre;}
-    public Integer getProject_pre() {return project_pre;}
-    public Integer getAssignment_pre() {return assignment_pre;}
-    public Integer getAttendance_pre() {return attendance_pre;}
+    public int getUser_preference_no() {return user_preference_no;}
+    public int getUser_no() { return user_no; }
+    public int getExam_pre() {return exam_pre;}
+    public int getQuiz_pre() {return quiz_pre;}
+    public int getPresentation_pre() {return presentation_pre;}
+    public int getProject_pre() {return project_pre;}
+    public int getAssignment_pre() {return assignment_pre;}
+    public int getAttendance_pre() {return attendance_pre;}
 
-    public void setUser_preference_no(Integer no) {this.user_preference_no = no;}
-    public void setUser_no(Integer no){this.user_no = no;}
-    public void setExam_pre(Integer no){this.exam_pre = no;}
-    public void setQuiz_pre(Integer no) {this.quiz_pre = no;}
-    public void setPresentation_pre(Integer no) {this.presentation_pre = no;}
-    public void setProject_pre(Integer no) {this.project_pre = no;}
-    public void setAssignment_pre(Integer no) {this.assignment_pre = no;}
-    public void setAttendance_pre(Integer no) {this.attendance_pre = no;}
+    public void setUser_preference_no(int no) {this.user_preference_no = no;}
+    public void setUser_no(int no){this.user_no = no;}
+    public void setExam_pre(int no){this.exam_pre = no;}
+    public void setQuiz_pre(int no) {this.quiz_pre = no;}
+    public void setPresentation_pre(int no) {this.presentation_pre = no;}
+    public void setProject_pre(int no) {this.project_pre = no;}
+    public void setAssignment_pre(int no) {this.assignment_pre = no;}
+    public void setAttendance_pre(int no) {this.attendance_pre = no;}
 
     public User_preference() {
         super();
     }
-    public User_preference(Integer user_preference_no, Integer user_no, Integer exam_pre, Integer quiz_pre, Integer presentation_pre, Integer project_pre,
-                           Integer assignment_pre, Integer attendance_pre) {
+    public User_preference(int user_preference_no, int user_no, int exam_pre, int quiz_pre, int presentation_pre, Integer project_pre,
+                           int assignment_pre,int attendance_pre) {
         super();
         this.user_preference_no = user_preference_no;
         this.user_no = user_no;
