@@ -7,13 +7,6 @@ import org.springframework.data.repository.query.Param;
 import java.util.List;
 
 public interface UserPreferenceRepository extends JpaRepository<User_preference, Integer>{
-<<<<<<< HEAD
-    @Query(value="SELECT exam_pre, quiz_pre, presentation_pre, project_pre, assignment_pre, attendance_pre" +
-            " FROM User_preference s WHERE s.user_no =:user_no", nativeQuery = true)
-    User_preference findCpreference(@Param("user_no")int user_no);
-}
-=======
     @Query(value="SELECT * FROM User_preference s WHERE s.user_no =:user_no", nativeQuery = true)
     User_preference findCpreference(@Param("user_no")int user_no);
 }
->>>>>>> main
