@@ -42,50 +42,83 @@ class ClassCheck extends Component {
         user_class: [],nextf:false,pref:false,
         p_class:[],t:[],
         newArr:[],
-        n:[],m:[],pagenum:0,maxnum:0,page:[],start:1,end:20,sindex:0,eindex:0,y:0, 
+        n:[],m:[],pagenum:0,maxnum:0,page:[],start:1,end:20,sindex:0,eindex:0,y:0,s:0,
         testd:[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40],
         name:"",
     };
 }
   handleChange = (e) => {
-    let y=this.state.newArr;
-    y.map(u => {
+    let x=this.state.page;
+    x.map(u => {
            if (u.class_no == e.target.value) {
             if (u.class_next) {
-                u.class_next = false
+                u.class_next = false;
             } else {
                 u.class_next = true
             }
            }
       })
-      this.setState({newArr: y})
+      
+      let s=0;
+      let yy = x.map(p =>
+        this.state.p_class = {
+          user_no:this.state.user_no,
+        page_no: s++,
+        class_no: p.class_no,
+        class_name:p.class_name,
+        professor_name:p.professor_name,
+        class_division:p.class_division,
+        class_credit:p.class_credit,
+        class_pre:false,
+        class_next:p.class_next
+});console.log(yy);
+this.setState({page:yy});
   };
+
   completeClass = (event) => {
     event.preventDefault();
-    console.log(this.state.newArr)
     
-    UserService.CheckClassUser(this.state.newArr).then(res => {
+    let s=0;
+    let newArr = this.state.page.map(p =>
+      this.state.p_class = {
+        user_no:this.state.user_no,
+        page_no: s++,
+        class_no: p.class_no,
+        class_name:p.class_name,
+        class_division:p.class_division,
+        professor_name:p.professor_name,
+        class_credit:p.class_credit,
+        class_pre:false,
+        class_next:p.class_next
+      });
+      console.log(newArr)
+    
+    UserService.CheckClassUser(newArr).then(res => {
             this.props.history.push('./myPage');
     });
 }
   componentDidMount() {
-    UserService.class2User().then((res) => {
-      this.setState({ class: res.data });
-      let s=0;
-      this.setState({page : res.data.map(p =>
-                    this.state.p_class = {
-                      page_no: s++,
-                      class_no: p.class_no,
-                      class_name:p.class_name,
-                      professor_name:p.professor_name,
-                      class_division:p.class_division
-      })});
-      this.setState({end:s/15+1});
-    console.log(res.data);
-    });
     UserService.login().then((res) => {
       this.setState({ user_no: res.data });
       console.log("get result => " + JSON.stringify(res.data));
+      UserService.class2User().then((res) => {
+        this.setState({ class: res.data });
+        let s=0;
+        this.setState({page : res.data.map(p =>
+                      this.state.p_class = {
+                        page_no: s++,
+                        class_no: p.class_no,
+                        class_name:p.class_name,
+                        class_division:p.class_division,
+                        professor_name:p.professor_name,
+                        class_credit:p.class_credit,
+                        class_pre:false,
+                        class_next:false
+        })});
+        this.setState({end:s/15+1});
+        this.setState({ n: this.state.page.filter(p=>p.page_no>=0&&p.page_no<15)});
+      console.log(res.data);
+      });
     });
 
    
@@ -94,21 +127,36 @@ class ClassCheck extends Component {
     let u=this.state.page;
     let s = (event.target.value-1)*15;
     this.setState({ n: u.filter(p=>p.page_no>=s&&p.page_no<s+15)});
+    this.setState({s:s});
 }
-setup = (event)=>{
-      this.setState({newArr : this.state.class.map(p =>
-        this.state.user_class = {
-          user_no: this.state.user_no,
-          class_no: p.class_no,
-          class_credit : p.class_credit,
-          class_pre:false,
-          class_next: false
-      }
-       )});
-       
-       
+next=(event)=>{
+  let u=this.state.page;
+  let q = this.state.s+15;
+  console.log((this.state.end*15)+" "+q);
+  if(q<(this.state.end*15-15)){
+      this.setState({pref:false});
+      this.setState({ n: u.filter(p=>p.page_no>=q&&p.page_no<q+15)});
+      this.setState({s:q});
+  }else{
+      this.setState({nextf:true});
+      this.setState({s:q});
+  }
+  
+  }
+   
+pre=(event)=>{
+  let u=this.state.page;
+  let q = this.state.s-15;
+  if(q>=0){
+      this.setState({nextf:false});
+      this.setState({ n: u.filter(p=>p.page_no>=q&&p.page_no<q+15)});
+  this.setState({s:q});
+  }else{
+      this.setState({pref:true});
+      this.setState({s:q});
+  }
+  
 }
-
 reset=(event)=>{
   event.preventDefault();
     window.location.replace("/classCheck")
@@ -119,8 +167,6 @@ reset=(event)=>{
           <Logo />
           <My />
           <button className="NextA" onClick={this.completeClass}>&#10095;</button>
-          <button onClick={this.reset} >reset</button>
-          <button onClick={this.setup} >확인</button>
           <div className="TableCheckWrapWrapDiv"><br/>
                 <h4 style={{color:"red", display:"inline"}}>[수업 분반 확인] </h4>
                 <h4 style={{display:"inline"}}>원하지 않는 분반을 선택해주세요.<br/>
@@ -141,6 +187,12 @@ reset=(event)=>{
         <li><button onClick={this.changeHandler} className="pagebtn"value={p} style={{display: p<=this.state.end?'inline':'none'}}>{p}</button></li>
         ))}
       </div>
+      <div className="arrowp">
+          <button onClick={this.pre} className="preArrow" disabled={this.state.pref} >Pre</button>
+          </div>
+          <div  className="arrown">
+            <button onClick={this.next} className="nextArrow" disabled={this.state.nextf}>Next</button>
+          </div>
       </div>
     </ClassCheckDiv>
     );

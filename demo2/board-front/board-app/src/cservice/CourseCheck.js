@@ -37,7 +37,7 @@ class CourseCheck extends Component {
                 {user_no : 1, class_no: "관계의미학:사랑과윤리", class_pre: false,class_next:false},
                 {user_no : 1, class_no: "나눔리더십", class_pre: false,class_next:false},
             ],
-            class: [],n:[],nextf:false,pref:false,page:[],p_class:[],t:[],y:0,end:0,start:0,
+            class: [],n:[],nextf:false,pref:false,page:[],p_class:[],t:[],y:0,end:0,start:0,s:0,
             testd:[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
         };
     }
@@ -46,6 +46,7 @@ class CourseCheck extends Component {
             this.setState({ user_no: res.data });
             UserService.postUser(this.state.user_no).then((res)=>{
                 UserService.course2User().then((res) => {
+                    console.log("get result => " + JSON.stringify(res.data));
                   this.setState({ user_course: res.data});
                   let s=0;
                   this.setState({page : res.data.map(p =>
@@ -53,23 +54,31 @@ class CourseCheck extends Component {
                       user_course_no : p.user_course_no,
                       page_no: s++,
                       course_no: p.course_no,
-                      course_name:p.course_name
+                      course_name:p.course_name,
+                      course_done:p.course_done
                   })});
                   this.setState({end:s/15+1});
+                  this.setState({ n: this.state.page.filter(p=>p.page_no>=0&&p.page_no<15)});
                 });
             });
             console.log("get result => " + JSON.stringify(res.data));
         });
+        console.log("p: "+JSON.stringify(this.props));
     }
     completeCheck = (event) => {
       event.preventDefault();
       let time = this.state.user_course;
       console.log("time" + JSON.stringify(time));
+      
+      UserService.SendClassUser(time).then(res => {
+        this.props.history.push('./precheck');
+});
   }
   changeHandler = (event) => {
     let u=this.state.page;
     let s = (event.target.value-1)*15;
     this.setState({ n: u.filter(p=>p.page_no>=s&&p.page_no<s+15)});
+    this.setState({s:s});
 }
   handleCheckChieldElement = (event) => {
     let user_course = this.state.user_course
@@ -82,8 +91,45 @@ class CourseCheck extends Component {
         }
        }
     this.setState({user_course: user_course})
+    let s=0;
+    this.setState({page : user_course.map(p =>
+        this.state.p_class = {
+          user_course_no : p.user_course_no,
+          page_no: s++,
+          course_no: p.course_no,
+          course_name:p.course_name,
+          course_done:p.course_done
+      })});
 })
   }
+  next=(event)=>{
+    let u=this.state.page;
+    let t = this.state.s+15;
+    console.log((this.state.end*15)+" "+t);
+    if(t<(this.state.end*15-15)){
+        this.setState({pref:false});
+        this.setState({ n: u.filter(p=>p.page_no>=t&&p.page_no<t+15)});
+        this.setState({s:t});
+    }else{
+        this.setState({nextf:true});
+        this.setState({s:t});
+    }
+    
+    }
+     
+ pre=(event)=>{
+    let u=this.state.page;
+    let t = this.state.s-15;
+    if(t>=0){
+        this.setState({nextf:false});
+        this.setState({ n: u.filter(p=>p.page_no>=t&&p.page_no<t+15)});
+    this.setState({s:t});
+    }else{
+        this.setState({pref:true});
+        this.setState({s:t});
+    }
+    
+ }
     render() {
         return (
           <ClassCheckDiv>
@@ -106,10 +152,17 @@ class CourseCheck extends Component {
           </ul>
         </div>
           <div className="pagination">
+              
           {this.state.testd.map(p => (
           <li><button onClick={this.changeHandler} className="pagebtn"value={p} style={{display: p<=this.state.end?'inline':'none'}}>{p}</button></li>
           ))}
           </div> 
+          <div className="arrowp">
+          <button onClick={this.pre} className="preArrow" disabled={this.state.pref} >Pre</button>
+          </div>
+          <div  className="arrown">
+            <button onClick={this.next} className="nextArrow" disabled={this.state.nextf}>Next</button>
+          </div>
           </div> 
           
           </ClassCheckDiv>

@@ -18,6 +18,7 @@ public interface CourseRepository extends JpaRepository<Course, Integer> {
     @Query(value="SELECT s.field_no from Course s WHERE s.student_id = :student_id and s.major_no =:major_no and s.course_id =:course_id group by s.course_id", nativeQuery = true)
     Integer printField(@Param("student_id")int student_id,@Param("major_no")int major_no,@Param("course_id")int course_id);
 
+<<<<<<< HEAD
     @Query(value="select s.course_id from Course s where s.course_id= :course_id", nativeQuery = true)
     List<Integer> findCcourseid(@Param("course_id")List<Integer> course_id);
 
@@ -26,3 +27,9 @@ public interface CourseRepository extends JpaRepository<Course, Integer> {
 
 
 }
+=======
+    @Query(value="select * from Course s where s.course_id in :course_id group by s.course_id",
+            nativeQuery = true)
+    List<Course> findCF(@Param("course_id")List<Integer>course_id);
+}
+>>>>>>> main

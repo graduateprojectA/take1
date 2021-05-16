@@ -23,35 +23,35 @@ public class User_elective_timetable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name ="user_elective_timetable_no")
-    private Integer user_elective_timetable_no;
+    private int user_elective_timetable_no;
 
     @Column(name ="timetable_number")
-    private Integer timetable_number;
+    private int timetable_number;
 
     @Column(name ="class_no")
-    private Integer class_no;
+    private int class_no;
 
     @Column(name = "user_no")
-    private Integer user_no;
+    private int user_no;
 
-    public Integer getUser_elective_timetable_no() { return user_elective_timetable_no;}
-    public void setUser_elective_timetable_no(Integer no) { this.user_elective_timetable_no = no;}
-    public Integer getTimetable_number() {
+    public int getUser_elective_timetable_no() { return user_elective_timetable_no;}
+    public void setUser_elective_timetable_no(int no) { this.user_elective_timetable_no = no;}
+    public int getTimetable_number() {
         return timetable_number;
     }
-    public void setTimetable_number(Integer no) {
+    public void setTimetable_number(int no) {
         this.timetable_number = no;
     }
-    public Integer getClass_no() {return class_no;}
-    public void setClass_no(Integer no) {this.class_no = no;}
-    public Integer getUser_no() {return user_no;}
-    public void setUser_no(Integer no) {this.user_no = no;}
+    public int getClass_no() {return class_no;}
+    public void setClass_no(int no) {this.class_no = no;}
+    public int getUser_no() {return user_no;}
+    public void setUser_no(int no) {this.user_no = no;}
 
     public User_elective_timetable() {
         super();
     }
-    public User_elective_timetable(Integer user_elective_timetable_no, Integer timetable_number,
-                                   Integer class_no, Integer user_no) {
+    public User_elective_timetable(int user_elective_timetable_no, int timetable_number,
+                                   int class_no, int user_no) {
         super();
         this.user_elective_timetable_no = user_elective_timetable_no;
         this.timetable_number = timetable_number;
