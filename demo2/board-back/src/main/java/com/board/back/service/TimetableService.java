@@ -50,7 +50,9 @@ public class TimetableService {
     int third_timetable_smallest_credit = 0;
     int third_timetable_smallest_class_num = 0;
     ArrayList<New_timetable> new_timetable_list = new ArrayList<New_timetable> ();
-    int user_no = 6;
+    int user_no = 0;
+    public void setUser_no (int n){ this.user_no = n; }
+    public int getUser_no () {return this.user_no;}
     int dfs_array[] = new int[10000];
     ArrayList<String> new_timetable = new ArrayList<String> ();
     int class_check[] = new int[100];
@@ -270,10 +272,6 @@ public class TimetableService {
             }
         }
     }
-    public void getMajor(Integer no) {
-        major_no = majorRepository.findMajorno(no);
-        System.out.println(major_no);
-    }
     public void getTime(Integer no) {
         time_mon = timeRepository.findMon(no);
         time_tue = timeRepository.findTue(no);
@@ -286,7 +284,6 @@ public class TimetableService {
         temp_time[2] = Integer.toString(time_wed);
         temp_time[3] = Integer.toString(time_thr);
         temp_time[4] = Integer.toString(time_fri);
-
         for(int temp_time_index = 0; temp_time_index < 5; temp_time_index++) {
             int jjj = 6;
             for(int each_temp = (temp_time[temp_time_index].length()- 1); each_temp >= 0; each_temp--) {

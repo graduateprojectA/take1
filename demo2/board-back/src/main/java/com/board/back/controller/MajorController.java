@@ -14,19 +14,4 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/api")
 public class MajorController {
-	@Autowired
-	private MajorRepository majorRepository;
-	@Autowired
-	private TimetableService timetableService;
-	@Autowired
-	public MajorController(TimetableService timetableService) {
-		this.timetableService = timetableService;
-	}
-
-	@PostMapping("/major")
-	public void createUser(@RequestBody User user) {
-		timetableService.getMajor(23);
-		timetableService.getTime(6);
-		timetableService.getUser_class(6);
-	}
 }
