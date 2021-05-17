@@ -5,7 +5,7 @@ import Main from "./cservice/Main";
 import CourseCheck from "./cservice/CourseCheck";
 import MyPage from "./cservice/MyPage";
 import preCheck from "./cservice/PreCheck";
-import Timetest from "./cservice/Timetest";
+import Timetable from "./cservice/Timetable";
 import ClassCheck from "./cservice/ClassCheck";
 import preClassCheck from "./cservice/preClassCheck";
 import frontClass from "./cservice/frontClass";
@@ -30,7 +30,7 @@ function App() {
               <Route path="/courseCheck" component={CourseCheck} exact={true} />
               <Route path="/preCheck" component={preCheck} exact={true} />
               <Route path="/myPage" component={MyPage} exact={true} />
-              <Route path = "/time/table" component = {Timetest} exact={true} />
+              <Route path = "/timetable" component = {Timetable} exact={true} />
               <Route path="/classCheck" component={ClassCheck} exact={true} />
               <Route path="/preclassCheck" component={preClassCheck} exact={true} />
               <Route path="/frontClass" component={frontClass} exact={true} />
