@@ -1,32 +1,56 @@
 package com.board.back.controller;
 
-import com.board.back.model.User;
-import com.board.back.repository.MajorRepository;
+import com.board.back.model.Class;
+import com.board.back.model.User_timetable2;
+import com.board.back.repository.UserTimetableRepository;
+import com.board.back.service.TimeService;
 import com.board.back.service.TimetableService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import java.util.List;
 
 @CrossOrigin(origins = "http://localhost:3000")
 @RestController
 @RequestMapping("/api")
 public class TimetableController {
 	@Autowired
-	private MajorRepository majorRepository;
-	@Autowired
 	private TimetableService timetableService;
+	@Autowired
+	private TimeService timeService;
+	@Autowired
+	private UserTimetableRepository userTimetableRepository;
 	@Autowired
 	public TimetableController(TimetableService timetableService) {
 		this.timetableService = timetableService;
 	}
 
-	@PostMapping("/timetableUser")
+//	public void getUser(@RequestBody int user_no) {
+//		timetableService.setUser_no(user_no);
+//		timetableService.getTime(user_no);
+//		timetableService.getUser_class(user_no);
+//		timeService.setUser_no(user_no);
+//		timeService.setTimetable(user_no);
+//	}
+
+	@PostMapping("/ttt")
 	public void getUser(@RequestBody int user_no) {
-		System.out.println("출력");
-		Integer u = user_no;
-		timetableService.setUser_no(user_no);
-		timetableService.getTime(user_no);
-		timetableService.getUser_class(user_no);
-		System.out.println("h5");
+		timeService.setUser_no(user_no);
+		timeService.setTimetable(user_no);
 	}
 
+	@GetMapping("/timetableUser")
+	public List<User_timetable2> printTimetable(){
+		if (timeService.printTimetable() != null)
+			return timeService.printTimetable();
+		else
+			return null;
+	}
+
+	@GetMapping("/electiveUser")
+	public List<Class> printElective(){
+		if (timeService.printElective() != null)
+			return timeService.printElective();
+		else
+			return null;
+	}
 }

@@ -1,24 +1,14 @@
 com/board/back/BoardBackApplication.java
  com.board.back.BoardBackApplication
-<<<<<<< HEAD
-com/board/back/util/PagingUtil.java
- com.board.back.util.PagingUtil
+com/board/back/util/ValidationUtil.java
+ com.board.back.util.ValidationUtil
+ com.board.back.util.ValidationUtil$ValidationUtilHolder
 com/board/back/model/User_timetable.java
  com.board.back.model.User_timetable
-com/board/back/service/UserService.java
- com.board.back.service.UserService
-=======
-com/board/back/service/UserService.java
- com.board.back.service.UserService
-com/board/back/util/PagingUtil.java
- com.board.back.util.PagingUtil
-com/board/back/model/User_field.java
- com.board.back.model.User_field
->>>>>>> main
+com/board/back/repository/TimeRepository.java
+ com.board.back.repository.TimeRepository
 com/board/back/repository/MajorRepository.java
  com.board.back.repository.MajorRepository
-com/board/back/controller/MajorController.java
- com.board.back.controller.MajorController
 com/board/back/repository/UserFieldRepository.java
  com.board.back.repository.UserFieldRepository
 com/board/back/model/User_elective_timetable.java
@@ -33,8 +23,8 @@ com/board/back/service/CourseService.java
  com.board.back.service.CourseService
 com/board/back/model/User_time.java
  com.board.back.model.User_time
-com/board/back/controller/TimeController.java
- com.board.back.controller.TimeController
+com/board/back/repository/ClassRepository.java
+ com.board.back.repository.ClassRepository
 com/board/back/model/Class_character.java
  com.board.back.model.Class_character
 com/board/back/model/Majors.java
@@ -49,8 +39,6 @@ com/board/back/repository/UserCourseRepository.java
  com.board.back.repository.UserCourseRepository
 com/board/back/repository/UserCheckFieldRepository.java
  com.board.back.repository.UserCheckFieldRepository
-com/board/back/service/Class_character.java
- com.board.back.service.Class_character
 com/board/back/repository/CheckFieldRepository.java
  com.board.back.repository.CheckFieldRepository
 com/board/back/repository/UserRepository.java
@@ -69,8 +57,8 @@ com/board/back/controller/PreferenceController.java
  com.board.back.controller.PreferenceController
 com/board/back/repository/UserClassRepository.java
  com.board.back.repository.UserClassRepository
-com/board/back/repository/ClassRepository.java
- com.board.back.repository.ClassRepository
+com/board/back/util/PagingUtil.java
+ com.board.back.util.PagingUtil
 com/board/back/model/Check_field.java
  com.board.back.model.Check_field
 com/board/back/model/User_timetable2.java
@@ -89,14 +77,8 @@ com/board/back/util/EncryptUtil.java
  com.board.back.util.EncryptUtil$EncryptUtilHolder
 com/board/back/model/Course.java
  com.board.back.model.Course
-<<<<<<< HEAD
-com/board/back/util/ValidationUtil.java
- com.board.back.util.ValidationUtil
- com.board.back.util.ValidationUtil$ValidationUtilHolder
-=======
-com/board/back/repository/UserElectiveTimetableRepository.java
- com.board.back.repository.UserElectiveTimetableRepository
->>>>>>> main
+com/board/back/model/Class.java
+ com.board.back.model.Class
 com/board/back/model/Class_elective.java
  com.board.back.model.Class_elective
 com/board/back/repository/UserTimetableRepository.java
@@ -105,8 +87,8 @@ com/board/back/model/User.java
  com.board.back.model.User
 com/board/back/exception/SystemMaintenanceException.java
  com.board.back.exception.SystemMaintenanceException
-com/board/back/model/User_elective_timetable.java
- com.board.back.model.User_elective_timetable
+com/board/back/service/UserService.java
+ com.board.back.service.UserService
 com/board/back/model/User_class.java
  com.board.back.model.User_class
 com/board/back/repository/CourseRepository.java
@@ -119,24 +101,15 @@ com/board/back/repository/UserPreferenceRepository.java
  com.board.back.repository.UserPreferenceRepository
 com/board/back/exception/ValidationCheckException.java
  com.board.back.exception.ValidationCheckException
-com/board/back/model/Class.java
- com.board.back.model.Class
 com/board/back/service/TimetableService.java
  com.board.back.service.TimetableService
-<<<<<<< HEAD
+com/board/back/repository/UserElectiveTimetableRepository.java
+ com.board.back.repository.UserElectiveTimetableRepository
 com/board/back/controller/ClassController.java
  com.board.back.controller.ClassController
-com/board/back/repository/TimeRepository.java
- com.board.back.repository.TimeRepository
 com/board/back/service/TimeService.java
  com.board.back.service.TimeService
-=======
-com/board/back/service/TimeService.java
- com.board.back.service.TimeService
-com/board/back/repository/TimeRepository.java
- com.board.back.repository.TimeRepository
-com/board/back/controller/ClassController.java
- com.board.back.controller.ClassController
->>>>>>> main
+com/board/back/controller/TimeController.java
+ com.board.back.controller.TimeController
 com/board/back/controller/TimetableController.java
  com.board.back.controller.TimetableController
