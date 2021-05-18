@@ -60,9 +60,11 @@ public class TimetableService {
     int credit;
     public void first_select(int v, int n) {
         int check_class_num = 0;
+        System.out.println("v :"+v+"n: "+n);
         for(int i = 0; i <= v; i ++) {
             check_class_num += first_class_check[i];
         }
+        System.out.println("check_class_num:"+check_class_num);
         if(check_class_num > 8) {
             return;
         }
@@ -272,7 +274,8 @@ public class TimetableService {
             }
         }
     }
-    public void getTime(Integer no) {
+    public void getTime(int no) {
+        System.out.println("h2");
         time_mon = timeRepository.findMon(no);
         time_tue = timeRepository.findTue(no);
         time_wed = timeRepository.findWed(no);
@@ -299,7 +302,7 @@ public class TimetableService {
             System.out.println("");
         }
     }
-    public void getUser_class(Integer no) {
+    public void getUser_class(int no) {
         List<Integer> now_class_no, now_class_time, now_class_credit, now_course_id;
         ArrayList<Integer> temp_check_field = new ArrayList<>();
         ArrayList<Integer> now_check_field = new ArrayList<>();
@@ -363,6 +366,7 @@ public class TimetableService {
                 flag = 0;
             }
         }
+        System.out.println("h4");
         System.out.printf("\n3. first 가능한 과목 개수 : %d\n", first_able_class_list.size());
         first_select(0, first_able_class_list.size());
         Collections.sort(new_timetable_list);
