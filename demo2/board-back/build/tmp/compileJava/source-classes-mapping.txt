@@ -101,13 +101,13 @@ com/board/back/exception/ValidationCheckException.java
  com.board.back.exception.ValidationCheckException
 com/board/back/model/Class.java
  com.board.back.model.Class
-com/board/back/service/TimetableService.java
- com.board.back.service.TimetableService
+com/board/back/controller/ClassController.java
+ com.board.back.controller.ClassController
 com/board/back/service/TimeService.java
  com.board.back.service.TimeService
 com/board/back/repository/TimeRepository.java
  com.board.back.repository.TimeRepository
-com/board/back/controller/ClassController.java
- com.board.back.controller.ClassController
+com/board/back/service/TimetableService.java
+ com.board.back.service.TimetableService
 com/board/back/controller/TimetableController.java
  com.board.back.controller.TimetableController
