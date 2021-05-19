@@ -1,12 +1,16 @@
 package com.board.back.model;
+import com.board.back.repository.MajorRepository;
 import org.hibernate.annotations.DynamicInsert;
 import org.hibernate.annotations.DynamicUpdate;
 import javax.persistence.*;
+import com.board.back.service.TimetableService;
+import org.springframework.beans.factory.annotation.Autowired;
+
 @Entity
 @Table(name = "Class_elective")
 @DynamicInsert
 @DynamicUpdate
-public class Class_elective {
+public class Class_elective implements Comparable<Class_elective>{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="class_elective_no")
@@ -47,6 +51,7 @@ public class Class_elective {
     private String extra_plan;
     @Column(name="class_location")
     private String class_location;
+
 
     public Integer getClass_elective_no() {
         return class_elective_no;
@@ -223,6 +228,7 @@ public class Class_elective {
         this.class_location = class_location;
     }
 
+
     @Override
     public String toString() {
         return "Class_elective{" +
@@ -247,4 +253,81 @@ public class Class_elective {
                 ", class_location='" + class_location + '\'' +
                 '}';
     }
+
+    @Override
+    public int compareTo(Class_elective o) {
+        // TODO Auto-generated method stub
+        String []n =TimetableService.user_pre;
+        int []x=new int[2];
+        x=findquery(n,o,0);
+        if(x[0] < x[1]) {
+            return -1;
+        }else if (x[0] == x[1]) {
+            x=findquery(n,o,1);
+            if(x[0] < x[1]) {
+                return -1;
+            }else if (x[0] == x[1]) {
+                x=findquery(n,o,2);
+                if(x[0] < x[1]) {
+                    return -1;
+                }else if (x[0] == x[1]) {
+                    x=findquery(n,o,3);
+                    if(x[0] < x[1]) {
+                        return -1;
+                    }else if (x[0] == x[1]) {
+                        x=findquery(n,o,4);
+                        if(x[0] < x[1]) {
+                            return -1;
+                        }else if (x[0] == x[1]) {
+                            x=findquery(n,o,5);
+                            if(x[0] < x[1]) {
+                                return -1;
+                            }else if (x[0] == x[1]) {
+                                return 0;
+                            } else {
+                                return 1;
+                            }
+                        } else {
+                            return 1;
+                        }
+                    } else {
+                        return 1;
+                    }
+                } else {
+                    return 1;
+                }
+            } else {
+                return 1;
+            }
+        } else {
+            return 1;
+        }
+    }
+    public int[] findquery(String []n, Class_elective o, int index){
+        int x[]=new int[2];
+        if(n[index].equals("exam_per")){
+            x[0] = this.exam_per;
+            x[1] = o.exam_per;
+        }else if(n[index].equals("quiz_per")){
+            x[0] = this.quiz_per;
+            x[1] = o.quiz_per;
+        }else if(n[index].equals("presentation_per")){
+            x[0] = this.presentation_per;
+            x[1] = o.presentation_per;
+        }
+        else if(n[index].equals("project_per")){
+            x[0] = this.project_per;
+            x[1] = o.project_per;
+        }
+        else if(n[index].equals("assignment_per")){
+            x[0] = this.assignment_per;
+            x[1] = o.assignment_per;
+        }
+        else if(n[index].equals("attendance_per")){
+            x[0] = this.attendance_per;
+            x[1] = o.attendance_per;
+        }
+        return x;
+    }
+
 }

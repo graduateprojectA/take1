@@ -31,7 +31,6 @@ public class TimetableController {
 		timeService.setUser_no(user_no);
 		timeService.setTimetable(user_no);
 	}
-	
 	@GetMapping("/timetableUser")
 	public List<User_timetable2> printTimetable(){
 		if (timeService.printTimetable() != null){
