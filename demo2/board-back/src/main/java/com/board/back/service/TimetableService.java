@@ -302,6 +302,7 @@ public class TimetableService {
         }
     }
     public void getUser_class(int no) {
+        System.out.println("\n2. 사용자가 들을 수 있는 과목");
         List<Integer> now_class_no, now_class_time, now_class_credit, now_course_id;
         ArrayList<Integer> temp_check_field = new ArrayList<>();
         ArrayList<Integer> now_check_field = new ArrayList<>();
@@ -336,8 +337,10 @@ public class TimetableService {
             }
             now_check_field.add(i, b);
         }
+        int count=0;
         for (int i = 0; i < now_class_time.size(); i++) {
             int flag = 0;
+
             if (now_class_time.get(i) != null) {
                 String now_class_time_str = Integer.toString(now_class_time.get(i));
                 for (int j = 0; j < now_class_time_str.length(); j++) {
@@ -352,23 +355,24 @@ public class TimetableService {
                         now_class_time_str = now_class_time_str.substring(2, now_class_time_str.length());
                     }
                 }
-                if (flag == 0) {
+            }count++;
                     Class_character now_class = new Class_character(now_class_no.get(i), now_course_id.get(i), now_class_time.get(i), now_class_credit.get(i));
                     if (now_check_field.get(i) == 7 || now_check_field.get(i) == 8) {
                         first_able_class_list.add(now_class);
+                        System.out.printf("class_no : %d first add\n",now_class.getClass_no());
                     } else if (now_check_field.get(i) == 1 || now_check_field.get(i) == 2 || now_check_field.get(i) == 3 || now_check_field.get(i) == 4) {
                         second_able_class_list.add(now_class);
+                        System.out.printf("class_no : %d second add\n",now_class.getClass_no());
                     } else {
                         third_able_class_list.add(now_class);
-                    }
-                }
-                flag = 0;
-            }
+                        System.out.printf("class_no : %d third add\n",now_class.getClass_no());
+                    }System.out.printf("%d %d %d %d %d\n", now_class_no.get(i), now_course_id.get(i), now_class_time.get(i), now_class_credit.get(i), now_check_field.get(i));
+
         }
+        System.out.println(count);
         System.out.println("h4");
-        for(int i=0;i<first_able_class_list.size();i++){
-            System.out.println(first_able_class_list.get(i).getClass_credit());
-        }
+/*
+
         System.out.printf("\n3. first 가능한 과목 개수 : %d\n", first_able_class_list.size());
         first_select(0, first_able_class_list.size());
         Collections.sort(new_timetable_list);
@@ -436,7 +440,17 @@ public class TimetableService {
         }
         System.out.printf("smallest credit, class_num: %d, %d\n\n", second_timetable_smallest_credit, second_timetable_smallest_class_num);
         System.out.printf("\n5. third 가능한 과목 개수 : %d\n", third_able_class_list.size());
+        for(int i=0;i<third_able_class_list.size();i++){
+            System.out.println(third_able_class_list.get(i).getCourse_id());
+        }
         third_select(0, third_able_class_list.size());
+        for(int i = 0; i < new_timetable_list.size(); i++) {
+            New_timetable now_timetable = new_timetable_list.get(i);
+            if(now_timetable.getNew_timetable().length() != first_able_class_list.size()+second_able_class_list.size()+third_able_class_list.size()) {
+                new_timetable_list.remove(now_timetable);
+                i--;
+            }
+        }
         Collections.sort(new_timetable_list);
         Collections.reverse(new_timetable_list);
 
@@ -470,7 +484,7 @@ public class TimetableService {
             }
             System.out.printf("smallest credit, class_num: %d, %d\n\n", third_timetable_smallest_credit, third_timetable_smallest_class_num);
         }
-
+/*
         int timetable_number = 1;
         int timetable_class_no[] = new int[first_able_class_list.size() + second_able_class_list.size() + third_able_class_list.size()];
         for (int i = 0; i < timetable_num; i++) {
@@ -604,6 +618,6 @@ public class TimetableService {
                 System.out.println("DB ADD");
             }
         }
-
+*/
     }
 }
