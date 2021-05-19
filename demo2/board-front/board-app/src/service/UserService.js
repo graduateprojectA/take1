@@ -48,17 +48,11 @@ class UserService {
         headers :{'Content-Type': 'application/json' }, 
         data: user_no});
     }
-    timetable(user_no){
-        return axios.post("http://localhost:8080/api/timetable", user_no);
+    timetableUser(){
+        return axios.get("http://localhost:8080/api/timetableUser");
     }
-    timetable2(){
-        return axios.get("http://localhost:8080/api/timetable2");
-    }
-    elective(user_no){
-        return axios.post("http://localhost:8080/api/elective", user_no);
-    }
-    elective2(){
-        return axios.get("http://localhost:8080/api/elective2");
+    electiveUser(){
+        return axios.get("http://localhost:8080/api/electiveUser");
     }
 }
 

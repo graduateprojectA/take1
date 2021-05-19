@@ -67,7 +67,7 @@ public class Check_field {
         super();
     }
     public Check_field(Integer check_field_no, Integer major_no, Integer student_id, String check_field_name, Integer check_field_number,
-                 Integer check_field_credit) {
+                       Integer check_field_credit) {
         super();
         this.check_field_no = check_field_no;
         this.major_no = major_no;
@@ -79,7 +79,7 @@ public class Check_field {
 
     @Override
     public String toString() {
-        return "Field [check_field_no=" + check_field_no + ", major_no=" +major_no+ "student_id=" + student_id
+        return "Check_Field [check_field_no=" + check_field_no + ", major_no=" +major_no+ "student_id=" + student_id
                 + ", check_field_name=" + check_field_name + ", check_field_number=" + check_field_number
                 + ", check_field_credit=" + check_field_credit + "]";
     }

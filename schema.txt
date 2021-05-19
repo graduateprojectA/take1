@@ -2,8 +2,8 @@
 
 create table College(
 college_no int auto_increment,
-college_name int auto_increment,
-primary key(college_no);
+college_name char(100) not null,
+primary key(college_no)
 );
 
 create table Majors(
@@ -30,7 +30,7 @@ foreign key(user_major) references Majors(major_no) on update cascade on delete 
 create table Check_field(
 check_field_no int auto_increment primary key,
 major_no int not null,
-student_id int not null,	#학번 18, 19, 20, 21
+student_id int not null,   #학번 18, 19, 20, 21
 check_field_name varchar(30),
 check_field_number int,
 check_field_credit int,

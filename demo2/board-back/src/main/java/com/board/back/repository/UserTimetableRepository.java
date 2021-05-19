@@ -18,4 +18,7 @@ public interface UserTimetableRepository extends JpaRepository<User_timetable, I
                                               @Param("class_4")int class_4, @Param("class_5")int class_5,
                                               @Param("class_6")int class_6, @Param("class_7")int class_7,
                                               @Param("class_8")int class_8, @Param("class_9")int class_9);
+
+    @Query(value="SELECT * FROM User_timetable s where s.user_no =:user_no", nativeQuery = true)
+    List <User_timetable> findTimetable(@Param("user_no")int user_no);
 }
