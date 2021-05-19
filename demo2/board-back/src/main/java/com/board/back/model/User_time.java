@@ -43,55 +43,42 @@ public class User_time {
     public Integer getTime_id() {
         return time_id;
     }
-
     public void setTime_id(Integer no) {
         this.time_id = no;
     }
-
     public Integer getUser_no() {
         return user_no;
     }
-
     public void setUser_no(Integer no) {
         this.user_no = no;
     }
-
     public Integer getTime_mon() {
         return time_mon;
     }
-
     public void setTime_mon(Integer no) {
         this.time_mon = no;
     }
-
     public Integer getTime_tue() {
         return time_tue;
     }
-
     public void setTime_tue(Integer no) {
         this.time_tue = no;
     }
-
     public Integer getTime_wed() {
         return time_wed;
     }
-
     public void setTime_wed(Integer no) {
         this.time_wed = no;
     }
-
     public Integer getTime_thr() {
         return time_thr;
     }
-
     public void setTime_thr(Integer no) {
         this.time_thr = no;
     }
-
     public Integer getTime_fri() {
         return time_fri;
     }
-
     public void setTime_fri(Integer no) {
         this.time_fri = no;
     }
