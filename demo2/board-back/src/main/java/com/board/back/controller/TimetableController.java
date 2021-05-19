@@ -1,6 +1,6 @@
 package com.board.back.controller;
 
-import com.board.back.model.Class;
+import com.board.back.model.User_elective_timetable2;
 import com.board.back.model.User_timetable2;
 import com.board.back.repository.UserTimetableRepository;
 import com.board.back.service.TimeService;
@@ -24,30 +24,24 @@ public class TimetableController {
 		this.timetableService = timetableService;
 	}
 
-//	public void getUser(@RequestBody int user_no) {
-//		timetableService.setUser_no(user_no);
-//		timetableService.getTime(user_no);
-//		timetableService.getUser_class(user_no);
-//		timeService.setUser_no(user_no);
-//		timeService.setTimetable(user_no);
-//	}
-
-	@PostMapping("/ttt")
 	public void getUser(@RequestBody int user_no) {
+		timetableService.setUser_no(user_no);
+		timetableService.getTime(user_no);
+		timetableService.getUser_class(user_no);
 		timeService.setUser_no(user_no);
 		timeService.setTimetable(user_no);
 	}
-
+	
 	@GetMapping("/timetableUser")
 	public List<User_timetable2> printTimetable(){
-		if (timeService.printTimetable() != null)
-			return timeService.printTimetable();
+		if (timeService.printTimetable() != null){
+			return timeService.printTimetable();}
 		else
 			return null;
 	}
 
 	@GetMapping("/electiveUser")
-	public List<Class> printElective(){
+	public List<List<User_elective_timetable2>> printElective(){
 		if (timeService.printElective() != null)
 			return timeService.printElective();
 		else

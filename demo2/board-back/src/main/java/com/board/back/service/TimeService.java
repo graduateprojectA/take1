@@ -43,7 +43,7 @@ public class TimeService {
     Class Class_9;
 
     //user_elective_timetable
-    List <Class> class_elect = new ArrayList<>();
+    List<List<User_elective_timetable2>> class_elect = new ArrayList<>();
 
     // create
     public User_time excludeTime(User_time user_time) {
@@ -71,7 +71,7 @@ public class TimeService {
             ArrayList<Class> class_list = new ArrayList<>(Arrays.asList(Class_1, Class_2, Class_3, Class_4, Class_5, Class_6, Class_7, Class_8, Class_9));
             while (class_list.remove(null)) {
             }
-            System.out.println(class_list);
+            // System.out.println(class_list);
             User_timetable2 utimetable = new User_timetable2();
             utimetable.setUser_no(user_no);
             String name = null; //과목명
@@ -83,9 +83,23 @@ public class TimeService {
                 name = class_list.get(j).getClass_name();
                 time = class_list.get(j).getClass_time();
 
-                if (time / 100000 > 0) {
+                if(time / 10000000 > 0){
+                    day = time / 10000000;
+                    hour = time % 10000000 / 1000000;
+                    utimetable = addTime(day,hour,name,utimetable);
+                    day = time % 1000000 / 100000;
+                    hour = time % 100000 / 10000;
+                    utimetable = addTime(day,hour,name,utimetable);
+                    day = time % 10000 / 100;
+                    hour = time % 100;
+                    utimetable = addTime(day,hour,name,utimetable);
+                    day = time % 100 / 10;
+                    hour = time % 10;
+                    utimetable = addTime(day,hour,name,utimetable);
+                }
+                else if (time / 100000 > 0) {
                     day = time / 100000;
-                    hour = time % 100000 / 100000;
+                    hour = time % 100000 / 10000;
                     utimetable = addTime(day,hour,name,utimetable);
                     day = time % 10000 / 1000;
                     hour = time % 1000 / 100;
@@ -107,7 +121,7 @@ public class TimeService {
                 }
                 //System.out.println(day + " " + hour);
             }//2번째 for
-            System.out.println(utimetable);
+            //System.out.println(utimetable);
             timetable.add(utimetable);
         }//1번째 for
     } //setTimetable
@@ -175,19 +189,100 @@ public class TimeService {
     }
 
     // print Elective 추천 교양 과목 출력
-    public List<Class> printElective(){
-        //추천 교양 과목 모두
-        List<User_elective_timetable> id = userElectiveTimetableRepository.findClassId(user_no);
+    public List<List<User_elective_timetable2>> printElective(){
+    List<Integer> elect_id = new ArrayList<>();
+    Class n = null;
+    //추천 교양 과목 시간표 번호
+    List<Integer> timetable_no = userElectiveTimetableRepository.findTimetableNo(user_no);
+    for (int i=timetable_no.get(0); i<timetable_no.get(0)+timetable_no.size(); i++){
+        elect_id = userElectiveTimetableRepository.findClassId(i);
+        List<User_elective_timetable2> elect_class = new ArrayList<>();
+        for (int j=0;j<elect_id.size();j++){
+            n = classRepository.findClass(elect_id.get(j));
+            User_elective_timetable2 tmp = new User_elective_timetable2();
+            String t = "";
+            tmp.setTimetable_no(i);
+            tmp.setClass_no(n.getClass_no());
+            tmp.setClass_name(n.getClass_name());
+            tmp.setClass_time(setTime(n.getClass_time(),t));
+            elect_class.add(tmp);
+        }//2번째 for
+        System.out.println(elect_class);
+        class_elect.add(elect_class);
+    }//1번째 for
+    return class_elect;
+    }
 
-        //추천 교양 과목 시간표 번호만
-        List<Integer> timetable_no = userElectiveTimetableRepository.findTimetableNo(user_no);
-        for (int i=timetable_no.get(0); i<timetable_no.size(); i++){
-            System.out.println("timetable_no : "+i);
-//            for (int j=0; j<5; j++){
-//                System.out.println(id);
-//            }
+    public String setTime(int time,String t){
+        int day = 0; // 요일
+        int hour = 0; // 시간
+        String tmp_time = "";
+        if(time / 10000000 > 0){
+            day = time / 10000000;
+            hour = time % 10000000 / 1000000;
+            tmp_time = convertTime(day,hour);
+            t+=tmp_time;
+            day = time % 1000000 / 100000;
+            hour = time % 100000 / 10000;
+            tmp_time = convertTime(day,hour);
+            t+=tmp_time;
+            day = time % 10000 / 100;
+            hour = time % 100;
+            tmp_time = convertTime(day,hour);
+            t+=tmp_time;
+            day = time % 100 / 10;
+            hour = time % 10;
+            tmp_time = convertTime(day,hour);
+            t+=tmp_time;
         }
-        System.out.println(class_elect);
-        return class_elect;
+        else if (time / 100000 > 0) {
+            day = time / 100000;
+            hour = time % 100000 / 10000;
+            tmp_time = convertTime(day,hour);
+            t+=tmp_time;
+            day = time % 10000 / 1000;
+            hour = time % 1000 / 100;
+            tmp_time = convertTime(day,hour);
+            t+=tmp_time;
+            day = time % 100 / 10;
+            hour = time % 10;
+            tmp_time = convertTime(day,hour);
+            t+=tmp_time;
+        } else if (time / 1000 > 0) {
+            day = time / 1000;
+            hour = time % 1000 / 100;
+            tmp_time = convertTime(day,hour);
+            t+=tmp_time;
+            day = time % 100 / 10;
+            hour = time % 10;
+            tmp_time = convertTime(day,hour);
+            t+=tmp_time;
+        } else {
+            day = time / 10;
+            hour = time % 10;
+            tmp_time = convertTime(day,hour);
+            t+=tmp_time;
+        }
+        return t;
+    }
+    public String convertTime (int day, int hour){
+        String tmp_time = "";
+        switch(day) {
+            case 1:
+                tmp_time+="월";
+                break;
+            case 2:
+                tmp_time+="화";
+                break;
+            case 3:
+                tmp_time+="수";
+                break;
+            case 4:
+                tmp_time+="목";
+                break;
+            case 5:
+                tmp_time+="금";
+        }
+         return tmp_time+Integer.toString(hour);
     }
 }    //TimeService
