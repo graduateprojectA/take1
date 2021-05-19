@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 @Service
@@ -38,7 +39,7 @@ public class TimetableService {
     ArrayList<Class_character> first_able_class_list = new ArrayList<Class_character> ();
     ArrayList<Class_character> second_able_class_list = new ArrayList<Class_character> ();
     ArrayList<Class_character> third_able_class_list = new ArrayList<Class_character> ();
-    String user_pre[] = new String[6];
+    public static String user_pre[] = new String[6];
     ArrayList<Class_character> able_elective_class = new ArrayList<Class_character> ();
     int first_class_check[] = new int[100];
     int second_class_check[] = new int[100];
@@ -59,6 +60,12 @@ public class TimetableService {
     int class_check[] = new int[100];
     int class_equal_check[] = new int[3000];
     int credit;
+    public List<Class_elective> elective_sort(List<Class_elective> u){
+        List<Class_elective> temp;
+        temp=u;
+        return temp;
+    }
+
     public void first_select(int v, int n) {
         int check_class_num = 0;
         for(int i = 0; i <= v; i ++) {
@@ -69,7 +76,6 @@ public class TimetableService {
         }
         else {
             if (v == n) {
-                System.out.println(credit);
                 credit= 0;
                 int course_equal_check[] = new int[40000];
                 int now_out_time[][] = new int [5][7];
@@ -80,7 +86,7 @@ public class TimetableService {
                         int now_time = now_class.getClass_time();
                         int now_no = now_class.getClass_no();
                         int now_course_id = now_class.getCourse_id();
-                        System.out.println(now_credit+" "+now_time+" "+now_no+" "+now_course_id);
+
                         // 1) 같은 학수번호 제거
                         if(course_equal_check[now_course_id] == 1) {
                             return;
@@ -94,7 +100,6 @@ public class TimetableService {
 
                         // 3) 총학점 제거
                         credit += now_credit;
-                        System.out.println("c"+credit);
                         if(credit > 21 || credit < 3) {
                             return;
                         }
@@ -302,17 +307,20 @@ public class TimetableService {
         }
     }
     public void getUser_class(int no) {
-        System.out.println("\n2. 사용자가 들을 수 있는 과목");
+        System.out.println("\n3. 사용자가 들을 수 있는 과목");
         List<Integer> now_class_no, now_class_time, now_class_credit, now_course_id;
         ArrayList<Integer> temp_check_field = new ArrayList<>();
         ArrayList<Integer> now_check_field = new ArrayList<>();
         List<Course> temp_field_no;
         List<Field> temp_check_no;
         now_class_no = userClassRepository.findCnum(no);
+        Collections.sort(now_class_no);
         now_class_time = ClassRepository.findCtime(now_class_no);
         now_class_credit = userClassRepository.findCcredit(no);
         now_course_id = ClassRepository.findCCID(now_class_no);
         temp_field_no = CourseRepository.findCF(now_course_id);
+        temp_field_no = CourseRepository.findCF(now_course_id);
+
 
         for (int i = 0; i < now_course_id.size(); i++) {
             int a = now_course_id.get(i);
@@ -356,23 +364,25 @@ public class TimetableService {
                     }
                 }
             }count++;
-                    Class_character now_class = new Class_character(now_class_no.get(i), now_course_id.get(i), now_class_time.get(i), now_class_credit.get(i));
+            Class_character now_class = new Class_character(now_class_no.get(i), now_course_id.get(i), now_class_time.get(i), now_class_credit.get(i));
             if (now_class_time.get(i) != null) {
                 if (now_check_field.get(i) == 7 || now_check_field.get(i) == 8) {
                     first_able_class_list.add(now_class);
-                    System.out.printf("class_no : %d first add\n", now_class.getClass_no());
+                    System.out.printf("class_no: %d first add\n", now_class.getClass_no());
                 } else if (now_check_field.get(i) == 1 || now_check_field.get(i) == 2 || now_check_field.get(i) == 3 || now_check_field.get(i) == 4) {
                     second_able_class_list.add(now_class);
-                    System.out.printf("class_no : %d second add\n", now_class.getClass_no());
-                } else {
+                    System.out.printf("class_no: %d second add\n", now_class.getClass_no());
+                } else if (now_check_field.get(i) == 5 || now_check_field.get(i) == 6 || now_check_field.get(i) == 9 || now_check_field.get(i) == 11 || now_check_field.get(i) == 12) {
                     third_able_class_list.add(now_class);
-                    System.out.printf("class_no : %d third add\n", now_class.getClass_no());
+                    System.out.printf("class_no: %d third add\n", now_class.getClass_no());
                 }
                 System.out.printf("%d %d %d %d %d\n", now_class_no.get(i), now_course_id.get(i), now_class_time.get(i), now_class_credit.get(i), now_check_field.get(i));
             }
         }
         System.out.println(count);
         System.out.println("h4");
+
+
         System.out.printf("\n3. first 가능한 과목 개수 : %d\n", first_able_class_list.size());
         first_select(0, first_able_class_list.size());
         Collections.sort(new_timetable_list);
@@ -406,6 +416,17 @@ public class TimetableService {
         }
         System.out.printf("\n4. second 가능한 과목 개수 : %d\n", second_able_class_list.size());
         second_select(0, second_able_class_list.size());
+
+        //////////////////// NEW //////////////////////////
+        for(int i = 0; i < new_timetable_list.size(); i++) {
+            New_timetable now_timetable = new_timetable_list.get(i);
+            if(now_timetable.getNew_timetable().length() != first_able_class_list.size()+second_able_class_list.size()) {
+                new_timetable_list.remove(now_timetable);
+                i--;
+            }
+        }
+        //////////////////////////////////////////////////
+
         Collections.sort(new_timetable_list);
         Collections.reverse(new_timetable_list);
 
@@ -422,7 +443,7 @@ public class TimetableService {
         }
         System.out.printf("size: %d\n", new_timetable_list.size());
         timetable_num = new_timetable_list.size();
-        System.out.println("======================second sorted===============");
+        System.out.println("======================second sort===============");
         for (int i = 0; i < timetable_num; i++) {
             New_timetable a = new_timetable_list.get(i);
             int now_credit = a.getCredit();
@@ -443,7 +464,6 @@ public class TimetableService {
         for(int i=0;i<third_able_class_list.size();i++){
             System.out.println(third_able_class_list.get(i).getCourse_id());
         }
-
         third_select(0, third_able_class_list.size());
         for(int i = 0; i < new_timetable_list.size(); i++) {
             New_timetable now_timetable = new_timetable_list.get(i);
@@ -485,6 +505,7 @@ public class TimetableService {
             }
             System.out.printf("smallest credit, class_num: %d, %d\n\n", third_timetable_smallest_credit, third_timetable_smallest_class_num);
         }
+
         int timetable_number = 1;
         int timetable_class_no[] = new int[first_able_class_list.size() + second_able_class_list.size() + third_able_class_list.size()];
         for (int i = 0; i < timetable_num; i++) {
@@ -537,6 +558,7 @@ public class TimetableService {
 
         List<Class_elective> user_class_e;
         user_class_e = classElectiveRepository.findCelective();
+        user_class_e.sort(Comparator.reverseOrder());
 
         int elective_class_num = 1;
         for (int i = 0; i < user_class_e.size(); i++) {
