@@ -57,9 +57,9 @@ render() {
             <My />
             <button className="NextA" onClick={this.completeCheck}>&#10095;</button>
             <div className="TableCheckWrapWrapDiv"><br/>
-            <h4 style={{color:"red", display:"inline"}}>[시간대 제외] </h4>
-            <h4 style={{display:"inline"}}>제외하고자 하는 시간을 선택하세요.<br/>
-            없다면, 우측 흰색 화살표를 눌러, 다음 페이지로 이동하세요.</h4>
+            <h5 style={{color:"red", display:"inline"}}>[시간대 제외] </h5>
+            <h5 style={{display:"inline"}}>제외하고자 하는 시간을 선택하세요.<br/>
+            없다면, 우측 흰색 화살표를 눌러, 다음 페이지로 이동하세요.</h5>
               <table className="TimeTable">
               <tr classname="TimeDiv">
               <th className="DayDiv">교시/요일</th>
