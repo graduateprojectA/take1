@@ -44,8 +44,4 @@ public class ClassController {
         int user_no = uclass.get(0).getUser_no();
         timetableController.getUser(user_no);
     }
-    @PostMapping("/classT")
-    public void gettime(@RequestBody int user_no) {
-        timetableController.getUser(user_no);
-    }
 }
