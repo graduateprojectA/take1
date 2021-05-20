@@ -168,10 +168,10 @@ reset=(event)=>{
           <My />
           <button className="NextA" onClick={this.completeClass}>&#10095;</button>
           <div className="TableCheckWrapWrapDiv"><br/>
-                <h4 style={{color:"red", display:"inline"}}>[수업 분반 확인] </h4>
-                <h4 style={{display:"inline"}}>원하지 않는 분반을 선택해주세요.<br/>
+                <h5 style={{color:"red", display:"inline"}}>[수업 분반 확인] </h5>
+                <h5 style={{display:"inline"}}>원하지 않는 분반을 선택해주세요.<br/>
                 선택하지 않은 수업들은 모두 시간표 조합에 적용됩니다. <br/> 
-                우측 흰색 화살표를 눌러, 최적의 시간표를 얻어보세요!</h4>
+                우측 흰색 화살표를 눌러, 최적의 시간표를 얻어보세요!</h5>
           {/* <ClassCheckP>{this.state.name}</ClassCheckP> */}
           <div className="courseList">
           <ul>

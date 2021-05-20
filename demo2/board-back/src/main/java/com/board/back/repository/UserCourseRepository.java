@@ -29,5 +29,4 @@ public interface UserCourseRepository extends JpaRepository<User_course, Integer
     @Query(value="SELECT s.field_no from user_course s where s.course_id =:course_id and s.user_no =:user_no",
             nativeQuery = true)
     Integer getFieldNo (@Param("course_id") int course_id, @Param("user_no")int user_no);
-
 }

@@ -24,26 +24,24 @@ const LoginButton = styled.button`
     outline: 0px;
     border-radius: 10px;
     position: absolute;
-    top:60%;
-    left:50%;
-    margin-left:-180px;
-    width: 360px;
-    height:80px;
+    margin-left: 38%;
+    bottom: 32%;
+    width: 23%;
+    height:13%;
     background-color: #00462A;
     color: white;
     font-size:1.1em;
 `;
 
 const JoinButton = styled.button`
-    border: solid 0px;  
+    border: solid 0px;
     outline: 0px;
     border-radius: 10px;
     position: absolute;
-    top:73%;
-    left:50%;
-    margin-left:-180px;
-    width: 360px;
-    height:80px;  
+    margin-left: 38%;
+    bottom: 15%;
+    width: 23%;
+    height:13%;
     background-color: #00462A;
     color: white;
     font-size:1.1em;
