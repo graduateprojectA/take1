@@ -102,7 +102,7 @@ public class ClassService {
             Class2 tmp = new Class2(
                     e.get(i).getClass_no(),e.get(i).getClass_name(), e.get(i).getCourse_id(),
                     e.get(i).getProfessor_name(), e.get(i).getClass_division(), e.get(i).getClass_time(),course_grade,
-                    e.get(i).getExam_per(), e.get(i).getQuiz_per(), e.get(i).getPresentation_per(),
+                    e.get(i).getClass_credit(), e.get(i).getExam_per(), e.get(i).getQuiz_per(), e.get(i).getPresentation_per(),
                     e.get(i).getProject_per(), e.get(i).getAssignment_per(), e.get(i).getAttendance_per(),
                     e.get(i).getExtra_per(), e.get(i).getMid_plan(), e.get(i).getFinal_plan(),
                     e.get(i).getExtra_plan(), e.get(i).getClass_location(), field_no);
