@@ -215,12 +215,10 @@ class CreateUserComponent extends Component {
             user_pw: this.state.user_pw
         };
         if (this.state.user_no == '_create') {
-            console.log(user);
-            /*
             UserService.createUser(user);
             UserService.loginUser(log).then(res => {
                 this.props.history.push('../courseCheck');
-            });*/
+            });
         }
     }
 
@@ -268,7 +266,7 @@ class CreateUserComponent extends Component {
                             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                                 {
                                     this.state.Arr.map(c =>
-                                        <li><input type="checkbox"  value={c} onChange={this.changeMajorHandler}  />{c}</li>)
+                                        <li><input type="checkbox" value={c} onChange={this.changeMajorHandler}  />{c}</li>)
                                 }
                             </ul>
                         </div>
