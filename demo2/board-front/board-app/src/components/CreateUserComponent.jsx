@@ -6,7 +6,6 @@ import UserService from '../service/UserService';
 import backgroundImage2 from "./image/backgroundImage3.png"
 import "../css/style.css";
 import styled from "styled-components";
-
 const LoginBackDiv = styled.div`
     position: absolute;
     top: 0;

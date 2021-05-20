@@ -8,6 +8,7 @@ public class Class2 {
     private Integer class_division;
     private Integer class_time;
     private String class_grade;
+    private Integer class_credit;
     private Integer exam_per;
     private Integer quiz_per;
     private Integer presentation_per;
@@ -23,7 +24,7 @@ public class Class2 {
 
     public Class2() {super();}
 
-    public Class2(Integer class_no, String class_name, Integer course_id, String professor_name, Integer class_division, Integer class_time, String class_grade, Integer exam_per, Integer quiz_per, Integer presentation_per, Integer project_per, Integer assignment_per, Integer attendance_per, Integer extra_per, Integer mid_plan, Integer final_plan, String extra_plan, String class_location, Integer field_no) {
+    public Class2(Integer class_no, String class_name, Integer course_id, String professor_name, Integer class_division, Integer class_time, String class_grade, Integer class_credit, Integer exam_per, Integer quiz_per, Integer presentation_per, Integer project_per, Integer assignment_per, Integer attendance_per, Integer extra_per, Integer mid_plan, Integer final_plan, String extra_plan, String class_location, Integer field_no) {
         this.class_no = class_no;
         this.class_name = class_name;
         this.course_id = course_id;
@@ -31,6 +32,7 @@ public class Class2 {
         this.class_division = class_division;
         this.class_time = class_time;
         this.class_grade = class_grade;
+        this.class_credit = class_credit;
         this.exam_per = exam_per;
         this.quiz_per = quiz_per;
         this.presentation_per = presentation_per;
@@ -99,6 +101,14 @@ public class Class2 {
 
     public void setClass_grade(String class_grade) {
         this.class_grade = class_grade;
+    }
+
+    public Integer getClass_credit() {
+        return class_credit;
+    }
+
+    public void setClass_credit(Integer class_credit) {
+        this.class_credit = class_credit;
     }
 
     public Integer getExam_per() {
@@ -207,6 +217,7 @@ public class Class2 {
                 ", class_division=" + class_division +
                 ", class_time=" + class_time +
                 ", class_grade='" + class_grade + '\'' +
+                ", class_credit=" + class_credit +
                 ", exam_per=" + exam_per +
                 ", quiz_per=" + quiz_per +
                 ", presentation_per=" + presentation_per +
