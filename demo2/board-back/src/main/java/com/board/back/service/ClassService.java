@@ -20,6 +20,8 @@ public class ClassService {
     @Autowired
     private UserFieldRepository userFieldRepository;
     @Autowired
+    private CourseRepository courseRepository;
+    @Autowired
     private UserCourseRepository userCourseRepository;
     @Autowired
     private UserClassRepository userClassRepository;
@@ -28,7 +30,7 @@ public class ClassService {
     int user_id = 0;
     int user_major = 0;
     Boolean status = false;
-    List<newClass> result;
+    List<Class2> result;
 
     public void setUser_no(int a){
         this.user_no = a;
@@ -38,7 +40,7 @@ public class ClassService {
         this.user_major = a;
     }
     public void setStatus(boolean a){this.status = a;}
-    public void setResult(List<newClass> result) {this.result = result;}
+    public void setResult(List<Class2> result) {this.result = result;}
 
     public int getUser_no(){
         return this.user_no;
@@ -48,7 +50,7 @@ public class ClassService {
         return this.user_major;
     }
     public boolean getStatus() {return this.status;}
-    public List<newClass> getResult() {return this.result;}
+    public List<Class2> getResult() {return this.result;}
 
     public void getUser(Integer no) {
         setUser_no(no);
@@ -89,41 +91,26 @@ public class ClassService {
         System.out.println();
         for (int i = 0; i < d.size(); i++)
             System.out.print(d.get(i) + " ");
-        System.out.println(d.size());
-
-//        List<Class> e = classRepository.printClass(d);
-//        for (int i=0; i<e.size();i++)
-//            System.out.print(e.get(i));
-//        setStatus(true);
-//        setResult(e);
 
         List<Class> e = classRepository.printClass(d);
-//        for (int i=0; i<e.size();i++)
-//            System.out.print(e.get(i));
-
-        List<newClass> final_result = new ArrayList<>();
+        List<Class2> final_result = new ArrayList<>();
         for (int i = 0; i < e.size(); i++) {
-            Integer k = userCourseRepository.getFieldNo(e.get(i).getCourse_id(), getUser_no());
-            newClass tmp = new newClass(e.get(i).getClass_no(), e.get(i).getCourse_id(), e.get(i).getClass_name(),
-                    e.get(i).getProfessor_name(), e.get(i).getClass_division(), e.get(i).getClass_time(),
+            Integer field_no = userCourseRepository.getFieldNo(e.get(i).getCourse_id(), getUser_no());
+            String course_grade = "";
+            List<Integer> course_grade_list = courseRepository.getCourseGrade(e.get(i).getCourse_id());
+            course_grade = course_grade_list.toString();
+            Class2 tmp = new Class2(
+                    e.get(i).getClass_no(),e.get(i).getClass_name(), e.get(i).getCourse_id(),
+                    e.get(i).getProfessor_name(), e.get(i).getClass_division(), e.get(i).getClass_time(),course_grade,
                     e.get(i).getExam_per(), e.get(i).getQuiz_per(), e.get(i).getPresentation_per(),
                     e.get(i).getProject_per(), e.get(i).getAssignment_per(), e.get(i).getAttendance_per(),
-                    e.get(i).getExtra_per(), e.get(i).getMid_plan(), e.get(i).getFinal_plan(), e.get(i).getExtra_plan(),
-                    e.get(i).getClass_location(), k);
-            System.out.println(tmp);
+                    e.get(i).getExtra_per(), e.get(i).getMid_plan(), e.get(i).getFinal_plan(),
+                    e.get(i).getExtra_plan(), e.get(i).getClass_location(), field_no);
             final_result.add(tmp);
-        }
+        }//for
         setStatus(true);
         setResult(final_result);
     }
-
-    //temp
-//        Integer tmp_field_no = 0;
-//        List <Integer> f = classRepository.printClassCourseId(d);
-//        for(int i=0; i < f.size(); i++){
-//            tmp_field_no = userCourseRepository.getFieldNo(d.get(i));
-//            System.out.println("field_no : " + tmp_field_no + "\tcourse_id : " + d.get(i) + "\n");
-//        }
 
     public void saveClass(List<User_class> uclass){
         for (int i=0; i<uclass.size(); i++) {

@@ -3,20 +3,43 @@ import { Link, Route } from "react-router-dom";
 
 import Logo from "../cservice/Logo";
 import UserService from '../service/UserService';
+import backgroundImage2 from "./image/backgroundImage3.png"
 import "../css/style.css";
 import styled from "styled-components";
+
+const LoginBackDiv = styled.div`
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url(${backgroundImage2});
+    background-size: cover;
+`;
+
+const LoginDiv = styled.div`
+    position: absolute;
+    left: 33%;
+    top: 23%;
+    width: 35%;
+    height: 62%;
+    border: solid 4px #00462A;
+    border-radius: 10px;
+    background-color: white;
+`;
+
 const Input = styled.input`
-    position: relative;
-    margin-left:90px;
-    margin-top:15px;
-    width: 300px;
-    height: 40px;
-    border: solid 0px;
-    border-bottom: solid 1px #00462A;
-    background-color:transparent;
-    border-radius: 0%;
-    outline:0px;
-    color: #00462A;
+position: relative;
+margin-left:20%;
+margin-top:2%;
+width: 60%;
+height: 10%;
+border: solid 0px;
+border-bottom: solid 1px #00462A;
+background-color:transparent;
+border-radius: 0%;
+outline:0px;
+color: #00462A;
 `;
 
 
@@ -251,9 +274,9 @@ class CreateUserComponent extends Component {
     render() {
         return (
             <div>
-                <div className="LoginBackDiv">
+                 <LoginBackDiv>
                     <Logo />
-                    <div className="LoginDiv">
+                    <LoginDiv>
                         <br />
                         <Input type="text" placeholder="학번 7자리" name="user_id" className="form-control"
                             value={this.state.user_id} onChange={this.changeIdHandler} />
@@ -283,8 +306,8 @@ class CreateUserComponent extends Component {
                             하세요!
                             </p>
                         </div>
-                    </div>
-                </div>
+                    </LoginDiv>
+                </LoginBackDiv>
             </div>
         );
     }

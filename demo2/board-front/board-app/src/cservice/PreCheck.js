@@ -13,11 +13,12 @@ margin-left: 60%;
 
 const RESET = styled.button`
 margin-top: 2%;
-margin-left:3%;
-font-size: 1.3em;
+margin-left: 30%;
+font-size: 1em;
 border:none;
 border-radius: 10%;
-background-color:yellow;
+color: white;
+background-color:#00462a;
 `
 
 class PhoneInfo extends Component {
@@ -76,19 +77,17 @@ completeCheck = (event) => {
           <My />
           <button className="NextA" onClick={this.completeCheck}>&#10095;</button>
           <div className="TableCheckWrapWrapDiv"><br/>
-          <h4 style={{color:"red", display:"inline"}}>[가중치값 설정] </h4>
-          <h4 style={{display:"inline"}}>교양 수업 추천을 위해 진행되는 단계입니다.<br/>
+          <h5 style={{color:"red", display:"inline"}}>[가중치값 설정] </h5>
+          <h5 style={{display:"inline"}}>교양 수업 추천을 위해 진행되는 단계입니다.<br/>
             중요하게 생각하시는 항목을 순서대로 선택 해주세요.
-            <br/> 우측 흰색 화살표를 눌러, 다음 페이지로 이동하세요.</h4>
+            <br/> 우측 흰색 화살표를 눌러, 다음 페이지로 이동하세요.</h5>
             <br/>
             <ReDiv>
-            <RESET onClick={() => console.log(this.state.exam_pre)}>로딩하기</RESET>
+            {/* <RESET onClick={() => console.log(this.state.exam_pre)}>로딩하기</RESET> */}
             <RESET onClick={this.reset}>다시 설정하기</RESET>
-            {/* <button onClick={this.reset}>다시 설정하기</button> */}
             </ReDiv>
             <table className="WeightTable">
               <tr classname="TimeDiv">
-              {/* <th className="DayDiv"><input type="checkbox" name="exam_pre" id="test" className="testDiv" onChange={this.handleChange}/><label for="test">시험</label></th> */}
               <th className="WeightLabelDiv">시험</th>
               <th className="DayDiv"><input type="checkbox" name="exam_pre" className="WeightDiv" onChange={this.handleChange}/></th>
               <th className="WeightLabelDiv">{this.state.exam_pre}순위</th>

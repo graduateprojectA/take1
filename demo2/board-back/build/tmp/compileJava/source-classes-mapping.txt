@@ -50,14 +50,12 @@ com/board/back/model/User_check_field.java
  com.board.back.model.User_check_field
 com/board/back/service/LoginService.java
  com.board.back.service.LoginService
-com/board/back/model/newClass.java
- com.board.back.model.newClass
 com/board/back/controller/PreferenceController.java
  com.board.back.controller.PreferenceController
 com/board/back/repository/UserClassRepository.java
  com.board.back.repository.UserClassRepository
-com/board/back/repository/ClassRepository.java
- com.board.back.repository.ClassRepository
+com/board/back/controller/TimetableController.java
+ com.board.back.controller.TimetableController
 com/board/back/model/Check_field.java
  com.board.back.model.Check_field
 com/board/back/model/User_timetable2.java
@@ -68,19 +66,18 @@ com/board/back/exception/ResourceNotFoundException.java
  com.board.back.exception.ResourceNotFoundException
 com/board/back/controller/UserController.java
  com.board.back.controller.UserController
-com/board/back/model/Class_elective.java
- com.board.back.model.Class_elective
+com/board/back/service/TimetableService.java
+ com.board.back.service.TimetableService
 com/board/back/util/EncryptUtil.java
  com.board.back.util.EncryptUtil
  com.board.back.util.EncryptUtil$1
  com.board.back.util.EncryptUtil$EncryptUtilHolder
 com/board/back/model/Course.java
  com.board.back.model.Course
-com/board/back/util/ValidationUtil.java
- com.board.back.util.ValidationUtil
- com.board.back.util.ValidationUtil$ValidationUtilHolder
-com/board/back/util/PagingUtil.java
- com.board.back.util.PagingUtil
+com/board/back/controller/ClassController.java
+ com.board.back.controller.ClassController
+com/board/back/model/Class_elective.java
+ com.board.back.model.Class_elective
 com/board/back/repository/UserTimetableRepository.java
  com.board.back.repository.UserTimetableRepository
 com/board/back/model/User_elective_timetable2.java
@@ -95,6 +92,8 @@ com/board/back/model/User_class.java
  com.board.back.model.User_class
 com/board/back/repository/CourseRepository.java
  com.board.back.repository.CourseRepository
+com/board/back/model/Class2.java
+ com.board.back.model.Class2
 com/board/back/model/Field.java
  com.board.back.model.Field
 com/board/back/repository/LoginRepository.java
@@ -109,9 +108,10 @@ com/board/back/model/User_field.java
  com.board.back.model.User_field
 com/board/back/service/UserService.java
  com.board.back.service.UserService
-com/board/back/service/TimetableService.java
- com.board.back.service.TimetableService
-com/board/back/controller/ClassController.java
- com.board.back.controller.ClassController
-com/board/back/controller/TimetableController.java
- com.board.back.controller.TimetableController
+com/board/back/util/PagingUtil.java
+ com.board.back.util.PagingUtil
+com/board/back/repository/ClassRepository.java
+ com.board.back.repository.ClassRepository
+com/board/back/util/ValidationUtil.java
+ com.board.back.util.ValidationUtil
+ com.board.back.util.ValidationUtil$ValidationUtilHolder

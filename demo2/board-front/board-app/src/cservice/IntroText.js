@@ -10,7 +10,7 @@ import styled from "styled-components";
 const IntroTypist = styled(Typist)`
     margin-top:150px;
     color: white;
-    font-size: 2em;
+    font-size: 1.5em;
     text-align: center;
 `;
 
