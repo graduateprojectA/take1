@@ -96,7 +96,7 @@ this.setState({page:yy});
       console.log(newArr)
     
     UserService.CheckClassUser(newArr).then(res => {
-            this.props.history.push('./myPage');
+            this.props.history.push('./timetable');
     });
 }
   componentDidMount() {
