@@ -6,6 +6,26 @@ import UserService from '../service/UserService';
 import backgroundImage2 from "./image/backgroundImage3.png"
 import "../css/style.css";
 import styled from "styled-components";
+const LoginBackDiv = styled.div`
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url(${backgroundImage2});
+    background-size: cover;
+`;
+
+const LoginDiv = styled.div`
+    position: absolute;
+    left: 33%;
+    top: 23%;
+    width: 35%;
+    height: 62%;
+    border: solid 4px #00462A;
+    border-radius: 10px;
+    background-color: white;
+`;
 const Input = styled.input`
 position: relative;
 margin-left:20%;
