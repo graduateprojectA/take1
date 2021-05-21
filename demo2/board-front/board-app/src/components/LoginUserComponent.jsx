@@ -28,27 +28,13 @@ const Input = styled.input`
 `;
 const LoginDiv = styled.div`
     position: absolute;
-    left: 50%;
-    top: 26%;
-    margin-left: -240px;
-    width: 480px;
-    height: 360px;
+    left: 33%;
+    top: 28%;
+    width: 35%;
+    height: 50%;
     border: solid 4px #00462A;
     border-radius: 10px;
     background-color: white;
-`;
-
-
-const LoginButton = styled.button`
-position: relative;
-margin-left: 17%;
-margin-top: 10%;
-width: 66%;
-height: 50px;
-border: solid 0px;
-background-color: #00462A;
-color: white;
-outline:0px;
 `;
 
 const P1 = styled.p`
@@ -121,7 +107,7 @@ class LoginUserComponent extends Component {
                         <Input type="text" placeholder="비밀번호" name="user_pw" className="form-control"
                             value={this.state.user_pw} onChange={this.changePwHandler} />
 
-                        <LoginButton onClick={this.loginUser}>로그인</LoginButton>
+                        <button className="LoginButton" onClick={this.loginUser}>로그인</button>
                         <div>
                             <P1>
                                 아직 커벨리오의 회원이 아니신가요?<br />

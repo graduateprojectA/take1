@@ -50,8 +50,6 @@ com/board/back/model/User_check_field.java
  com.board.back.model.User_check_field
 com/board/back/service/LoginService.java
  com.board.back.service.LoginService
-com/board/back/model/newClass.java
- com.board.back.model.newClass
 com/board/back/controller/PreferenceController.java
  com.board.back.controller.PreferenceController
 com/board/back/repository/UserClassRepository.java
@@ -94,6 +92,8 @@ com/board/back/model/User_class.java
  com.board.back.model.User_class
 com/board/back/repository/CourseRepository.java
  com.board.back.repository.CourseRepository
+com/board/back/model/Class2.java
+ com.board.back.model.Class2
 com/board/back/model/Field.java
  com.board.back.model.Field
 com/board/back/repository/LoginRepository.java
