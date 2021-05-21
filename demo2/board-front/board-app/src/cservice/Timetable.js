@@ -31,15 +31,25 @@ const TimeWrapDiv = styled.div`
 `;
 const TimeInfoDiv = styled.div`
     position: absolute;
-    top: 30%;
-    left: 5%;
+    top: 25%;
+    right: 28%;
     border: solid 1px;
-    height: 45%;
+    height: 54%;
     width: 13%;
     background-color: #fff5ee;
     opacity: 0.8;
     border: solid 5px #00462A;
-    border-radius: 10px;
+`;
+const TimeInfoClassDiv = styled.div`
+    position: absolute;
+    border: solid 1px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    height: 10%;
+    width: 100%;
+    background-color: #fff5ee;
+    opacity: 0.8;
+    border: solid 5px #00462A;
 `;
 class Timetable extends Component {
     constructor(props) {
@@ -212,6 +222,7 @@ class Timetable extends Component {
         return (
         <TimetableDiv>
             <Logo />
+<<<<<<< HEAD
             <TimeInfoDiv>
             <li>{this.state.e_class1.class_name}
             <br/>
@@ -229,73 +240,75 @@ class Timetable extends Component {
             <br/>
             {this.state.e_class5.class_time}</li>
             </TimeInfoDiv>
+=======
+>>>>>>> 3baae5c9f79dada3048fa62f68e52864879c0960
             <TimeWrapDiv>
             <br/>
             <br/>
               <table className="TimeTable">
               <tr>
-              <th className="timetabled">교시/요일</th>
-              <th className="timetabled">월</th>
-              <th className="timetabled">화</th>
-              <th className="timetabled">수</th>
-              <th className="timetabled">목</th>
-              <th className="timetabled">금</th> 
+              <th className="timetabled_short">교시/요일</th>
+              <th className="timetabled_short">월</th>
+              <th className="timetabled_short">화</th>
+              <th className="timetabled_short">수</th>
+              <th className="timetabled_short">목</th>
+              <th className="timetabled_short">금</th> 
               </tr>
               <tr>
-              <td className="timetabled">1</td>
-              <td className="timetabled">{this.state.mon_1[this.state.data]}</td>
-              <td className="timetabled">{this.state.tue_1[this.state.data]}</td>
-              <td className="timetabled">{this.state.wed_1[this.state.data]}</td>
-              <td className="timetabled">{this.state.thr_1[this.state.data]}</td>
-              <td className="timetabled">{this.state.fri_1[this.state.data]}</td>
+              <td className="timetabled_short">1</td>
+              <td className="timetabled_short">{this.state.mon_1[this.state.data]}</td>
+              <td className="timetabled_short">{this.state.tue_1[this.state.data]}</td>
+              <td className="timetabled_short">{this.state.wed_1[this.state.data]}</td>
+              <td className="timetabled_short">{this.state.thr_1[this.state.data]}</td>
+              <td className="timetabled_short">{this.state.fri_1[this.state.data]}</td>
               </tr>
               <tr>
-              <td className="timetabled">2</td>
-              <td className="timetabled">{this.state.mon_2[this.state.data]}</td>
-              <td className="timetabled">{this.state.tue_2[this.state.data]}</td>
-              <td className="timetabled">{this.state.wed_2[this.state.data]}</td>
-              <td className="timetabled">{this.state.thr_2[this.state.data]}</td>
-              <td className="timetabled">{this.state.fri_2[this.state.data]}</td>
+              <td className="timetabled_short">2</td>
+              <td className="timetabled_short">{this.state.mon_2[this.state.data]}</td>
+              <td className="timetabled_short">{this.state.tue_2[this.state.data]}</td>
+              <td className="timetabled_short">{this.state.wed_2[this.state.data]}</td>
+              <td className="timetabled_short">{this.state.thr_2[this.state.data]}</td>
+              <td className="timetabled_short">{this.state.fri_2[this.state.data]}</td>
               </tr>
               <tr>
-              <td className="timetabled">3</td>
-              <td className="timetabled">{this.state.mon_3[this.state.data]}</td>
-              <td className="timetabled">{this.state.tue_3[this.state.data]}</td>
-              <td className="timetabled">{this.state.wed_3[this.state.data]}</td>
-              <td className="timetabled">{this.state.thr_3[this.state.data]}</td>
-              <td className="timetabled">{this.state.fri_3[this.state.data]}</td>
+              <td className="timetabled_short">3</td>
+              <td className="timetabled_short">{this.state.mon_3[this.state.data]}</td>
+              <td className="timetabled_short">{this.state.tue_3[this.state.data]}</td>
+              <td className="timetabled_short">{this.state.wed_3[this.state.data]}</td>
+              <td className="timetabled_short">{this.state.thr_3[this.state.data]}</td>
+              <td className="timetabled_short">{this.state.fri_3[this.state.data]}</td>
               </tr>  
               <tr>
-              <td className="timetabled">4</td>
-              <td className="timetabled">{this.state.mon_4[this.state.data]}</td>
-              <td className="timetabled">{this.state.tue_4[this.state.data]}</td>
-              <td className="timetabled">{this.state.wed_4[this.state.data]}</td>
-              <td className="timetabled">{this.state.thr_4[this.state.data]}</td>
-              <td className="timetabled">{this.state.fri_4[this.state.data]}</td>
+              <td className="timetabled_short">4</td>
+              <td className="timetabled_short">{this.state.mon_4[this.state.data]}</td>
+              <td className="timetabled_short">{this.state.tue_4[this.state.data]}</td>
+              <td className="timetabled_short">{this.state.wed_4[this.state.data]}</td>
+              <td className="timetabled_short">{this.state.thr_4[this.state.data]}</td>
+              <td className="timetabled_short">{this.state.fri_4[this.state.data]}</td>
               </tr>
               <tr>
-              <td className="timetabled">5</td>
-              <td className="timetabled">{this.state.mon_5[this.state.data]}</td>
-              <td className="timetabled">{this.state.tue_5[this.state.data]}</td>
-              <td className="timetabled">{this.state.wed_5[this.state.data]}</td>
-              <td className="timetabled">{this.state.thr_5[this.state.data]}</td>
-              <td className="timetabled">{this.state.fri_5[this.state.data]}</td>
+              <td className="timetabled_short">5</td>
+              <td className="timetabled_short">{this.state.mon_5[this.state.data]}</td>
+              <td className="timetabled_short">{this.state.tue_5[this.state.data]}</td>
+              <td className="timetabled_short">{this.state.wed_5[this.state.data]}</td>
+              <td className="timetabled_short">{this.state.thr_5[this.state.data]}</td>
+              <td className="timetabled_short">{this.state.fri_5[this.state.data]}</td>
               </tr>
               <tr>
-              <td className="timetabled">6</td>
-              <td className="timetabled">{this.state.mon_6[this.state.data]}</td>
-              <td className="timetabled">{this.state.tue_6[this.state.data]}</td>
-              <td className="timetabled">{this.state.wed_6[this.state.data]}</td>
-              <td className="timetabled">{this.state.thr_6[this.state.data]}</td>
-              <td className="timetabled">{this.state.fri_6[this.state.data]}</td>
+              <td className="timetabled_short">6</td>
+              <td className="timetabled_short">{this.state.mon_6[this.state.data]}</td>
+              <td className="timetabled_short">{this.state.tue_6[this.state.data]}</td>
+              <td className="timetabled_short">{this.state.wed_6[this.state.data]}</td>
+              <td className="timetabled_short">{this.state.thr_6[this.state.data]}</td>
+              <td className="timetabled_short">{this.state.fri_6[this.state.data]}</td>
               </tr>
               <tr>
-              <td className="timetabled">7</td>
-              <td className="timetabled">{this.state.mon_7[this.state.data]}</td>
-              <td className="timetabled">{this.state.tue_7[this.state.data]}</td>
-              <td className="timetabled">{this.state.wed_7[this.state.data]}</td>
-              <td className="timetabled">{this.state.thr_7[this.state.data]}</td>
-              <td className="timetabled">{this.state.fri_7[this.state.data]}</td>
+              <td className="timetabled_short">7</td>
+              <td className="timetabled_short">{this.state.mon_7[this.state.data]}</td>
+              <td className="timetabled_short">{this.state.tue_7[this.state.data]}</td>
+              <td className="timetabled_short">{this.state.wed_7[this.state.data]}</td>
+              <td className="timetabled_short">{this.state.thr_7[this.state.data]}</td>
+              <td className="timetabled_short">{this.state.fri_7[this.state.data]}</td>
               </tr>                                                                                
               </table>
              
@@ -306,7 +319,29 @@ class Timetable extends Component {
             <button onClick={this.next} className="nextArrow" disabled={this.state.nextf}>Next</button>
           </div>
             </TimeWrapDiv>
+            <TimeInfoDiv>
+                교양 과목 추천
+            {this.state.elective.map(p => (
+                  <li>{p.class_name} <br/>
+                  {p.class_time}</li> ))}
+                <TimeInfoClassDiv>
+                    aa
+                </TimeInfoClassDiv>
+                <TimeInfoClassDiv>
+                    bb
+                </TimeInfoClassDiv>
+                <TimeInfoClassDiv>
+                    cc
+                </TimeInfoClassDiv>
+                <TimeInfoClassDiv>
+                    dd
+                </TimeInfoClassDiv>
+                <TimeInfoClassDiv>
+                    ee
+                </TimeInfoClassDiv>
+            </TimeInfoDiv>
         </TimetableDiv>
+        
     );
 };}
 

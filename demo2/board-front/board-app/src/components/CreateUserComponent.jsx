@@ -26,7 +26,10 @@ const LoginDiv = styled.div`
     border-radius: 10px;
     background-color: white;
 `;
+<<<<<<< HEAD
 
+=======
+>>>>>>> 3baae5c9f79dada3048fa62f68e52864879c0960
 const Input = styled.input`
 position: relative;
 margin-left:20%;
@@ -273,9 +276,9 @@ class CreateUserComponent extends Component {
     render() {
         return (
             <div>
-                 <LoginBackDiv>
+                 {/* <LoginBackDiv> */}
                     <Logo />
-                    <LoginDiv>
+                    {/* <LoginDiv> */}
                         <br />
                         <Input type="text" placeholder="학번 7자리" name="user_id" className="form-control"
                             value={this.state.user_id} onChange={this.changeIdHandler} />
@@ -305,8 +308,8 @@ class CreateUserComponent extends Component {
                             하세요!
                             </p>
                         </div>
-                    </LoginDiv>
-                </LoginBackDiv>
+                    {/* </LoginDiv>
+                </LoginBackDiv> */}
             </div>
         );
     }
