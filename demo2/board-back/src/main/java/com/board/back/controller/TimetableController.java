@@ -1,6 +1,7 @@
 package com.board.back.controller;
 
 import com.board.back.model.User_elective_timetable2;
+import com.board.back.model.User_timetable3;
 import com.board.back.model.User_timetable2;
 import com.board.back.repository.UserTimetableRepository;
 import com.board.back.service.TimeService;
@@ -43,6 +44,14 @@ public class TimetableController {
 	public List<User_timetable2> printTimetable(){
 		if (timeService.printTimetable() != null){
 			return timeService.printTimetable();}
+		else
+			return null;
+	}
+
+	@GetMapping("timetableDetail")
+	public List <User_timetable3> printTimetableDetail(){
+		if (timeService.printTimetable() != null)
+			return timeService.printTimetableDetail();
 		else
 			return null;
 	}
