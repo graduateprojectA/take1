@@ -58,7 +58,7 @@ class Timetable extends Component {
             user_no : 2,
             user_info: {user_id:0, user_major:"학과",user_grade:0},
             major_name : "",
-            elective:[],
+            e_class1:[],e_class2:[],e_class3:[],e_class4:[],e_class5:[],
             elective1:[],elective2:[],elective3:[],elective4:[],elective5:[],
             num:[],
             data:0,
@@ -125,8 +125,12 @@ class Timetable extends Component {
             this.setState({elective3:res.data.filter(p=>p[0].timetable_no==num3)[0]});
             this.setState({elective4:res.data.filter(p=>p[0].timetable_no==num4)[0]});
             this.setState({elective5:res.data.filter(p=>p[0].timetable_no==num5)[0]});
-            this.setState({elective : res.data.filter(p=>p[0].timetable_no==num1)[0]})
-            console.log(this.state.elective1);
+             this.setState({e_class1 : res.data.filter(p=>p[0].timetable_no==num1)[0][0]});
+             this.setState({e_class2 : res.data.filter(p=>p[0].timetable_no==num1)[0][1]});
+             this.setState({e_class3 : res.data.filter(p=>p[0].timetable_no==num1)[0][2]});
+             this.setState({e_class4 : res.data.filter(p=>p[0].timetable_no==num1)[0][3]});
+             this.setState({e_class5 : res.data.filter(p=>p[0].timetable_no==num1)[0][4]});
+             console.log(res.data);
         });
     }
     next=(event)=>{
@@ -134,16 +138,37 @@ class Timetable extends Component {
             this.setState({pref:false});
             this.setState({data:this.state.data+1});
             let a=this.state.data+1;
+             if(a==0){
+                this.setState({e_class1 :this.state.elective1[0]});
+             this.setState({e_class2 :this.state.elective1[1]});
+             this.setState({e_class3 : this.state.elective1[2]});
+             this.setState({e_class4 : this.state.elective1[3]});
+             this.setState({e_class5 : this.state.elective1[4]});
+            }
             if(a==1){
-                this.setState({elective:this.state.elective2});
+                this.setState({e_class1 :this.state.elective2[0]});
+             this.setState({e_class2 :this.state.elective2[1]});
+             this.setState({e_class3 : this.state.elective2[2]});
+             this.setState({e_class4 : this.state.elective2[3]});
+             this.setState({e_class5 : this.state.elective2[4]});
             }else if(a==2){
-                this.setState({elective:this.state.elective3});
+                this.setState({e_class1 :this.state.elective3[0]});
+             this.setState({e_class2 :this.state.elective3[1]});
+             this.setState({e_class3 : this.state.elective3[2]});
+             this.setState({e_class4 : this.state.elective3[3]});
+             this.setState({e_class5 : this.state.elective3[4]});
             }else if(a==3){
-                this.setState({elective:this.state.elective4});
-            }else if(a==0){
-                this.setState({elective:this.state.elective1});
-            }if(a==4){
-                this.setState({elective:this.state.elective5});
+                this.setState({e_class1 :this.state.elective4[0]});
+             this.setState({e_class2 :this.state.elective4[1]});
+             this.setState({e_class3 : this.state.elective4[2]});
+             this.setState({e_class4 : this.state.elective4[3]});
+             this.setState({e_class5 : this.state.elective4[4]});
+            }else if(a==4){
+                this.setState({e_class1 :this.state.elective5[0]});
+             this.setState({e_class2 :this.state.elective5[1]});
+             this.setState({e_class3 : this.state.elective5[2]});
+             this.setState({e_class4 : this.state.elective5[3]});
+             this.setState({e_class5 : this.state.elective5[4]});
             }
         }else{
             let a=this.state.data;
@@ -157,21 +182,39 @@ class Timetable extends Component {
             this.setState({data:this.state.data-1});
             let a=this.state.data-1;
             if(a==0){
-                this.setState({elective:this.state.elective1});
+                this.setState({e_class1 :this.state.elective1[0]});
+             this.setState({e_class2 :this.state.elective1[1]});
+             this.setState({e_class3 : this.state.elective1[2]});
+             this.setState({e_class4 : this.state.elective1[3]});
+             this.setState({e_class5 : this.state.elective1[4]});
             }
             if(a==1){
-                this.setState({elective:this.state.elective2});
+                this.setState({e_class1 :this.state.elective2[0]});
+             this.setState({e_class2 :this.state.elective2[1]});
+             this.setState({e_class3 : this.state.elective2[2]});
+             this.setState({e_class4 : this.state.elective2[3]});
+             this.setState({e_class5 : this.state.elective2[4]});
             }else if(a==2){
-                this.setState({elective:this.state.elective3});
+                this.setState({e_class1 :this.state.elective3[0]});
+             this.setState({e_class2 :this.state.elective3[1]});
+             this.setState({e_class3 : this.state.elective3[2]});
+             this.setState({e_class4 : this.state.elective3[3]});
+             this.setState({e_class5 : this.state.elective3[4]});
             }else if(a==3){
-                this.setState({elective:this.state.elective4});
+                this.setState({e_class1 :this.state.elective4[0]});
+             this.setState({e_class2 :this.state.elective4[1]});
+             this.setState({e_class3 : this.state.elective4[2]});
+             this.setState({e_class4 : this.state.elective4[3]});
+             this.setState({e_class5 : this.state.elective4[4]});
             }else if(a==4){
-                this.setState({elective:this.state.elective5});
+                this.setState({e_class1 :this.state.elective5[0]});
+             this.setState({e_class2 :this.state.elective5[1]});
+             this.setState({e_class3 : this.state.elective5[2]});
+             this.setState({e_class4 : this.state.elective5[3]});
+             this.setState({e_class5 : this.state.elective5[4]});
             }
             
         }else{
-            let a=this.state.data;
-            
             this.setState({pref:true});
         }
     }
@@ -179,6 +222,26 @@ class Timetable extends Component {
         return (
         <TimetableDiv>
             <Logo />
+<<<<<<< HEAD
+            <TimeInfoDiv>
+            <li>{this.state.e_class1.class_name}
+            <br/>
+            {this.state.e_class1.class_time}</li>
+            <li>{this.state.e_class2.class_name}
+            <br/>
+            {this.state.e_class2.class_time}</li>
+            <li>{this.state.e_class3.class_name}
+            <br/>
+            {this.state.e_class3.class_time}</li>
+            <li>{this.state.e_class4.class_name}
+            <br/>
+            {this.state.e_class4.class_time}</li>
+            <li>{this.state.e_class5.class_name}
+            <br/>
+            {this.state.e_class5.class_time}</li>
+            </TimeInfoDiv>
+=======
+>>>>>>> 3baae5c9f79dada3048fa62f68e52864879c0960
             <TimeWrapDiv>
             <br/>
             <br/>

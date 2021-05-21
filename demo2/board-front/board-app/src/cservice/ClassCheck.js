@@ -69,6 +69,7 @@ class ClassCheck extends Component {
         professor_name:p.professor_name,
         class_division:p.class_division,
         class_credit:p.class_credit,
+        class_grade:p.class_grade,
         class_pre:false,
         class_next:p.class_next
 });console.log(yy);
@@ -88,6 +89,7 @@ this.setState({page:yy});
         class_division:p.class_division,
         professor_name:p.professor_name,
         class_credit:p.class_credit,
+        class_grade:p.class_grade,
         class_pre:false,
         class_next:p.class_next
       });
@@ -112,6 +114,7 @@ this.setState({page:yy});
                         class_division:p.class_division,
                         professor_name:p.professor_name,
                         class_credit:p.class_credit,
+                        class_grade:p.class_grade,
                         class_pre:false,
                         class_next:false
         })});

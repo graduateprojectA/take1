@@ -224,6 +224,11 @@ ul {
   border: 1px solid;
   width: 10%;
 }
+<<<<<<< HEAD
+.d_input{
+  color: #00462A;
+  background-color:transparent;
+=======
 .timetabled_short {
   text-align: center;
   border: 1px solid;
@@ -233,6 +238,7 @@ ul {
 .d_input {
   color: #00462a;
   background-color: transparent;
+>>>>>>> 3baae5c9f79dada3048fa62f68e52864879c0960
   border: solid 0px;
   border-bottom: solid 1px #00462a;
   width: 300px;
@@ -244,6 +250,12 @@ ul {
   height: 40px;
   margin-left: 20%;
 }
+<<<<<<< HEAD
+.d_major{
+  color:#6c757d;
+}
+=======
 .d_major {
   color: #6c757d;
 }
+>>>>>>> 3baae5c9f79dada3048fa62f68e52864879c0960

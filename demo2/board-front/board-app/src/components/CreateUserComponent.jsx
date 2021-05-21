@@ -26,6 +26,10 @@ const LoginDiv = styled.div`
     border-radius: 10px;
     background-color: white;
 `;
+<<<<<<< HEAD
+
+=======
+>>>>>>> 3baae5c9f79dada3048fa62f68e52864879c0960
 const Input = styled.input`
 position: relative;
 margin-left:20%;
@@ -236,12 +240,10 @@ class CreateUserComponent extends Component {
             user_pw: this.state.user_pw
         };
         if (this.state.user_no == '_create') {
-            console.log(user);
-            /*
             UserService.createUser(user);
             UserService.loginUser(log).then(res => {
                 this.props.history.push('../courseCheck');
-            });*/
+            });
         }
     }
 
@@ -289,7 +291,7 @@ class CreateUserComponent extends Component {
                             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                                 {
                                     this.state.Arr.map(c =>
-                                        <li><input type="checkbox"  value={c} onChange={this.changeMajorHandler}  />{c}</li>)
+                                        <li><input type="checkbox" value={c} onChange={this.changeMajorHandler}  />{c}</li>)
                                 }
                             </ul>
                         </div>

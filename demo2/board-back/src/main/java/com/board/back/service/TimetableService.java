@@ -602,30 +602,38 @@ public class TimetableService {
             elective_class_num++;
         }
 
+
+        int elective_class_total_num = 0;
         for (int i = 0; i < timetable_num; i++) {
             int final_elective_class[] = new int[5];
             New_timetable now_timetable = new_timetable_list.get(i);
             int now_timetable_out_time[][] = now_timetable.getTimetable_out_time();
             elective_class_num = 0;
-            AA: for (int j = 0; j < 150; j++) {
-                Class_character now_elective_class = able_elective_class.get(j);
+            AA: while(true) {
+                Class_character now_elective_class = able_elective_class.get(elective_class_total_num);
                 String now_elective_time = Integer.toString(now_elective_class.getClass_time());
-                for (int aak = 0; aak < now_elective_time.length(); aak++) {
-                    int now_time_integer_first = Integer.parseInt(now_elective_time.substring(0, 1)) - 1;
-                    int now_time_integer_second = Integer.parseInt(now_elective_time.substring(1, 2)) - 1;
-                    if (now_timetable_out_time[now_time_integer_first][now_time_integer_second] == 1) {
-                        continue AA;
+                if(now_elective_class.getClass_time() > 0) {
+                    for (int aak = 0; aak < now_elective_time.length(); aak++) {
+                        int now_time_integer_first = Integer.parseInt(now_elective_time.substring(0, 1)) - 1;
+                        int now_time_integer_second = Integer.parseInt(now_elective_time.substring(1, 2)) - 1;
+                        if (now_timetable_out_time[now_time_integer_first][now_time_integer_second] == 1) {
+                            elective_class_total_num++;
+                            continue AA;
+                        }
+                        if (now_elective_time.length() >= 2) {
+                            now_elective_time = now_elective_time.substring(2, now_elective_time.length());
+                        }
                     }
-                    if (now_elective_time.length() >= 2) {
-                        now_elective_time = now_elective_time.substring(2, now_elective_time.length());
-                    }
+                    System.out.printf("final_elective_class_add: %d\n", now_elective_class.getClass_no());
+                    final_elective_class[elective_class_num] = now_elective_class.getClass_no();
+                    elective_class_total_num++;
+                    elective_class_num++;
+                    if (elective_class_num > 4)
+                        break;
                 }
-                System.out.printf("final_elective_class_add: %d\n", now_elective_class.getClass_no());
-                final_elective_class[elective_class_num] = now_elective_class.getClass_no();
-                elective_class_num++;
-                if (elective_class_num > 4)
-                    break;
+                elective_class_total_num++;
             }
+
             int class_num_check = 1;
             int now_timetable_class_no[] = new int[9];
             String now_timetable_list[] = now_timetable.getNew_timetable().split("");
