@@ -254,9 +254,9 @@ class CreateUserComponent extends Component {
     render() {
         return (
             <div>
-                 <LoginBackDiv>
+                 {/* <LoginBackDiv> */}
                     <Logo />
-                    <LoginDiv>
+                    {/* <LoginDiv> */}
                         <br />
                         <Input type="text" placeholder="학번 7자리" name="user_id" className="form-control"
                             value={this.state.user_id} onChange={this.changeIdHandler} />
@@ -286,8 +286,8 @@ class CreateUserComponent extends Component {
                             하세요!
                             </p>
                         </div>
-                    </LoginDiv>
-                </LoginBackDiv>
+                    {/* </LoginDiv>
+                </LoginBackDiv> */}
             </div>
         );
     }
