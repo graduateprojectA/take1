@@ -96,7 +96,7 @@ this.setState({page:yy});
       console.log(newArr)
     
     UserService.CheckClassUser(newArr).then(res => {
-            this.props.history.push('./myPage');
+            this.props.history.push('./timetable');
     });
 }
   componentDidMount() {
@@ -106,20 +106,24 @@ this.setState({page:yy});
       UserService.class2User().then((res) => {
         this.setState({ class: res.data });
         let s=0;
-        this.setState({page : res.data.map(p =>
-                      this.state.p_class = {
-                        page_no: s++,
-                        class_no: p.class_no,
-                        class_name:p.class_name,
-                        class_division:p.class_division,
-                        professor_name:p.professor_name,
-                        class_credit:p.class_credit,
-                        class_grade:p.class_grade,
-                        class_pre:false,
-                        class_next:false
-        })});
-        this.setState({end:s/15+1});
-        this.setState({ n: this.state.page.filter(p=>p.page_no>=0&&p.page_no<15)});
+        if(res.data.length>0){
+          this.setState({rf:true});
+                    console.log(this.state.rf);
+          this.setState({page : res.data.map(p =>
+            this.state.p_class = {
+              page_no: s++,
+              class_no: p.class_no,
+              class_name:p.class_name,
+              class_division:p.class_division,
+              professor_name:p.professor_name,
+              class_credit:p.class_credit,
+              class_grade:p.class_grade,
+              class_pre:false,
+              class_next:false
+})});
+this.setState({end:s/15+1});
+this.setState({ n: this.state.page.filter(p=>p.page_no>=0&&p.page_no<15)});
+        }
       console.log(res.data);
       });
     });
@@ -174,8 +178,9 @@ reset=(event)=>{
                 <h5 style={{color:"red", display:"inline"}}>[수업 분반 확인] </h5>
                 <h5 style={{display:"inline"}}>원하지 않는 분반을 선택해주세요.<br/>
                 선택하지 않은 수업들은 모두 시간표 조합에 적용됩니다. <br/> 
-                우측 흰색 화살표를 눌러, 최적의 시간표를 얻어보세요!</h5>
+                우측 흰색 화살표를 눌러, 최적의 시간표를 얻어보세요!  </h5>
           {/* <ClassCheckP>{this.state.name}</ClassCheckP> */}
+          <button  onClick={this.reset}  class="rButton" style={{display: this.state.rf ?'none':'inline'}}>확인하기</button>
           <div className="courseList">
           <ul>
           {

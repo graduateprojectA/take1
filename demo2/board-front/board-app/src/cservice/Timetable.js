@@ -58,6 +58,7 @@ class Timetable extends Component {
             user_no : 2,
             user_info: {user_id:0, user_major:"학과",user_grade:0},
             major_name : "",
+            test:"1월2일",
             e_class1:[],e_class2:[],e_class3:[],e_class4:[],e_class5:[],
             elective1:[],elective2:[],elective3:[],elective4:[],elective5:[],
             num:[],
@@ -218,11 +219,14 @@ class Timetable extends Component {
             this.setState({pref:true});
         }
     }
+    handleMouseHover() {
+        let a = this.state.test;
+        alert(a);
+    }
     render() {
         return (
         <TimetableDiv>
             <Logo />
-<<<<<<< HEAD
             <TimeInfoDiv>
             <li>{this.state.e_class1.class_name}
             <br/>
@@ -240,8 +244,6 @@ class Timetable extends Component {
             <br/>
             {this.state.e_class5.class_time}</li>
             </TimeInfoDiv>
-=======
->>>>>>> 3baae5c9f79dada3048fa62f68e52864879c0960
             <TimeWrapDiv>
             <br/>
             <br/>
@@ -264,7 +266,7 @@ class Timetable extends Component {
               </tr>
               <tr>
               <td className="timetabled_short">2</td>
-              <td className="timetabled_short">{this.state.mon_2[this.state.data]}</td>
+              <td className="timetabled_short" >{this.state.mon_2[this.state.data]}</td>
               <td className="timetabled_short">{this.state.tue_2[this.state.data]}</td>
               <td className="timetabled_short">{this.state.wed_2[this.state.data]}</td>
               <td className="timetabled_short">{this.state.thr_2[this.state.data]}</td>
@@ -296,7 +298,7 @@ class Timetable extends Component {
               </tr>
               <tr>
               <td className="timetabled_short">6</td>
-              <td className="timetabled_short">{this.state.mon_6[this.state.data]}</td>
+              <td className="timetabled_short" onMouseEnter={this.handleMouseHover}>{this.state.mon_6[this.state.data]}</td>
               <td className="timetabled_short">{this.state.tue_6[this.state.data]}</td>
               <td className="timetabled_short">{this.state.wed_6[this.state.data]}</td>
               <td className="timetabled_short">{this.state.thr_6[this.state.data]}</td>
@@ -320,25 +322,21 @@ class Timetable extends Component {
           </div>
             </TimeWrapDiv>
             <TimeInfoDiv>
-                교양 과목 추천
-            {this.state.elective.map(p => (
-                  <li>{p.class_name} <br/>
-                  {p.class_time}</li> ))}
-                <TimeInfoClassDiv>
-                    aa
-                </TimeInfoClassDiv>
-                <TimeInfoClassDiv>
-                    bb
-                </TimeInfoClassDiv>
-                <TimeInfoClassDiv>
-                    cc
-                </TimeInfoClassDiv>
-                <TimeInfoClassDiv>
-                    dd
-                </TimeInfoClassDiv>
-                <TimeInfoClassDiv>
-                    ee
-                </TimeInfoClassDiv>
+            <li>{this.state.e_class1.class_name}
+            <br/>
+            {this.state.e_class1.class_time}</li>
+            <li>{this.state.e_class2.class_name}
+            <br/>
+            {this.state.e_class2.class_time}</li>
+            <li>{this.state.e_class3.class_name}
+            <br/>
+            {this.state.e_class3.class_time}</li>
+            <li>{this.state.e_class4.class_name}
+            <br/>
+            {this.state.e_class4.class_time}</li>
+            <li>{this.state.e_class5.class_name}
+            <br/>
+            {this.state.e_class5.class_time}</li>
             </TimeInfoDiv>
         </TimetableDiv>
         
