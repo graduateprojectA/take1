@@ -247,3 +247,12 @@ ul {
 .d_major {
   color: #6c757d;
 }
+.rButton{
+  cursor: pointer;
+  padding: 6px;
+  color: white;
+  background: #144c09;
+  border: none;
+  border-radius: 20px 20px;
+  font-size: 1.2em;
+}

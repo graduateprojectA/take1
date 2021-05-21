@@ -147,8 +147,8 @@ class CourseCheck extends Component {
               <h5 style={{color:"red", display:"inline"}}>[커리큘럼 확인] </h5>
               <h5 style={{display:"inline"}}>여태 들었던 모든 수업을 선택해주세요.<br/>
               재수강을 원하실 경우에는 체크하지 말아주세요. <br/> 
-              우측 흰색 화살표를 눌러, 다음 페이지로 이동하세요.</h5>
-        <button  onClick={this.reset} style={{display: this.state.rf ?'none':'inline'}}/>
+              우측 흰색 화살표를 눌러, 다음 페이지로 이동하세요.  </h5>
+        <button  onClick={this.reset} class="rButton" style={{display: this.state.rf ?'none':'inline'}}>확인하기</button>
           <div className="courseList">
           <ul>
               {

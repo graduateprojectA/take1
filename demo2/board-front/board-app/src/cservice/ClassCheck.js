@@ -178,9 +178,9 @@ reset=(event)=>{
                 <h5 style={{color:"red", display:"inline"}}>[수업 분반 확인] </h5>
                 <h5 style={{display:"inline"}}>원하지 않는 분반을 선택해주세요.<br/>
                 선택하지 않은 수업들은 모두 시간표 조합에 적용됩니다. <br/> 
-                우측 흰색 화살표를 눌러, 최적의 시간표를 얻어보세요!</h5>
+                우측 흰색 화살표를 눌러, 최적의 시간표를 얻어보세요!  </h5>
           {/* <ClassCheckP>{this.state.name}</ClassCheckP> */}
-          <button  onClick={this.reset} style={{display: this.state.rf ?'none':'inline'}}/>
+          <button  onClick={this.reset}  class="rButton" style={{display: this.state.rf ?'none':'inline'}}>확인하기</button>
           <div className="courseList">
           <ul>
           {
