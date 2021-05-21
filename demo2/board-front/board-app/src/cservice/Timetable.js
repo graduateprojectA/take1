@@ -222,7 +222,6 @@ class Timetable extends Component {
         return (
         <TimetableDiv>
             <Logo />
-<<<<<<< HEAD
             <TimeInfoDiv>
             <li>{this.state.e_class1.class_name}
             <br/>
@@ -240,8 +239,6 @@ class Timetable extends Component {
             <br/>
             {this.state.e_class5.class_time}</li>
             </TimeInfoDiv>
-=======
->>>>>>> 3baae5c9f79dada3048fa62f68e52864879c0960
             <TimeWrapDiv>
             <br/>
             <br/>
