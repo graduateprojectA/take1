@@ -25,4 +25,7 @@ public interface FieldRepository extends JpaRepository<Field, Integer>{
 
     @Query(value="SELECT * from field s WHERE s.field_no in :field_no", nativeQuery = true)
     List<Field> printCFN(@Param("field_no")ArrayList<Integer>field_no);
+
+    @Query(value="SELECT * from field s WHERE s.field_no in :c", nativeQuery = true)
+    List<Field> printFalseField2(@Param("c")List<Integer>c);
 }

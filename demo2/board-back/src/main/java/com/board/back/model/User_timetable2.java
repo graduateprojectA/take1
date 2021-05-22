@@ -1,7 +1,7 @@
 package com.board.back.model;
+
 public class User_timetable2 {
     private Integer user_timetable_no;
-    //@Column(name = "user_no")
     private Integer user_no;
     private String mon_1;
     private String mon_2;
@@ -40,6 +40,47 @@ public class User_timetable2 {
     private String fri_7;
     private  Integer credit;
 
+    public User_timetable2(){super();}
+    public User_timetable2(Integer user_timetable_no, Integer user_no, String mon_1, String mon_2, String mon_3, String mon_4, String mon_5, String mon_6, String mon_7, String tue_1, String tue_2, String tue_3, String tue_4, String tue_5, String tue_6, String tue_7, String wed_1, String wed_2, String wed_3, String wed_4, String wed_5, String wed_6, String wed_7, String thr_1, String thr_2, String thr_3, String thr_4, String thr_5, String thr_6, String thr_7, String fri_1, String fri_2, String fri_3, String fri_4, String fri_5, String fri_6, String fri_7, Integer credit) {
+        this.user_timetable_no = user_timetable_no;
+        this.user_no = user_no;
+        this.mon_1 = mon_1;
+        this.mon_2 = mon_2;
+        this.mon_3 = mon_3;
+        this.mon_4 = mon_4;
+        this.mon_5 = mon_5;
+        this.mon_6 = mon_6;
+        this.mon_7 = mon_7;
+        this.tue_1 = tue_1;
+        this.tue_2 = tue_2;
+        this.tue_3 = tue_3;
+        this.tue_4 = tue_4;
+        this.tue_5 = tue_5;
+        this.tue_6 = tue_6;
+        this.tue_7 = tue_7;
+        this.wed_1 = wed_1;
+        this.wed_2 = wed_2;
+        this.wed_3 = wed_3;
+        this.wed_4 = wed_4;
+        this.wed_5 = wed_5;
+        this.wed_6 = wed_6;
+        this.wed_7 = wed_7;
+        this.thr_1 = thr_1;
+        this.thr_2 = thr_2;
+        this.thr_3 = thr_3;
+        this.thr_4 = thr_4;
+        this.thr_5 = thr_5;
+        this.thr_6 = thr_6;
+        this.thr_7 = thr_7;
+        this.fri_1 = fri_1;
+        this.fri_2 = fri_2;
+        this.fri_3 = fri_3;
+        this.fri_4 = fri_4;
+        this.fri_5 = fri_5;
+        this.fri_6 = fri_6;
+        this.fri_7 = fri_7;
+        this.credit = credit;
+    }
 
     public Integer getUser_timetable_no() {
         return user_timetable_no;
@@ -344,54 +385,6 @@ public class User_timetable2 {
     public void setCredit(Integer credit) {
         this.credit = credit;
     }
-    public User_timetable2(){super();}
-    public User_timetable2(Integer user_timetable_no, Integer user_no, String mon_1, String mon_2,
-                           String mon_3, String mon_4, String mon_5, String mon_6, String mon_7,
-                           String tue_1, String tue_2, String tue_3, String tue_4, String tue_5,
-                           String tue_6, String tue_7, String wed_1, String wed_2, String wed_3,
-                           String wed_4, String wed_5, String wed_6, String wed_7, String thr_1,
-                           String thr_2, String thr_3, String thr_4, String thr_5, String thr_6,
-                           String thr_7, String fri_1, String fri_2, String fri_3, String fri_4,
-                           String fri_5, String fri_6, String fri_7, Integer credit) {
-        this.user_timetable_no = user_timetable_no;
-        this.user_no = user_no;
-        this.mon_1 = mon_1;
-        this.mon_2 = mon_2;
-        this.mon_3 = mon_3;
-        this.mon_4 = mon_4;
-        this.mon_5 = mon_5;
-        this.mon_6 = mon_6;
-        this.mon_7 = mon_7;
-        this.tue_1 = tue_1;
-        this.tue_2 = tue_2;
-        this.tue_3 = tue_3;
-        this.tue_4 = tue_4;
-        this.tue_5 = tue_5;
-        this.tue_6 = tue_6;
-        this.tue_7 = tue_7;
-        this.wed_1 = wed_1;
-        this.wed_2 = wed_2;
-        this.wed_3 = wed_3;
-        this.wed_4 = wed_4;
-        this.wed_5 = wed_5;
-        this.wed_6 = wed_6;
-        this.wed_7 = wed_7;
-        this.thr_1 = thr_1;
-        this.thr_2 = thr_2;
-        this.thr_3 = thr_3;
-        this.thr_4 = thr_4;
-        this.thr_5 = thr_5;
-        this.thr_6 = thr_6;
-        this.thr_7 = thr_7;
-        this.fri_1 = fri_1;
-        this.fri_2 = fri_2;
-        this.fri_3 = fri_3;
-        this.fri_4 = fri_4;
-        this.fri_5 = fri_5;
-        this.fri_6 = fri_6;
-        this.fri_7 = fri_7;
-        this.credit = credit;
-    }
 
     @Override
     public String toString() {
@@ -433,7 +426,6 @@ public class User_timetable2 {
                 ", fri_5='" + fri_5 + '\'' +
                 ", fri_6='" + fri_6 + '\'' +
                 ", fri_7='" + fri_7 + '\'' +
-                ", credit=" + credit +
-                '}';
+                ", credit=" + credit + '}';
     }
 }

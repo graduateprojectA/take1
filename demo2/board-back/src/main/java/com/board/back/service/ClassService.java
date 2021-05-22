@@ -63,34 +63,65 @@ public class ClassService {
 
         setUser_id(first_id*10+second_id); //학번
         setUser_major(a.get().getMajor()); //전공(숫자)
-        System.out.println(getUser_no()+" "+getUser_id()+" "+ getUser_major());
     }
 
     public void printClass(int no) {
         //print false check_field_no (List형)
         //1,2,3,5,6,7,8
         List<Integer> a = userCheckFieldRepository.printFalseUserCheckField(getUser_no());
+        
         //print field_no 연동 false check_field_no
         //1 2 3 4 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21
         List<Integer> b = fieldRepository.printFalseField(a);
-        //print false field_no
+        
+        //print false field_no, 완료되지 않은 field_no와 field 정보
         //2 3 4 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21
-        List<Integer> c = userFieldRepository.printFalseUserField(b, no); //완료되지 않은 field_no만 나옴
+        List<Integer> c = userFieldRepository.printFalseUserField(b, no); //완료되지 않은 field 정보 나옴
+        List<Field> c_alpha = fieldRepository.printFalseField2(c); //완료되지 않은 field 정보 나옴
+        List<Integer> not_c = new ArrayList<>();
+        c.clear();
+        //"전공"field에 해당하는 field 정보만 출력
+        for (int i = 0; i < c_alpha.size(); i++) {
+            if (c_alpha.get(i).getField_name().contains("전공")) {
+                //System.out.println(c_alpha.get(i));
+                c.add(c_alpha.get(i).getField_no());
+            }
+            else{
+                not_c.add(c_alpha.get(i).getField_no());
+            }
+        }
+        
         //print field_no 연동 false course_no
-        //아직 한 번도 듣지 않은 학수번호 추림
+        //아직 한 번도 듣지 않은 전공과목의 학수번호 추림
         List<Integer> d = userCourseRepository.printFalseUserCourse(c, no);
 
-        for (int i = 0; i < a.size(); i++)
-            System.out.print(a.get(i) + " ");
-        System.out.println();
-        for (int i = 0; i < b.size(); i++)
-            System.out.print(b.get(i) + " ");
-        System.out.println();
-        for (int i = 0; i < c.size(); i++)
-            System.out.print(c.get(i) + " ");
-        System.out.println();
-        for (int i = 0; i < d.size(); i++)
-            System.out.print(d.get(i) + " ");
+        //아직 한 번도 듣지 않은 교양과목의 학수번호 추림
+        List<Integer> not_d = userCourseRepository.printFalseUserCourse(not_c, no);
+        //아직 한 번도 듣지 않은 교양과목 그냥 바로 user_class에 저장
+        List<Class> not_e = classRepository.printClass(not_d);
+        for (int i=0; i<not_e.size(); i++){
+            //System.out.println("what is the problem?");
+            User_class uce = new User_class(getUser_no(),not_e.get(i).getClass_no(),not_e.get(i).getClass_credit(),false,true);
+            //System.out.println("declaration?");
+            userClassRepository.save(uce);
+            //System.out.println("save?");
+        }
+
+
+//        for (int i = 0; i < a.size(); i++)
+//            System.out.print(a.get(i) + " ");
+//        System.out.println();
+//        for (int i = 0; i < b.size(); i++)
+//            System.out.print(b.get(i) + " ");
+//        System.out.println();
+//        for (int i = 0; i < c.size(); i++)
+//            System.out.print(c.get(i) + " ");
+//        System.out.println();
+//        for (int i = 0; i < not_c.size(); i++)
+//            System.out.print(not_c.get(i) + " ");
+//        System.out.println();
+//        for (int i = 0; i < d.size(); i++)
+//            System.out.print(d.get(i) + " ");
 
         List<Class> e = classRepository.printClass(d);
         List<Class2> final_result = new ArrayList<>();

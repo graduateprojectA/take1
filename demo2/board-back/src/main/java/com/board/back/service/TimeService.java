@@ -30,7 +30,7 @@ public class TimeService {
         this.user_no = user_no;
     }
 
-    //user_timetable2
+    //user_timetable2, 과목 정보
     List <User_timetable2> timetable = new ArrayList<>();
     Class Class_1;
     Class Class_2;
@@ -42,6 +42,9 @@ public class TimeService {
     Class Class_8;
     Class Class_9;
 
+    //user_timetable3, 시험 정보
+    List<User_timetable3> timetableDetail = new ArrayList<>();
+    
     //user_elective_timetable
     List<List<User_elective_timetable2>> class_elect = new ArrayList<>();
 
@@ -71,9 +74,89 @@ public class TimeService {
             ArrayList<Class> class_list = new ArrayList<>(Arrays.asList(Class_1, Class_2, Class_3, Class_4, Class_5, Class_6, Class_7, Class_8, Class_9));
             while (class_list.remove(null)) {
             }
-            // System.out.println(class_list);
+
+            //timetable 과목 시험 정보
+            User_timetable3 utimetable_detail = new User_timetable3();
+            utimetable_detail.setUser_timetable_no(timetable_org.get(i).getUser_timetable_no());
+            utimetable_detail.setUser_no(user_no);
+            if (Class_1 != null) {
+                utimetable_detail.setClass_1_name(Class_1.getClass_name());
+                utimetable_detail.setClass_1_course_id(Class_1.getCourse_id());
+                utimetable_detail.setClass_1_professor_name(Class_1.getProfessor_name());
+                utimetable_detail.setClass_1_mid(Class_1.getMid_plan());
+                utimetable_detail.setClass_1_final(Class_1.getFinal_plan());
+                utimetable_detail.setClass_1_extra(Class_1.getExtra_plan());
+            }
+            if (Class_2 != null) {
+                utimetable_detail.setClass_2_name(Class_2.getClass_name());
+                utimetable_detail.setClass_2_course_id(Class_2.getCourse_id());
+                utimetable_detail.setClass_2_professor_name(Class_2.getProfessor_name());
+                utimetable_detail.setClass_2_mid(Class_2.getMid_plan());
+                utimetable_detail.setClass_2_final(Class_2.getFinal_plan());
+                utimetable_detail.setClass_2_extra(Class_2.getExtra_plan());
+            }
+            if (Class_3 != null) {
+                utimetable_detail.setClass_3_name(Class_3.getClass_name());
+                utimetable_detail.setClass_3_course_id(Class_3.getCourse_id());
+                utimetable_detail.setClass_3_professor_name(Class_3.getProfessor_name());
+                utimetable_detail.setClass_3_mid(Class_3.getMid_plan());
+                utimetable_detail.setClass_3_final(Class_3.getFinal_plan());
+                utimetable_detail.setClass_3_extra(Class_3.getExtra_plan());
+            }
+            if (Class_4 != null) {
+                utimetable_detail.setClass_4_name(Class_4.getClass_name());
+                utimetable_detail.setClass_4_course_id(Class_4.getCourse_id());
+                utimetable_detail.setClass_4_professor_name(Class_4.getProfessor_name());
+                utimetable_detail.setClass_4_mid(Class_4.getMid_plan());
+                utimetable_detail.setClass_4_final(Class_4.getFinal_plan());
+                utimetable_detail.setClass_4_extra(Class_4.getExtra_plan());
+            }
+            if (Class_5 != null) {
+                utimetable_detail.setClass_5_name(Class_5.getClass_name());
+                utimetable_detail.setClass_5_course_id(Class_5.getCourse_id());
+                utimetable_detail.setClass_5_professor_name(Class_5.getProfessor_name());
+                utimetable_detail.setClass_5_mid(Class_5.getMid_plan());
+                utimetable_detail.setClass_5_final(Class_5.getFinal_plan());
+                utimetable_detail.setClass_5_extra(Class_5.getExtra_plan());
+            }
+            if (Class_6 != null) {
+                utimetable_detail.setClass_6_name(Class_6.getClass_name());
+                utimetable_detail.setClass_6_course_id(Class_6.getCourse_id());
+                utimetable_detail.setClass_6_professor_name(Class_6.getProfessor_name());
+                utimetable_detail.setClass_6_mid(Class_6.getMid_plan());
+                utimetable_detail.setClass_6_final(Class_6.getFinal_plan());
+                utimetable_detail.setClass_6_extra(Class_6.getExtra_plan());
+            }
+            if (Class_7 != null) {
+                utimetable_detail.setClass_7_name(Class_7.getClass_name());
+                utimetable_detail.setClass_7_course_id(Class_7.getCourse_id());
+                utimetable_detail.setClass_7_professor_name(Class_7.getProfessor_name());
+                utimetable_detail.setClass_7_mid(Class_7.getMid_plan());
+                utimetable_detail.setClass_7_final(Class_7.getFinal_plan());
+                utimetable_detail.setClass_7_extra(Class_7.getExtra_plan());
+            }
+            if (Class_8 != null) {
+                utimetable_detail.setClass_8_name(Class_8.getClass_name());
+                utimetable_detail.setClass_8_course_id(Class_8.getCourse_id());
+                utimetable_detail.setClass_8_professor_name(Class_8.getProfessor_name());
+                utimetable_detail.setClass_8_mid(Class_8.getMid_plan());
+                utimetable_detail.setClass_8_final(Class_8.getFinal_plan());
+                utimetable_detail.setClass_8_extra(Class_8.getExtra_plan());
+            }
+            if (Class_9 != null) {
+                utimetable_detail.setClass_9_name(Class_9.getClass_name());
+                utimetable_detail.setClass_9_course_id(Class_9.getCourse_id());
+                utimetable_detail.setClass_9_professor_name(Class_9.getProfessor_name());
+                utimetable_detail.setClass_9_mid(Class_9.getMid_plan());
+                utimetable_detail.setClass_9_final(Class_9.getFinal_plan());
+                utimetable_detail.setClass_9_extra(Class_9.getExtra_plan());
+            }
+
+            //timetable 과목 시간대 정보
             User_timetable2 utimetable = new User_timetable2();
+            utimetable.setUser_timetable_no(timetable_org.get(i).getUser_timetable_no());
             utimetable.setUser_no(user_no);
+            utimetable.setCredit(timetable_org.get(i).getCredit());
             String name = null; //과목명
             int time = 0; //교시
             int day = 0; // 요일
@@ -122,6 +205,7 @@ public class TimeService {
                 //System.out.println(day + " " + hour);
             }//2번째 for
             //System.out.println(utimetable);
+            timetableDetail.add(utimetable_detail);
             timetable.add(utimetable);
         }//1번째 for
     } //setTimetable
@@ -187,6 +271,8 @@ public class TimeService {
     public List<User_timetable2> printTimetable(){
         return timetable;
     }
+
+    public List<User_timetable3> printTimetableDetail() {return timetableDetail;}
 
     // print Elective 추천 교양 과목 출력
     public List<List<User_elective_timetable2>> printElective(){

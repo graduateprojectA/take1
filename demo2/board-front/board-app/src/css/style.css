@@ -227,7 +227,10 @@ ul {
 .timetabled_short {
   text-align: center;
   border: 1px solid;
-  width: 7%;
+  width: 6%;
+  font-size: 13px;
+  height: 12%;
+  font-weight: bolder;
 }
 
 .d_input {
@@ -246,6 +249,12 @@ ul {
 }
 .d_major {
   color: #6c757d;
+}
+
+.force-scroll {
+  overflow-y: scroll;
+
+  height: 200px;
 }
 .rButton{
   cursor: pointer;

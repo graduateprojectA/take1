@@ -1,6 +1,7 @@
 package com.board.back.controller;
 
 import com.board.back.model.User_elective_timetable2;
+import com.board.back.model.User_timetable3;
 import com.board.back.model.User_timetable2;
 import com.board.back.repository.UserTimetableRepository;
 import com.board.back.service.TimeService;
@@ -34,15 +35,23 @@ public class TimetableController {
 	@PostMapping("/testTime")
 	public void test(@RequestBody int user_no) {
 		timetableService.setUser_no(user_no);
-		timetableService.getTime(user_no);
-		timetableService.getUser_class(user_no);
+	timetableService.getTime(user_no);
+	timetableService.getUser_class(user_no);
 		timeService.setUser_no(user_no);
-		timeService.setTimetable(user_no);
+	timeService.setTimetable(user_no);
 	}
 	@GetMapping("/timetableUser")
 	public List<User_timetable2> printTimetable(){
 		if (timeService.printTimetable() != null){
 			return timeService.printTimetable();}
+		else
+			return null;
+	}
+
+	@GetMapping("/timetableDetail")
+	public List <User_timetable3> printTimetableDetail(){
+		if (timeService.printTimetable() != null)
+			return timeService.printTimetableDetail();
 		else
 			return null;
 	}
