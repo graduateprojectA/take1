@@ -61,7 +61,8 @@ class CreateUserComponent extends Component {
             "디자인학부","섬유예술과","패션디자인과","교육학과","유아교육과","초등교육과",
             "교육공학과","특수교육과","국어교육과","과학교육과","수학교육과","경영학부",
             "융합콘텐츠학과","의류산업학과","국제사무학과","식품영양학과","융합보건학과","체육과학부",
-            "의학부","간호학과","글로벌건강간호학과","스크랜튼학부","뇌·인지과학과","국제학과","글로벌한국학과"]
+            "의학부","간호학과","글로벌건강간호학과","스크랜튼학부","뇌·인지과학과","국제학과","글로벌한국학과"],
+            user_major_str: ''
         }
 
         this.changeIdHandler = this.changeIdHandler.bind(this);
@@ -215,6 +216,8 @@ class CreateUserComponent extends Component {
             this.setState({ user_major : 66 });
         }else if(event.target.value=="글로벌한국학과"){
             this.setState({ user_major : 67 });
+        }else{
+            this.setState({ user_major : 67 });
         }
     }
 
@@ -280,14 +283,18 @@ class CreateUserComponent extends Component {
                             value={this.state.user_id} onChange={this.changeIdHandler} />
                         <Input type="text" placeholder="비밀번호" name="user_pw" className="form-control"
                             value={this.state.user_pw} onChange={this.changePwHandler} />
+
                         <div class="dropdown">
                             <button type="button" id="dropdownMenuButton1" class="d_input" data-bs-toggle="dropdown" aria-expanded="false">
                                 전공
                             </button>
-                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                            <ul class="dropdown-menu dropdown-primary force-scroll" role = "menu" aria-labelledby="dropdownMenuButton1">
                                 {
                                     this.state.Arr.map(c =>
-                                        <li><input type="checkbox" value={c} onChange={this.changeMajorHandler}  />{c}</li>)
+                                        // <li><input type="checkbox" value={c} onChange={this.changeMajorHandler}  />{c}</li>
+                                        // <button class = "dropdown-item" name ={c} value={c} onChange={this.changeMajorHandler} >{c}</button>
+                                        <button class = "dropdown-item" name ={c} value={c} onChange={()=>this.setState({user_major_str:23})} >{c}</button>
+                                    )
                                 }
                             </ul>
                         </div>

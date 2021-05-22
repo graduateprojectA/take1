@@ -250,3 +250,9 @@ ul {
 .d_major {
   color: #6c757d;
 }
+
+.force-scroll {
+  overflow-y: scroll;
+
+  height: 200px;
+}
