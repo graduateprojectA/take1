@@ -6,6 +6,26 @@ import UserService from '../service/UserService';
 import backgroundImage2 from "./image/backgroundImage3.png"
 import "../css/style.css";
 import styled from "styled-components";
+const LoginBackDiv = styled.div`
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url(${backgroundImage2});
+    background-size: cover;
+`;
+
+const LoginDiv = styled.div`
+    position: absolute;
+    left: 33%;
+    top: 23%;
+    width: 35%;
+    height: 62%;
+    border: solid 4px #00462A;
+    border-radius: 10px;
+    background-color: white;
+`;
 const Input = styled.input`
 position: relative;
 margin-left:20%;
@@ -216,12 +236,10 @@ class CreateUserComponent extends Component {
             user_pw: this.state.user_pw
         };
         if (this.state.user_no == '_create') {
-            console.log(user);
-            /*
             UserService.createUser(user);
             UserService.loginUser(log).then(res => {
                 this.props.history.push('../courseCheck');
-            });*/
+            });
         }
     }
 
@@ -254,9 +272,9 @@ class CreateUserComponent extends Component {
     render() {
         return (
             <div>
-                 {/* <LoginBackDiv> */}
+                  <LoginBackDiv>
                     <Logo />
-                    {/* <LoginDiv> */}
+                    <LoginDiv> 
                         <br />
                         <Input type="text" placeholder="학번 7자리" name="user_id" className="form-control"
                             value={this.state.user_id} onChange={this.changeIdHandler} />
@@ -269,7 +287,7 @@ class CreateUserComponent extends Component {
                             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                                 {
                                     this.state.Arr.map(c =>
-                                        <li><input type="checkbox"  value={c} onChange={this.changeMajorHandler}  />{c}</li>)
+                                        <li><input type="checkbox" value={c} onChange={this.changeMajorHandler}  />{c}</li>)
                                 }
                             </ul>
                         </div>
@@ -286,8 +304,8 @@ class CreateUserComponent extends Component {
                             하세요!
                             </p>
                         </div>
-                    {/* </LoginDiv>
-                </LoginBackDiv> */}
+                 </LoginDiv>
+                </LoginBackDiv> 
             </div>
         );
     }
