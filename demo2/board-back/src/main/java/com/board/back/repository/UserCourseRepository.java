@@ -18,7 +18,6 @@ public interface UserCourseRepository extends JpaRepository<User_course, Integer
     @Query(value="UPDATE User_course s SET s.course_done =:course_done WHERE s.user_no = :user_no and s.course_id =:course_id", nativeQuery = true)
     void executeUpdate(@Param("course_done")Boolean course_done,@Param("user_no")int user_no,@Param("course_id")int course_id);
 
-
     @Query(value="SELECT s.course_id from User_course s WHERE s.user_no = :user_no and s.course_done = true;",
             nativeQuery = true)
     List<Integer> printTrueCourse(@Param("user_no")int user_no);

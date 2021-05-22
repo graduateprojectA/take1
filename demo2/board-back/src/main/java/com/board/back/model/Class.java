@@ -73,6 +73,7 @@ public class Class {
     @Column(name="class_location")
     private String class_location;
 
+
     public Integer getClass_no() {
         return class_no;
     }
