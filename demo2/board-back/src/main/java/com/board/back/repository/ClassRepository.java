@@ -22,4 +22,9 @@ public interface ClassRepository extends JpaRepository<Class, Integer> {
 
     @Query(value="SELECT * from Class s where s.class_no =:class_no", nativeQuery=true)
     Class findClass(@Param("class_no")int class_no);
+
+    @Query(value="select class_credit from Class s where s.class_no in :class_no",
+            nativeQuery = true)
+    List<Integer> findCcredit(@Param("class_no")List<Integer>class_no);
+
 }

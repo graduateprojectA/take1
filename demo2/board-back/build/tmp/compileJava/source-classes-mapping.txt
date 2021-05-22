@@ -1,7 +1,7 @@
 com/board/back/BoardBackApplication.java
  com.board.back.BoardBackApplication
-com/board/back/service/TimeService.java
- com.board.back.service.TimeService
+com/board/back/service/UserService.java
+ com.board.back.service.UserService
 com/board/back/model/User_timetable.java
  com.board.back.model.User_timetable
 com/board/back/repository/TimeRepository.java
@@ -52,8 +52,8 @@ com/board/back/service/LoginService.java
  com.board.back.service.LoginService
 com/board/back/controller/PreferenceController.java
  com.board.back.controller.PreferenceController
-com/board/back/repository/ClassRepository.java
- com.board.back.repository.ClassRepository
+com/board/back/repository/UserClassRepository.java
+ com.board.back.repository.UserClassRepository
 com/board/back/controller/TimetableController.java
  com.board.back.controller.TimetableController
 com/board/back/model/Check_field.java
@@ -107,11 +107,11 @@ com/board/back/model/Class.java
  com.board.back.model.Class
 com/board/back/model/User_field.java
  com.board.back.model.User_field
-com/board/back/service/UserService.java
- com.board.back.service.UserService
 com/board/back/service/TimetableService.java
  com.board.back.service.TimetableService
-com/board/back/repository/UserClassRepository.java
- com.board.back.repository.UserClassRepository
+com/board/back/service/TimeService.java
+ com.board.back.service.TimeService
 com/board/back/service/ClassService.java
  com.board.back.service.ClassService
+com/board/back/repository/ClassRepository.java
+ com.board.back.repository.ClassRepository

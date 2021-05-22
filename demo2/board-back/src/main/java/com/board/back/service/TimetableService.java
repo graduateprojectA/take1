@@ -33,7 +33,7 @@ public class TimetableService {
     private ClassElectiveRepository classElectiveRepository;
     @Autowired
     private UserElectiveTimetableRepository userElectiveTimetableRepository;
-    public int out_time[][] = new int[5][7];
+    public int out_time[][] = new int[5][8];
     int major_no = 0;
     int time_mon = 0, time_tue = 0, time_wed = 0, time_thr = 0, time_fri = 0;
     ArrayList<Class_character> first_able_class_list = new ArrayList<Class_character>();
@@ -41,9 +41,9 @@ public class TimetableService {
     ArrayList<Class_character> third_able_class_list = new ArrayList<Class_character>();
     public static String user_pre[] = new String[6];
     ArrayList<Class_character> able_elective_class = new ArrayList<Class_character>();
-    int first_class_check[] = new int[100];
-    int second_class_check[] = new int[100];
-    int third_class_check[] = new int[100];
+    int first_class_check[] = new int[500];
+    int second_class_check[] = new int[500];
+    int third_class_check[] = new int[500];
     int first_timetable_smallest_credit = 0;
     int first_timetable_smallest_class_num = 0;
     int second_timetable_smallest_credit = 0;
@@ -326,9 +326,8 @@ public class TimetableService {
         now_class_no = userClassRepository.findCnum(no);
         Collections.sort(now_class_no);
         now_class_time = ClassRepository.findCtime(now_class_no);
-        now_class_credit = userClassRepository.findCcredit(no);
+        now_class_credit = ClassRepository.findCcredit(now_class_no);
         now_course_id = ClassRepository.findCCID(now_class_no);
-        temp_field_no = CourseRepository.findCF(now_course_id);
         temp_field_no = CourseRepository.findCF(now_course_id);
 
         for (int i = 0; i < now_course_id.size(); i++) {
@@ -354,6 +353,7 @@ public class TimetableService {
             }
             now_check_field.add(i, b);
         }
+        System.out.println(now_class_no.size()+" "+now_check_field.size()+" "+now_class_credit.size()+" "+now_course_id.size()+" "+now_class_time.size());
         int count = 0;
         for (int i = 0; i < now_class_time.size(); i++) {
             int flag = 0;

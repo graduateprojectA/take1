@@ -176,12 +176,38 @@ class Timetable extends Component {
         }
     }
     render() {
+        var color_dic = {}
+        const color = ['#8B0000', '#555500', '#A0522D', '#FF7F50', '#FA8072', '#AAAAAA', '#AAFFDD', '#122541', '#1d4ad5', '#1a2d5e', '#1q4d3s', '#1a2dq1', '#12a4q5', '#8B0000',
+         '#A52A2A', '#A0522D', '#FF7F50', '#FA8072', '#AAAAAA', '#AAFFDD', '#122541', '#1d4ad5', '#1a2d5e', '#1q4d3s', '#1a2dq1', '#12a4q5',
+         '#8B0000', '#A52A2A', '#A0522D', '#FF7F50', '#FA8072', '#AAAAAA', '#AAFFDD', '#122541', '#1d4ad5', '#1a2d5e', '#1q4d3s', '#1a2dq1', '#12a4q5']
+        var now_color = 0;
+        const day_time = [this.state.mon_1, this.state.mon_2,this.state.mon_3,this.state.mon_4,this.state.mon_5,this.state.mon_6,this.state.mon_7, 
+            this.state.tue_1, this.state.tue_2,this.state.tue_3,this.state.tue_4,this.state.tue_5,this.state.tue_6,this.state.tue_7,
+            this.state.wed_1, this.state.wed_2,this.state.wed_3,this.state.wed_4,this.state.wed_5,this.state.wed_6,this.state.wed_7,
+            this.state.thr_1, this.state.thr_2,this.state.thr_3,this.state.thr_4,this.state.thr_5,this.state.thr_6,this.state.thr_7,
+            this.state.fri_1, this.state.fri_2,this.state.fri_3,this.state.fri_4,this.state.fri_5,this.state.fri_6,this.state.fri_7]
+        
+        for (var i = 0; i <35; i++){
+            var now_var = day_time[i]
+            if(!(now_var[this.state.data] in color_dic)){
+                if(now_var[this.state.data] != 'undefined' && now_var[this.state.data] != undefined){
+                    color_dic[now_var[this.state.data]] = color[now_color];
+                    now_color = now_color + 1;
+                    console.log(typeof color_dic[now_var[this.state.data]])
+                    console.log(now_var[this.state.data])
+                    console.log(color_dic[now_var[this.state.data]]);
+                }else{
+                    color_dic[now_var[this.state.data]] = '#FFFFFF';
+                }
+            }
+        }
+        
         return (
         <TimetableDiv>
             <Logo />
             <TimeWrapDiv>
-            <br/>
-            <br/>
+                <br/>
+                추천 시간표 {this.state.data+1}
               <table className="TimeTable">
               <tr>
               <th className="timetabled_short">교시/요일</th>
@@ -193,59 +219,59 @@ class Timetable extends Component {
               </tr>
               <tr>
               <td className="timetabled_short">1</td>
-              <td className="timetabled_short">{this.state.mon_1[this.state.data]}</td>
-              <td className="timetabled_short">{this.state.tue_1[this.state.data]}</td>
-              <td className="timetabled_short">{this.state.wed_1[this.state.data]}</td>
-              <td className="timetabled_short">{this.state.thr_1[this.state.data]}</td>
-              <td className="timetabled_short">{this.state.fri_1[this.state.data]}</td>
+              <td className="timetabled_short" style={{backgroundColor: color_dic[this.state.mon_1[this.state.data]]}}>{this.state.mon_1[this.state.data]}</td>
+              <td className="timetabled_short" style={{backgroundColor: color_dic[this.state.tue_1[this.state.data]]}}>{this.state.tue_1[this.state.data]}</td>
+              <td className="timetabled_short" style={{backgroundColor: color_dic[this.state.wed_1[this.state.data]]}}>{this.state.wed_1[this.state.data]}</td>
+              <td className="timetabled_short" style={{backgroundColor: color_dic[this.state.thr_1[this.state.data]]}}>{this.state.thr_1[this.state.data]}</td>
+              <td className="timetabled_short" style={{backgroundColor: color_dic[this.state.fri_1[this.state.data]]}}>{this.state.fri_1[this.state.data]}</td>
               </tr>
               <tr>
               <td className="timetabled_short">2</td>
-              <td className="timetabled_short">{this.state.mon_2[this.state.data]}</td>
-              <td className="timetabled_short">{this.state.tue_2[this.state.data]}</td>
-              <td className="timetabled_short">{this.state.wed_2[this.state.data]}</td>
-              <td className="timetabled_short">{this.state.thr_2[this.state.data]}</td>
-              <td className="timetabled_short">{this.state.fri_2[this.state.data]}</td>
+              <td className="timetabled_short" style={{backgroundColor: color_dic[this.state.mon_2[this.state.data]]}}>{this.state.mon_2[this.state.data]}</td>
+              <td className="timetabled_short" style={{backgroundColor: color_dic[this.state.tue_2[this.state.data]]}}>{this.state.tue_2[this.state.data]}</td>
+              <td className="timetabled_short" style={{backgroundColor: color_dic[this.state.wed_2[this.state.data]]}}>{this.state.wed_2[this.state.data]}</td>
+              <td className="timetabled_short" style={{backgroundColor: color_dic[this.state.thr_2[this.state.data]]}}>{this.state.thr_2[this.state.data]}</td>
+              <td className="timetabled_short" style={{backgroundColor: color_dic[this.state.fri_2[this.state.data]]}}>{this.state.fri_2[this.state.data]}</td>
               </tr>
               <tr>
               <td className="timetabled_short">3</td>
-              <td className="timetabled_short">{this.state.mon_3[this.state.data]}</td>
-              <td className="timetabled_short">{this.state.tue_3[this.state.data]}</td>
-              <td className="timetabled_short">{this.state.wed_3[this.state.data]}</td>
-              <td className="timetabled_short">{this.state.thr_3[this.state.data]}</td>
-              <td className="timetabled_short">{this.state.fri_3[this.state.data]}</td>
+              <td className="timetabled_short" style={{backgroundColor: color_dic[this.state.mon_3[this.state.data]]}}>{this.state.mon_3[this.state.data]}</td>
+              <td className="timetabled_short" style={{backgroundColor: color_dic[this.state.tue_3[this.state.data]]}}>{this.state.tue_3[this.state.data]}</td>
+              <td className="timetabled_short" style={{backgroundColor: color_dic[this.state.wed_3[this.state.data]]}}>{this.state.wed_3[this.state.data]}</td>
+              <td className="timetabled_short" style={{backgroundColor: color_dic[this.state.thr_3[this.state.data]]}}>{this.state.thr_3[this.state.data]}</td>
+              <td className="timetabled_short" style={{backgroundColor: color_dic[this.state.fri_3[this.state.data]]}}>{this.state.fri_3[this.state.data]}</td>
               </tr>  
               <tr>
               <td className="timetabled_short">4</td>
-              <td className="timetabled_short">{this.state.mon_4[this.state.data]}</td>
-              <td className="timetabled_short">{this.state.tue_4[this.state.data]}</td>
-              <td className="timetabled_short">{this.state.wed_4[this.state.data]}</td>
-              <td className="timetabled_short">{this.state.thr_4[this.state.data]}</td>
-              <td className="timetabled_short">{this.state.fri_4[this.state.data]}</td>
+              <td className="timetabled_short" style={{backgroundColor: color_dic[this.state.mon_4[this.state.data]]}}>{this.state.mon_4[this.state.data]}</td>
+              <td className="timetabled_short" style={{backgroundColor: color_dic[this.state.tue_4[this.state.data]]}}>{this.state.tue_4[this.state.data]}</td>
+              <td className="timetabled_short" style={{backgroundColor: color_dic[this.state.wed_4[this.state.data]]}}>{this.state.wed_4[this.state.data]}</td>
+              <td className="timetabled_short" style={{backgroundColor: color_dic[this.state.thr_4[this.state.data]]}}>{this.state.thr_4[this.state.data]}</td>
+              <td className="timetabled_short" style={{backgroundColor: color_dic[this.state.fri_4[this.state.data]]}}>{this.state.fri_4[this.state.data]}</td>
               </tr>
               <tr>
               <td className="timetabled_short">5</td>
-              <td className="timetabled_short">{this.state.mon_5[this.state.data]}</td>
-              <td className="timetabled_short">{this.state.tue_5[this.state.data]}</td>
-              <td className="timetabled_short">{this.state.wed_5[this.state.data]}</td>
-              <td className="timetabled_short">{this.state.thr_5[this.state.data]}</td>
-              <td className="timetabled_short">{this.state.fri_5[this.state.data]}</td>
+              <td className="timetabled_short" style={{backgroundColor: color_dic[this.state.mon_5[this.state.data]]}}>{this.state.mon_5[this.state.data]}</td>
+              <td className="timetabled_short" style={{backgroundColor: color_dic[this.state.tue_5[this.state.data]]}}>{this.state.tue_5[this.state.data]}</td>
+              <td className="timetabled_short" style={{backgroundColor: color_dic[this.state.wed_5[this.state.data]]}}>{this.state.wed_5[this.state.data]}</td>
+              <td className="timetabled_short" style={{backgroundColor: color_dic[this.state.thr_5[this.state.data]]}}>{this.state.thr_5[this.state.data]}</td>
+              <td className="timetabled_short" style={{backgroundColor: color_dic[this.state.fri_5[this.state.data]]}}>{this.state.fri_5[this.state.data]}</td>
               </tr>
               <tr>
               <td className="timetabled_short">6</td>
-              <td className="timetabled_short">{this.state.mon_6[this.state.data]}</td>
-              <td className="timetabled_short">{this.state.tue_6[this.state.data]}</td>
-              <td className="timetabled_short">{this.state.wed_6[this.state.data]}</td>
-              <td className="timetabled_short">{this.state.thr_6[this.state.data]}</td>
-              <td className="timetabled_short">{this.state.fri_6[this.state.data]}</td>
+              <td className="timetabled_short" style={{backgroundColor: color_dic[this.state.mon_6[this.state.data]]}}>{this.state.mon_6[this.state.data]}</td>
+              <td className="timetabled_short" style={{backgroundColor: color_dic[this.state.tue_6[this.state.data]]}}>{this.state.tue_6[this.state.data]}</td>
+              <td className="timetabled_short" style={{backgroundColor: color_dic[this.state.wed_6[this.state.data]]}}>{this.state.wed_6[this.state.data]}</td>
+              <td className="timetabled_short" style={{backgroundColor: color_dic[this.state.thr_6[this.state.data]]}}>{this.state.thr_6[this.state.data]}</td>
+              <td className="timetabled_short" style={{backgroundColor: color_dic[this.state.fri_6[this.state.data]]}}>{this.state.fri_6[this.state.data]}</td>
               </tr>
               <tr>
               <td className="timetabled_short">7</td>
-              <td className="timetabled_short">{this.state.mon_7[this.state.data]}</td>
-              <td className="timetabled_short">{this.state.tue_7[this.state.data]}</td>
-              <td className="timetabled_short">{this.state.wed_7[this.state.data]}</td>
-              <td className="timetabled_short">{this.state.thr_7[this.state.data]}</td>
-              <td className="timetabled_short">{this.state.fri_7[this.state.data]}</td>
+              <td className="timetabled_short" style={{backgroundColor: color_dic[this.state.mon_7[this.state.data]]}}>{this.state.mon_7[this.state.data]}</td>
+              <td className="timetabled_short" style={{backgroundColor: color_dic[this.state.tue_7[this.state.data]]}}>{this.state.tue_7[this.state.data]}</td>
+              <td className="timetabled_short" style={{backgroundColor: color_dic[this.state.wed_7[this.state.data]]}}>{this.state.wed_7[this.state.data]}</td>
+              <td className="timetabled_short" style={{backgroundColor: color_dic[this.state.thr_7[this.state.data]]}}>{this.state.thr_7[this.state.data]}</td>
+              <td className="timetabled_short" style={{backgroundColor: color_dic[this.state.fri_7[this.state.data]]}}>{this.state.fri_7[this.state.data]}</td>
               </tr>                                                                                
               </table>
              
@@ -258,24 +284,10 @@ class Timetable extends Component {
             </TimeWrapDiv>
             <TimeInfoDiv>
                 교양 과목 추천
-            {this.state.elective.map(p => (
+                {this.state.elective.map(p => (
                   <li>{p.class_name} <br/>
                   {p.class_time}</li> ))}
-                <TimeInfoClassDiv>
-                    aa
-                </TimeInfoClassDiv>
-                <TimeInfoClassDiv>
-                    bb
-                </TimeInfoClassDiv>
-                <TimeInfoClassDiv>
-                    cc
-                </TimeInfoClassDiv>
-                <TimeInfoClassDiv>
-                    dd
-                </TimeInfoClassDiv>
-                <TimeInfoClassDiv>
-                    ee
-                </TimeInfoClassDiv>
+                
             </TimeInfoDiv>
         </TimetableDiv>
         
