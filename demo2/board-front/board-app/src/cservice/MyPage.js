@@ -42,15 +42,26 @@ const MyInfoDiv = styled.div`
 `;
 const TimeInfoDiv = styled.div`
     position: absolute;
-    top: 30%;
-    right: 5%;
+    top: 25%;
+    right: 28%;
     border: solid 1px;
-    height: 45%;
+    height: 35%;
     width: 13%;
     background-color: #fff5ee;
     opacity: 0.8;
     border: solid 5px #00462A;
-    border-radius: 10px;
+    
+`;
+const TestInfoDiv = styled.div`
+position: absolute;
+top: 60%;
+right: 28%;
+border: solid 1px;
+height: 20%;
+width: 13%;
+background-color: #fff5ee;
+opacity: 0.8;
+border: solid 5px #00462A;
 `;
 class MyPage extends Component {
     constructor(props) {
@@ -61,6 +72,10 @@ class MyPage extends Component {
             major_name : "",
            e_class1:[],e_class2:[],e_class3:[],e_class4:[],e_class5:[],
             elective1:[],elective2:[],elective3:[],elective4:[],elective5:[],
+            test1:[],test2:[],test3:[],test4:[],test5:[],testd:0,
+            c1name:"",c1mid:"",c1final:"",c2name:"",c2mid:"",c2final:"",c3name:"",c3mid:"",c3final:"",
+            c4name:"",c4mid:"",c4final:"",c5name:"",c5mid:"",c5final:"",c6name:"",c6mid:"",c6final:"",
+            c7name:"",c7mid:"",c7final:"",c8name:"",c8mid:"",c8final:"",c9name:"",c9mid:"",c9final:"",
             num:[],
             data:0,
             mon_1:"",tue_1:"",wed_1:"",thr_1:"",fri_1:"",
@@ -77,6 +92,15 @@ class MyPage extends Component {
         UserService.login().then((res) => {
           this.setState({ user_no: res.data });
           UserService.my2(res.data);
+        });
+        UserService.timetableDetail().then((res)=>{
+            this.setState({test1:res.data[0]});
+            this.setState({test2:res.data[1]});
+            this.setState({test3:res.data[2]});
+            this.setState({test4:res.data[3]});
+            this.setState({test5:res.data[4]});
+            this.setState({testd:res.data[0]});
+            console.log(res.data);
         });
         UserService.my().then((res)=>{
             this.setState({ user_info: res.data });
@@ -341,6 +365,480 @@ class MyPage extends Component {
              console.log(res.data);
         });
       }
+      setDate(n){
+        if(n==1){
+            let flag=0;
+            if(this.state.test1.class_1_mid>0){
+                let month1 = parseInt(this.state.test1.class_1_mid/100%100);
+                let day1 = parseInt(this.state.test1.class_1_mid%100%100);
+                let month2 = parseInt(this.state.test1.class_1_final/100%100);
+                let day2 = parseInt(this.state.test1.class_1_final%100%100);
+                this.setState({c1name:this.state.test1.class_1_name});
+                this.setState({c1mid:"중간고사 2021년 "+month1+"월 "+day1+"일"});
+                this.setState({c1final:"기말고사 2021년 "+month2+"월 "+day2+"일"});
+                flag=1;
+            }if(this.state.test1.class_2_mid>0){
+                let month1 = parseInt(this.state.test1.class_2_mid/100%100);
+                let day1 = parseInt(this.state.test1.class_2_mid%100%100);
+                let month2 = parseInt(this.state.test1.class_2_final/100%100);
+                let day2 = parseInt(this.state.test1.class_2_final%100%100);
+                this.setState({c2name:this.state.test1.class_2_name});
+                this.setState({c2mid:"중간고사 2021년 "+month1+"월 "+day1+"일"});
+                this.setState({c2final:"기말고사 2021년 "+month2+"월 "+day2+"일"});
+                flag=1;
+            }if(this.state.test1.class_3_mid>0){
+                let month1 = parseInt(this.state.test1.class_3_mid/100%100);
+                let day1 = parseInt(this.state.test1.class_3_mid%100%100);
+                let month2 = parseInt(this.state.test1.class_3_final/100%100);
+                let day2 = parseInt(this.state.test1.class_3_final%100%100);
+                this.setState({c3name:this.state.test1.class_3_name});
+                this.setState({c3mid:"중간고사 2021년 "+month1+"월 "+day1+"일"});
+                this.setState({c3final:"기말고사 2021년 "+month2+"월 "+day2+"일"});
+                flag=1;
+            }if(this.state.test1.class_4_mid>0){
+                let month1 = parseInt(this.state.test1.class_4_mid/100%100);
+                let day1 = parseInt(this.state.test1.class_4_mid%100%100);
+                let month2 = parseInt(this.state.test1.class_4_final/100%100);
+                let day2 = parseInt(this.state.test1.class_4_final%100%100);
+                this.setState({c4name:this.state.test1.class_4_name});
+                this.setState({c4mid:"중간고사 2021년 "+month1+"월 "+day1+"일"});
+                this.setState({c4final:"기말고사 2021년 "+month2+"월 "+day2+"일"});
+            flag=1;
+            }if(this.state.test1.class_5_mid>0){
+                let month1 = parseInt(this.state.test1.class_5_mid/100%100);
+                let day1 = parseInt(this.state.test1.class_5_mid%100%100);
+                let month2 = parseInt(this.state.test1.class_5_final/100%100);
+                let day2 = parseInt(this.state.test1.class_5_final%100%100);
+                this.setState({c5name:this.state.test1.class_5_name});
+                this.setState({c5mid:"중간고사 2021년 "+month1+"월 "+day1+"일"});
+                this.setState({c5final:"기말고사 2021년 "+month2+"월 "+day2+"일"});
+            flag=1;
+            }if(this.state.test1.class_6_mid>0){
+                let month1 = parseInt(this.state.test1.class_6_mid/100%100);
+                let day1 = parseInt(this.state.test1.class_6_mid%100%100);
+                let month2 = parseInt(this.state.test1.class_6_final/100%100);
+                let day2 = parseInt(this.state.test1.class_6_final%100%100);
+                this.setState({c6name:this.state.test1.class_6_name});
+                this.setState({c6mid:"중간고사 2021년 "+month1+"월 "+day1+"일"});
+                this.setState({c6final:"기말고사 2021년 "+month2+"월 "+day2+"일"});
+            flag=1;
+            }if(this.state.test1.class_7_mid>0){
+                let month1 = parseInt(this.state.test1.class_7_mid/100%100);
+                let day1 = parseInt(this.state.test1.class_7_mid%100%100);
+                let month2 = parseInt(this.state.test1.class_7_final/100%100);
+                let day2 = parseInt(this.state.test1.class_7_final%100%100);
+                this.setState({c7name:this.state.test1.class_7_name});
+                this.setState({c7mid:"중간고사 2021년 "+month1+"월 "+day1+"일"});
+                this.setState({c7final:"기말고사 2021년 "+month2+"월 "+day2+"일"});
+            flag=1;
+            }if(this.state.test1.class_8_mid>0){
+                let month1 = parseInt(this.state.test1.class_8_mid/100%100);
+                let day1 = parseInt(this.state.test1.class_8_mid%100%100);
+                let month2 = parseInt(this.state.test1.class_8_final/100%100);
+                let day2 = parseInt(this.state.test1.class_8_final%100%100);
+                this.setState({c8name:this.state.test1.class_8_name});
+                this.setState({c8mid:"중간고사 2021년 "+month1+"월 "+day1+"일"});
+                this.setState({c8final:"기말고사 2021년 "+month2+"월 "+day2+"일"});
+            flag=1;
+            }if(this.state.test1.class_9_mid>0){
+                let month1 = parseInt(this.state.test1.class_9_mid/100%100);
+                let day1 = parseInt(this.state.test1.class_9_mid%100%100);
+                let month2 = parseInt(this.state.test1.class_9_final/100%100);
+                let day2 = parseInt(this.state.test1.class_9_final%100%100);
+                this.setState({c9name:this.state.test1.class_9_name});
+                this.setState({c9mid:"중간고사 2021년 "+month1+"월 "+day1+"일"});
+                this.setState({c9final:"기말고사 2021년 "+month2+"월 "+day2+"일"});
+            flag=1;
+            }if(flag==0){
+                this.setState({c1name:null});this.setState({c1mid:null});this.setState({c1final:null});
+                this.setState({c2name:null});this.setState({c2mid:null});this.setState({c2final:null});
+                this.setState({c3name:null});this.setState({c3mid:null});this.setState({c3final:null});
+                this.setState({c4name:null});this.setState({c4mid:null});this.setState({c4final:null});
+                this.setState({c5name:null});this.setState({c5mid:null});this.setState({c5final:null});
+                this.setState({c6name:null});this.setState({c6mid:null});this.setState({c6final:null});
+                this.setState({c7name:null});this.setState({c7mid:null});this.setState({c7final:null});
+                this.setState({c8name:null});this.setState({c8mid:null});this.setState({c8final:null});
+                this.setState({c9name:null});this.setState({c9mid:null});this.setState({c9final:null});
+            }
+        }else if(n==2){
+            let flag=0;
+            if(this.state.test2.class_1_mid>0){
+                let month1 = parseInt(this.state.test2.class_1_mid/100%100);
+                let day1 = parseInt(this.state.test2.class_1_mid%100%100);
+                let month2 = parseInt(this.state.test2.class_1_final/100%100);
+                let day2 = parseInt(this.state.test2.class_1_final%100%100);
+                this.setState({c1name:this.state.test2.class_1_name});
+                this.setState({c1mid:"중간고사 2021년 "+month1+"월 "+day1+"일"});
+                this.setState({c1final:"기말고사 2021년 "+month2+"월 "+day2+"일"});
+                flag=1;
+            }if(this.state.test2.class_2_mid>0){
+                let month1 = parseInt(this.state.test2.class_2_mid/100%100);
+                let day1 = parseInt(this.state.test2.class_2_mid%100%100);
+                let month2 = parseInt(this.state.test2.class_2_final/100%100);
+                let day2 = parseInt(this.state.test2.class_2_final%100%100);
+                this.setState({c2name:this.state.test2.class_2_name});
+                this.setState({c2mid:"중간고사 2021년 "+month1+"월 "+day1+"일"});
+                this.setState({c2final:"기말고사 2021년 "+month2+"월 "+day2+"일"});
+                flag=1;
+            }if(this.state.test2.class_3_mid>0){
+                let month1 = parseInt(this.state.test2.class_3_mid/100%100);
+                let day1 = parseInt(this.state.test2.class_3_mid%100%100);
+                let month2 = parseInt(this.state.test2.class_3_final/100%100);
+                let day2 = parseInt(this.state.test2.class_3_final%100%100);
+                this.setState({c3name:this.state.test2.class_3_name});
+                this.setState({c3mid:"중간고사 2021년 "+month1+"월 "+day1+"일"});
+                this.setState({c3final:"기말고사 2021년 "+month2+"월 "+day2+"일"});
+                flag=1;
+            }if(this.state.test2.class_4_mid>0){
+                let month1 = parseInt(this.state.test2.class_4_mid/100%100);
+                let day1 = parseInt(this.state.test2.class_4_mid%100%100);
+                let month2 = parseInt(this.state.test2.class_4_final/100%100);
+                let day2 = parseInt(this.state.test2.class_4_final%100%100);
+                this.setState({c4name:this.state.test2.class_4_name});
+                this.setState({c4mid:"중간고사 2021년 "+month1+"월 "+day1+"일"});
+                this.setState({c4final:"기말고사 2021년 "+month2+"월 "+day2+"일"});
+            flag=1;
+            }if(this.state.test2.class_5_mid>0){
+                let month1 = parseInt(this.state.test2.class_5_mid/100%100);
+                let day1 = parseInt(this.state.test2.class_5_mid%100%100);
+                let month2 = parseInt(this.state.test2.class_5_final/100%100);
+                let day2 = parseInt(this.state.test2.class_5_final%100%100);
+                this.setState({c5name:this.state.test2.class_5_name});
+                this.setState({c5mid:"중간고사 2021년 "+month1+"월 "+day1+"일"});
+                this.setState({c5final:"기말고사 2021년 "+month2+"월 "+day2+"일"});
+            flag=1;
+            }if(this.state.test2.class_6_mid>0){
+                let month1 = parseInt(this.state.test2.class_6_mid/100%100);
+                let day1 = parseInt(this.state.test2.class_6_mid%100%100);
+                let month2 = parseInt(this.state.test2.class_6_final/100%100);
+                let day2 = parseInt(this.state.test2.class_6_final%100%100);
+                this.setState({c6name:this.state.test2.class_6_name});
+                this.setState({c6mid:"중간고사 2021년 "+month1+"월 "+day1+"일"});
+                this.setState({c6final:"기말고사 2021년 "+month2+"월 "+day2+"일"});
+            flag=1;
+            }if(this.state.test2.class_7_mid>0){
+                let month1 = parseInt(this.state.test2.class_7_mid/100%100);
+                let day1 = parseInt(this.state.test2.class_7_mid%100%100);
+                let month2 = parseInt(this.state.test2.class_7_final/100%100);
+                let day2 = parseInt(this.state.test2.class_7_final%100%100);
+                this.setState({c7name:this.state.test2.class_7_name});
+                this.setState({c7mid:"중간고사 2021년 "+month1+"월 "+day1+"일"});
+                this.setState({c7final:"기말고사 2021년 "+month2+"월 "+day2+"일"});
+            flag=1;
+            }if(this.state.test2.class_8_mid>0){
+                let month1 = parseInt(this.state.test2.class_8_mid/100%100);
+                let day1 = parseInt(this.state.test2.class_8_mid%100%100);
+                let month2 = parseInt(this.state.test2.class_8_final/100%100);
+                let day2 = parseInt(this.state.test2.class_8_final%100%100);
+                this.setState({c8name:this.state.test2.class_8_name});
+                this.setState({c8mid:"중간고사 2021년 "+month1+"월 "+day1+"일"});
+                this.setState({c8final:"기말고사 2021년 "+month2+"월 "+day2+"일"});
+            flag=1;
+            }if(this.state.test2.class_9_mid>0){
+                let month1 = parseInt(this.state.test2.class_9_mid/100%100);
+                let day1 = parseInt(this.state.test2.class_9_mid%100%100);
+                let month2 = parseInt(this.state.test2.class_9_final/100%100);
+                let day2 = parseInt(this.state.test2.class_9_final%100%100);
+                this.setState({c9name:this.state.test2.class_9_name});
+                this.setState({c9mid:"중간고사 2021년 "+month1+"월 "+day1+"일"});
+                this.setState({c9final:"기말고사 2021년 "+month2+"월 "+day2+"일"});
+            flag=1;
+            }if(flag==0){
+                this.setState({c1name:null});this.setState({c1mid:null});this.setState({c1final:null});
+                this.setState({c2name:null});this.setState({c2mid:null});this.setState({c2final:null});
+                this.setState({c3name:null});this.setState({c3mid:null});this.setState({c3final:null});
+                this.setState({c4name:null});this.setState({c4mid:null});this.setState({c4final:null});
+                this.setState({c5name:null});this.setState({c5mid:null});this.setState({c5final:null});
+                this.setState({c6name:null});this.setState({c6mid:null});this.setState({c6final:null});
+                this.setState({c7name:null});this.setState({c7mid:null});this.setState({c7final:null});
+                this.setState({c8name:null});this.setState({c8mid:null});this.setState({c8final:null});
+                this.setState({c9name:null});this.setState({c9mid:null});this.setState({c9final:null});
+            }
+        }else if(n==3){
+            let flag=0;
+            if(this.state.test3.class_1_mid>0){
+                let month1 = parseInt(this.state.test3.class_1_mid/100%100);
+                let day1 = parseInt(this.state.test3.class_1_mid%100%100);
+                let month2 = parseInt(this.state.test3.class_1_final/100%100);
+                let day2 = parseInt(this.state.test3.class_1_final%100%100);
+                this.setState({c1name:this.state.test3.class_1_name});
+                this.setState({c1mid:"중간고사 2021년 "+month1+"월 "+day1+"일"});
+                this.setState({c1final:"기말고사 2021년 "+month2+"월 "+day2+"일"});
+                flag=1;
+            }if(this.state.test3.class_2_mid>0){
+                let month1 = parseInt(this.state.test3.class_2_mid/100%100);
+                let day1 = parseInt(this.state.test3.class_2_mid%100%100);
+                let month2 = parseInt(this.state.test3.class_2_final/100%100);
+                let day2 = parseInt(this.state.test3.class_2_final%100%100);
+                this.setState({c2name:this.state.test3.class_2_name});
+                this.setState({c2mid:"중간고사 2021년 "+month1+"월 "+day1+"일"});
+                this.setState({c2final:"기말고사 2021년 "+month2+"월 "+day2+"일"});
+                flag=1;
+            }if(this.state.test3.class_3_mid>0){
+                let month1 = parseInt(this.state.test3.class_3_mid/100%100);
+                let day1 = parseInt(this.state.test3.class_3_mid%100%100);
+                let month2 = parseInt(this.state.test3.class_3_final/100%100);
+                let day2 = parseInt(this.state.test3.class_3_final%100%100);
+                this.setState({c3name:this.state.test3.class_3_name});
+                this.setState({c3mid:"중간고사 2021년 "+month1+"월 "+day1+"일"});
+                this.setState({c3final:"기말고사 2021년 "+month2+"월 "+day2+"일"});
+                flag=1;
+            }if(this.state.test3.class_4_mid>0){
+                let month1 = parseInt(this.state.test3.class_4_mid/100%100);
+                let day1 = parseInt(this.state.test3.class_4_mid%100%100);
+                let month2 = parseInt(this.state.test3.class_4_final/100%100);
+                let day2 = parseInt(this.state.test3.class_4_final%100%100);
+                this.setState({c4name:this.state.test3.class_4_name});
+                this.setState({c4mid:"중간고사 2021년 "+month1+"월 "+day1+"일"});
+                this.setState({c4final:"기말고사 2021년 "+month2+"월 "+day2+"일"});
+            flag=1;
+            }if(this.state.test3.class_5_mid>0){
+                let month1 = parseInt(this.state.test3.class_5_mid/100%100);
+                let day1 = parseInt(this.state.test3.class_5_mid%100%100);
+                let month2 = parseInt(this.state.test3.class_5_final/100%100);
+                let day2 = parseInt(this.state.test3.class_5_final%100%100);
+                this.setState({c5name:this.state.test3.class_5_name});
+                this.setState({c5mid:"중간고사 2021년 "+month1+"월 "+day1+"일"});
+                this.setState({c5final:"기말고사 2021년 "+month2+"월 "+day2+"일"});
+            flag=1;
+            }if(this.state.test3.class_6_mid>0){
+                let month1 = parseInt(this.state.test3.class_6_mid/100%100);
+                let day1 = parseInt(this.state.test3.class_6_mid%100%100);
+                let month2 = parseInt(this.state.test3.class_6_final/100%100);
+                let day2 = parseInt(this.state.test3.class_6_final%100%100);
+                this.setState({c6name:this.state.test3.class_6_name});
+                this.setState({c6mid:"중간고사 2021년 "+month1+"월 "+day1+"일"});
+                this.setState({c6final:"기말고사 2021년 "+month2+"월 "+day2+"일"});
+            flag=1;
+            }if(this.state.test3.class_7_mid>0){
+                let month1 = parseInt(this.state.test3.class_7_mid/100%100);
+                let day1 = parseInt(this.state.test3.class_7_mid%100%100);
+                let month2 = parseInt(this.state.test3.class_7_final/100%100);
+                let day2 = parseInt(this.state.test3.class_7_final%100%100);
+                this.setState({c7name:this.state.test3.class_7_name});
+                this.setState({c7mid:"중간고사 2021년 "+month1+"월 "+day1+"일"});
+                this.setState({c7final:"기말고사 2021년 "+month2+"월 "+day2+"일"});
+            flag=1;
+            }if(this.state.test3.class_8_mid>0){
+                let month1 = parseInt(this.state.test3.class_8_mid/100%100);
+                let day1 = parseInt(this.state.test3.class_8_mid%100%100);
+                let month2 = parseInt(this.state.test3.class_8_final/100%100);
+                let day2 = parseInt(this.state.test3.class_8_final%100%100);
+                this.setState({c8name:this.state.test3.class_8_name});
+                this.setState({c8mid:"중간고사 2021년 "+month1+"월 "+day1+"일"});
+                this.setState({c8final:"기말고사 2021년 "+month2+"월 "+day2+"일"});
+            flag=1;
+            }if(this.state.test3.class_9_mid>0){
+                let month1 = parseInt(this.state.test3.class_9_mid/100%100);
+                let day1 = parseInt(this.state.test3.class_9_mid%100%100);
+                let month2 = parseInt(this.state.test3.class_9_final/100%100);
+                let day2 = parseInt(this.state.test3.class_9_final%100%100);
+                this.setState({c9name:this.state.test3.class_9_name});
+                this.setState({c9mid:"중간고사 2021년 "+month1+"월 "+day1+"일"});
+                this.setState({c9final:"기말고사 2021년 "+month2+"월 "+day2+"일"});
+            flag=1;
+            }if(flag==0){
+                this.setState({c1name:null});this.setState({c1mid:null});this.setState({c1final:null});
+                this.setState({c2name:null});this.setState({c2mid:null});this.setState({c2final:null});
+                this.setState({c3name:null});this.setState({c3mid:null});this.setState({c3final:null});
+                this.setState({c4name:null});this.setState({c4mid:null});this.setState({c4final:null});
+                this.setState({c5name:null});this.setState({c5mid:null});this.setState({c5final:null});
+                this.setState({c6name:null});this.setState({c6mid:null});this.setState({c6final:null});
+                this.setState({c7name:null});this.setState({c7mid:null});this.setState({c7final:null});
+                this.setState({c8name:null});this.setState({c8mid:null});this.setState({c8final:null});
+                this.setState({c9name:null});this.setState({c9mid:null});this.setState({c9final:null});
+            }
+        }else if(n==4){
+            let flag=0;
+            if(this.state.test4.class_1_mid>0){
+                let month1 = parseInt(this.state.test4.class_1_mid/100%100);
+                let day1 = parseInt(this.state.test4.class_1_mid%100%100);
+                let month2 = parseInt(this.state.test4.class_1_final/100%100);
+                let day2 = parseInt(this.state.test4.class_1_final%100%100);
+                this.setState({c1name:this.state.test4.class_1_name});
+                this.setState({c1mid:"중간고사 2021년 "+month1+"월 "+day1+"일"});
+                this.setState({c1final:"기말고사 2021년 "+month2+"월 "+day2+"일"});
+                flag=1;
+            }if(this.state.test4.class_2_mid>0){
+                let month1 = parseInt(this.state.test4.class_2_mid/100%100);
+                let day1 = parseInt(this.state.test4.class_2_mid%100%100);
+                let month2 = parseInt(this.state.test4.class_2_final/100%100);
+                let day2 = parseInt(this.state.test4.class_2_final%100%100);
+                this.setState({c2name:this.state.test4.class_2_name});
+                this.setState({c2mid:"중간고사 2021년 "+month1+"월 "+day1+"일"});
+                this.setState({c2final:"기말고사 2021년 "+month2+"월 "+day2+"일"});
+                flag=1;
+            }if(this.state.test4.class_3_mid>0){
+                let month1 = parseInt(this.state.test4.class_3_mid/100%100);
+                let day1 = parseInt(this.state.test4.class_3_mid%100%100);
+                let month2 = parseInt(this.state.test4.class_3_final/100%100);
+                let day2 = parseInt(this.state.test4.class_3_final%100%100);
+                this.setState({c3name:this.state.test4.class_3_name});
+                this.setState({c3mid:"중간고사 2021년 "+month1+"월 "+day1+"일"});
+                this.setState({c3final:"기말고사 2021년 "+month2+"월 "+day2+"일"});
+                flag=1;
+            }if(this.state.test4.class_4_mid>0){
+                let month1 = parseInt(this.state.test4.class_4_mid/100%100);
+                let day1 = parseInt(this.state.test4.class_4_mid%100%100);
+                let month2 = parseInt(this.state.test4.class_4_final/100%100);
+                let day2 = parseInt(this.state.test4.class_4_final%100%100);
+                this.setState({c4name:this.state.test4.class_4_name});
+                this.setState({c4mid:"중간고사 2021년 "+month1+"월 "+day1+"일"});
+                this.setState({c4final:"기말고사 2021년 "+month2+"월 "+day2+"일"});
+            flag=1;
+            }if(this.state.test4.class_5_mid>0){
+                let month1 = parseInt(this.state.test4.class_5_mid/100%100);
+                let day1 = parseInt(this.state.test4.class_5_mid%100%100);
+                let month2 = parseInt(this.state.test4.class_5_final/100%100);
+                let day2 = parseInt(this.state.test4.class_5_final%100%100);
+                this.setState({c5name:this.state.test4.class_5_name});
+                this.setState({c5mid:"중간고사 2021년 "+month1+"월 "+day1+"일"});
+                this.setState({c5final:"기말고사 2021년 "+month2+"월 "+day2+"일"});
+            flag=1;
+            }if(this.state.test4.class_6_mid>0){
+                let month1 = parseInt(this.state.test4.class_6_mid/100%100);
+                let day1 = parseInt(this.state.test4.class_6_mid%100%100);
+                let month2 = parseInt(this.state.test4.class_6_final/100%100);
+                let day2 = parseInt(this.state.test4.class_6_final%100%100);
+                this.setState({c6name:this.state.test4.class_6_name});
+                this.setState({c6mid:"중간고사 2021년 "+month1+"월 "+day1+"일"});
+                this.setState({c6final:"기말고사 2021년 "+month2+"월 "+day2+"일"});
+            flag=1;
+            }if(this.state.test4.class_7_mid>0){
+                let month1 = parseInt(this.state.test4.class_7_mid/100%100);
+                let day1 = parseInt(this.state.test4.class_7_mid%100%100);
+                let month2 = parseInt(this.state.test4.class_7_final/100%100);
+                let day2 = parseInt(this.state.test4.class_7_final%100%100);
+                this.setState({c7name:this.state.test4.class_7_name});
+                this.setState({c7mid:"중간고사 2021년 "+month1+"월 "+day1+"일"});
+                this.setState({c7final:"기말고사 2021년 "+month2+"월 "+day2+"일"});
+            flag=1;
+            }if(this.state.test4.class_8_mid>0){
+                let month1 = parseInt(this.state.test4.class_8_mid/100%100);
+                let day1 = parseInt(this.state.test4.class_8_mid%100%100);
+                let month2 = parseInt(this.state.test4.class_8_final/100%100);
+                let day2 = parseInt(this.state.test4.class_8_final%100%100);
+                this.setState({c8name:this.state.test4.class_8_name});
+                this.setState({c8mid:"중간고사 2021년 "+month1+"월 "+day1+"일"});
+                this.setState({c8final:"기말고사 2021년 "+month2+"월 "+day2+"일"});
+            flag=1;
+            }if(this.state.test4.class_9_mid>0){
+                let month1 = parseInt(this.state.test4.class_9_mid/100%100);
+                let day1 = parseInt(this.state.test4.class_9_mid%100%100);
+                let month2 = parseInt(this.state.test4.class_9_final/100%100);
+                let day2 = parseInt(this.state.test4.class_9_final%100%100);
+                this.setState({c9name:this.state.test4.class_9_name});
+                this.setState({c9mid:"중간고사 2021년 "+month1+"월 "+day1+"일"});
+                this.setState({c9final:"기말고사 2021년 "+month2+"월 "+day2+"일"});
+            flag=1;
+            }if(flag==0){
+                this.setState({c1name:null});this.setState({c1mid:null});this.setState({c1final:null});
+                this.setState({c2name:null});this.setState({c2mid:null});this.setState({c2final:null});
+                this.setState({c3name:null});this.setState({c3mid:null});this.setState({c3final:null});
+                this.setState({c4name:null});this.setState({c4mid:null});this.setState({c4final:null});
+                this.setState({c5name:null});this.setState({c5mid:null});this.setState({c5final:null});
+                this.setState({c6name:null});this.setState({c6mid:null});this.setState({c6final:null});
+                this.setState({c7name:null});this.setState({c7mid:null});this.setState({c7final:null});
+                this.setState({c8name:null});this.setState({c8mid:null});this.setState({c8final:null});
+                this.setState({c9name:null});this.setState({c9mid:null});this.setState({c9final:null});
+            }
+        }else if(n==5){
+            let flag=0;
+            if(this.state.test5.class_1_mid>0){
+                let month1 = parseInt(this.state.test5.class_1_mid/100%100);
+                let day1 = parseInt(this.state.test5.class_1_mid%100%100);
+                let month2 = parseInt(this.state.test5.class_1_final/100%100);
+                let day2 = parseInt(this.state.test5.class_1_final%100%100);
+                console.log(month1+" "+day1);
+                this.setState({c1name:this.state.test5.class_1_name});
+                this.setState({c1mid:"중간고사 2021년 "+month1+"월 "+day1+"일"});
+                this.setState({c1final:"기말고사 2021년 "+month2+"월 "+day2+"일"});
+                flag=1;
+            }if(this.state.test5.class_2_mid>0){
+                let month1 = parseInt(this.state.test5.class_2_mid/100%100);
+                let day1 = parseInt(this.state.test5.class_2_mid%100%100);
+                let month2 = parseInt(this.state.test5.class_2_final/100%100);
+                let day2 = parseInt(this.state.test5.class_2_final%100%100);
+                this.setState({c2name:this.state.test5.class_2_name});
+                this.setState({c2mid:"중간고사 2021년 "+month1+"월 "+day1+"일"});
+                this.setState({c2final:"기말고사 2021년 "+month2+"월 "+day2+"일"});
+                flag=1;
+            }if(this.state.test5.class_3_mid>0){
+                let month1 = parseInt(this.state.test5.class_3_mid/100%100);
+                let day1 = parseInt(this.state.test5.class_3_mid%100%100);
+                let month2 = parseInt(this.state.test5.class_3_final/100%100);
+                let day2 = parseInt(this.state.test5.class_3_final%100%100);
+                this.setState({c3name:this.state.test5.class_3_name});
+                this.setState({c3mid:"중간고사 2021년 "+month1+"월 "+day1+"일"});
+                this.setState({c3final:"기말고사 2021년 "+month2+"월 "+day2+"일"});
+                flag=1;
+            }if(this.state.test5.class_4_mid>0){
+                let month1 = parseInt(this.state.test5.class_4_mid/100%100);
+                let day1 = parseInt(this.state.test5.class_4_mid%100%100);
+                let month2 = parseInt(this.state.test5.class_4_final/100%100);
+                let day2 = parseInt(this.state.test5.class_4_final%100%100);
+                this.setState({c4name:this.state.test5.class_4_name});
+                this.setState({c4mid:"중간고사 2021년 "+month1+"월 "+day1+"일"});
+                this.setState({c4final:"기말고사 2021년 "+month2+"월 "+day2+"일"});
+            flag=1;
+            }if(this.state.test5.class_5_mid>0){
+                let month1 = parseInt(this.state.test5.class_5_mid/100%100);
+                let day1 = parseInt(this.state.test5.class_5_mid%100%100);
+                let month2 = parseInt(this.state.test5.class_5_final/100%100);
+                let day2 = parseInt(this.state.test5.class_5_final%100%100);
+                this.setState({c5name:this.state.test5.class_5_name});
+                this.setState({c5mid:"중간고사 2021년 "+month1+"월 "+day1+"일"});
+                this.setState({c5final:"기말고사 2021년 "+month2+"월 "+day2+"일"});
+            flag=1;
+            }if(this.state.test5.class_6_mid>0){
+                let month1 = parseInt(this.state.test5.class_6_mid/100%100);
+                let day1 = parseInt(this.state.test5.class_6_mid%100%100);
+                let month2 = parseInt(this.state.test5.class_6_final/100%100);
+                let day2 = parseInt(this.state.test5.class_6_final%100%100);
+                this.setState({c6name:this.state.test5.class_6_name});
+                this.setState({c6mid:"중간고사 2021년 "+month1+"월 "+day1+"일"});
+                this.setState({c6final:"기말고사 2021년 "+month2+"월 "+day2+"일"});
+            flag=1;
+            }if(this.state.test5.class_7_mid>0){
+                let month1 = parseInt(this.state.test5.class_7_mid/100%100);
+                let day1 = parseInt(this.state.test5.class_7_mid%100%100);
+                let month2 = parseInt(this.state.test5.class_7_final/100%100);
+                let day2 = parseInt(this.state.test5.class_7_final%100%100);
+                this.setState({c7name:this.state.test5.class_7_name});
+                this.setState({c7mid:"중간고사 2021년 "+month1+"월 "+day1+"일"});
+                this.setState({c7final:"기말고사 2021년 "+month2+"월 "+day2+"일"});
+            flag=1;
+            }if(this.state.test5.class_8_mid>0){
+                let month1 = parseInt(this.state.test5.class_8_mid/100%100);
+                let day1 = parseInt(this.state.test5.class_8_mid%100%100);
+                let month2 = parseInt(this.state.test5.class_8_final/100%100);
+                let day2 = parseInt(this.state.test5.class_8_final%100%100);
+                this.setState({c8name:this.state.test5.class_8_name});
+                this.setState({c8mid:"중간고사 2021년 "+month1+"월 "+day1+"일"});
+                this.setState({c8final:"기말고사 2021년 "+month2+"월 "+day2+"일"});
+            flag=1;
+            }if(this.state.test5.class_9_mid>0){
+                let month1 = parseInt(this.state.test5.class_9_mid/100%100);
+                let day1 = parseInt(this.state.test5.class_9_mid%100%100);
+                let month2 = parseInt(this.state.test5.class_9_final/100%100);
+                let day2 = parseInt(this.state.test5.class_9_final%100%100);
+                this.setState({c9name:this.state.test5.class_9_name});
+                this.setState({c9mid:"중간고사 2021년 "+month1+"월 "+day1+"일"});
+                this.setState({c9final:"기말고사 2021년 "+month2+"월 "+day2+"일"});
+            flag=1;
+            }if(flag==0){
+                this.setState({c1name:null});this.setState({c1mid:null});this.setState({c1final:null});
+                this.setState({c2name:null});this.setState({c2mid:null});this.setState({c2final:null});
+                this.setState({c3name:null});this.setState({c3mid:null});this.setState({c3final:null});
+                this.setState({c4name:null});this.setState({c4mid:null});this.setState({c4final:null});
+                this.setState({c5name:null});this.setState({c5mid:null});this.setState({c5final:null});
+                this.setState({c6name:null});this.setState({c6mid:null});this.setState({c6final:null});
+                this.setState({c7name:null});this.setState({c7mid:null});this.setState({c7final:null});
+                this.setState({c8name:null});this.setState({c8mid:null});this.setState({c8final:null});
+                this.setState({c9name:null});this.setState({c9mid:null});this.setState({c9final:null});
+            }
+        }
+    }
         next=(event)=>{
         if(this.state.data<4){
             this.setState({pref:false});
@@ -352,6 +850,7 @@ class MyPage extends Component {
              this.setState({e_class3 : this.state.elective1[2]});
              this.setState({e_class4 : this.state.elective1[3]});
              this.setState({e_class5 : this.state.elective1[4]});
+             this.setDate(1);
             }
             if(a==1){
                 this.setState({e_class1 :this.state.elective2[0]});
@@ -359,24 +858,28 @@ class MyPage extends Component {
              this.setState({e_class3 : this.state.elective2[2]});
              this.setState({e_class4 : this.state.elective2[3]});
              this.setState({e_class5 : this.state.elective2[4]});
+             this.setDate(2);
             }else if(a==2){
                 this.setState({e_class1 :this.state.elective3[0]});
              this.setState({e_class2 :this.state.elective3[1]});
              this.setState({e_class3 : this.state.elective3[2]});
              this.setState({e_class4 : this.state.elective3[3]});
              this.setState({e_class5 : this.state.elective3[4]});
+             this.setDate(3);
             }else if(a==3){
                 this.setState({e_class1 :this.state.elective4[0]});
              this.setState({e_class2 :this.state.elective4[1]});
              this.setState({e_class3 : this.state.elective4[2]});
              this.setState({e_class4 : this.state.elective4[3]});
              this.setState({e_class5 : this.state.elective4[4]});
+             this.setDate(4);
             }else if(a==4){
                 this.setState({e_class1 :this.state.elective5[0]});
              this.setState({e_class2 :this.state.elective5[1]});
              this.setState({e_class3 : this.state.elective5[2]});
              this.setState({e_class4 : this.state.elective5[3]});
              this.setState({e_class5 : this.state.elective5[4]});
+             this.setDate(5);
             }
         }else{
             let a=this.state.data;
@@ -395,6 +898,7 @@ class MyPage extends Component {
              this.setState({e_class3 : this.state.elective1[2]});
              this.setState({e_class4 : this.state.elective1[3]});
              this.setState({e_class5 : this.state.elective1[4]});
+             this.setDate(1);
             }
             if(a==1){
                 this.setState({e_class1 :this.state.elective2[0]});
@@ -402,24 +906,28 @@ class MyPage extends Component {
              this.setState({e_class3 : this.state.elective2[2]});
              this.setState({e_class4 : this.state.elective2[3]});
              this.setState({e_class5 : this.state.elective2[4]});
+             this.setDate(2);
             }else if(a==2){
                 this.setState({e_class1 :this.state.elective3[0]});
              this.setState({e_class2 :this.state.elective3[1]});
              this.setState({e_class3 : this.state.elective3[2]});
              this.setState({e_class4 : this.state.elective3[3]});
              this.setState({e_class5 : this.state.elective3[4]});
+             this.setDate(3);
             }else if(a==3){
                 this.setState({e_class1 :this.state.elective4[0]});
              this.setState({e_class2 :this.state.elective4[1]});
              this.setState({e_class3 : this.state.elective4[2]});
              this.setState({e_class4 : this.state.elective4[3]});
              this.setState({e_class5 : this.state.elective4[4]});
+             this.setDate(4);
             }else if(a==4){
                 this.setState({e_class1 :this.state.elective5[0]});
              this.setState({e_class2 :this.state.elective5[1]});
              this.setState({e_class3 : this.state.elective5[2]});
              this.setState({e_class4 : this.state.elective5[3]});
              this.setState({e_class5 : this.state.elective5[4]});
+             this.setDate(5);
             }
             
         }else{
@@ -427,6 +935,31 @@ class MyPage extends Component {
         }
     }
     render() {
+        var color_dic = {}
+        const color = ['#8B0000', '#555500', '#A0522D', '#FF7F50', '#FA8072', '#AAAAAA', '#AAFFDD', '#122541', '#1d4ad5', '#1a2d5e', '#1q4d3s', '#1a2dq1', '#12a4q5', '#8B0000',
+         '#A52A2A', '#A0522D', '#FF7F50', '#FA8072', '#AAAAAA', '#AAFFDD', '#122541', '#1d4ad5', '#1a2d5e', '#1q4d3s', '#1a2dq1', '#12a4q5',
+         '#8B0000', '#A52A2A', '#A0522D', '#FF7F50', '#FA8072', '#AAAAAA', '#AAFFDD', '#122541', '#1d4ad5', '#1a2d5e', '#1q4d3s', '#1a2dq1', '#12a4q5']
+        var now_color = 0;
+        const day_time = [this.state.mon_1, this.state.mon_2,this.state.mon_3,this.state.mon_4,this.state.mon_5,this.state.mon_6,this.state.mon_7, 
+            this.state.tue_1, this.state.tue_2,this.state.tue_3,this.state.tue_4,this.state.tue_5,this.state.tue_6,this.state.tue_7,
+            this.state.wed_1, this.state.wed_2,this.state.wed_3,this.state.wed_4,this.state.wed_5,this.state.wed_6,this.state.wed_7,
+            this.state.thr_1, this.state.thr_2,this.state.thr_3,this.state.thr_4,this.state.thr_5,this.state.thr_6,this.state.thr_7,
+            this.state.fri_1, this.state.fri_2,this.state.fri_3,this.state.fri_4,this.state.fri_5,this.state.fri_6,this.state.fri_7]
+        
+        for (var i = 0; i <35; i++){
+            var now_var = day_time[i]
+            if(!(now_var[this.state.data] in color_dic)){
+                if(now_var[this.state.data] != 'undefined' && now_var[this.state.data] != undefined){
+                    color_dic[now_var[this.state.data]] = color[now_color];
+                    now_color = now_color + 1;
+                    console.log(typeof color_dic[now_var[this.state.data]])
+                    console.log(now_var[this.state.data])
+                    console.log(color_dic[now_var[this.state.data]]);
+                }else{
+                    color_dic[now_var[this.state.data]] = '#FFFFFF';
+                }
+            }
+        }
         return (
         <MypageDiv>
             <Logo />
@@ -439,70 +972,72 @@ class MyPage extends Component {
             <MyWrapDiv>
             <br/>
             <br/>
+            <br/>
+                추천 시간표 {this.state.data+1}
               <table className="TimeTable">
               <tr>
-              <th className="timetabled">교시/요일</th>
-              <th className="timetabled">월</th>
-              <th className="timetabled">화</th>
-              <th className="timetabled">수</th>
-              <th className="timetabled">목</th>
-              <th className="timetabled">금</th> 
+              <th className="timetabled_short">교시/요일</th>
+              <th className="timetabled_short">월</th>
+              <th className="timetabled_short">화</th>
+              <th className="timetabled_short">수</th>
+              <th className="timetabled_short">목</th>
+              <th className="timetabled_short">금</th> 
               </tr>
               <tr>
-              <td className="timetabled">1</td>
-              <td className="timetabled">{this.state.mon_1[this.state.data]}</td>
-              <td className="timetabled">{this.state.tue_1[this.state.data]}</td>
-              <td className="timetabled">{this.state.wed_1[this.state.data]}</td>
-              <td className="timetabled">{this.state.thr_1[this.state.data]}</td>
-              <td className="timetabled">{this.state.fri_1[this.state.data]}</td>
+              <td className="timetabled_short">1</td>
+              <td className="timetabled_short" style={{backgroundColor: color_dic[this.state.mon_1[this.state.data]]}}>{this.state.mon_1[this.state.data]}</td>
+              <td className="timetabled_short" style={{backgroundColor: color_dic[this.state.tue_1[this.state.data]]}}>{this.state.tue_1[this.state.data]}</td>
+              <td className="timetabled_short" style={{backgroundColor: color_dic[this.state.wed_1[this.state.data]]}}>{this.state.wed_1[this.state.data]}</td>
+              <td className="timetabled_short" style={{backgroundColor: color_dic[this.state.thr_1[this.state.data]]}}>{this.state.thr_1[this.state.data]}</td>
+              <td className="timetabled_short" style={{backgroundColor: color_dic[this.state.fri_1[this.state.data]]}}>{this.state.fri_1[this.state.data]}</td>
               </tr>
               <tr>
-              <td className="timetabled">2</td>
-              <td className="timetabled">{this.state.mon_2[this.state.data]}</td>
-              <td className="timetabled">{this.state.tue_2[this.state.data]}</td>
-              <td className="timetabled">{this.state.wed_2[this.state.data]}</td>
-              <td className="timetabled">{this.state.thr_2[this.state.data]}</td>
-              <td className="timetabled">{this.state.fri_2[this.state.data]}</td>
+              <td className="timetabled_short">2</td>
+              <td className="timetabled_short" style={{backgroundColor: color_dic[this.state.mon_2[this.state.data]]}}>{this.state.mon_2[this.state.data]}</td>
+              <td className="timetabled_short" style={{backgroundColor: color_dic[this.state.tue_2[this.state.data]]}}>{this.state.tue_2[this.state.data]}</td>
+              <td className="timetabled_short" style={{backgroundColor: color_dic[this.state.wed_2[this.state.data]]}}>{this.state.wed_2[this.state.data]}</td>
+              <td className="timetabled_short" style={{backgroundColor: color_dic[this.state.thr_2[this.state.data]]}}>{this.state.thr_2[this.state.data]}</td>
+              <td className="timetabled_short" style={{backgroundColor: color_dic[this.state.fri_2[this.state.data]]}}>{this.state.fri_2[this.state.data]}</td>
               </tr>
               <tr>
-              <td className="timetabled">3</td>
-              <td className="timetabled">{this.state.mon_3[this.state.data]}</td>
-              <td className="timetabled">{this.state.tue_3[this.state.data]}</td>
-              <td className="timetabled">{this.state.wed_3[this.state.data]}</td>
-              <td className="timetabled">{this.state.thr_3[this.state.data]}</td>
-              <td className="timetabled">{this.state.fri_3[this.state.data]}</td>
+              <td className="timetabled_short">3</td>
+              <td className="timetabled_short" style={{backgroundColor: color_dic[this.state.mon_3[this.state.data]]}}>{this.state.mon_3[this.state.data]}</td>
+              <td className="timetabled_short" style={{backgroundColor: color_dic[this.state.tue_3[this.state.data]]}}>{this.state.tue_3[this.state.data]}</td>
+              <td className="timetabled_short" style={{backgroundColor: color_dic[this.state.wed_3[this.state.data]]}}>{this.state.wed_3[this.state.data]}</td>
+              <td className="timetabled_short" style={{backgroundColor: color_dic[this.state.thr_3[this.state.data]]}}>{this.state.thr_3[this.state.data]}</td>
+              <td className="timetabled_short" style={{backgroundColor: color_dic[this.state.fri_3[this.state.data]]}}>{this.state.fri_3[this.state.data]}</td>
               </tr>  
               <tr>
-              <td className="timetabled">4</td>
-              <td className="timetabled">{this.state.mon_4[this.state.data]}</td>
-              <td className="timetabled">{this.state.tue_4[this.state.data]}</td>
-              <td className="timetabled">{this.state.wed_4[this.state.data]}</td>
-              <td className="timetabled">{this.state.thr_4[this.state.data]}</td>
-              <td className="timetabled">{this.state.fri_4[this.state.data]}</td>
+              <td className="timetabled_short">4</td>
+              <td className="timetabled_short" style={{backgroundColor: color_dic[this.state.mon_4[this.state.data]]}}>{this.state.mon_4[this.state.data]}</td>
+              <td className="timetabled_short" style={{backgroundColor: color_dic[this.state.tue_4[this.state.data]]}}>{this.state.tue_4[this.state.data]}</td>
+              <td className="timetabled_short" style={{backgroundColor: color_dic[this.state.wed_4[this.state.data]]}}>{this.state.wed_4[this.state.data]}</td>
+              <td className="timetabled_short" style={{backgroundColor: color_dic[this.state.thr_4[this.state.data]]}}>{this.state.thr_4[this.state.data]}</td>
+              <td className="timetabled_short" style={{backgroundColor: color_dic[this.state.fri_4[this.state.data]]}}>{this.state.fri_4[this.state.data]}</td>
               </tr>
               <tr>
-              <td className="timetabled">5</td>
-              <td className="timetabled">{this.state.mon_5[this.state.data]}</td>
-              <td className="timetabled">{this.state.tue_5[this.state.data]}</td>
-              <td className="timetabled">{this.state.wed_5[this.state.data]}</td>
-              <td className="timetabled">{this.state.thr_5[this.state.data]}</td>
-              <td className="timetabled">{this.state.fri_5[this.state.data]}</td>
+              <td className="timetabled_short">5</td>
+              <td className="timetabled_short" style={{backgroundColor: color_dic[this.state.mon_5[this.state.data]]}}>{this.state.mon_5[this.state.data]}</td>
+              <td className="timetabled_short" style={{backgroundColor: color_dic[this.state.tue_5[this.state.data]]}}>{this.state.tue_5[this.state.data]}</td>
+              <td className="timetabled_short" style={{backgroundColor: color_dic[this.state.wed_5[this.state.data]]}}>{this.state.wed_5[this.state.data]}</td>
+              <td className="timetabled_short" style={{backgroundColor: color_dic[this.state.thr_5[this.state.data]]}}>{this.state.thr_5[this.state.data]}</td>
+              <td className="timetabled_short" style={{backgroundColor: color_dic[this.state.fri_5[this.state.data]]}}>{this.state.fri_5[this.state.data]}</td>
               </tr>
               <tr>
-              <td className="timetabled">6</td>
-              <td className="timetabled">{this.state.mon_6[this.state.data]}</td>
-              <td className="timetabled">{this.state.tue_6[this.state.data]}</td>
-              <td className="timetabled">{this.state.wed_6[this.state.data]}</td>
-              <td className="timetabled">{this.state.thr_6[this.state.data]}</td>
-              <td className="timetabled">{this.state.fri_6[this.state.data]}</td>
+              <td className="timetabled_short">6</td>
+              <td className="timetabled_short" style={{backgroundColor: color_dic[this.state.mon_6[this.state.data]]}}>{this.state.mon_6[this.state.data]}</td>
+              <td className="timetabled_short" style={{backgroundColor: color_dic[this.state.tue_6[this.state.data]]}}>{this.state.tue_6[this.state.data]}</td>
+              <td className="timetabled_short" style={{backgroundColor: color_dic[this.state.wed_6[this.state.data]]}}>{this.state.wed_6[this.state.data]}</td>
+              <td className="timetabled_short" style={{backgroundColor: color_dic[this.state.thr_6[this.state.data]]}}>{this.state.thr_6[this.state.data]}</td>
+              <td className="timetabled_short" style={{backgroundColor: color_dic[this.state.fri_6[this.state.data]]}}>{this.state.fri_6[this.state.data]}</td>
               </tr>
               <tr>
-              <td className="timetabled">7</td>
-              <td className="timetabled">{this.state.mon_7[this.state.data]}</td>
-              <td className="timetabled">{this.state.tue_7[this.state.data]}</td>
-              <td className="timetabled">{this.state.wed_7[this.state.data]}</td>
-              <td className="timetabled">{this.state.thr_7[this.state.data]}</td>
-              <td className="timetabled">{this.state.fri_7[this.state.data]}</td>
+              <td className="timetabled_short">7</td>
+              <td className="timetabled_short" style={{backgroundColor: color_dic[this.state.mon_7[this.state.data]]}}>{this.state.mon_7[this.state.data]}</td>
+              <td className="timetabled_short" style={{backgroundColor: color_dic[this.state.tue_7[this.state.data]]}}>{this.state.tue_7[this.state.data]}</td>
+              <td className="timetabled_short" style={{backgroundColor: color_dic[this.state.wed_7[this.state.data]]}}>{this.state.wed_7[this.state.data]}</td>
+              <td className="timetabled_short" style={{backgroundColor: color_dic[this.state.thr_7[this.state.data]]}}>{this.state.thr_7[this.state.data]}</td>
+              <td className="timetabled_short" style={{backgroundColor: color_dic[this.state.fri_7[this.state.data]]}}>{this.state.fri_7[this.state.data]}</td>
               </tr>                                                                                
               </table>
              
@@ -530,6 +1065,17 @@ class MyPage extends Component {
             <br/>
             {this.state.e_class5.class_time}</li>
             </TimeInfoDiv>
+            <TestInfoDiv>
+                {this.state.c1name}<br/>{this.state.c1mid}<br/>{this.state.c1final}
+                {this.state.c2name}<br/>{this.state.c2mid}<br/>{this.state.c2final}
+                {this.state.c3name}<br/>{this.state.c3mid}<br/>{this.state.c3final}
+                {this.state.c4name}<br/>{this.state.c4mid}<br/>{this.state.c4final}
+                {this.state.c5name}<br/>{this.state.c5mid}<br/>{this.state.c5final}
+                {this.state.c6name}<br/>{this.state.c6mid}<br/>{this.state.c6final}
+                {this.state.c7name}<br/>{this.state.c7mid}<br/>{this.state.c7final}
+                {this.state.c8name}<br/>{this.state.c8mid}<br/>{this.state.c8final}
+                {this.state.c9name}<br/>{this.state.c9mid}<br/>{this.state.c9final}
+            </TestInfoDiv>
         </MypageDiv>
     );
 };}

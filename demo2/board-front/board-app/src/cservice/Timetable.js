@@ -61,7 +61,9 @@ class Timetable extends Component {
             test1:[],test2:[],test3:[],test4:[],test5:[],testd:0,
             e_class1:[],e_class2:[],e_class3:[],e_class4:[],e_class5:[],
             elective1:[],elective2:[],elective3:[],elective4:[],elective5:[],
-            c1:"",c2:"",c3:"",c4:"",c5:"",c6:"",c7:"",c8:"",c9:"",
+            c1name:"",c1mid:"",c1final:"",c2name:"",c2mid:"",c2final:"",c3name:"",c3mid:"",c3final:"",
+            c4name:"",c4mid:"",c4final:"",c5name:"",c5mid:"",c5final:"",c6name:"",c6mid:"",c6final:"",
+            c7name:"",c7mid:"",c7final:"",c8name:"",c8mid:"",c8final:"",c9name:"",c9mid:"",c9final:"",
             num:[],
             data:0,
             mon_1:"",tue_1:"",wed_1:"",thr_1:"",fri_1:"",
@@ -154,74 +156,92 @@ class Timetable extends Component {
                 let day1 = parseInt(this.state.test1.class_1_mid%100%100);
                 let month2 = parseInt(this.state.test1.class_1_final/100%100);
                 let day2 = parseInt(this.state.test1.class_1_final%100%100);
-                this.setState({c1:this.state.test1.class_1_name+"중간고사 2021년 "+month1+"월 "+day1+"일"+"기말고사 2021년 "+month2+"월 "+day2+"일"});
+                this.setState({c1name:this.state.test1.class_1_name});
+                this.setState({c1mid:"중간고사 2021년 "+month1+"월 "+day1+"일"});
+                this.setState({c1final:"기말고사 2021년 "+month2+"월 "+day2+"일"});
                 flag=1;
             }if(this.state.test1.class_2_mid>0){
                 let month1 = parseInt(this.state.test1.class_2_mid/100%100);
                 let day1 = parseInt(this.state.test1.class_2_mid%100%100);
                 let month2 = parseInt(this.state.test1.class_2_final/100%100);
                 let day2 = parseInt(this.state.test1.class_2_final%100%100);
-                this.setState({c2:this.state.test1.class_2_name+"중간고사 2021년 "+month1+"월 "+day1+"일"+"기말고사 2021년 "+month2+"월 "+day2+"일"});
+                this.setState({c2name:this.state.test1.class_2_name});
+                this.setState({c2mid:"중간고사 2021년 "+month1+"월 "+day1+"일"});
+                this.setState({c2final:"기말고사 2021년 "+month2+"월 "+day2+"일"});
                 flag=1;
             }if(this.state.test1.class_3_mid>0){
                 let month1 = parseInt(this.state.test1.class_3_mid/100%100);
                 let day1 = parseInt(this.state.test1.class_3_mid%100%100);
                 let month2 = parseInt(this.state.test1.class_3_final/100%100);
                 let day2 = parseInt(this.state.test1.class_3_final%100%100);
-                this.setState({c3:this.state.test1.class_3_name+"중간고사 2021년 "+month1+"월 "+day1+"일"+"기말고사 2021년 "+month2+"월 "+day2+"일"});
+                this.setState({c3name:this.state.test1.class_3_name});
+                this.setState({c3mid:"중간고사 2021년 "+month1+"월 "+day1+"일"});
+                this.setState({c3final:"기말고사 2021년 "+month2+"월 "+day2+"일"});
                 flag=1;
             }if(this.state.test1.class_4_mid>0){
                 let month1 = parseInt(this.state.test1.class_4_mid/100%100);
                 let day1 = parseInt(this.state.test1.class_4_mid%100%100);
                 let month2 = parseInt(this.state.test1.class_4_final/100%100);
                 let day2 = parseInt(this.state.test1.class_4_final%100%100);
-                this.setState({c4:this.state.test1.class_4_name+"중간고사 2021년 "+month1+"월 "+day1+"일"+"기말고사 2021년 "+month2+"월 "+day2+"일"});
+                this.setState({c4name:this.state.test1.class_4_name});
+                this.setState({c4mid:"중간고사 2021년 "+month1+"월 "+day1+"일"});
+                this.setState({c4final:"기말고사 2021년 "+month2+"월 "+day2+"일"});
             flag=1;
             }if(this.state.test1.class_5_mid>0){
                 let month1 = parseInt(this.state.test1.class_5_mid/100%100);
                 let day1 = parseInt(this.state.test1.class_5_mid%100%100);
                 let month2 = parseInt(this.state.test1.class_5_final/100%100);
                 let day2 = parseInt(this.state.test1.class_5_final%100%100);
-                this.setState({c5:this.state.test1.class_5_name+"중간고사 2021년 "+month1+"월 "+day1+"일"+"기말고사 2021년 "+month2+"월 "+day2+"일"});
+                this.setState({c5name:this.state.test1.class_5_name});
+                this.setState({c5mid:"중간고사 2021년 "+month1+"월 "+day1+"일"});
+                this.setState({c5final:"기말고사 2021년 "+month2+"월 "+day2+"일"});
             flag=1;
             }if(this.state.test1.class_6_mid>0){
                 let month1 = parseInt(this.state.test1.class_6_mid/100%100);
                 let day1 = parseInt(this.state.test1.class_6_mid%100%100);
                 let month2 = parseInt(this.state.test1.class_6_final/100%100);
                 let day2 = parseInt(this.state.test1.class_6_final%100%100);
-                this.setState({c6:this.state.test1.class_6_name+"중간고사 2021년 "+month1+"월 "+day1+"일"+"기말고사 2021년 "+month2+"월 "+day2+"일"});
+                this.setState({c6name:this.state.test1.class_6_name});
+                this.setState({c6mid:"중간고사 2021년 "+month1+"월 "+day1+"일"});
+                this.setState({c6final:"기말고사 2021년 "+month2+"월 "+day2+"일"});
             flag=1;
             }if(this.state.test1.class_7_mid>0){
                 let month1 = parseInt(this.state.test1.class_7_mid/100%100);
                 let day1 = parseInt(this.state.test1.class_7_mid%100%100);
                 let month2 = parseInt(this.state.test1.class_7_final/100%100);
                 let day2 = parseInt(this.state.test1.class_7_final%100%100);
-                this.setState({c7:this.state.test1.class_7_name+"중간고사 2021년 "+month1+"월 "+day1+"일"+"기말고사 2021년 "+month2+"월 "+day2+"일"});
+                this.setState({c7name:this.state.test1.class_7_name});
+                this.setState({c7mid:"중간고사 2021년 "+month1+"월 "+day1+"일"});
+                this.setState({c7final:"기말고사 2021년 "+month2+"월 "+day2+"일"});
             flag=1;
             }if(this.state.test1.class_8_mid>0){
                 let month1 = parseInt(this.state.test1.class_8_mid/100%100);
                 let day1 = parseInt(this.state.test1.class_8_mid%100%100);
                 let month2 = parseInt(this.state.test1.class_8_final/100%100);
                 let day2 = parseInt(this.state.test1.class_8_final%100%100);
-                this.setState({c8:this.state.test1.class_8_name+"중간고사 2021년 "+month1+"월 "+day1+"일"+"기말고사 2021년 "+month2+"월 "+day2+"일"});
+                this.setState({c8name:this.state.test1.class_8_name});
+                this.setState({c8mid:"중간고사 2021년 "+month1+"월 "+day1+"일"});
+                this.setState({c8final:"기말고사 2021년 "+month2+"월 "+day2+"일"});
             flag=1;
             }if(this.state.test1.class_9_mid>0){
                 let month1 = parseInt(this.state.test1.class_9_mid/100%100);
                 let day1 = parseInt(this.state.test1.class_9_mid%100%100);
                 let month2 = parseInt(this.state.test1.class_9_final/100%100);
                 let day2 = parseInt(this.state.test1.class_9_final%100%100);
-                this.setState({c9:this.state.test1.class_9_name+"중간고사 2021년 "+month1+"월 "+day1+"일"+"기말고사 2021년 "+month2+"월 "+day2+"일"});
+                this.setState({c9name:this.state.test1.class_9_name});
+                this.setState({c9mid:"중간고사 2021년 "+month1+"월 "+day1+"일"});
+                this.setState({c9final:"기말고사 2021년 "+month2+"월 "+day2+"일"});
             flag=1;
             }if(flag==0){
-                this.setState({c1:null});
-                this.setState({c2:null});
-                this.setState({c3:null});
-                this.setState({c4:null});
-                this.setState({c5:null});
-                this.setState({c6:null});
-                this.setState({c7:null});
-                this.setState({c8:null});
-                this.setState({c9:null});
+                this.setState({c1name:null});this.setState({c1mid:null});this.setState({c1final:null});
+                this.setState({c2name:null});this.setState({c2mid:null});this.setState({c2final:null});
+                this.setState({c3name:null});this.setState({c3mid:null});this.setState({c3final:null});
+                this.setState({c4name:null});this.setState({c4mid:null});this.setState({c4final:null});
+                this.setState({c5name:null});this.setState({c5mid:null});this.setState({c5final:null});
+                this.setState({c6name:null});this.setState({c6mid:null});this.setState({c6final:null});
+                this.setState({c7name:null});this.setState({c7mid:null});this.setState({c7final:null});
+                this.setState({c8name:null});this.setState({c8mid:null});this.setState({c8final:null});
+                this.setState({c9name:null});this.setState({c9mid:null});this.setState({c9final:null});
             }
         }else if(n==2){
             let flag=0;
@@ -230,74 +250,92 @@ class Timetable extends Component {
                 let day1 = parseInt(this.state.test2.class_1_mid%100%100);
                 let month2 = parseInt(this.state.test2.class_1_final/100%100);
                 let day2 = parseInt(this.state.test2.class_1_final%100%100);
-                this.setState({c1:this.state.test2.class_1_name+"중간고사 2021년 "+month1+"월 "+day1+"일"+"기말고사 2021년 "+month2+"월 "+day2+"일"});
+                this.setState({c1name:this.state.test2.class_1_name});
+                this.setState({c1mid:"중간고사 2021년 "+month1+"월 "+day1+"일"});
+                this.setState({c1final:"기말고사 2021년 "+month2+"월 "+day2+"일"});
                 flag=1;
             }if(this.state.test2.class_2_mid>0){
                 let month1 = parseInt(this.state.test2.class_2_mid/100%100);
                 let day1 = parseInt(this.state.test2.class_2_mid%100%100);
                 let month2 = parseInt(this.state.test2.class_2_final/100%100);
                 let day2 = parseInt(this.state.test2.class_2_final%100%100);
-                this.setState({c2:this.state.test2.class_2_name+"중간고사 2021년 "+month1+"월 "+day1+"일"+"기말고사 2021년 "+month2+"월 "+day2+"일"});
+                this.setState({c2name:this.state.test2.class_2_name});
+                this.setState({c2mid:"중간고사 2021년 "+month1+"월 "+day1+"일"});
+                this.setState({c2final:"기말고사 2021년 "+month2+"월 "+day2+"일"});
                 flag=1;
             }if(this.state.test2.class_3_mid>0){
                 let month1 = parseInt(this.state.test2.class_3_mid/100%100);
                 let day1 = parseInt(this.state.test2.class_3_mid%100%100);
                 let month2 = parseInt(this.state.test2.class_3_final/100%100);
                 let day2 = parseInt(this.state.test2.class_3_final%100%100);
-                this.setState({c3:this.state.test2.class_3_name+"중간고사 2021년 "+month1+"월 "+day1+"일"+"기말고사 2021년 "+month2+"월 "+day2+"일"});
+                this.setState({c3name:this.state.test2.class_3_name});
+                this.setState({c3mid:"중간고사 2021년 "+month1+"월 "+day1+"일"});
+                this.setState({c3final:"기말고사 2021년 "+month2+"월 "+day2+"일"});
                 flag=1;
             }if(this.state.test2.class_4_mid>0){
                 let month1 = parseInt(this.state.test2.class_4_mid/100%100);
                 let day1 = parseInt(this.state.test2.class_4_mid%100%100);
                 let month2 = parseInt(this.state.test2.class_4_final/100%100);
                 let day2 = parseInt(this.state.test2.class_4_final%100%100);
-                this.setState({c4:this.state.test2.class_4_name+"중간고사 2021년 "+month1+"월 "+day1+"일"+"기말고사 2021년 "+month2+"월 "+day2+"일"});
+                this.setState({c4name:this.state.test2.class_4_name});
+                this.setState({c4mid:"중간고사 2021년 "+month1+"월 "+day1+"일"});
+                this.setState({c4final:"기말고사 2021년 "+month2+"월 "+day2+"일"});
             flag=1;
             }if(this.state.test2.class_5_mid>0){
                 let month1 = parseInt(this.state.test2.class_5_mid/100%100);
                 let day1 = parseInt(this.state.test2.class_5_mid%100%100);
                 let month2 = parseInt(this.state.test2.class_5_final/100%100);
                 let day2 = parseInt(this.state.test2.class_5_final%100%100);
-                this.setState({c5:this.state.test2.class_5_name+"중간고사 2021년 "+month1+"월 "+day1+"일"+"기말고사 2021년 "+month2+"월 "+day2+"일"});
+                this.setState({c5name:this.state.test2.class_5_name});
+                this.setState({c5mid:"중간고사 2021년 "+month1+"월 "+day1+"일"});
+                this.setState({c5final:"기말고사 2021년 "+month2+"월 "+day2+"일"});
             flag=1;
             }if(this.state.test2.class_6_mid>0){
                 let month1 = parseInt(this.state.test2.class_6_mid/100%100);
                 let day1 = parseInt(this.state.test2.class_6_mid%100%100);
                 let month2 = parseInt(this.state.test2.class_6_final/100%100);
                 let day2 = parseInt(this.state.test2.class_6_final%100%100);
-                this.setState({c6:this.state.test2.class_6_name+"중간고사 2021년 "+month1+"월 "+day1+"일"+"기말고사 2021년 "+month2+"월 "+day2+"일"});
+                this.setState({c6name:this.state.test2.class_6_name});
+                this.setState({c6mid:"중간고사 2021년 "+month1+"월 "+day1+"일"});
+                this.setState({c6final:"기말고사 2021년 "+month2+"월 "+day2+"일"});
             flag=1;
             }if(this.state.test2.class_7_mid>0){
                 let month1 = parseInt(this.state.test2.class_7_mid/100%100);
                 let day1 = parseInt(this.state.test2.class_7_mid%100%100);
                 let month2 = parseInt(this.state.test2.class_7_final/100%100);
                 let day2 = parseInt(this.state.test2.class_7_final%100%100);
-                this.setState({c7:this.state.test2.class_7_name+"중간고사 2021년 "+month1+"월 "+day1+"일"+"기말고사 2021년 "+month2+"월 "+day2+"일"});
+                this.setState({c7name:this.state.test2.class_7_name});
+                this.setState({c7mid:"중간고사 2021년 "+month1+"월 "+day1+"일"});
+                this.setState({c7final:"기말고사 2021년 "+month2+"월 "+day2+"일"});
             flag=1;
             }if(this.state.test2.class_8_mid>0){
                 let month1 = parseInt(this.state.test2.class_8_mid/100%100);
                 let day1 = parseInt(this.state.test2.class_8_mid%100%100);
                 let month2 = parseInt(this.state.test2.class_8_final/100%100);
                 let day2 = parseInt(this.state.test2.class_8_final%100%100);
-                this.setState({c8:this.state.test2.class_8_name+"중간고사 2021년 "+month1+"월 "+day1+"일"+"기말고사 2021년 "+month2+"월 "+day2+"일"});
+                this.setState({c8name:this.state.test2.class_8_name});
+                this.setState({c8mid:"중간고사 2021년 "+month1+"월 "+day1+"일"});
+                this.setState({c8final:"기말고사 2021년 "+month2+"월 "+day2+"일"});
             flag=1;
             }if(this.state.test2.class_9_mid>0){
                 let month1 = parseInt(this.state.test2.class_9_mid/100%100);
                 let day1 = parseInt(this.state.test2.class_9_mid%100%100);
                 let month2 = parseInt(this.state.test2.class_9_final/100%100);
                 let day2 = parseInt(this.state.test2.class_9_final%100%100);
-                this.setState({c9:this.state.test2.class_9_name+"중간고사 2021년 "+month1+"월 "+day1+"일"+"기말고사 2021년 "+month2+"월 "+day2+"일"});
+                this.setState({c9name:this.state.test2.class_9_name});
+                this.setState({c9mid:"중간고사 2021년 "+month1+"월 "+day1+"일"});
+                this.setState({c9final:"기말고사 2021년 "+month2+"월 "+day2+"일"});
             flag=1;
             }if(flag==0){
-                this.setState({c1:null});
-                this.setState({c2:null});
-                this.setState({c3:null});
-                this.setState({c4:null});
-                this.setState({c5:null});
-                this.setState({c6:null});
-                this.setState({c7:null});
-                this.setState({c8:null});
-                this.setState({c9:null});
+                this.setState({c1name:null});this.setState({c1mid:null});this.setState({c1final:null});
+                this.setState({c2name:null});this.setState({c2mid:null});this.setState({c2final:null});
+                this.setState({c3name:null});this.setState({c3mid:null});this.setState({c3final:null});
+                this.setState({c4name:null});this.setState({c4mid:null});this.setState({c4final:null});
+                this.setState({c5name:null});this.setState({c5mid:null});this.setState({c5final:null});
+                this.setState({c6name:null});this.setState({c6mid:null});this.setState({c6final:null});
+                this.setState({c7name:null});this.setState({c7mid:null});this.setState({c7final:null});
+                this.setState({c8name:null});this.setState({c8mid:null});this.setState({c8final:null});
+                this.setState({c9name:null});this.setState({c9mid:null});this.setState({c9final:null});
             }
         }else if(n==3){
             let flag=0;
@@ -306,74 +344,92 @@ class Timetable extends Component {
                 let day1 = parseInt(this.state.test3.class_1_mid%100%100);
                 let month2 = parseInt(this.state.test3.class_1_final/100%100);
                 let day2 = parseInt(this.state.test3.class_1_final%100%100);
-                this.setState({c1:this.state.test3.class_1_name+"중간고사 2021년 "+month1+"월 "+day1+"일"+"기말고사 2021년 "+month2+"월 "+day2+"일"});
+                this.setState({c1name:this.state.test3.class_1_name});
+                this.setState({c1mid:"중간고사 2021년 "+month1+"월 "+day1+"일"});
+                this.setState({c1final:"기말고사 2021년 "+month2+"월 "+day2+"일"});
                 flag=1;
             }if(this.state.test3.class_2_mid>0){
                 let month1 = parseInt(this.state.test3.class_2_mid/100%100);
                 let day1 = parseInt(this.state.test3.class_2_mid%100%100);
                 let month2 = parseInt(this.state.test3.class_2_final/100%100);
                 let day2 = parseInt(this.state.test3.class_2_final%100%100);
-                this.setState({c2:this.state.test3.class_2_name+"중간고사 2021년 "+month1+"월 "+day1+"일"+"기말고사 2021년 "+month2+"월 "+day2+"일"});
+                this.setState({c2name:this.state.test3.class_2_name});
+                this.setState({c2mid:"중간고사 2021년 "+month1+"월 "+day1+"일"});
+                this.setState({c2final:"기말고사 2021년 "+month2+"월 "+day2+"일"});
                 flag=1;
             }if(this.state.test3.class_3_mid>0){
                 let month1 = parseInt(this.state.test3.class_3_mid/100%100);
                 let day1 = parseInt(this.state.test3.class_3_mid%100%100);
                 let month2 = parseInt(this.state.test3.class_3_final/100%100);
                 let day2 = parseInt(this.state.test3.class_3_final%100%100);
-                this.setState({c3:this.state.test3.class_3_name+"중간고사 2021년 "+month1+"월 "+day1+"일"+"기말고사 2021년 "+month2+"월 "+day2+"일"});
+                this.setState({c3name:this.state.test3.class_3_name});
+                this.setState({c3mid:"중간고사 2021년 "+month1+"월 "+day1+"일"});
+                this.setState({c3final:"기말고사 2021년 "+month2+"월 "+day2+"일"});
                 flag=1;
             }if(this.state.test3.class_4_mid>0){
                 let month1 = parseInt(this.state.test3.class_4_mid/100%100);
                 let day1 = parseInt(this.state.test3.class_4_mid%100%100);
                 let month2 = parseInt(this.state.test3.class_4_final/100%100);
                 let day2 = parseInt(this.state.test3.class_4_final%100%100);
-                this.setState({c4:this.state.test3.class_4_name+"중간고사 2021년 "+month1+"월 "+day1+"일"+"기말고사 2021년 "+month2+"월 "+day2+"일"});
+                this.setState({c4name:this.state.test3.class_4_name});
+                this.setState({c4mid:"중간고사 2021년 "+month1+"월 "+day1+"일"});
+                this.setState({c4final:"기말고사 2021년 "+month2+"월 "+day2+"일"});
             flag=1;
             }if(this.state.test3.class_5_mid>0){
                 let month1 = parseInt(this.state.test3.class_5_mid/100%100);
                 let day1 = parseInt(this.state.test3.class_5_mid%100%100);
                 let month2 = parseInt(this.state.test3.class_5_final/100%100);
                 let day2 = parseInt(this.state.test3.class_5_final%100%100);
-                this.setState({c5:this.state.test3.class_5_name+"중간고사 2021년 "+month1+"월 "+day1+"일"+"기말고사 2021년 "+month2+"월 "+day2+"일"});
+                this.setState({c5name:this.state.test3.class_5_name});
+                this.setState({c5mid:"중간고사 2021년 "+month1+"월 "+day1+"일"});
+                this.setState({c5final:"기말고사 2021년 "+month2+"월 "+day2+"일"});
             flag=1;
             }if(this.state.test3.class_6_mid>0){
                 let month1 = parseInt(this.state.test3.class_6_mid/100%100);
                 let day1 = parseInt(this.state.test3.class_6_mid%100%100);
                 let month2 = parseInt(this.state.test3.class_6_final/100%100);
                 let day2 = parseInt(this.state.test3.class_6_final%100%100);
-                this.setState({c6:this.state.test3.class_6_name+"중간고사 2021년 "+month1+"월 "+day1+"일"+"기말고사 2021년 "+month2+"월 "+day2+"일"});
+                this.setState({c6name:this.state.test3.class_6_name});
+                this.setState({c6mid:"중간고사 2021년 "+month1+"월 "+day1+"일"});
+                this.setState({c6final:"기말고사 2021년 "+month2+"월 "+day2+"일"});
             flag=1;
             }if(this.state.test3.class_7_mid>0){
                 let month1 = parseInt(this.state.test3.class_7_mid/100%100);
                 let day1 = parseInt(this.state.test3.class_7_mid%100%100);
                 let month2 = parseInt(this.state.test3.class_7_final/100%100);
                 let day2 = parseInt(this.state.test3.class_7_final%100%100);
-                this.setState({c7:this.state.test3.class_7_name+"중간고사 2021년 "+month1+"월 "+day1+"일"+"기말고사 2021년 "+month2+"월 "+day2+"일"});
+                this.setState({c7name:this.state.test3.class_7_name});
+                this.setState({c7mid:"중간고사 2021년 "+month1+"월 "+day1+"일"});
+                this.setState({c7final:"기말고사 2021년 "+month2+"월 "+day2+"일"});
             flag=1;
             }if(this.state.test3.class_8_mid>0){
                 let month1 = parseInt(this.state.test3.class_8_mid/100%100);
                 let day1 = parseInt(this.state.test3.class_8_mid%100%100);
                 let month2 = parseInt(this.state.test3.class_8_final/100%100);
                 let day2 = parseInt(this.state.test3.class_8_final%100%100);
-                this.setState({c8:this.state.test3.class_8_name+"중간고사 2021년 "+month1+"월 "+day1+"일"+"기말고사 2021년 "+month2+"월 "+day2+"일"});
+                this.setState({c8name:this.state.test3.class_8_name});
+                this.setState({c8mid:"중간고사 2021년 "+month1+"월 "+day1+"일"});
+                this.setState({c8final:"기말고사 2021년 "+month2+"월 "+day2+"일"});
             flag=1;
             }if(this.state.test3.class_9_mid>0){
                 let month1 = parseInt(this.state.test3.class_9_mid/100%100);
                 let day1 = parseInt(this.state.test3.class_9_mid%100%100);
                 let month2 = parseInt(this.state.test3.class_9_final/100%100);
                 let day2 = parseInt(this.state.test3.class_9_final%100%100);
-                this.setState({c9:this.state.test3.class_9_name+"중간고사 2021년 "+month1+"월 "+day1+"일"+"기말고사 2021년 "+month2+"월 "+day2+"일"});
+                this.setState({c9name:this.state.test3.class_9_name});
+                this.setState({c9mid:"중간고사 2021년 "+month1+"월 "+day1+"일"});
+                this.setState({c9final:"기말고사 2021년 "+month2+"월 "+day2+"일"});
             flag=1;
             }if(flag==0){
-                this.setState({c1:null});
-                this.setState({c2:null});
-                this.setState({c3:null});
-                this.setState({c4:null});
-                this.setState({c5:null});
-                this.setState({c6:null});
-                this.setState({c7:null});
-                this.setState({c8:null});
-                this.setState({c9:null});
+                this.setState({c1name:null});this.setState({c1mid:null});this.setState({c1final:null});
+                this.setState({c2name:null});this.setState({c2mid:null});this.setState({c2final:null});
+                this.setState({c3name:null});this.setState({c3mid:null});this.setState({c3final:null});
+                this.setState({c4name:null});this.setState({c4mid:null});this.setState({c4final:null});
+                this.setState({c5name:null});this.setState({c5mid:null});this.setState({c5final:null});
+                this.setState({c6name:null});this.setState({c6mid:null});this.setState({c6final:null});
+                this.setState({c7name:null});this.setState({c7mid:null});this.setState({c7final:null});
+                this.setState({c8name:null});this.setState({c8mid:null});this.setState({c8final:null});
+                this.setState({c9name:null});this.setState({c9mid:null});this.setState({c9final:null});
             }
         }else if(n==4){
             let flag=0;
@@ -382,74 +438,92 @@ class Timetable extends Component {
                 let day1 = parseInt(this.state.test4.class_1_mid%100%100);
                 let month2 = parseInt(this.state.test4.class_1_final/100%100);
                 let day2 = parseInt(this.state.test4.class_1_final%100%100);
-                this.setState({c1:this.state.test4.class_1_name+"중간고사 2021년 "+month1+"월 "+day1+"일"+"기말고사 2021년 "+month2+"월 "+day2+"일"});
+                this.setState({c1name:this.state.test4.class_1_name});
+                this.setState({c1mid:"중간고사 2021년 "+month1+"월 "+day1+"일"});
+                this.setState({c1final:"기말고사 2021년 "+month2+"월 "+day2+"일"});
                 flag=1;
             }if(this.state.test4.class_2_mid>0){
                 let month1 = parseInt(this.state.test4.class_2_mid/100%100);
                 let day1 = parseInt(this.state.test4.class_2_mid%100%100);
                 let month2 = parseInt(this.state.test4.class_2_final/100%100);
                 let day2 = parseInt(this.state.test4.class_2_final%100%100);
-                this.setState({c2:this.state.test4.class_2_name+"중간고사 2021년 "+month1+"월 "+day1+"일"+"기말고사 2021년 "+month2+"월 "+day2+"일"});
+                this.setState({c2name:this.state.test4.class_2_name});
+                this.setState({c2mid:"중간고사 2021년 "+month1+"월 "+day1+"일"});
+                this.setState({c2final:"기말고사 2021년 "+month2+"월 "+day2+"일"});
                 flag=1;
             }if(this.state.test4.class_3_mid>0){
                 let month1 = parseInt(this.state.test4.class_3_mid/100%100);
                 let day1 = parseInt(this.state.test4.class_3_mid%100%100);
                 let month2 = parseInt(this.state.test4.class_3_final/100%100);
                 let day2 = parseInt(this.state.test4.class_3_final%100%100);
-                this.setState({c3:this.state.test4.class_3_name+"중간고사 2021년 "+month1+"월 "+day1+"일"+"기말고사 2021년 "+month2+"월 "+day2+"일"});
+                this.setState({c3name:this.state.test4.class_3_name});
+                this.setState({c3mid:"중간고사 2021년 "+month1+"월 "+day1+"일"});
+                this.setState({c3final:"기말고사 2021년 "+month2+"월 "+day2+"일"});
                 flag=1;
             }if(this.state.test4.class_4_mid>0){
                 let month1 = parseInt(this.state.test4.class_4_mid/100%100);
                 let day1 = parseInt(this.state.test4.class_4_mid%100%100);
                 let month2 = parseInt(this.state.test4.class_4_final/100%100);
                 let day2 = parseInt(this.state.test4.class_4_final%100%100);
-                this.setState({c4:this.state.test4.class_4_name+"중간고사 2021년 "+month1+"월 "+day1+"일"+"기말고사 2021년 "+month2+"월 "+day2+"일"});
+                this.setState({c4name:this.state.test4.class_4_name});
+                this.setState({c4mid:"중간고사 2021년 "+month1+"월 "+day1+"일"});
+                this.setState({c4final:"기말고사 2021년 "+month2+"월 "+day2+"일"});
             flag=1;
             }if(this.state.test4.class_5_mid>0){
                 let month1 = parseInt(this.state.test4.class_5_mid/100%100);
                 let day1 = parseInt(this.state.test4.class_5_mid%100%100);
                 let month2 = parseInt(this.state.test4.class_5_final/100%100);
                 let day2 = parseInt(this.state.test4.class_5_final%100%100);
-                this.setState({c5:this.state.test4.class_5_name+"중간고사 2021년 "+month1+"월 "+day1+"일"+"기말고사 2021년 "+month2+"월 "+day2+"일"});
+                this.setState({c5name:this.state.test4.class_5_name});
+                this.setState({c5mid:"중간고사 2021년 "+month1+"월 "+day1+"일"});
+                this.setState({c5final:"기말고사 2021년 "+month2+"월 "+day2+"일"});
             flag=1;
             }if(this.state.test4.class_6_mid>0){
                 let month1 = parseInt(this.state.test4.class_6_mid/100%100);
                 let day1 = parseInt(this.state.test4.class_6_mid%100%100);
                 let month2 = parseInt(this.state.test4.class_6_final/100%100);
                 let day2 = parseInt(this.state.test4.class_6_final%100%100);
-                this.setState({c6:this.state.test4.class_6_name+"중간고사 2021년 "+month1+"월 "+day1+"일"+"기말고사 2021년 "+month2+"월 "+day2+"일"});
+                this.setState({c6name:this.state.test4.class_6_name});
+                this.setState({c6mid:"중간고사 2021년 "+month1+"월 "+day1+"일"});
+                this.setState({c6final:"기말고사 2021년 "+month2+"월 "+day2+"일"});
             flag=1;
             }if(this.state.test4.class_7_mid>0){
                 let month1 = parseInt(this.state.test4.class_7_mid/100%100);
                 let day1 = parseInt(this.state.test4.class_7_mid%100%100);
                 let month2 = parseInt(this.state.test4.class_7_final/100%100);
                 let day2 = parseInt(this.state.test4.class_7_final%100%100);
-                this.setState({c7:this.state.test4.class_7_name+"중간고사 2021년 "+month1+"월 "+day1+"일"+"기말고사 2021년 "+month2+"월 "+day2+"일"});
+                this.setState({c7name:this.state.test4.class_7_name});
+                this.setState({c7mid:"중간고사 2021년 "+month1+"월 "+day1+"일"});
+                this.setState({c7final:"기말고사 2021년 "+month2+"월 "+day2+"일"});
             flag=1;
             }if(this.state.test4.class_8_mid>0){
                 let month1 = parseInt(this.state.test4.class_8_mid/100%100);
                 let day1 = parseInt(this.state.test4.class_8_mid%100%100);
                 let month2 = parseInt(this.state.test4.class_8_final/100%100);
                 let day2 = parseInt(this.state.test4.class_8_final%100%100);
-                this.setState({c8:this.state.test4.class_8_name+"중간고사 2021년 "+month1+"월 "+day1+"일"+"기말고사 2021년 "+month2+"월 "+day2+"일"});
+                this.setState({c8name:this.state.test4.class_8_name});
+                this.setState({c8mid:"중간고사 2021년 "+month1+"월 "+day1+"일"});
+                this.setState({c8final:"기말고사 2021년 "+month2+"월 "+day2+"일"});
             flag=1;
             }if(this.state.test4.class_9_mid>0){
                 let month1 = parseInt(this.state.test4.class_9_mid/100%100);
                 let day1 = parseInt(this.state.test4.class_9_mid%100%100);
                 let month2 = parseInt(this.state.test4.class_9_final/100%100);
                 let day2 = parseInt(this.state.test4.class_9_final%100%100);
-                this.setState({c9:this.state.test4.class_9_name+"중간고사 2021년 "+month1+"월 "+day1+"일"+"기말고사 2021년 "+month2+"월 "+day2+"일"});
+                this.setState({c9name:this.state.test4.class_9_name});
+                this.setState({c9mid:"중간고사 2021년 "+month1+"월 "+day1+"일"});
+                this.setState({c9final:"기말고사 2021년 "+month2+"월 "+day2+"일"});
             flag=1;
             }if(flag==0){
-                this.setState({c1:null});
-                this.setState({c2:null});
-                this.setState({c3:null});
-                this.setState({c4:null});
-                this.setState({c5:null});
-                this.setState({c6:null});
-                this.setState({c7:null});
-                this.setState({c8:null});
-                this.setState({c9:null});
+                this.setState({c1name:null});this.setState({c1mid:null});this.setState({c1final:null});
+                this.setState({c2name:null});this.setState({c2mid:null});this.setState({c2final:null});
+                this.setState({c3name:null});this.setState({c3mid:null});this.setState({c3final:null});
+                this.setState({c4name:null});this.setState({c4mid:null});this.setState({c4final:null});
+                this.setState({c5name:null});this.setState({c5mid:null});this.setState({c5final:null});
+                this.setState({c6name:null});this.setState({c6mid:null});this.setState({c6final:null});
+                this.setState({c7name:null});this.setState({c7mid:null});this.setState({c7final:null});
+                this.setState({c8name:null});this.setState({c8mid:null});this.setState({c8final:null});
+                this.setState({c9name:null});this.setState({c9mid:null});this.setState({c9final:null});
             }
         }else if(n==5){
             let flag=0;
@@ -458,74 +532,92 @@ class Timetable extends Component {
                 let day1 = parseInt(this.state.test5.class_1_mid%100%100);
                 let month2 = parseInt(this.state.test5.class_1_final/100%100);
                 let day2 = parseInt(this.state.test5.class_1_final%100%100);
-                this.setState({c1:this.state.test5.class_1_name+"중간고사 2021년 "+month1+"월 "+day1+"일"+"기말고사 2021년 "+month2+"월 "+day2+"일"});
+                this.setState({c1name:this.state.test5.class_1_name});
+                this.setState({c1mid:"중간고사 2021년 "+month1+"월 "+day1+"일"});
+                this.setState({c1final:"기말고사 2021년 "+month2+"월 "+day2+"일"});
                 flag=1;
             }if(this.state.test5.class_2_mid>0){
                 let month1 = parseInt(this.state.test5.class_2_mid/100%100);
                 let day1 = parseInt(this.state.test5.class_2_mid%100%100);
                 let month2 = parseInt(this.state.test5.class_2_final/100%100);
                 let day2 = parseInt(this.state.test5.class_2_final%100%100);
-                this.setState({c2:this.state.test5.class_2_name+"중간고사 2021년 "+month1+"월 "+day1+"일"+"기말고사 2021년 "+month2+"월 "+day2+"일"});
+                this.setState({c2name:this.state.test5.class_2_name});
+                this.setState({c2mid:"중간고사 2021년 "+month1+"월 "+day1+"일"});
+                this.setState({c2final:"기말고사 2021년 "+month2+"월 "+day2+"일"});
                 flag=1;
             }if(this.state.test5.class_3_mid>0){
                 let month1 = parseInt(this.state.test5.class_3_mid/100%100);
                 let day1 = parseInt(this.state.test5.class_3_mid%100%100);
                 let month2 = parseInt(this.state.test5.class_3_final/100%100);
                 let day2 = parseInt(this.state.test5.class_3_final%100%100);
-                this.setState({c3:this.state.test5.class_3_name+"중간고사 2021년 "+month1+"월 "+day1+"일"+"기말고사 2021년 "+month2+"월 "+day2+"일"});
+                this.setState({c3name:this.state.test5.class_3_name});
+                this.setState({c3mid:"중간고사 2021년 "+month1+"월 "+day1+"일"});
+                this.setState({c3final:"기말고사 2021년 "+month2+"월 "+day2+"일"});
                 flag=1;
             }if(this.state.test5.class_4_mid>0){
                 let month1 = parseInt(this.state.test5.class_4_mid/100%100);
                 let day1 = parseInt(this.state.test5.class_4_mid%100%100);
                 let month2 = parseInt(this.state.test5.class_4_final/100%100);
                 let day2 = parseInt(this.state.test5.class_4_final%100%100);
-                this.setState({c4:this.state.test5.class_4_name+"중간고사 2021년 "+month1+"월 "+day1+"일"+"기말고사 2021년 "+month2+"월 "+day2+"일"});
+                this.setState({c4name:this.state.test5.class_4_name});
+                this.setState({c4mid:"중간고사 2021년 "+month1+"월 "+day1+"일"});
+                this.setState({c4final:"기말고사 2021년 "+month2+"월 "+day2+"일"});
             flag=1;
             }if(this.state.test5.class_5_mid>0){
                 let month1 = parseInt(this.state.test5.class_5_mid/100%100);
                 let day1 = parseInt(this.state.test5.class_5_mid%100%100);
                 let month2 = parseInt(this.state.test5.class_5_final/100%100);
                 let day2 = parseInt(this.state.test5.class_5_final%100%100);
-                this.setState({c5:this.state.test5.class_5_name+"중간고사 2021년 "+month1+"월 "+day1+"일"+"기말고사 2021년 "+month2+"월 "+day2+"일"});
+                this.setState({c5name:this.state.test5.class_5_name});
+                this.setState({c5mid:"중간고사 2021년 "+month1+"월 "+day1+"일"});
+                this.setState({c5final:"기말고사 2021년 "+month2+"월 "+day2+"일"});
             flag=1;
             }if(this.state.test5.class_6_mid>0){
                 let month1 = parseInt(this.state.test5.class_6_mid/100%100);
                 let day1 = parseInt(this.state.test5.class_6_mid%100%100);
                 let month2 = parseInt(this.state.test5.class_6_final/100%100);
                 let day2 = parseInt(this.state.test5.class_6_final%100%100);
-                this.setState({c6:this.state.test5.class_6_name+"중간고사 2021년 "+month1+"월 "+day1+"일"+"기말고사 2021년 "+month2+"월 "+day2+"일"});
+                this.setState({c6name:this.state.test5.class_6_name});
+                this.setState({c6mid:"중간고사 2021년 "+month1+"월 "+day1+"일"});
+                this.setState({c6final:"기말고사 2021년 "+month2+"월 "+day2+"일"});
             flag=1;
             }if(this.state.test5.class_7_mid>0){
                 let month1 = parseInt(this.state.test5.class_7_mid/100%100);
                 let day1 = parseInt(this.state.test5.class_7_mid%100%100);
                 let month2 = parseInt(this.state.test5.class_7_final/100%100);
                 let day2 = parseInt(this.state.test5.class_7_final%100%100);
-                this.setState({c7:this.state.test5.class_7_name+"중간고사 2021년 "+month1+"월 "+day1+"일"+"기말고사 2021년 "+month2+"월 "+day2+"일"});
+                this.setState({c7name:this.state.test5.class_7_name});
+                this.setState({c7mid:"중간고사 2021년 "+month1+"월 "+day1+"일"});
+                this.setState({c7final:"기말고사 2021년 "+month2+"월 "+day2+"일"});
             flag=1;
             }if(this.state.test5.class_8_mid>0){
                 let month1 = parseInt(this.state.test5.class_8_mid/100%100);
                 let day1 = parseInt(this.state.test5.class_8_mid%100%100);
                 let month2 = parseInt(this.state.test5.class_8_final/100%100);
                 let day2 = parseInt(this.state.test5.class_8_final%100%100);
-                this.setState({c8:this.state.test5.class_8_name+"중간고사 2021년 "+month1+"월 "+day1+"일"+"기말고사 2021년 "+month2+"월 "+day2+"일"});
+                this.setState({c8name:this.state.test5.class_8_name});
+                this.setState({c8mid:"중간고사 2021년 "+month1+"월 "+day1+"일"});
+                this.setState({c8final:"기말고사 2021년 "+month2+"월 "+day2+"일"});
             flag=1;
             }if(this.state.test5.class_9_mid>0){
                 let month1 = parseInt(this.state.test5.class_9_mid/100%100);
                 let day1 = parseInt(this.state.test5.class_9_mid%100%100);
                 let month2 = parseInt(this.state.test5.class_9_final/100%100);
                 let day2 = parseInt(this.state.test5.class_9_final%100%100);
-                this.setState({c9:this.state.test5.class_9_name+"중간고사 2021년 "+month1+"월 "+day1+"일"+"기말고사 2021년 "+month2+"월 "+day2+"일"});
+                this.setState({c9name:this.state.test5.class_9_name});
+                this.setState({c9mid:"중간고사 2021년 "+month1+"월 "+day1+"일"});
+                this.setState({c9final:"기말고사 2021년 "+month2+"월 "+day2+"일"});
             flag=1;
             }if(flag==0){
-                this.setState({c1:null});
-                this.setState({c2:null});
-                this.setState({c3:null});
-                this.setState({c4:null});
-                this.setState({c5:null});
-                this.setState({c6:null});
-                this.setState({c7:null});
-                this.setState({c8:null});
-                this.setState({c9:null});
+                this.setState({c1name:null});this.setState({c1mid:null});this.setState({c1final:null});
+                this.setState({c2name:null});this.setState({c2mid:null});this.setState({c2final:null});
+                this.setState({c3name:null});this.setState({c3mid:null});this.setState({c3final:null});
+                this.setState({c4name:null});this.setState({c4mid:null});this.setState({c4final:null});
+                this.setState({c5name:null});this.setState({c5mid:null});this.setState({c5final:null});
+                this.setState({c6name:null});this.setState({c6mid:null});this.setState({c6final:null});
+                this.setState({c7name:null});this.setState({c7mid:null});this.setState({c7final:null});
+                this.setState({c8name:null});this.setState({c8mid:null});this.setState({c8final:null});
+                this.setState({c9name:null});this.setState({c9mid:null});this.setState({c9final:null});
             }
         }
     }
@@ -749,15 +841,15 @@ class Timetable extends Component {
             {this.state.e_class5.class_time}</li>
             </TimeInfoDiv>
             <TestInfoDiv>
-                {this.state.c1}
-                {this.state.c2}
-                {this.state.c3}
-                {this.state.c4}
-                {this.state.c5}
-                {this.state.c6}
-                {this.state.c7}
-                {this.state.c8}
-                {this.state.c9}
+                {this.state.c1name}<br/>{this.state.c1mid}<br/>{this.state.c1final}
+                {this.state.c2name}<br/>{this.state.c2mid}<br/>{this.state.c2final}
+                {this.state.c3name}<br/>{this.state.c3mid}<br/>{this.state.c3final}
+                {this.state.c4name}<br/>{this.state.c4mid}<br/>{this.state.c4final}
+                {this.state.c5name}<br/>{this.state.c5mid}<br/>{this.state.c5final}
+                {this.state.c6name}<br/>{this.state.c6mid}<br/>{this.state.c6final}
+                {this.state.c7name}<br/>{this.state.c7mid}<br/>{this.state.c7final}
+                {this.state.c8name}<br/>{this.state.c8mid}<br/>{this.state.c8final}
+                {this.state.c9name}<br/>{this.state.c9mid}<br/>{this.state.c9final}
             </TestInfoDiv>
         </TimetableDiv>
         
