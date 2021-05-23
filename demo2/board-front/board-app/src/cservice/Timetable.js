@@ -5,6 +5,7 @@ import styled from "styled-components";
 import "../css/style.css";
 import React, { Component } from 'react';
 import Logo from "./Logo";
+import My from "./My";
 import backgroundImage2 from "../components/image/backgroundImage2.png";
 import UserService from '../service/UserService';
 const TimetableDiv = styled.div`
@@ -33,23 +34,16 @@ const TimeInfoDiv = styled.div`
     position: absolute;
     top: 25%;
     right: 28%;
-    border: solid 1px;
     height: 35%;
     width: 13%;
-    background-color: #fff5ee;
     opacity: 0.8;
-    border: solid 5px #00462A;
 `;
 const TestInfoDiv = styled.div`
 position: absolute;
-top: 60%;
+top: 56%;
 right: 28%;
-border: solid 1px;
-height: 20%;
+height: 35%;
 width: 13%;
-background-color: #fff5ee;
-opacity: 0.8;
-border: solid 5px #00462A;
 `;
 class Timetable extends Component {
     constructor(props) {
@@ -741,18 +735,17 @@ class Timetable extends Component {
                     console.log(now_var[this.state.data])
                     console.log(color_dic[now_var[this.state.data]]);
                 }else{
-                    color_dic[now_var[this.state.data]] = '#FFFFFF';
+                    color_dic[now_var[this.state.data]] = '#fff5ee';
                 }
             }
         }
         return (
         <TimetableDiv>
             <Logo />
+            <My />
             <TimeWrapDiv>
-            <br/>
-            <br/>
-            <br/>
-                추천 시간표 {this.state.data+1}
+            <br/><br/>
+            <div style={{height:"20px", paddingLeft:"5%", fontSize:"1.1em", fontWeight:"bolder"}}>추천 시간표 {this.state.data+1}</div>
               <table className="TimeTable">
               <tr>
               <th className="timetabled_short">교시/요일</th>
@@ -828,32 +821,25 @@ class Timetable extends Component {
           </div>
             </TimeWrapDiv>
             <TimeInfoDiv>
-            <li>{this.state.e_class1.class_name}
             <br/>
-            {this.state.e_class1.class_time}</li>
-            <li>{this.state.e_class2.class_name}
+            <div style={{height:"20px", fontSize:"1.1em", fontWeight:"bolder"}}>교양 과목 추천</div>
             <br/>
-            {this.state.e_class2.class_time}</li>
-            <li>{this.state.e_class3.class_name}
+            <h style={{fontSize: "0.9em", fontWeight:"bold"}}>1. {this.state.e_class1.class_name}</h><h style={{position:"absolute", fontSize: "0.9em", fontWeight:"bold", right:"1px"}}> {this.state.e_class1.class_time}</h>
             <br/>
-            {this.state.e_class3.class_time}</li>
-            <li>{this.state.e_class4.class_name}
+            
+            <h style={{fontSize: "0.9em", fontWeight:"bold"}}>2. {this.state.e_class2.class_name}</h><h style={{position:"absolute", fontSize: "0.9em", fontWeight:"bold", right:"1px"}}> {this.state.e_class2.class_time}</h>
             <br/>
-            {this.state.e_class4.class_time}</li>
-            <li>{this.state.e_class5.class_name}
+            <h style={{fontSize: "0.9em", fontWeight:"bold"}}>3. {this.state.e_class3.class_name}</h><h style={{position:"absolute", fontSize: "0.9em", fontWeight:"bold", right:"1px"}}> {this.state.e_class3.class_time}</h>
+           <br/>
+           <h style={{fontSize: "0.9em", fontWeight:"bold"}}>4. {this.state.e_class4.class_name}</h><h style={{position:"absolute", fontSize: "0.9em", fontWeight:"bold", right:"1px"}}> {this.state.e_class4.class_time}</h>
             <br/>
-            {this.state.e_class5.class_time}</li>
+            <h style={{fontSize: "0.9em", fontWeight:"bold"}}>5. {this.state.e_class5.class_name}</h><h style={{position:"absolute", fontSize: "0.9em", fontWeight:"bold", right:"1px"}}> {this.state.e_class5.class_time}</h>
+           
             </TimeInfoDiv>
             <TestInfoDiv>
-                {this.state.c1name}<br/>{this.state.c1mid}<br/>{this.state.c1final}
-                {this.state.c2name}<br/>{this.state.c2mid}<br/>{this.state.c2final}
-                {this.state.c3name}<br/>{this.state.c3mid}<br/>{this.state.c3final}
-                {this.state.c4name}<br/>{this.state.c4mid}<br/>{this.state.c4final}
-                {this.state.c5name}<br/>{this.state.c5mid}<br/>{this.state.c5final}
-                {this.state.c6name}<br/>{this.state.c6mid}<br/>{this.state.c6final}
-                {this.state.c7name}<br/>{this.state.c7mid}<br/>{this.state.c7final}
-                {this.state.c8name}<br/>{this.state.c8mid}<br/>{this.state.c8final}
-                {this.state.c9name}<br/>{this.state.c9mid}<br/>{this.state.c9final}
+            <div style={{height:"20px", fontSize:"1.1em", fontWeight:"bolder"}}>시간표 시험 일정</div>
+            <br/>
+            <h style={{fontSize: "0.9em", fontWeight:"bold"}}>  {this.state.c1name}<br/>{this.state.c1mid}<br/>{this.state.c1final}</h>
             </TestInfoDiv>
             
         </TimetableDiv>
