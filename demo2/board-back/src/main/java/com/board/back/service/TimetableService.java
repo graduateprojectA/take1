@@ -114,6 +114,9 @@ public class TimetableService {
                         for (int j = 0; j < now_time_str.length(); j++) {
                             int now_time_integer_first = Integer.parseInt(now_time_str.substring(0, 1)) - 1;
                             int now_time_integer_second = Integer.parseInt(now_time_str.substring(1, 2)) - 1;
+                            if(now_time_integer_first < 0 || now_time_integer_first > 6 || now_time_integer_second < 0 || now_time_integer_second > 6){
+                                return;
+                            }
                             if (now_out_time[now_time_integer_first][now_time_integer_second] == 1) {
                                 return;
                             } else {
@@ -184,6 +187,9 @@ public class TimetableService {
                             for (int j = 0; j < now_time_str.length(); j++) {
                                 int now_time_integer_first = Integer.parseInt(now_time_str.substring(0, 1)) - 1;
                                 int now_time_integer_second = Integer.parseInt(now_time_str.substring(1, 2)) - 1;
+                                if(now_time_integer_first < 0 || now_time_integer_first > 6 || now_time_integer_second < 0 || now_time_integer_second > 6){
+                                    return;
+                                }
                                 if (now_timetable_out_time[now_time_integer_first][now_time_integer_second] == 1) {
                                     return;
                                 } else {
@@ -378,16 +384,22 @@ public class TimetableService {
                     now_class_time.get(i), now_class_credit.get(i));
             if (now_class_time.get(i) != null) {
                 if (now_check_field.get(i) == 7 || now_check_field.get(i) == 8) {
-                    first_able_class_list.add(now_class);
-                    System.out.printf("class_no: %d first add\n", now_class.getClass_no());
+                    if(first_able_class_list.size() <= 20) {
+                        first_able_class_list.add(now_class);
+                        System.out.printf("class_no: %d first add\n", now_class.getClass_no());
+                    }
                 } else if (now_check_field.get(i) == 1 || now_check_field.get(i) == 2 || now_check_field.get(i) == 3
                         || now_check_field.get(i) == 4) {
-                    second_able_class_list.add(now_class);
-                    System.out.printf("class_no: %d second add\n", now_class.getClass_no());
+                    if(second_able_class_list.size() <= 20) {
+                        second_able_class_list.add(now_class);
+                        System.out.printf("class_no: %d second add\n", now_class.getClass_no());
+                    }
                 } else if (now_check_field.get(i) == 5 || now_check_field.get(i) == 6 || now_check_field.get(i) == 9
                         || now_check_field.get(i) == 11 || now_check_field.get(i) == 12) {
-                    third_able_class_list.add(now_class);
-                    System.out.printf("class_no: %d third add\n", now_class.getClass_no());
+                    if(third_able_class_list.size() <= 20) {
+                        third_able_class_list.add(now_class);
+                        System.out.printf("class_no: %d third add\n", now_class.getClass_no());
+                    }
                 }
                 System.out.printf("%d %d %d %d %d\n", now_class_no.get(i), now_course_id.get(i), now_class_time.get(i),
                         now_class_credit.get(i), now_check_field.get(i));
@@ -613,6 +625,9 @@ public class TimetableService {
                 for (int aak = 0; aak < now_elective_time.length(); aak++) {
                     int now_time_integer_first = Integer.parseInt(now_elective_time.substring(0, 1)) - 1;
                     int now_time_integer_second = Integer.parseInt(now_elective_time.substring(1, 2)) - 1;
+                    if(now_time_integer_first < 0 || now_time_integer_first > 6 || now_time_integer_second < 0 || now_time_integer_second > 6){
+                        continue AA;
+                    }
                     if (now_timetable_out_time[now_time_integer_first][now_time_integer_second] == 1) {
                         continue AA;
                     }

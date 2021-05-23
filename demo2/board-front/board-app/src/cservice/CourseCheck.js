@@ -102,20 +102,7 @@ class CourseCheck extends Component {
       })});
 })
   }
-  next=(event)=>{
-    let u=this.state.page;
-    let t = this.state.s+15;
-    console.log((this.state.end*15)+" "+t);
-    if(t<(this.state.end*15-15)){
-        this.setState({pref:false});
-        this.setState({ n: u.filter(p=>p.page_no>=t&&p.page_no<t+15)});
-        this.setState({s:t});
-    }else{
-        this.setState({nextf:true});
-        this.setState({s:t});
-    }
-    
-    }
+
      
  pre=(event)=>{
     let u=this.state.page;
@@ -141,16 +128,14 @@ class CourseCheck extends Component {
               <h5 style={{display:"inline"}}>여태 들었던 모든 수업을 선택해주세요.<br/>
               재수강을 원하실 경우에는 체크하지 말아주세요. <br/> 
               우측 흰색 화살표를 눌러, 다음 페이지로 이동하세요.</h5>
-        
-          <div className="courseList">
+            {/* <CheckBox handleCheckChieldElement={this.handleCheckChieldElement}  모두선택 /> */}
           <ul>
               {
                   this.state.n.map((fruite) => {
-                      return (<CheckBox handleCheckChieldElement={this.handleCheckChieldElement}  {...fruite} />)
+                      return (<CheckBox handleCheckChieldElement={this.handleCheckChieldElement}  {...fruite} name = "aa"/>)
                   })
               }
           </ul>
-        </div>
           <div className="pagination">
               
           {this.state.testd.map(p => (
