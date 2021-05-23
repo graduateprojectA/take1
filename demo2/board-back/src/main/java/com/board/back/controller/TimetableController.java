@@ -35,8 +35,6 @@ public class TimetableController {
 	@PostMapping("/testTime")
 	public void test(@RequestBody int user_no) {
 		timetableService.setUser_no(user_no);
-	timetableService.getTime(user_no);
-	timetableService.getUser_class(user_no);
 		timeService.setUser_no(user_no);
 	timeService.setTimetable(user_no);
 	}
