@@ -715,11 +715,15 @@ class Timetable extends Component {
             this.setState({pref:true});
         }
     }
+    select= (event) => {
+        event.preventDefault();
+        alert("시간표가 확정되었습니다.")
+    }
     render() {
         var color_dic = {}
-        const color = ['#8B0000', '#555500', '#A0522D', '#FF7F50', '#FA8072', '#AAAAAA', '#AAFFDD', '#122541', '#1d4ad5', '#1a2d5e', '#1q4d3s', '#1a2dq1', '#12a4q5', '#8B0000',
-         '#A52A2A', '#A0522D', '#FF7F50', '#FA8072', '#AAAAAA', '#AAFFDD', '#122541', '#1d4ad5', '#1a2d5e', '#1q4d3s', '#1a2dq1', '#12a4q5',
-         '#8B0000', '#A52A2A', '#A0522D', '#FF7F50', '#FA8072', '#AAAAAA', '#AAFFDD', '#122541', '#1d4ad5', '#1a2d5e', '#1q4d3s', '#1a2dq1', '#12a4q5']
+        const color = ['#dcedc8', '#c8e6c9', '#e0f7fa', '#ede7f6', '#ffebee', '#fff9c4', '#c5cae9', '#d4e157', '#f9fbe7', '#b3e5fc', '#e3f2fd', '#d7ccc8', '#fce4ec', 
+        '#dcedc8', '#c8e6c9', '#e0f7fa', '#ede7f6', '#ffebee', '#fff9c4', '#c5cae9', '#d4e157', '#f9fbe7', '#b3e5fc', '#e3f2fd', '#d7ccc8', '#fce4ec',
+        '#dcedc8', '#c8e6c9', '#e0f7fa', '#ede7f6', '#ffebee', '#fff9c4', '#c5cae9', '#d4e157', '#f9fbe7', '#b3e5fc', '#e3f2fd', '#d7ccc8', '#fce4ec']
         var now_color = 0;
         const day_time = [this.state.mon_1, this.state.mon_2,this.state.mon_3,this.state.mon_4,this.state.mon_5,this.state.mon_6,this.state.mon_7, 
             this.state.tue_1, this.state.tue_2,this.state.tue_3,this.state.tue_4,this.state.tue_5,this.state.tue_6,this.state.tue_7,
@@ -851,8 +855,8 @@ class Timetable extends Component {
                 {this.state.c8name}<br/>{this.state.c8mid}<br/>{this.state.c8final}
                 {this.state.c9name}<br/>{this.state.c9mid}<br/>{this.state.c9final}
             </TestInfoDiv>
+            
         </TimetableDiv>
-        
     );
 };}
 
