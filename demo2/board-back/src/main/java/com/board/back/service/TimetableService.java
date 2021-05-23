@@ -33,7 +33,7 @@ public class TimetableService {
     private ClassElectiveRepository classElectiveRepository;
     @Autowired
     private UserElectiveTimetableRepository userElectiveTimetableRepository;
-    public int out_time[][] = new int[5][7];
+    public int out_time[][] = new int[5][8];
     int major_no = 0;
     int time_mon = 0, time_tue = 0, time_wed = 0, time_thr = 0, time_fri = 0;
     ArrayList<Class_character> first_able_class_list = new ArrayList<Class_character>();
@@ -41,9 +41,9 @@ public class TimetableService {
     ArrayList<Class_character> third_able_class_list = new ArrayList<Class_character>();
     public static String user_pre[] = new String[6];
     ArrayList<Class_character> able_elective_class = new ArrayList<Class_character>();
-    int first_class_check[] = new int[100];
-    int second_class_check[] = new int[100];
-    int third_class_check[] = new int[100];
+    int first_class_check[] = new int[500];
+    int second_class_check[] = new int[500];
+    int third_class_check[] = new int[500];
     int first_timetable_smallest_credit = 0;
     int first_timetable_smallest_class_num = 0;
     int second_timetable_smallest_credit = 0;
@@ -114,6 +114,9 @@ public class TimetableService {
                         for (int j = 0; j < now_time_str.length(); j++) {
                             int now_time_integer_first = Integer.parseInt(now_time_str.substring(0, 1)) - 1;
                             int now_time_integer_second = Integer.parseInt(now_time_str.substring(1, 2)) - 1;
+                            if(now_time_integer_first < 0 || now_time_integer_first > 6 || now_time_integer_second < 0 || now_time_integer_second > 6){
+                                return;
+                            }
                             if (now_out_time[now_time_integer_first][now_time_integer_second] == 1) {
                                 return;
                             } else {
@@ -184,6 +187,9 @@ public class TimetableService {
                             for (int j = 0; j < now_time_str.length(); j++) {
                                 int now_time_integer_first = Integer.parseInt(now_time_str.substring(0, 1)) - 1;
                                 int now_time_integer_second = Integer.parseInt(now_time_str.substring(1, 2)) - 1;
+                                if(now_time_integer_first < 0 || now_time_integer_first > 6 || now_time_integer_second < 0 || now_time_integer_second > 6){
+                                    return;
+                                }
                                 if (now_timetable_out_time[now_time_integer_first][now_time_integer_second] == 1) {
                                     return;
                                 } else {
@@ -326,9 +332,8 @@ public class TimetableService {
         now_class_no = userClassRepository.findCnum(no);
         Collections.sort(now_class_no);
         now_class_time = ClassRepository.findCtime(now_class_no);
-        now_class_credit = userClassRepository.findCcredit(no);
+        now_class_credit = ClassRepository.findCcredit(now_class_no);
         now_course_id = ClassRepository.findCCID(now_class_no);
-        temp_field_no = CourseRepository.findCF(now_course_id);
         temp_field_no = CourseRepository.findCF(now_course_id);
 
         for (int i = 0; i < now_course_id.size(); i++) {
@@ -354,6 +359,7 @@ public class TimetableService {
             }
             now_check_field.add(i, b);
         }
+        System.out.println(now_class_no.size()+" "+now_check_field.size()+" "+now_class_credit.size()+" "+now_course_id.size()+" "+now_class_time.size());
         int count = 0;
         for (int i = 0; i < now_class_time.size(); i++) {
             int flag = 0;
@@ -378,16 +384,22 @@ public class TimetableService {
                     now_class_time.get(i), now_class_credit.get(i));
             if (now_class_time.get(i) != null) {
                 if (now_check_field.get(i) == 7 || now_check_field.get(i) == 8) {
-                    first_able_class_list.add(now_class);
-                    System.out.printf("class_no: %d first add\n", now_class.getClass_no());
+                    if(first_able_class_list.size() <= 20) {
+                        first_able_class_list.add(now_class);
+                        System.out.printf("class_no: %d first add\n", now_class.getClass_no());
+                    }
                 } else if (now_check_field.get(i) == 1 || now_check_field.get(i) == 2 || now_check_field.get(i) == 3
                         || now_check_field.get(i) == 4) {
-                    second_able_class_list.add(now_class);
-                    System.out.printf("class_no: %d second add\n", now_class.getClass_no());
+                    if(second_able_class_list.size() <= 20) {
+                        second_able_class_list.add(now_class);
+                        System.out.printf("class_no: %d second add\n", now_class.getClass_no());
+                    }
                 } else if (now_check_field.get(i) == 5 || now_check_field.get(i) == 6 || now_check_field.get(i) == 9
                         || now_check_field.get(i) == 11 || now_check_field.get(i) == 12) {
-                    third_able_class_list.add(now_class);
-                    System.out.printf("class_no: %d third add\n", now_class.getClass_no());
+                    if(third_able_class_list.size() <= 20) {
+                        third_able_class_list.add(now_class);
+                        System.out.printf("class_no: %d third add\n", now_class.getClass_no());
+                    }
                 }
                 System.out.printf("%d %d %d %d %d\n", now_class_no.get(i), now_course_id.get(i), now_class_time.get(i),
                         now_class_credit.get(i), now_check_field.get(i));
@@ -602,7 +614,6 @@ public class TimetableService {
             elective_class_num++;
         }
 
-
         int elective_class_total_num = 0;
         for (int i = 0; i < timetable_num; i++) {
             int final_elective_class[] = new int[5];
@@ -612,10 +623,13 @@ public class TimetableService {
             AA: while(true) {
                 Class_character now_elective_class = able_elective_class.get(elective_class_total_num);
                 String now_elective_time = Integer.toString(now_elective_class.getClass_time());
-                if(now_elective_class.getClass_time() > 0) {
-                    for (int aak = 0; aak < now_elective_time.length(); aak++) {
-                        int now_time_integer_first = Integer.parseInt(now_elective_time.substring(0, 1)) - 1;
-                        int now_time_integer_second = Integer.parseInt(now_elective_time.substring(1, 2)) - 1;
+                for (int aak = 0; aak < now_elective_time.length(); aak++) {
+                    int now_time_integer_first = Integer.parseInt(now_elective_time.substring(0, 1)) - 1;
+                    int now_time_integer_second = Integer.parseInt(now_elective_time.substring(1, 2)) - 1;
+                    if(now_elective_time.substring(1, 2).length()>1&&now_elective_time.substring(0, 1).length()>1){
+                        if(now_time_integer_first < 0 || now_time_integer_first > 6 || now_time_integer_second < 0 || now_time_integer_second > 6){
+                            continue AA;
+                        }
                         if (now_timetable_out_time[now_time_integer_first][now_time_integer_second] == 1) {
                             elective_class_total_num++;
                             continue AA;
@@ -624,16 +638,15 @@ public class TimetableService {
                             now_elective_time = now_elective_time.substring(2, now_elective_time.length());
                         }
                     }
-                    System.out.printf("final_elective_class_add: %d\n", now_elective_class.getClass_no());
-                    final_elective_class[elective_class_num] = now_elective_class.getClass_no();
-                    elective_class_total_num++;
-                    elective_class_num++;
-                    if (elective_class_num > 4)
-                        break;
                 }
+                System.out.printf("final_elective_class_add: %d\n", now_elective_class.getClass_no());
+                final_elective_class[elective_class_num] = now_elective_class.getClass_no();
                 elective_class_total_num++;
+                elective_class_num++;
+                if (elective_class_num > 4)
+                    break;
             }
-
+            elective_class_total_num++;
             int class_num_check = 1;
             int now_timetable_class_no[] = new int[9];
             String now_timetable_list[] = now_timetable.getNew_timetable().split("");

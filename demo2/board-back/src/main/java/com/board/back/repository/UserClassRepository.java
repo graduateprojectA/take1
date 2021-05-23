@@ -13,7 +13,5 @@ public interface UserClassRepository extends JpaRepository<User_class, Integer>{
             nativeQuery = true)
     List<Integer> findCnum(@Param("user_no")int user_no);
 
-    @Query(value="select class_credit from User_class s where s.user_no= :user_no and s.class_pre = False and s.class_next = True",
-            nativeQuery = true)
-    List<Integer> findCcredit(@Param("user_no")int user_no);
+
 }

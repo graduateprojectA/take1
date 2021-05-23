@@ -32,14 +32,12 @@ public class TimetableController {
 		timeService.setUser_no(user_no);
 		timeService.setTimetable(user_no);
 	}
-//	@PostMapping("/testTime")
-//	public void test(@RequestBody int user_no) {
-//		timetableService.setUser_no(user_no);
-//		timetableService.getTime(user_no);
-//		timetableService.getUser_class(user_no);
-//		timeService.setUser_no(user_no);
-//		timeService.setTimetable(user_no);
-//	}
+	@PostMapping("/testTime")
+	public void test(@RequestBody int user_no) {
+		timetableService.setUser_no(user_no);
+		timeService.setUser_no(user_no);
+	timeService.setTimetable(user_no);
+	}
 	@GetMapping("/timetableUser")
 	public List<User_timetable2> printTimetable(){
 		if (timeService.printTimetable() != null){
@@ -48,7 +46,7 @@ public class TimetableController {
 			return null;
 	}
 
-	@GetMapping("timetableDetail")
+	@GetMapping("/timetableDetail")
 	public List <User_timetable3> printTimetableDetail(){
 		if (timeService.printTimetable() != null)
 			return timeService.printTimetableDetail();

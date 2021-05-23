@@ -44,26 +44,25 @@ class CourseCheck extends Component {
     componentDidMount() {
         UserService.login().then((res) => {
             this.setState({ user_no: res.data });
-            UserService.postUser(res.data).then((res)=>{
-                UserService.course2User().then((res) => {
-                    console.log("get result => " + JSON.stringify(res.data));
-                  this.setState({ user_course: res.data});
-                  let s=0;
-                  if(res.data.map(p => p.user_course_no).length>5){
-                    this.setState({rf:true});
-                    console.log(this.state.rf);
-                    this.setState({page : res.data.map(p =>
-                        this.state.p_class = {
-                          user_course_no : p.user_course_no,
-                          page_no: s++,
-                          course_no: p.course_no,
-                          course_name:p.course_name,
-                          course_done:p.course_done
-                      })});
-                      this.setState({end:s/15+1});
-                      this.setState({ n: this.state.page.filter(p=>p.page_no>=0&&p.page_no<15)});
-                  }
-                });
+            UserService.postUser(res.data);
+            UserService.course2User().then((res) => {
+                console.log("get result => " + JSON.stringify(res.data));
+              this.setState({ user_course: res.data});
+              let s=0;
+              if(res.data.map(p => p.user_course_no).length>5){
+                this.setState({rf:true});
+                console.log(this.state.rf);
+                this.setState({page : res.data.map(p =>
+                    this.state.p_class = {
+                      user_course_no : p.user_course_no,
+                      page_no: s++,
+                      course_no: p.course_no,
+                      course_name:p.course_name,
+                      course_done:p.course_done
+                  })});
+                  this.setState({end:s/15+1});
+                  this.setState({ n: this.state.page.filter(p=>p.page_no>=0&&p.page_no<15)});
+              }
             });
             console.log("get result => " + JSON.stringify(res.data));
         });
@@ -148,7 +147,7 @@ class CourseCheck extends Component {
               <h5 style={{display:"inline"}}>여태 들었던 모든 수업을 선택해주세요.<br/>
               재수강을 원하실 경우에는 체크하지 말아주세요. <br/> 
               우측 흰색 화살표를 눌러, 다음 페이지로 이동하세요.  </h5>
-        <button  onClick={this.reset} class="rButton" style={{display: this.state.rf ?'none':'inline'}}>확인하기</button>
+        <button  onClick={this.reset} class="rButton" style={{display: this.state.rf ?'none':'inline'}}>조회하기</button>
           <div className="courseList">
           <ul>
               {

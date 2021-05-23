@@ -119,7 +119,7 @@ this.setState({page:yy});
               class_credit:p.class_credit,
               class_grade:p.class_grade,
               class_pre:false,
-              class_next:false
+              class_next:true,
 })});
 this.setState({end:s/15+1});
 this.setState({ n: this.state.page.filter(p=>p.page_no>=0&&p.page_no<15)});

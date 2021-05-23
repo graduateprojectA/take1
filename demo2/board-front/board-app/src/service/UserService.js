@@ -54,6 +54,9 @@ class UserService {
     electiveUser(){
         return axios.get("http://localhost:8080/api/electiveUser");
     }
+    timetableDetail(){
+        return axios.get("http://localhost:8080/api/timetableDetail");
+    }
 }
 
 export default new UserService();
