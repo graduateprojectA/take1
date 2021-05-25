@@ -24,7 +24,7 @@ const LogoImg = styled.img`
 
 const Logo = () => {
     return(
-        <Link to = "./Intro">
+        <Link to = "../Intro">
         <LogoButton>
             <LogoImg src = {logoImage1}/>
         </LogoButton>
