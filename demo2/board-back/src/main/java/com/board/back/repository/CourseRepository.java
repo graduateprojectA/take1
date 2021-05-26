@@ -21,6 +21,6 @@ public interface CourseRepository extends JpaRepository<Course, Integer> {
             nativeQuery = true)
     List<Course> findCF(@Param("course_id")List<Integer>course_id);
 
-    @Query(value="SELECT distinct s.course_grade from course s where s.course_id =:course_id", nativeQuery = true)
+    @Query(value="SELECT distinct s.course_grade from Course s where s.course_id =:course_id", nativeQuery = true)
     List<Integer> getCourseGrade (@Param("course_id") int course_id);
 }
