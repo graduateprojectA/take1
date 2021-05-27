@@ -74,6 +74,14 @@
   border: 1px solid #444444;
   border-collapse: collapse;
 }
+.TimeTable2 {
+  margin-top: 3%;
+  margin-left: 10%;
+  width: 55%;
+  height: 40%;
+  border: 1px solid #444444;
+  border-collapse: collapse;
+}
 .DayDiv {
   text-align: center;
   border: 1px solid;
