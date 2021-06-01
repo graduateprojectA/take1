@@ -21,7 +21,7 @@ top: 20%;
 left: 50%;
 margin-left: -25%;
 border: solid 1px;
-height: 70%;
+height: 75%;
 width: 50%;
 background-color: #fff5ee;
 opacity: 0.8;
@@ -30,11 +30,15 @@ border-radius: 10px;
 `;
 const MyInfoDiv = styled.div`
 position: absolute;
-top: 25%;
-right: 28%;
-height: 35%;
-width: 13%;
+top: 30%;
+left: 5%;
+border: solid 1px;
+height: 15%;
+width: 15%;
+background-color: #fff5ee;
 opacity: 0.8;
+border: solid 5px #00462A;
+border-radius: 10px;
 `;
 const TimeInfoDiv = styled.div`
 position: absolute;
@@ -958,7 +962,8 @@ class MyPage extends Component {
             <MyInfoDiv>
             학번 : {this.state.user_info.id}
             <br/>
-            전공 : {this.state.major_name} {this.state.user_info.grade}학년 
+            전공 : {this.state.major_name}
+            <br/> {this.state.user_info.grade}학년 
             </MyInfoDiv>
             
             <MyWrapDiv>

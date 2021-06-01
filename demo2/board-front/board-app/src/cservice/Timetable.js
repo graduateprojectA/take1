@@ -23,7 +23,7 @@ const TimeWrapDiv = styled.div`
     left: 50%;
     margin-left: -25%;
     border: solid 1px;
-    height: 70%;
+    height: 75%;
     width: 50%;
     background-color: #fff5ee;
     opacity: 0.8;
