@@ -44,7 +44,7 @@ position: absolute;
     right: 23%;
     height: 35%;
     width: 13%;
-    margin-top: 4%;
+    margin-top: 2%;
 `;
 class Timetable extends Component {
     constructor(props) {
