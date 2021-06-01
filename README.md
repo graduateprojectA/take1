@@ -8,7 +8,7 @@
 
 ### 프로젝트 개발 배경
 
-학생들은 시간표를 짤 때 고려해야 하는 사항이 많다. 지정된 학기에 들어야 하는 필수 과목, 선수 과목, 그 학기에 열리는 교과목의 정보, 수업 방식, 시간표 중복 여부, 시험 일정, 건물 간의 거리 등 꽤나 여러 가지 사항들을 복합적으로 고려해야 한다. 사람이 직접 하면 번거롭기만 할 뿐만 아니라, 시간도 오래 걸리며 심지어 정확성이 떨어져 놓치는 부분이 있기도 하다. Curvelio는 이와 같이 기존의 불편했던 점들을 해결하기 위해 개발한 서비스이다.
+학생들은 시간표를 짤 때 고려해야 하는 사항이 많다. 지정된 학기에 들어야 하는 필수 과목, 선수 과목, 그 학기에 열리는 교과목의 정보, 수업 방식, 시간표 중복 여부, 시험 일정, 건물 간의 거리 등 꽤나 여러 가지 사항들을 복합적으로 고려해야 한다. 사람이 직접 하면 번거롭기만 할 뿐만 아니라, 시간도 오래 걸리며 심지어 정확성이 떨어져 놓치는 부분이 있기도 하다. Curvelio는 이와 같이 기존의 불편했던 점들을 해결하기 위해 개발한 서비스이다.<br>
 Students have many things to consider when making a timetable. Quite a number of things need to be considered, including the required courses, athlete courses, information on the subjects held during the semester, the method of classes, overlapping timetables, test schedules, and distance between buildings. Not only is it cumbersome for a person to do it himself, but it takes a long time and even misses parts due to lack of accuracy. Curvelio is a service developed to address these existing inconveniences.
 
 ### 프로젝트 소개
@@ -32,7 +32,17 @@ Finally, according to the user's curriculum and preferences, an optimal timetabl
 ### 프로젝트 알고리즘
 ![image](https://user-images.githubusercontent.com/55133538/120294603-5138e980-c301-11eb-9f72-bc1b1c0bdf69.png)
 
-## 3) To Do List📃
+### 프로젝트 기대효과 및 의의
+#### 프로젝트 효과
+
+![image](https://user-images.githubusercontent.com/55133538/120295137-d58b6c80-c301-11eb-9328-71c8b8d69cb9.png)
+
+#### 프로젝트 의의
+
+![image](https://user-images.githubusercontent.com/55133538/120295211-e76d0f80-c301-11eb-88d2-a3becff6689e.png)
+
+
+## 2) To Do List📃
 
 전체적인 구조
 - [x] React & Spring boot 연동
@@ -62,14 +72,14 @@ Finally, according to the user's curriculum and preferences, an optimal timetabl
 - [x] 교양 추천 알고리즘 
 
 
-## 4) Reference🔗
+## 3) Reference🔗
 
 [React] https://reactjs.org/blog/2020/10/20/react-v17.html<br>
-        https://blog.naver.com/rudnfskf2/222179376583
+        https://blog.naver.com/rudnfskf2/222179376583<br>
 [SpringBoot] SpringBoot & RestApi : https://goddaehee.tistory.com/203?category=367461<br>
 https://blog.naver.com/rudnfskf2/222179376583
 
-## 5) 팀원 소개 및 기술 블로그🔨
+## 4) 팀원 소개 및 기술 블로그🔨
 
 김서영(Seoyeong Kim) : https://velog.io/@ksy990628
 <br><br>
