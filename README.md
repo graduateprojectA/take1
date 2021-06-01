@@ -29,10 +29,16 @@ Finally, according to the user's curriculum and preferences, an optimal timetabl
 3. 1번과 2번 과정을 고려하여 최적의 시간표를 생성합니다.
 4. 추가적으로 빈 시간대에 추천할 만한 교양 수업을 추천합니다. 
 
+### 프로젝트 데이터베이스 구조
+
+![image](https://user-images.githubusercontent.com/55133538/120332120-64f84600-c329-11eb-9122-eb2dd96cff39.png)
+
 ### 프로젝트 알고리즘
+
 ![image](https://user-images.githubusercontent.com/55133538/120294603-5138e980-c301-11eb-9f72-bc1b1c0bdf69.png)
 
 ### 프로젝트 기대효과 및 의의
+
 #### 프로젝트 효과
 
 ![image](https://user-images.githubusercontent.com/55133538/120295137-d58b6c80-c301-11eb-9328-71c8b8d69cb9.png)
