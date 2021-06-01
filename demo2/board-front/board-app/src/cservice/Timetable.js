@@ -824,17 +824,17 @@ class Timetable extends Component {
             <TimeInfoDiv>
             <br/>
             <div style={{height:"20px", fontSize:"1.1em", fontWeight:"bolder"}}>교양 과목 추천</div>
-           
-            <h style={{position:"absolute", fontSize: "0.9em", fontWeight:"bold", right:"1px"}}>1. {this.state.e_class1.class_name}</h><h style={{fontSize: "0.9em", fontWeight:"bold"}}> {this.state.e_class1.class_time}</h>
             <br/>
-            <h style={{position:"absolute", fontSize: "0.9em", fontWeight:"bold", right:"1px"}}>2. {this.state.e_class2.class_name}</h><h style={{fontSize: "0.9em", fontWeight:"bold"}}> {this.state.e_class2.class_time}</h>
+            <h style={{fontSize: "0.9em", fontWeight:"bold"}}>1. {this.state.e_class1.class_name}</h><h style={{fontSize: "0.9em", fontWeight:"bold"}}> {this.state.e_class1.class_time}</h>
             <br/>
-            <h style={{position:"absolute", fontSize: "0.9em", fontWeight:"bold", right:"1px"}}>3. {this.state.e_class3.class_name}</h><h style={{fontSize: "0.9em", fontWeight:"bold"}}> {this.state.e_class3.class_time}</h>
+            <h style={{fontSize: "0.9em", fontWeight:"bold"}}>2. {this.state.e_class2.class_name}</h><h style={{fontSize: "0.9em", fontWeight:"bold"}}> {this.state.e_class2.class_time}</h>
+            <br/>
+            <h style={{fontSize: "0.9em", fontWeight:"bold"}}>3. {this.state.e_class3.class_name}</h><h style={{fontSize: "0.9em", fontWeight:"bold"}}> {this.state.e_class3.class_time}</h>
            <br/>
-           <h style={{position:"absolute", fontSize: "0.9em", fontWeight:"bold", right:"1px"}}>4. {this.state.e_class4.class_name}</h><h style={{fontSize: "0.9em", fontWeight:"bold"}}> {this.state.e_class4.class_time}</h>
+           <h style={{fontSize: "0.9em", fontWeight:"bold"}}>4. {this.state.e_class4.class_name}</h><h style={{fontSize: "0.9em", fontWeight:"bold"}}> {this.state.e_class4.class_time}</h>
             <br/>
-            <h style={{position:"absolute", fontSize: "0.9em", fontWeight:"bold", right:"1px"}}>5. {this.state.e_class5.class_name}</h><h style={{ fontSize: "0.9em", fontWeight:"bold"}}> {this.state.e_class5.class_time}</h>
-           
+            <h style={{fontSize: "0.9em", fontWeight:"bold"}}>5. {this.state.e_class5.class_name}</h><h style={{ fontSize: "0.9em", fontWeight:"bold"}}> {this.state.e_class5.class_time}</h>
+            
             </TimeInfoDiv>
             <TestInfoDiv>
             <div style={{height:"20px", fontSize:"1.1em", fontWeight:"bolder"}}>시간표 시험 일정</div>
