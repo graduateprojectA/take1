@@ -744,7 +744,7 @@ class Timetable extends Component {
             <Logo />
             <My />
             <TimeWrapDiv>
-            <br/><br/>
+            <br/>
             <div style={{height:"20px", paddingLeft:"5%", fontSize:"1.1em", fontWeight:"bolder"}}>추천 시간표 {this.state.data+1}</div>
               <table className="TimeTable2">
               <tr>

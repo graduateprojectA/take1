@@ -85,8 +85,8 @@ class MyPage extends Component {
     componentDidMount() {
         UserService.login().then((res) => {
           this.setState({ user_no: res.data });
-        });
-        UserService.my().then((res)=>{
+          UserService.my2(res.data);
+          UserService.my().then((res)=>{
             this.setState({ user_info: res.data });
             if(res.data.major==1){
                 this.setState({ major_name : "국어국문학과" });
@@ -291,6 +291,8 @@ class MyPage extends Component {
             }
             console.log("get result => " + JSON.stringify(res.data));
         });
+        });
+       
         UserService.timetableDetail().then((res)=>{
             this.setState({test1:res.data[0]});
             this.setState({test2:res.data[1]});
@@ -967,7 +969,7 @@ class MyPage extends Component {
             </MyInfoDiv>
             
             <MyWrapDiv>
-            <br/><br/>
+            <br/>
             <div style={{height:"20px", paddingLeft:"5%", fontSize:"1.1em", fontWeight:"bolder"}}>추천 시간표 {this.state.data+1}</div>
               <table className="TimeTable2">
               <tr>
