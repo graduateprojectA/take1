@@ -32,11 +32,11 @@ const TimeWrapDiv = styled.div`
 `;
 const TimeInfoDiv = styled.div`
 position: absolute;
-top: 20%;
-right: 20%;
-height: 35%;
-width: 16%;
-opacity: 0.8;
+    top: 20%;
+    right: 21%;
+    height: 35%;
+    width: 15%;
+    opacity: 0.8;
 `;
 const TestInfoDiv = styled.div`
 position: absolute;
