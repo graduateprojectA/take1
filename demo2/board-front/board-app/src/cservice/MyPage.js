@@ -7,62 +7,52 @@ import Logo from "./Logo";
 import backgroundImage2 from "../components/image/backgroundImage2.png";
 import UserService from '../service/UserService';
 const MypageDiv = styled.div`
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: url(${backgroundImage2});
-    background-size: cover;
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background-image: url(${backgroundImage2});
+background-size: cover;
 `;
 const MyWrapDiv = styled.div`
-    position: absolute;
-    top: 20%;
-    left: 50%;
-    margin-left: -25%;
-    border: solid 1px;
-    height: 70%;
-    width: 50%;
-    background-color: #fff5ee;
-    opacity: 0.8;
-    border: solid 5px #00462A;
-    border-radius: 10px;
+position: absolute;
+top: 20%;
+left: 50%;
+margin-left: -25%;
+border: solid 1px;
+height: 70%;
+width: 50%;
+background-color: #fff5ee;
+opacity: 0.8;
+border: solid 5px #00462A;
+border-radius: 10px;
 `;
 const MyInfoDiv = styled.div`
-    position: absolute;
-    top: 30%;
-    left: 5%;
-    border: solid 1px;
-    height: 10%;
-    width: 13%;
-    background-color: #fff5ee;
-    opacity: 0.8;
-    border: solid 5px #00462A;
-    border-radius: 10px;
+position: absolute;
+top: 25%;
+right: 28%;
+height: 35%;
+width: 13%;
+opacity: 0.8;
 `;
 const TimeInfoDiv = styled.div`
-    position: absolute;
-    top: 25%;
-    right: 28%;
-    border: solid 1px;
-    height: 35%;
-    width: 13%;
-    background-color: #fff5ee;
-    opacity: 0.8;
-    border: solid 5px #00462A;
+position: absolute;
+top: 25%;
+right: 28%;
+height: 35%;
+width: 13%;
+opacity: 0.8;
     
 `;
 const TestInfoDiv = styled.div`
 position: absolute;
-top: 60%;
+top: 56%;
 right: 28%;
-border: solid 1px;
-height: 20%;
+height: 35%;
 width: 13%;
-background-color: #fff5ee;
-opacity: 0.8;
-border: solid 5px #00462A;
 `;
+
 class MyPage extends Component {
     constructor(props) {
         super(props);
@@ -70,9 +60,9 @@ class MyPage extends Component {
             user_no : 2,
             user_info: {user_id:0, user_major:"학과",user_grade:0},
             major_name : "",
-           e_class1:[],e_class2:[],e_class3:[],e_class4:[],e_class5:[],
-            elective1:[],elective2:[],elective3:[],elective4:[],elective5:[],
             test1:[],test2:[],test3:[],test4:[],test5:[],testd:0,
+            e_class1:[],e_class2:[],e_class3:[],e_class4:[],e_class5:[],
+            elective1:[],elective2:[],elective3:[],elective4:[],elective5:[],
             c1name:"",c1mid:"",c1final:"",c2name:"",c2mid:"",c2final:"",c3name:"",c3mid:"",c3final:"",
             c4name:"",c4mid:"",c4final:"",c5name:"",c5mid:"",c5final:"",c6name:"",c6mid:"",c6final:"",
             c7name:"",c7mid:"",c7final:"",c8name:"",c8mid:"",c8final:"",c9name:"",c9mid:"",c9final:"",
@@ -91,16 +81,6 @@ class MyPage extends Component {
     componentDidMount() {
         UserService.login().then((res) => {
           this.setState({ user_no: res.data });
-          UserService.my2(res.data);
-        });
-        UserService.timetableDetail().then((res)=>{
-            this.setState({test1:res.data[0]});
-            this.setState({test2:res.data[1]});
-            this.setState({test3:res.data[2]});
-            this.setState({test4:res.data[3]});
-            this.setState({test5:res.data[4]});
-            this.setState({testd:res.data[0]});
-            console.log(res.data);
         });
         UserService.my().then((res)=>{
             this.setState({ user_info: res.data });
@@ -307,8 +287,14 @@ class MyPage extends Component {
             }
             console.log("get result => " + JSON.stringify(res.data));
         });
-
-         
+        UserService.timetableDetail().then((res)=>{
+            this.setState({test1:res.data[0]});
+            this.setState({test2:res.data[1]});
+            this.setState({test3:res.data[2]});
+            this.setState({test4:res.data[3]});
+            this.setState({test5:res.data[4]});
+            this.setState({testd:res.data[0]});
+        });
         UserService.timetableUser().then((res)=>{
             this.setState({mon_1:res.data.map(p=>p.mon_1)});
             this.setState({mon_2:res.data.map(p=>p.mon_2)});
@@ -362,10 +348,14 @@ class MyPage extends Component {
              this.setState({e_class3 : res.data.filter(p=>p[0].timetable_no==num1)[0][2]});
              this.setState({e_class4 : res.data.filter(p=>p[0].timetable_no==num1)[0][3]});
              this.setState({e_class5 : res.data.filter(p=>p[0].timetable_no==num1)[0][4]});
-             console.log(res.data);
+             console.log(res.data.filter(p=>p[0].timetable_no==num1)[0]);
+             console.log(res.data.filter(p=>p[0].timetable_no==num2)[0]);
+             console.log(res.data.filter(p=>p[0].timetable_no==num3)[0]);
+             console.log(res.data.filter(p=>p[0].timetable_no==num4)[0]);
+             console.log(res.data.filter(p=>p[0].timetable_no==num5)[0]);
         });
-      }
-      setDate(n){
+    }
+    setDate(n){
         if(n==1){
             let flag=0;
             if(this.state.test1.class_1_mid>0){
@@ -749,7 +739,6 @@ class MyPage extends Component {
                 let day1 = parseInt(this.state.test5.class_1_mid%100%100);
                 let month2 = parseInt(this.state.test5.class_1_final/100%100);
                 let day2 = parseInt(this.state.test5.class_1_final%100%100);
-                console.log(month1+" "+day1);
                 this.setState({c1name:this.state.test5.class_1_name});
                 this.setState({c1mid:"중간고사 2021년 "+month1+"월 "+day1+"일"});
                 this.setState({c1final:"기말고사 2021년 "+month2+"월 "+day2+"일"});
@@ -839,7 +828,7 @@ class MyPage extends Component {
             }
         }
     }
-        next=(event)=>{
+    next=(event)=>{
         if(this.state.data<4){
             this.setState({pref:false});
             this.setState({data:this.state.data+1});
@@ -883,7 +872,6 @@ class MyPage extends Component {
             }
         }else{
             let a=this.state.data;
-            
             this.setState({nextf:true});
         }
     }
@@ -934,6 +922,10 @@ class MyPage extends Component {
             this.setState({pref:true});
         }
     }
+    select= (event) => {
+        event.preventDefault();
+        alert("시간표가 확정되었습니다.")
+    }
     render() {
         var color_dic = {}
         const color = ['#dcedc8', '#c8e6c9', '#e0f7fa', '#ede7f6', '#ffebee', '#fff9c4', '#c5cae9', '#d4e157', '#f9fbe7', '#b3e5fc', '#e3f2fd', '#d7ccc8', '#fce4ec', 
@@ -956,7 +948,7 @@ class MyPage extends Component {
                     console.log(now_var[this.state.data])
                     console.log(color_dic[now_var[this.state.data]]);
                 }else{
-                    color_dic[now_var[this.state.data]] = '#FFFFFF';
+                    color_dic[now_var[this.state.data]] = '#fff5ee';
                 }
             }
         }
@@ -970,11 +962,9 @@ class MyPage extends Component {
             </MyInfoDiv>
             
             <MyWrapDiv>
-            <br/>
-            <br/>
-            <br/>
-                추천 시간표 {this.state.data+1}
-              <table className="TimeTable">
+            <br/><br/>
+            <div style={{height:"20px", paddingLeft:"5%", fontSize:"1.1em", fontWeight:"bolder"}}>추천 시간표 {this.state.data+1}</div>
+              <table className="TimeTable2">
               <tr>
               <th className="timetabled_short">교시/요일</th>
               <th className="timetabled_short">월</th>
@@ -1049,32 +1039,25 @@ class MyPage extends Component {
           </div>
             </MyWrapDiv>
             <TimeInfoDiv>
-            <li>{this.state.e_class1.class_name}
             <br/>
-            {this.state.e_class1.class_time}</li>
-            <li>{this.state.e_class2.class_name}
+            <div style={{height:"20px", fontSize:"1.1em", fontWeight:"bolder"}}>교양 과목 추천</div>
             <br/>
-            {this.state.e_class2.class_time}</li>
-            <li>{this.state.e_class3.class_name}
+            <h style={{fontSize: "0.9em", fontWeight:"bold"}}>1. {this.state.e_class1.class_name}</h><h style={{position:"absolute", fontSize: "0.9em", fontWeight:"bold", right:"1px"}}> {this.state.e_class1.class_time}</h>
             <br/>
-            {this.state.e_class3.class_time}</li>
-            <li>{this.state.e_class4.class_name}
+            
+            <h style={{fontSize: "0.9em", fontWeight:"bold"}}>2. {this.state.e_class2.class_name}</h><h style={{position:"absolute", fontSize: "0.9em", fontWeight:"bold", right:"1px"}}> {this.state.e_class2.class_time}</h>
             <br/>
-            {this.state.e_class4.class_time}</li>
-            <li>{this.state.e_class5.class_name}
+            <h style={{fontSize: "0.9em", fontWeight:"bold"}}>3. {this.state.e_class3.class_name}</h><h style={{position:"absolute", fontSize: "0.9em", fontWeight:"bold", right:"1px"}}> {this.state.e_class3.class_time}</h>
+           <br/>
+           <h style={{fontSize: "0.9em", fontWeight:"bold"}}>4. {this.state.e_class4.class_name}</h><h style={{position:"absolute", fontSize: "0.9em", fontWeight:"bold", right:"1px"}}> {this.state.e_class4.class_time}</h>
             <br/>
-            {this.state.e_class5.class_time}</li>
+            <h style={{fontSize: "0.9em", fontWeight:"bold"}}>5. {this.state.e_class5.class_name}</h><h style={{position:"absolute", fontSize: "0.9em", fontWeight:"bold", right:"1px"}}> {this.state.e_class5.class_time}</h>
+           
             </TimeInfoDiv>
             <TestInfoDiv>
-                {this.state.c1name}<br/>{this.state.c1mid}<br/>{this.state.c1final}
-                {this.state.c2name}<br/>{this.state.c2mid}<br/>{this.state.c2final}
-                {this.state.c3name}<br/>{this.state.c3mid}<br/>{this.state.c3final}
-                {this.state.c4name}<br/>{this.state.c4mid}<br/>{this.state.c4final}
-                {this.state.c5name}<br/>{this.state.c5mid}<br/>{this.state.c5final}
-                {this.state.c6name}<br/>{this.state.c6mid}<br/>{this.state.c6final}
-                {this.state.c7name}<br/>{this.state.c7mid}<br/>{this.state.c7final}
-                {this.state.c8name}<br/>{this.state.c8mid}<br/>{this.state.c8final}
-                {this.state.c9name}<br/>{this.state.c9mid}<br/>{this.state.c9final}
+            <div style={{height:"20px", fontSize:"1.1em", fontWeight:"bolder"}}>시간표 시험 일정</div>
+            <br/>
+            <h style={{fontSize: "0.9em", fontWeight:"bold"}}>  {this.state.c1name}<br/>{this.state.c1mid}<br/>{this.state.c1final}</h>
             </TestInfoDiv>
         </MypageDiv>
     );
