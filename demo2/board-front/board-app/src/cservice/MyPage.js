@@ -33,8 +33,8 @@ position: absolute;
 top: 30%;
 left: 5%;
 border: solid 1px;
-height: 15%;
-width: 15%;
+height: 10%;
+width: 18%;
 background-color: #fff5ee;
 opacity: 0.8;
 border: solid 5px #00462A;
@@ -964,8 +964,7 @@ class MyPage extends Component {
             <MyInfoDiv>
             학번 : {this.state.user_info.id}
             <br/>
-            전공 : {this.state.major_name}
-            <br/> {this.state.user_info.grade}학년 
+            전공 : {this.state.major_name}  {this.state.user_info.grade}학년 
             </MyInfoDiv>
             
             <MyWrapDiv>
