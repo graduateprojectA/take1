@@ -43,9 +43,9 @@ border-radius: 10px;
 const TimeInfoDiv = styled.div`
 position: absolute;
 top: 20%;
-right: 23%;
+right: 20%;
 height: 35%;
-width: 13%;
+width: 16%;
 opacity: 0.8;
 `;
 const TestInfoDiv = styled.div`
