@@ -79,7 +79,319 @@ conn.close()
 conn = pymysql.connect(host='database-1.c0vf4uulw0ya.ap-northeast-2.rds.amazonaws.com', user='root', password='12345678', db='graduate', charset='utf8')
 curs = conn.cursor()
 conn.commit()
-f = open('course.csv','r',encoding = 'utf-8-sig')
+f = open('course_공대.csv','r',encoding = 'utf-8-sig')
+csvReader = csv.reader(f)
+for row in csvReader:    
+    major_no = int(row[0])
+    student_id = int(row[1])
+    field_no = int(row[2])
+    course_id = int(row[3])
+    course_name = row[4]
+    course_name = "\"" + course_name + "\""
+    course_semester = int(row[6])
+    course_hours = row[7]
+    course_credit = int(row[8])
+    pre_course_id = row[9]
+    course_grade = row[5]
+    if pre_course_id == "null":
+        if course_grade == "null":
+            if course_hours == "null":
+                sql = "insert into graduate.course(major_no, student_id,  field_no, course_id, course_name, course_grade, course_semester, course_hours, course_credit, pre_course_id) values (%d, %d, %d, %d, %s, null, %d, null, %d, null);" %(major_no, student_id,  field_no, course_id, course_name, course_semester, course_credit)
+            else:
+                course_hours = float(course_hours)
+                sql = "insert into graduate.course(major_no, student_id,  field_no, course_id, course_name, course_grade, course_semester, course_hours, course_credit, pre_course_id) values (%d, %d, %d, %d, %s, null, %d, %.2f, %d, null);" %(major_no, student_id,  field_no, course_id, course_name, course_semester, course_hours, course_credit)
+        else:
+            course_grade = int(course_grade)
+            if course_hours == "null":
+                sql = "insert into graduate.course(major_no, student_id,  field_no, course_id, course_name, course_grade, course_semester, course_hours, course_credit, pre_course_id) values (%d, %d, %d, %d, %s, %d, %d, null, %d, null);" %(major_no, student_id,  field_no, course_id, course_name, course_grade, course_semester, course_credit)
+            else:
+                course_hours = float(course_hours)
+                sql = "insert into graduate.course(major_no, student_id,  field_no, course_id, course_name, course_grade, course_semester, course_hours, course_credit, pre_course_id) values (%d, %d, %d, %d, %s, %d, %d, %.2f, %d, null);" %(major_no, student_id,  field_no, course_id, course_name, course_grade, course_semester, course_hours, course_credit)
+    else:
+        pre_course_id = int(pre_course_id)
+        if course_grade == "null":
+            if course_hours == "null":
+                sql = "insert into graduate.course(major_no, student_id,  field_no, course_id, course_name, course_grade, course_semester, course_hours, course_credit, pre_course_id) values (%d, %d, %d, %d, %s, null, %d, null, %d, %d);" %(major_no, student_id,  field_no, course_id, course_name, course_semester, course_credit, pre_course_id)
+            else:
+                course_hours = float(course_hours)
+                sql = "insert into graduate.course(major_no, student_id,  field_no, course_id, course_name, course_grade, course_semester, course_hours, course_credit, pre_course_id) values (%d, %d, %d, %d, %s, null, %d, %.2f, %d, %d);" %(major_no, student_id,  field_no, course_id, course_name, course_semester, course_hours, course_credit, pre_course_id)
+        else:
+            course_grade = int(course_grade)
+            if course_hours == "null":
+                sql = "insert into graduate.course(major_no, student_id,  field_no, course_id, course_name, course_grade, course_semester, course_hours, course_credit, pre_course_id) values (%d, %d, %d, %d, %s, %d, %d, null, %d, %d);" %(major_no, student_id,  field_no, course_id, course_name, course_grade, course_semester, course_credit, pre_course_id)
+            else:
+                course_hours = float(course_hours)
+                sql = "insert into graduate.course(major_no, student_id,  field_no, course_id, course_name, course_grade, course_semester, course_hours, course_credit, pre_course_id) values (%d, %d, %d, %d, %s, %d, %d, %.2f, %d, %d);" %(major_no, student_id,  field_no, course_id, course_name, course_grade, course_semester, course_hours, course_credit, pre_course_id)            
+    curs.execute(sql)
+conn.commit()
+f.close() 
+conn.close()
+
+# Course
+conn = pymysql.connect(host='database-1.c0vf4uulw0ya.ap-northeast-2.rds.amazonaws.com', user='root', password='12345678', db='graduate', charset='utf8')
+curs = conn.cursor()
+conn.commit()
+f = open('course_사과대.csv','r',encoding = 'utf-8-sig')
+csvReader = csv.reader(f)
+for row in csvReader:    
+    major_no = int(row[0])
+    student_id = int(row[1])
+    field_no = int(row[2])
+    course_id = int(row[3])
+    course_name = row[4]
+    course_name = "\"" + course_name + "\""
+    course_semester = int(row[6])
+    course_hours = row[7]
+    course_credit = int(row[8])
+    pre_course_id = row[9]
+    course_grade = row[5]
+    if pre_course_id == "null":
+        if course_grade == "null":
+            if course_hours == "null":
+                sql = "insert into graduate.course(major_no, student_id,  field_no, course_id, course_name, course_grade, course_semester, course_hours, course_credit, pre_course_id) values (%d, %d, %d, %d, %s, null, %d, null, %d, null);" %(major_no, student_id,  field_no, course_id, course_name, course_semester, course_credit)
+            else:
+                course_hours = float(course_hours)
+                sql = "insert into graduate.course(major_no, student_id,  field_no, course_id, course_name, course_grade, course_semester, course_hours, course_credit, pre_course_id) values (%d, %d, %d, %d, %s, null, %d, %.2f, %d, null);" %(major_no, student_id,  field_no, course_id, course_name, course_semester, course_hours, course_credit)
+        else:
+            course_grade = int(course_grade)
+            if course_hours == "null":
+                sql = "insert into graduate.course(major_no, student_id,  field_no, course_id, course_name, course_grade, course_semester, course_hours, course_credit, pre_course_id) values (%d, %d, %d, %d, %s, %d, %d, null, %d, null);" %(major_no, student_id,  field_no, course_id, course_name, course_grade, course_semester, course_credit)
+            else:
+                course_hours = float(course_hours)
+                sql = "insert into graduate.course(major_no, student_id,  field_no, course_id, course_name, course_grade, course_semester, course_hours, course_credit, pre_course_id) values (%d, %d, %d, %d, %s, %d, %d, %.2f, %d, null);" %(major_no, student_id,  field_no, course_id, course_name, course_grade, course_semester, course_hours, course_credit)
+    else:
+        pre_course_id = int(pre_course_id)
+        if course_grade == "null":
+            if course_hours == "null":
+                sql = "insert into graduate.course(major_no, student_id,  field_no, course_id, course_name, course_grade, course_semester, course_hours, course_credit, pre_course_id) values (%d, %d, %d, %d, %s, null, %d, null, %d, %d);" %(major_no, student_id,  field_no, course_id, course_name, course_semester, course_credit, pre_course_id)
+            else:
+                course_hours = float(course_hours)
+                sql = "insert into graduate.course(major_no, student_id,  field_no, course_id, course_name, course_grade, course_semester, course_hours, course_credit, pre_course_id) values (%d, %d, %d, %d, %s, null, %d, %.2f, %d, %d);" %(major_no, student_id,  field_no, course_id, course_name, course_semester, course_hours, course_credit, pre_course_id)
+        else:
+            course_grade = int(course_grade)
+            if course_hours == "null":
+                sql = "insert into graduate.course(major_no, student_id,  field_no, course_id, course_name, course_grade, course_semester, course_hours, course_credit, pre_course_id) values (%d, %d, %d, %d, %s, %d, %d, null, %d, %d);" %(major_no, student_id,  field_no, course_id, course_name, course_grade, course_semester, course_credit, pre_course_id)
+            else:
+                course_hours = float(course_hours)
+                sql = "insert into graduate.course(major_no, student_id,  field_no, course_id, course_name, course_grade, course_semester, course_hours, course_credit, pre_course_id) values (%d, %d, %d, %d, %s, %d, %d, %.2f, %d, %d);" %(major_no, student_id,  field_no, course_id, course_name, course_grade, course_semester, course_hours, course_credit, pre_course_id)            
+    curs.execute(sql)
+conn.commit()
+f.close() 
+conn.close()
+
+# Course
+conn = pymysql.connect(host='database-1.c0vf4uulw0ya.ap-northeast-2.rds.amazonaws.com', user='root', password='12345678', db='graduate', charset='utf8')
+curs = conn.cursor()
+conn.commit()
+f = open('course_사범대.csv','r',encoding = 'utf-8-sig')
+csvReader = csv.reader(f)
+for row in csvReader:    
+    major_no = int(row[0])
+    student_id = int(row[1])
+    field_no = int(row[2])
+    course_id = int(row[3])
+    course_name = row[4]
+    course_name = "\"" + course_name + "\""
+    course_semester = int(row[6])
+    course_hours = row[7]
+    course_credit = int(row[8])
+    pre_course_id = row[9]
+    course_grade = row[5]
+    if pre_course_id == "null":
+        if course_grade == "null":
+            if course_hours == "null":
+                sql = "insert into graduate.course(major_no, student_id,  field_no, course_id, course_name, course_grade, course_semester, course_hours, course_credit, pre_course_id) values (%d, %d, %d, %d, %s, null, %d, null, %d, null);" %(major_no, student_id,  field_no, course_id, course_name, course_semester, course_credit)
+            else:
+                course_hours = float(course_hours)
+                sql = "insert into graduate.course(major_no, student_id,  field_no, course_id, course_name, course_grade, course_semester, course_hours, course_credit, pre_course_id) values (%d, %d, %d, %d, %s, null, %d, %.2f, %d, null);" %(major_no, student_id,  field_no, course_id, course_name, course_semester, course_hours, course_credit)
+        else:
+            course_grade = int(course_grade)
+            if course_hours == "null":
+                sql = "insert into graduate.course(major_no, student_id,  field_no, course_id, course_name, course_grade, course_semester, course_hours, course_credit, pre_course_id) values (%d, %d, %d, %d, %s, %d, %d, null, %d, null);" %(major_no, student_id,  field_no, course_id, course_name, course_grade, course_semester, course_credit)
+            else:
+                course_hours = float(course_hours)
+                sql = "insert into graduate.course(major_no, student_id,  field_no, course_id, course_name, course_grade, course_semester, course_hours, course_credit, pre_course_id) values (%d, %d, %d, %d, %s, %d, %d, %.2f, %d, null);" %(major_no, student_id,  field_no, course_id, course_name, course_grade, course_semester, course_hours, course_credit)
+    else:
+        pre_course_id = int(pre_course_id)
+        if course_grade == "null":
+            if course_hours == "null":
+                sql = "insert into graduate.course(major_no, student_id,  field_no, course_id, course_name, course_grade, course_semester, course_hours, course_credit, pre_course_id) values (%d, %d, %d, %d, %s, null, %d, null, %d, %d);" %(major_no, student_id,  field_no, course_id, course_name, course_semester, course_credit, pre_course_id)
+            else:
+                course_hours = float(course_hours)
+                sql = "insert into graduate.course(major_no, student_id,  field_no, course_id, course_name, course_grade, course_semester, course_hours, course_credit, pre_course_id) values (%d, %d, %d, %d, %s, null, %d, %.2f, %d, %d);" %(major_no, student_id,  field_no, course_id, course_name, course_semester, course_hours, course_credit, pre_course_id)
+        else:
+            course_grade = int(course_grade)
+            if course_hours == "null":
+                sql = "insert into graduate.course(major_no, student_id,  field_no, course_id, course_name, course_grade, course_semester, course_hours, course_credit, pre_course_id) values (%d, %d, %d, %d, %s, %d, %d, null, %d, %d);" %(major_no, student_id,  field_no, course_id, course_name, course_grade, course_semester, course_credit, pre_course_id)
+            else:
+                course_hours = float(course_hours)
+                sql = "insert into graduate.course(major_no, student_id,  field_no, course_id, course_name, course_grade, course_semester, course_hours, course_credit, pre_course_id) values (%d, %d, %d, %d, %s, %d, %d, %.2f, %d, %d);" %(major_no, student_id,  field_no, course_id, course_name, course_grade, course_semester, course_hours, course_credit, pre_course_id)            
+    curs.execute(sql)
+conn.commit()
+f.close() 
+conn.close()
+
+# Course
+conn = pymysql.connect(host='database-1.c0vf4uulw0ya.ap-northeast-2.rds.amazonaws.com', user='root', password='12345678', db='graduate', charset='utf8')
+curs = conn.cursor()
+conn.commit()
+f = open('course_음대.csv','r',encoding = 'utf-8-sig')
+csvReader = csv.reader(f)
+for row in csvReader:    
+    major_no = int(row[0])
+    student_id = int(row[1])
+    field_no = int(row[2])
+    course_id = int(row[3])
+    course_name = row[4]
+    course_name = "\"" + course_name + "\""
+    course_semester = int(row[6])
+    course_hours = row[7]
+    course_credit = int(row[8])
+    pre_course_id = row[9]
+    course_grade = row[5]
+    if pre_course_id == "null":
+        if course_grade == "null":
+            if course_hours == "null":
+                sql = "insert into graduate.course(major_no, student_id,  field_no, course_id, course_name, course_grade, course_semester, course_hours, course_credit, pre_course_id) values (%d, %d, %d, %d, %s, null, %d, null, %d, null);" %(major_no, student_id,  field_no, course_id, course_name, course_semester, course_credit)
+            else:
+                course_hours = float(course_hours)
+                sql = "insert into graduate.course(major_no, student_id,  field_no, course_id, course_name, course_grade, course_semester, course_hours, course_credit, pre_course_id) values (%d, %d, %d, %d, %s, null, %d, %.2f, %d, null);" %(major_no, student_id,  field_no, course_id, course_name, course_semester, course_hours, course_credit)
+        else:
+            course_grade = int(course_grade)
+            if course_hours == "null":
+                sql = "insert into graduate.course(major_no, student_id,  field_no, course_id, course_name, course_grade, course_semester, course_hours, course_credit, pre_course_id) values (%d, %d, %d, %d, %s, %d, %d, null, %d, null);" %(major_no, student_id,  field_no, course_id, course_name, course_grade, course_semester, course_credit)
+            else:
+                course_hours = float(course_hours)
+                sql = "insert into graduate.course(major_no, student_id,  field_no, course_id, course_name, course_grade, course_semester, course_hours, course_credit, pre_course_id) values (%d, %d, %d, %d, %s, %d, %d, %.2f, %d, null);" %(major_no, student_id,  field_no, course_id, course_name, course_grade, course_semester, course_hours, course_credit)
+    else:
+        pre_course_id = int(pre_course_id)
+        if course_grade == "null":
+            if course_hours == "null":
+                sql = "insert into graduate.course(major_no, student_id,  field_no, course_id, course_name, course_grade, course_semester, course_hours, course_credit, pre_course_id) values (%d, %d, %d, %d, %s, null, %d, null, %d, %d);" %(major_no, student_id,  field_no, course_id, course_name, course_semester, course_credit, pre_course_id)
+            else:
+                course_hours = float(course_hours)
+                sql = "insert into graduate.course(major_no, student_id,  field_no, course_id, course_name, course_grade, course_semester, course_hours, course_credit, pre_course_id) values (%d, %d, %d, %d, %s, null, %d, %.2f, %d, %d);" %(major_no, student_id,  field_no, course_id, course_name, course_semester, course_hours, course_credit, pre_course_id)
+        else:
+            course_grade = int(course_grade)
+            if course_hours == "null":
+                sql = "insert into graduate.course(major_no, student_id,  field_no, course_id, course_name, course_grade, course_semester, course_hours, course_credit, pre_course_id) values (%d, %d, %d, %d, %s, %d, %d, null, %d, %d);" %(major_no, student_id,  field_no, course_id, course_name, course_grade, course_semester, course_credit, pre_course_id)
+            else:
+                course_hours = float(course_hours)
+                sql = "insert into graduate.course(major_no, student_id,  field_no, course_id, course_name, course_grade, course_semester, course_hours, course_credit, pre_course_id) values (%d, %d, %d, %d, %s, %d, %d, %.2f, %d, %d);" %(major_no, student_id,  field_no, course_id, course_name, course_grade, course_semester, course_hours, course_credit, pre_course_id)            
+    curs.execute(sql)
+conn.commit()
+f.close() 
+conn.close()
+
+# Course
+conn = pymysql.connect(host='database-1.c0vf4uulw0ya.ap-northeast-2.rds.amazonaws.com', user='root', password='12345678', db='graduate', charset='utf8')
+curs = conn.cursor()
+conn.commit()
+f = open('course_인문대.csv','r',encoding = 'utf-8-sig')
+csvReader = csv.reader(f)
+for row in csvReader:    
+    major_no = int(row[0])
+    student_id = int(row[1])
+    field_no = int(row[2])
+    course_id = int(row[3])
+    course_name = row[4]
+    course_name = "\"" + course_name + "\""
+    course_semester = int(row[6])
+    course_hours = row[7]
+    course_credit = int(row[8])
+    pre_course_id = row[9]
+    course_grade = row[5]
+    if pre_course_id == "null":
+        if course_grade == "null":
+            if course_hours == "null":
+                sql = "insert into graduate.course(major_no, student_id,  field_no, course_id, course_name, course_grade, course_semester, course_hours, course_credit, pre_course_id) values (%d, %d, %d, %d, %s, null, %d, null, %d, null);" %(major_no, student_id,  field_no, course_id, course_name, course_semester, course_credit)
+            else:
+                course_hours = float(course_hours)
+                sql = "insert into graduate.course(major_no, student_id,  field_no, course_id, course_name, course_grade, course_semester, course_hours, course_credit, pre_course_id) values (%d, %d, %d, %d, %s, null, %d, %.2f, %d, null);" %(major_no, student_id,  field_no, course_id, course_name, course_semester, course_hours, course_credit)
+        else:
+            course_grade = int(course_grade)
+            if course_hours == "null":
+                sql = "insert into graduate.course(major_no, student_id,  field_no, course_id, course_name, course_grade, course_semester, course_hours, course_credit, pre_course_id) values (%d, %d, %d, %d, %s, %d, %d, null, %d, null);" %(major_no, student_id,  field_no, course_id, course_name, course_grade, course_semester, course_credit)
+            else:
+                course_hours = float(course_hours)
+                sql = "insert into graduate.course(major_no, student_id,  field_no, course_id, course_name, course_grade, course_semester, course_hours, course_credit, pre_course_id) values (%d, %d, %d, %d, %s, %d, %d, %.2f, %d, null);" %(major_no, student_id,  field_no, course_id, course_name, course_grade, course_semester, course_hours, course_credit)
+    else:
+        pre_course_id = int(pre_course_id)
+        if course_grade == "null":
+            if course_hours == "null":
+                sql = "insert into graduate.course(major_no, student_id,  field_no, course_id, course_name, course_grade, course_semester, course_hours, course_credit, pre_course_id) values (%d, %d, %d, %d, %s, null, %d, null, %d, %d);" %(major_no, student_id,  field_no, course_id, course_name, course_semester, course_credit, pre_course_id)
+            else:
+                course_hours = float(course_hours)
+                sql = "insert into graduate.course(major_no, student_id,  field_no, course_id, course_name, course_grade, course_semester, course_hours, course_credit, pre_course_id) values (%d, %d, %d, %d, %s, null, %d, %.2f, %d, %d);" %(major_no, student_id,  field_no, course_id, course_name, course_semester, course_hours, course_credit, pre_course_id)
+        else:
+            course_grade = int(course_grade)
+            if course_hours == "null":
+                sql = "insert into graduate.course(major_no, student_id,  field_no, course_id, course_name, course_grade, course_semester, course_hours, course_credit, pre_course_id) values (%d, %d, %d, %d, %s, %d, %d, null, %d, %d);" %(major_no, student_id,  field_no, course_id, course_name, course_grade, course_semester, course_credit, pre_course_id)
+            else:
+                course_hours = float(course_hours)
+                sql = "insert into graduate.course(major_no, student_id,  field_no, course_id, course_name, course_grade, course_semester, course_hours, course_credit, pre_course_id) values (%d, %d, %d, %d, %s, %d, %d, %.2f, %d, %d);" %(major_no, student_id,  field_no, course_id, course_name, course_grade, course_semester, course_hours, course_credit, pre_course_id)            
+    curs.execute(sql)
+conn.commit()
+f.close() 
+conn.close()
+
+# Course
+conn = pymysql.connect(host='database-1.c0vf4uulw0ya.ap-northeast-2.rds.amazonaws.com', user='root', password='12345678', db='graduate', charset='utf8')
+curs = conn.cursor()
+conn.commit()
+f = open('course_자연대.csv','r',encoding = 'utf-8-sig')
+csvReader = csv.reader(f)
+for row in csvReader:    
+    major_no = int(row[0])
+    student_id = int(row[1])
+    field_no = int(row[2])
+    course_id = int(row[3])
+    course_name = row[4]
+    course_name = "\"" + course_name + "\""
+    course_semester = int(row[6])
+    course_hours = row[7]
+    course_credit = int(row[8])
+    pre_course_id = row[9]
+    course_grade = row[5]
+    if pre_course_id == "null":
+        if course_grade == "null":
+            if course_hours == "null":
+                sql = "insert into graduate.course(major_no, student_id,  field_no, course_id, course_name, course_grade, course_semester, course_hours, course_credit, pre_course_id) values (%d, %d, %d, %d, %s, null, %d, null, %d, null);" %(major_no, student_id,  field_no, course_id, course_name, course_semester, course_credit)
+            else:
+                course_hours = float(course_hours)
+                sql = "insert into graduate.course(major_no, student_id,  field_no, course_id, course_name, course_grade, course_semester, course_hours, course_credit, pre_course_id) values (%d, %d, %d, %d, %s, null, %d, %.2f, %d, null);" %(major_no, student_id,  field_no, course_id, course_name, course_semester, course_hours, course_credit)
+        else:
+            course_grade = int(course_grade)
+            if course_hours == "null":
+                sql = "insert into graduate.course(major_no, student_id,  field_no, course_id, course_name, course_grade, course_semester, course_hours, course_credit, pre_course_id) values (%d, %d, %d, %d, %s, %d, %d, null, %d, null);" %(major_no, student_id,  field_no, course_id, course_name, course_grade, course_semester, course_credit)
+            else:
+                course_hours = float(course_hours)
+                sql = "insert into graduate.course(major_no, student_id,  field_no, course_id, course_name, course_grade, course_semester, course_hours, course_credit, pre_course_id) values (%d, %d, %d, %d, %s, %d, %d, %.2f, %d, null);" %(major_no, student_id,  field_no, course_id, course_name, course_grade, course_semester, course_hours, course_credit)
+    else:
+        pre_course_id = int(pre_course_id)
+        if course_grade == "null":
+            if course_hours == "null":
+                sql = "insert into graduate.course(major_no, student_id,  field_no, course_id, course_name, course_grade, course_semester, course_hours, course_credit, pre_course_id) values (%d, %d, %d, %d, %s, null, %d, null, %d, %d);" %(major_no, student_id,  field_no, course_id, course_name, course_semester, course_credit, pre_course_id)
+            else:
+                course_hours = float(course_hours)
+                sql = "insert into graduate.course(major_no, student_id,  field_no, course_id, course_name, course_grade, course_semester, course_hours, course_credit, pre_course_id) values (%d, %d, %d, %d, %s, null, %d, %.2f, %d, %d);" %(major_no, student_id,  field_no, course_id, course_name, course_semester, course_hours, course_credit, pre_course_id)
+        else:
+            course_grade = int(course_grade)
+            if course_hours == "null":
+                sql = "insert into graduate.course(major_no, student_id,  field_no, course_id, course_name, course_grade, course_semester, course_hours, course_credit, pre_course_id) values (%d, %d, %d, %d, %s, %d, %d, null, %d, %d);" %(major_no, student_id,  field_no, course_id, course_name, course_grade, course_semester, course_credit, pre_course_id)
+            else:
+                course_hours = float(course_hours)
+                sql = "insert into graduate.course(major_no, student_id,  field_no, course_id, course_name, course_grade, course_semester, course_hours, course_credit, pre_course_id) values (%d, %d, %d, %d, %s, %d, %d, %.2f, %d, %d);" %(major_no, student_id,  field_no, course_id, course_name, course_grade, course_semester, course_hours, course_credit, pre_course_id)            
+    curs.execute(sql)
+conn.commit()
+f.close() 
+conn.close()
+
+# Course
+conn = pymysql.connect(host='database-1.c0vf4uulw0ya.ap-northeast-2.rds.amazonaws.com', user='root', password='12345678', db='graduate', charset='utf8')
+curs = conn.cursor()
+conn.commit()
+f = open('course_조예대.csv','r',encoding = 'utf-8-sig')
 csvReader = csv.reader(f)
 for row in csvReader:    
     major_no = int(row[0])
