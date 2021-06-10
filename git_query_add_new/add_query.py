@@ -4,37 +4,6 @@ import csv
 import pymysql
 import math
 
-# College
-conn = pymysql.connect(host='database-2.c0vf4uulw0ya.ap-northeast-2.rds.amazonaws.com', user='admin', password='123456789', db='graduate', charset='utf8')
-curs = conn.cursor()
-conn.commit()
-f = open('college.csv','r',encoding = 'utf-8-sig')
-csvReader = csv.reader(f)
-for row in csvReader:    
-    college_name = row[0]
-    college_name = "\"" + college_name + "\""
-    sql = "insert into graduate.college (college_name) values (%s)" %(college_name)
-    curs.execute(sql)
-conn.commit()
-f.close() 
-conn.close()
-
-# Majors
-conn = pymysql.connect(host='database-2.c0vf4uulw0ya.ap-northeast-2.rds.amazonaws.com', user='admin', password='123456789', db='graduate', charset='utf8')
-curs = conn.cursor()
-conn.commit()
-f = open('majors.csv','r',encoding = 'utf-8-sig')
-csvReader = csv.reader(f)
-for row in csvReader:    
-    major_name = row[0]
-    major_name = "\"" + major_name + "\""
-    college_no = int(row[1])
-    sql = "insert into graduate.majors (major_name, college_no) values (%s, %d)" %(major_name, college_no)
-    curs.execute(sql)
-conn.commit()
-f.close() 
-conn.close()
-
 # Check_field
 conn = pymysql.connect(host='database-2.c0vf4uulw0ya.ap-northeast-2.rds.amazonaws.com', user='admin', password='123456789', db='graduate', charset='utf8')
 curs = conn.cursor()
